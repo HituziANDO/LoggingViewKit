@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		5E2B201A21C06F2B00661170 /* Universal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 5E2B201B21C06F2B00661170 /* Build configuration list for PBXAggregateTarget "Universal" */;
+			buildPhases = (
+				5E2B202021C06FC400661170 /* ShellScript */,
+			);
+			dependencies = (
+				5E2B201F21C06FB900661170 /* PBXTargetDependency */,
+			);
+			name = Universal;
+			productName = Universal;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		19E5909D74811A91D84C239A /* LGVSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E59F8435BA22878D77A95E /* LGVSwitch.m */; };
+		19E591D3BD384C7F946DF258 /* LGVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E59355C87F3CF38CDE1074 /* LGVButton.m */; };
+		19E5949F14E798A8BF95912C /* LGVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E595CAFBC53C136F1C713C /* LGVSegmentedControl.m */; };
+		5E2B202621C0747D00661170 /* LGVLoggingViewService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2B202521C0747D00661170 /* LGVLoggingViewService.m */; };
+		5E3DD56B21C0D564004A7BF2 /* UIView+LGVLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3DD56A21C0D564004A7BF2 /* UIView+LGVLogging.m */; };
+		5E3DD57321C2B9C9004A7BF2 /* UIButton+LGVLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3DD57221C2B9C9004A7BF2 /* UIButton+LGVLogging.m */; };
+		5E3DD57621C2BDF6004A7BF2 /* UISwitch+LGVLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3DD57521C2BDF6004A7BF2 /* UISwitch+LGVLogging.m */; };
+		5E3DD57921C317A7004A7BF2 /* UISegmentedControl+LGVLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3DD57821C317A7004A7BF2 /* UISegmentedControl+LGVLogging.m */; };
+		5E3DD57C21C31B94004A7BF2 /* LGVView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3DD57B21C31B94004A7BF2 /* LGVView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5E2B201E21C06FB900661170 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E2B1FC421C0203300661170 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E2B1FCB21C0203300661170;
+			remoteInfo = LoggingViewKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5E2B1FCA21C0203300661170 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		19E59355C87F3CF38CDE1074 /* LGVButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVButton.m; sourceTree = "<group>"; };
+		19E595CAFBC53C136F1C713C /* LGVSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVSegmentedControl.m; sourceTree = "<group>"; };
+		19E5963785132401E8B6C0F3 /* LGVSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVSwitch.h; sourceTree = "<group>"; };
+		19E596815F280D7EFEE5F877 /* LGVSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVSegmentedControl.h; sourceTree = "<group>"; };
+		19E59C0292C650ECE333DFBA /* LGVButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVButton.h; sourceTree = "<group>"; };
+		19E59F8435BA22878D77A95E /* LGVSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVSwitch.m; sourceTree = "<group>"; };
+		5E2B1FCC21C0203300661170 /* libLoggingViewKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLoggingViewKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E2B1FCF21C0203300661170 /* LoggingViewKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggingViewKit.h; sourceTree = "<group>"; };
+		5E2B201921C06DC000661170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E2B202421C0747D00661170 /* LGVLoggingViewService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LGVLoggingViewService.h; path = LoggingViewKit/Headers/LGVLoggingViewService.h; sourceTree = SOURCE_ROOT; };
+		5E2B202521C0747D00661170 /* LGVLoggingViewService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LGVLoggingViewService.m; path = LoggingViewKit/Sources/LGVLoggingViewService.m; sourceTree = SOURCE_ROOT; };
+		5E3DD56921C0D564004A7BF2 /* UIView+LGVLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+LGVLogging.h"; sourceTree = "<group>"; };
+		5E3DD56A21C0D564004A7BF2 /* UIView+LGVLogging.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+LGVLogging.m"; sourceTree = "<group>"; };
+		5E3DD57121C2B9C9004A7BF2 /* UIButton+LGVLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+LGVLogging.h"; sourceTree = "<group>"; };
+		5E3DD57221C2B9C9004A7BF2 /* UIButton+LGVLogging.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+LGVLogging.m"; sourceTree = "<group>"; };
+		5E3DD57421C2BDF6004A7BF2 /* UISwitch+LGVLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UISwitch+LGVLogging.h"; sourceTree = "<group>"; };
+		5E3DD57521C2BDF6004A7BF2 /* UISwitch+LGVLogging.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UISwitch+LGVLogging.m"; sourceTree = "<group>"; };
+		5E3DD57721C317A7004A7BF2 /* UISegmentedControl+LGVLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+LGVLogging.h"; sourceTree = "<group>"; };
+		5E3DD57821C317A7004A7BF2 /* UISegmentedControl+LGVLogging.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UISegmentedControl+LGVLogging.m"; sourceTree = "<group>"; };
+		5E3DD57A21C31B94004A7BF2 /* LGVView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVView.h; sourceTree = "<group>"; };
+		5E3DD57B21C31B94004A7BF2 /* LGVView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5E2B1FC921C0203300661170 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5E2B1FC321C0203300661170 = {
+			isa = PBXGroup;
+			children = (
+				5E2B1FCE21C0203300661170 /* LoggingViewKit */,
+				5E2B1FCD21C0203300661170 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5E2B1FCD21C0203300661170 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E2B1FCC21C0203300661170 /* libLoggingViewKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5E2B1FCE21C0203300661170 /* LoggingViewKit */ = {
+			isa = PBXGroup;
+			children = (
+				5E2B201621C06D7100661170 /* Headers */,
+				5E2B201721C06D7A00661170 /* Resources */,
+				5E2B201821C06D8100661170 /* Sources */,
+			);
+			path = LoggingViewKit;
+			sourceTree = "<group>";
+		};
+		5E2B201621C06D7100661170 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				19E59C0292C650ECE333DFBA /* LGVButton.h */,
+				5E2B202421C0747D00661170 /* LGVLoggingViewService.h */,
+				19E596815F280D7EFEE5F877 /* LGVSegmentedControl.h */,
+				19E5963785132401E8B6C0F3 /* LGVSwitch.h */,
+				5E3DD57A21C31B94004A7BF2 /* LGVView.h */,
+				5E2B1FCF21C0203300661170 /* LoggingViewKit.h */,
+				5E3DD57121C2B9C9004A7BF2 /* UIButton+LGVLogging.h */,
+				5E3DD57721C317A7004A7BF2 /* UISegmentedControl+LGVLogging.h */,
+				5E3DD57421C2BDF6004A7BF2 /* UISwitch+LGVLogging.h */,
+				5E3DD56921C0D564004A7BF2 /* UIView+LGVLogging.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		5E2B201721C06D7A00661170 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5E2B201921C06DC000661170 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5E2B201821C06D8100661170 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				19E59355C87F3CF38CDE1074 /* LGVButton.m */,
+				5E2B202521C0747D00661170 /* LGVLoggingViewService.m */,
+				19E595CAFBC53C136F1C713C /* LGVSegmentedControl.m */,
+				19E59F8435BA22878D77A95E /* LGVSwitch.m */,
+				5E3DD57B21C31B94004A7BF2 /* LGVView.m */,
+				5E3DD57221C2B9C9004A7BF2 /* UIButton+LGVLogging.m */,
+				5E3DD57821C317A7004A7BF2 /* UISegmentedControl+LGVLogging.m */,
+				5E3DD57521C2BDF6004A7BF2 /* UISwitch+LGVLogging.m */,
+				5E3DD56A21C0D564004A7BF2 /* UIView+LGVLogging.m */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5E2B1FCB21C0203300661170 /* LoggingViewKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E2B1FD521C0203300661170 /* Build configuration list for PBXNativeTarget "LoggingViewKit" */;
+			buildPhases = (
+				5E2B1FC821C0203300661170 /* Sources */,
+				5E2B1FC921C0203300661170 /* Frameworks */,
+				5E2B1FCA21C0203300661170 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LoggingViewKit;
+			productName = LoggingViewKit;
+			productReference = 5E2B1FCC21C0203300661170 /* libLoggingViewKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5E2B1FC421C0203300661170 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Hituzi Ando";
+				TargetAttributes = {
+					5E2B1FCB21C0203300661170 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					5E2B201A21C06F2B00661170 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 5E2B1FC721C0203300661170 /* Build configuration list for PBXProject "LoggingViewKit" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5E2B1FC321C0203300661170;
+			productRefGroup = 5E2B1FCD21C0203300661170 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5E2B1FCB21C0203300661170 /* LoggingViewKit */,
+				5E2B201A21C06F2B00661170 /* Universal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5E2B202021C06FC400661170 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# ==============================\n# Set env\n# ==============================\nINFOPLIST=\"${PROJECT_NAME}/Resources/Info.plist\"\nFRAMEWORK_NAME=$(/usr/libexec/PlistBuddy -c \"Print CFBundleName\" ${INFOPLIST})\nBUILD_TARGET_NAME=$FRAMEWORK_NAME\nFRAMEWORK_BUILD_CONFIGURATION=\"${CONFIGURATION}\"\nFRAMEWORK_VERSION_NUMBER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" ${INFOPLIST})\nFRAMEWORK_VERSION=A\nFRAMEWORK_BUILD_PATH=\"Framework\"\nFRAMEWORK_DIR=\"${FRAMEWORK_BUILD_PATH}/${FRAMEWORK_NAME}.framework\"\nPACKAGENAME=\"${FRAMEWORK_NAME}-${FRAMEWORK_VERSION_NUMBER}.zip\"\n\n# ==============================\n# Build\n# ==============================\nxcodebuild -configuration ${FRAMEWORK_BUILD_CONFIGURATION} -target ${BUILD_TARGET_NAME} clean\nxcodebuild -configuration ${FRAMEWORK_BUILD_CONFIGURATION} -target ${BUILD_TARGET_NAME} -sdk iphonesimulator\n[ $? != 0 ] && exit 1\nxcodebuild -configuration ${FRAMEWORK_BUILD_CONFIGURATION} -target ${BUILD_TARGET_NAME} -sdk iphoneos\n[ $? != 0 ] && exit 1\n\n# ==============================\n# Make directories\n# ==============================\n[ -d \"${FRAMEWORK_BUILD_PATH}\" ] && rm -rf \"${FRAMEWORK_BUILD_PATH}\"\nmkdir -p ${FRAMEWORK_DIR}\nmkdir -p ${FRAMEWORK_DIR}/Headers\nmkdir -p ${FRAMEWORK_DIR}/Resources\n\n#mkdir -p ${FRAMEWORK_DIR}/Versions\n#mkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}\n#mkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}/Resources\n#mkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}/Headers\n#ln -s ${FRAMEWORK_VERSION} ${FRAMEWORK_DIR}/Versions/Current\n#ln -s Versions/Current/Headers ${FRAMEWORK_DIR}/Headers\n#ln -s Versions/Current/Resources ${FRAMEWORK_DIR}/Resources\n#ln -s Versions/Current/${FRAMEWORK_NAME} ${FRAMEWORK_DIR}/${FRAMEWORK_NAME}\n\n# ==============================\n# Make framework\n# ==============================\nlipo -create \\\nbuild/${FRAMEWORK_BUILD_CONFIGURATION}-iphoneos/lib${FRAMEWORK_NAME}.a \\\nbuild/${FRAMEWORK_BUILD_CONFIGURATION}-iphonesimulator/lib${FRAMEWORK_NAME}.a \\\n-o \"${FRAMEWORK_DIR}/${FRAMEWORK_NAME}\"\n#-o \"${FRAMEWORK_DIR}/Versions/Current/${FRAMEWORK_NAME}\"\n\ncp -Rf \"${PROJECT_NAME}/Headers/\" ${FRAMEWORK_DIR}/Headers/\ncp \"${PROJECT_NAME}/Resources/\" ${FRAMEWORK_DIR}/Resources/\ncp ${INFOPLIST} ${FRAMEWORK_DIR}/Resources/\ncd ${FRAMEWORK_BUILD_PATH}\nchmod -fR 755 \"${FRAMEWORK_NAME}.framework\"\nzip -ry ${PACKAGENAME} $(basename $FRAMEWORK_DIR)\ncd ${SRCROOT}\n\n# ==============================\n# Copy framework to sample app\n# ==============================\ncp -rf ${FRAMEWORK_DIR} ../LoggingViewSample/Framework\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5E2B1FC821C0203300661170 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E3DD57921C317A7004A7BF2 /* UISegmentedControl+LGVLogging.m in Sources */,
+				5E3DD57621C2BDF6004A7BF2 /* UISwitch+LGVLogging.m in Sources */,
+				5E2B202621C0747D00661170 /* LGVLoggingViewService.m in Sources */,
+				5E3DD57321C2B9C9004A7BF2 /* UIButton+LGVLogging.m in Sources */,
+				19E5909D74811A91D84C239A /* LGVSwitch.m in Sources */,
+				5E3DD56B21C0D564004A7BF2 /* UIView+LGVLogging.m in Sources */,
+				19E5949F14E798A8BF95912C /* LGVSegmentedControl.m in Sources */,
+				5E3DD57C21C31B94004A7BF2 /* LGVView.m in Sources */,
+				19E591D3BD384C7F946DF258 /* LGVButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E2B201F21C06FB900661170 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E2B1FCB21C0203300661170 /* LoggingViewKit */;
+			targetProxy = 5E2B201E21C06FB900661170 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5E2B1FD321C0203300661170 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+			};
+			name = Debug;
+		};
+		5E2B1FD421C0203300661170 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+			};
+			name = Release;
+		};
+		5E2B1FD621C0203300661170 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+			};
+			name = Debug;
+		};
+		5E2B1FD721C0203300661170 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+			};
+			name = Release;
+		};
+		5E2B201C21C06F2B00661170 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+			};
+			name = Debug;
+		};
+		5E2B201D21C06F2B00661170 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5E2B1FC721C0203300661170 /* Build configuration list for PBXProject "LoggingViewKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E2B1FD321C0203300661170 /* Debug */,
+				5E2B1FD421C0203300661170 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E2B1FD521C0203300661170 /* Build configuration list for PBXNativeTarget "LoggingViewKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E2B1FD621C0203300661170 /* Debug */,
+				5E2B1FD721C0203300661170 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E2B201B21C06F2B00661170 /* Build configuration list for PBXAggregateTarget "Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E2B201C21C06F2B00661170 /* Debug */,
+				5E2B201D21C06F2B00661170 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5E2B1FC421C0203300661170 /* Project object */;
+}

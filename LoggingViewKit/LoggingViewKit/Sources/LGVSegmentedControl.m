@@ -1,0 +1,21 @@
+//
+//  LGVSegmentedControl.m
+//  LoggingViewKit
+//
+//  Created by Masaki Ando on 2018/12/12.
+//  Copyright (c) 2018 Hituzi Ando. All rights reserved.
+//
+
+#import "LGVSegmentedControl.h"
+
+#import "LGVLoggingViewService.h"
+
+@implementation LGVSegmentedControl
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [[LGVLoggingViewService sharedService] loggingView:self touchesEnded:touches withEvent:event];
+
+    [super touchesEnded:touches withEvent:event];
+}
+
+@end
