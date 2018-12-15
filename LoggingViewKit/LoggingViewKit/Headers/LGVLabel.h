@@ -1,8 +1,8 @@
 //
-//  LGVButton.h
+//  LGVLabel.h
 //  LoggingViewKit
 //
-//  Created by Masaki Ando on 2018/12/12.
+//  Created by Masaki Ando on 2018/12/15.
 //  Copyright (c) 2018 Hituzi Ando. All rights reserved.
 //
 
@@ -12,10 +12,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LGVButton : UIButton <LGVLogging>
+@interface LGVLabel : UILabel <LGVLogging>
 /**
- * The name to identify the view.
- */
+* The name to identify the view.
+*/
 @property (nonatomic, copy, nullable) IBInspectable NSString *loggingName;
 /**
  * True if logging is enabled, otherwise false.

@@ -12,9 +12,9 @@
 
 @interface ViewController () <LGVLoggingViewServiceDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *sampleButton;
-
-@property (nonatomic) UIButton *testButton;
+@property (weak, nonatomic) IBOutlet LGVLabel *stepperLabel;
+@property (weak, nonatomic) IBOutlet LGVView *sampleView;
+@property (nonatomic) LGVButton *testButton;
 
 @end
 
@@ -23,39 +23,46 @@
 - (void)loadView {
     [super loadView];
 
-    self.testButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100.f, 40.f)];
-    self.testButton.lgv_name = @"TestButton";
-    self.testButton.lgv_logging = YES;
+    self.testButton = [[LGVButton alloc] initWithFrame:CGRectMake(0, 0, 100.f, 40.f)];
+    self.testButton.loggingName = @"TestButton";
+    self.testButton.logging = YES;
+    self.testButton.touchableExtension = UIEdgeInsetsMake(20.f, 20.f, 20.f, 20.f);
     [self.testButton setTitle:@"Test" forState:UIControlStateNormal];
     [self.testButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [self.testButton addTarget:self
                         action:@selector(testButtonPressed:)
               forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.testButton];
+    [self.sampleView addSubview:self.testButton];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.lgv_logging = YES;
+    // Enables the touched log of the label.
+    self.stepperLabel.userInteractionEnabled = YES;
 
     [LGVLoggingViewService sharedService].delegate = self;
 }
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
+#pragma mark - IBAction
 
-    self.testButton.center = self.view.center;
+- (IBAction)stepperChanged:(id)sender {
+    LGVStepper *stepper = (LGVStepper *) sender;
+    self.stepperLabel.text = [NSString stringWithFormat:@"%.1lf", stepper.value];
 }
 
-- (void)testButtonPressed:(UIButton *)sender {
-    NSLog(@"%@ Pressed", sender.lgv_name);
+- (void)testButtonPressed:(LGVButton *)sender {
+    NSLog(@"%@ Pressed", sender.loggingName);
 }
 
 #pragma mark - LGVLoggingViewServiceDelegate
 
-- (void)saveLogOfView:(UIView *)view withEvent:(nullable UIEvent *)event info:(NSDictionary *)info {
-    NSLog(@"%@ %@", view.lgv_name, info);
+- (void)loggingViewService:(LGVLoggingViewService *)service
+             saveLogOfView:(id <LGVLogging>)view
+                 withEvent:(nullable UIEvent *)event
+                      info:(NSDictionary *)info {
+
+    NSLog(@"%@ %@ %@", view.loggingName, info, event);
 }
 
 @end

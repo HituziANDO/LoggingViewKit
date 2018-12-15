@@ -1,16 +1,16 @@
 //
-//  LGVView.m
+//  LGVTextField.m
 //  LoggingViewKit
 //
-//  Created by Masaki Ando on 2018/12/14.
+//  Created by Masaki Ando on 2018/12/15.
 //  Copyright (c) 2018 Hituzi Ando. All rights reserved.
 //
 
-#import "LGVView.h"
+#import "LGVTextField.h"
 
 #import "LGVLoggingViewService.h"
 
-@implementation LGVView
+@implementation LGVTextField
 
 - (void)setTouchableExtension:(UIEdgeInsets)touchableExtension {
     self.touchableExtensionLeft = touchableExtension.left;

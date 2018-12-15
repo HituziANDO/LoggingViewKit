@@ -10,14 +10,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class LGVLoggingViewService;
+
+@protocol LGVLogging;
+
 @protocol LGVLoggingViewServiceDelegate <NSObject>
 /**
  *
- * @param view
- * @param event
- * @param info
+ * @param service The service object
+ * @param view The target view
+ * @param event Occurred event
+ * @param info The appendix information
  */
-- (void)saveLogOfView:(UIView *)view withEvent:(nullable UIEvent *)event info:(NSDictionary *)info;
+- (void)loggingViewService:(LGVLoggingViewService *)service
+             saveLogOfView:(id <LGVLogging>)view
+                 withEvent:(nullable UIEvent *)event
+                      info:(NSDictionary *)info;
 
 @end
 
@@ -35,18 +43,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *
- * @param view
- * @param touches
- * @param event
  */
-- (void)loggingView:(UIView *)view touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
+- (void)loggingView:(id <LGVLogging>)loggingView
+       touchesBegan:(NSSet<UITouch *> *)touches
+          withEvent:(nullable UIEvent *)event;
 /**
  *
- * @param view
- * @param touches
- * @param event
  */
-- (void)loggingView:(UIView *)view touchesEnded:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event;
+- (void)loggingView:(id <LGVLogging>)loggingView
+       touchesEnded:(NSSet<UITouch *> *)touches
+          withEvent:(nullable UIEvent *)event;
 
 @end
 

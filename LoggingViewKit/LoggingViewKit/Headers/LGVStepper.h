@@ -1,5 +1,5 @@
 //
-//  LGVButton.h
+//  LGVStepper.h
 //  LoggingViewKit
 //
 //  Created by Masaki Ando on 2018/12/12.
@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LGVButton : UIButton <LGVLogging>
+@interface LGVStepper : UIStepper <LGVLogging>
 /**
  * The name to identify the view.
  */

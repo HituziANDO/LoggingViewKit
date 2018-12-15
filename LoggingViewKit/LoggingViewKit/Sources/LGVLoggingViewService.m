@@ -7,7 +7,8 @@
 //
 
 #import "LGVLoggingViewService.h"
-#import "LoggingViewKit.h"
+
+#import "LGVLogging.h"
 
 @implementation LGVLoggingViewService
 
@@ -22,19 +23,38 @@ static LGVLoggingViewService *_loggingViewService = nil;
     return _loggingViewService;
 }
 
-- (void)loggingView:(UIView *)view touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
-    [self loggingView:view touches:touches withEvent:event];
+#pragma mark - public method
+
+- (void)loggingView:(id <LGVLogging>)loggingView
+       touchesBegan:(NSSet<UITouch *> *)touches
+          withEvent:(nullable UIEvent *)event {
+
+    [self loggingView:loggingView touches:touches withEvent:event];
 }
 
-- (void)loggingView:(UIView *)view touchesEnded:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
-    [self loggingView:view touches:touches withEvent:event];
+- (void)loggingView:(id <LGVLogging>)loggingView
+       touchesEnded:(NSSet<UITouch *> *)touches
+          withEvent:(nullable UIEvent *)event {
+
+    [self loggingView:loggingView touches:touches withEvent:event];
 }
 
-- (void)loggingView:(UIView *)view touches:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
+#pragma mark - private method
+
+- (void)loggingView:(id <LGVLogging>)loggingView
+            touches:(NSSet<UITouch *> *)touches
+          withEvent:(nullable UIEvent *)event {
+
     UITouch *touch = [touches anyObject];
+
+    if (![loggingView isKindOfClass:[UIView class]]) {
+        return;
+    }
+
+    UIView *view = (UIView *) loggingView;
     CGPoint point = [touch locationInView:view.superview];
 
-    if (view.lgv_isLogging && CGRectContainsPoint(view.lgv_touchableFrame, point)) {
+    if (loggingView.isLogging && CGRectContainsPoint(loggingView.touchableFrame, point)) {
         dispatch_async(dispatch_get_main_queue(), ^{
             CGPoint absolutePoint = [view.superview convertPoint:point toView:nil];
             NSMutableDictionary *info = @{
@@ -45,14 +65,19 @@ static LGVLoggingViewService *_loggingViewService = nil;
             }.mutableCopy;
 
             if ([view isKindOfClass:[UISegmentedControl class]]) {
-                info[@"selectedSegmentIndex"] = @(((UISegmentedControl *) view).selectedSegmentIndex);
+                // New value, because occurred at touchesEnded event.
+                info[@"newValue"] = @(((UISegmentedControl *) view).selectedSegmentIndex);
+            }
+            else if ([view isKindOfClass:[UIStepper class]]) {
+                info[@"newValue"] = @(((UIStepper *) view).value);
             }
             else if ([view isKindOfClass:[UISwitch class]]) {
-                info[@"on"] = @(((UISwitch *) view).on);
+                // Old value, because occurred at touchesBegan event.
+                info[@"oldValue"] = @(((UISwitch *) view).on);
             }
 
-            if ([self.delegate respondsToSelector:@selector(saveLogOfView:withEvent:info:)]) {
-                [self.delegate saveLogOfView:view withEvent:event info:info];
+            if ([self.delegate respondsToSelector:@selector(loggingViewService:saveLogOfView:withEvent:info:)]) {
+                [self.delegate loggingViewService:self saveLogOfView:loggingView withEvent:event info:info];
             }
         });
     }
