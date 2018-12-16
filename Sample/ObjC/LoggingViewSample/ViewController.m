@@ -27,8 +27,9 @@
     self.testButton.loggingName = @"TestButton";
     self.testButton.logging = YES;
     self.testButton.touchableExtension = UIEdgeInsetsMake(20.f, 20.f, 20.f, 20.f);
+    self.testButton.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:.7f];
     [self.testButton setTitle:@"Test" forState:UIControlStateNormal];
-    [self.testButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [self.testButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.testButton addTarget:self
                         action:@selector(testButtonPressed:)
               forControlEvents:UIControlEventTouchUpInside];

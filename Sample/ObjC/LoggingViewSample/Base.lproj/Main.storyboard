@@ -93,6 +93,17 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="loggingName" value="SampleView"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Gon-yM-1QS" customClass="LGVSlider">
+                                        <rect key="frame" x="112.5" y="327" width="118" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="8oA-XH-Yuo"/>
+                                            <constraint firstAttribute="width" constant="114" id="LaT-rP-I9g"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="logging" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="loggingName" value="SampleSlider"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </slider>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
@@ -106,7 +117,9 @@
                                     <constraint firstItem="sS2-uV-FS8" firstAttribute="top" secondItem="dxz-m7-FU8" secondAttribute="top" constant="8" id="bsL-X4-Qm1"/>
                                     <constraint firstItem="sS2-uV-FS8" firstAttribute="leading" secondItem="dxz-m7-FU8" secondAttribute="leading" constant="8" id="cWb-8E-qf5"/>
                                     <constraint firstItem="ImI-eS-gWf" firstAttribute="centerX" secondItem="dxz-m7-FU8" secondAttribute="centerX" id="f51-vs-vGW"/>
+                                    <constraint firstItem="Gon-yM-1QS" firstAttribute="top" secondItem="ImI-eS-gWf" secondAttribute="bottom" constant="8" id="fS5-p4-1Na"/>
                                     <constraint firstItem="RQ1-Tm-XT7" firstAttribute="leading" secondItem="dxz-m7-FU8" secondAttribute="leading" constant="8" id="lQl-Jy-DPL"/>
+                                    <constraint firstItem="Gon-yM-1QS" firstAttribute="centerX" secondItem="dxz-m7-FU8" secondAttribute="centerX" id="mG6-oQ-dpJ"/>
                                     <constraint firstItem="Y23-a0-VvY" firstAttribute="leading" secondItem="qUj-M0-Ean" secondAttribute="trailing" constant="13" id="yrO-vq-zYj"/>
                                 </constraints>
                             </view>

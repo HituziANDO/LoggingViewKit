@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o8V-vK-s9L">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="GMy-O3-kO9">
+            <objects>
+                <viewController id="o8V-vK-s9L" customClass="ViewController" customModule="LoggingViewSwiftSample" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tWU-9i-sBs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="reh-kb-0Ir" customClass="LGVView">
+                                <rect key="frame" x="16" y="20" width="343" height="639"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xn-2l-aSb" customClass="LGVButton">
+                                        <rect key="frame" x="8" y="8" width="51" height="30"/>
+                                        <state key="normal" title="Sample"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="logging" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="loggingName" value="SampleButton"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="touchableExtensionLeft">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="touchableExtensionTop">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="touchableExtensionRight">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="touchableExtensionBottom">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="knp-OQ-dLs" customClass="LGVSwitch">
+                                        <rect key="frame" x="115" y="7.5" width="51" height="31"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="loggingName" value="SampleSwitch"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="logging" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </switch>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="30z-bG-SPT" customClass="LGVSegmentedControl">
+                                        <rect key="frame" x="8" y="131" width="155" height="29"/>
+                                        <segments>
+                                            <segment title="1st"/>
+                                            <segment title="2nd"/>
+                                            <segment title="3rd"/>
+                                            <segment title="4th"/>
+                                        </segments>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="logging" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="loggingName" value="SampleSegmentedControl"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </segmentedControl>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Z25-DE-i3J" customClass="LGVStepper">
+                                        <rect key="frame" x="8" y="70" width="94" height="29"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="logging" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="loggingName" value="SampleStepper"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="stepperChanged:" destination="o8V-vK-s9L" eventType="valueChanged" id="jRQ-SZ-9tS"/>
+                                        </connections>
+                                    </stepper>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpt-vM-wJh" customClass="LGVLabel">
+                                        <rect key="frame" x="115" y="74" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="logging" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="loggingName" value="SampleLabel"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXi-63-gF6" customClass="LGVView">
+                                        <rect key="frame" x="51.5" y="191" width="240" height="128"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="4ds-bs-ul8"/>
+                                            <constraint firstAttribute="width" constant="240" id="JIN-d3-Aab"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="logging" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="loggingName" value="SampleView"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="i4m-tf-e5E" customClass="LGVSlider">
+                                        <rect key="frame" x="112.5" y="327" width="118" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="XOD-i8-lwS"/>
+                                            <constraint firstAttribute="width" constant="114" id="hhw-77-LCo"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="logging" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="loggingName" value="SampleSlider"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </slider>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="30z-bG-SPT" firstAttribute="top" secondItem="Z25-DE-i3J" secondAttribute="bottom" constant="32" id="18h-js-J66"/>
+                                    <constraint firstItem="Z25-DE-i3J" firstAttribute="leading" secondItem="reh-kb-0Ir" secondAttribute="leading" constant="8" id="7Yh-dJ-7Wk"/>
+                                    <constraint firstItem="7Xn-2l-aSb" firstAttribute="leading" secondItem="reh-kb-0Ir" secondAttribute="leading" constant="8" id="E7O-Tr-ieb"/>
+                                    <constraint firstItem="Tpt-vM-wJh" firstAttribute="leading" secondItem="Z25-DE-i3J" secondAttribute="trailing" constant="13" id="IeT-KS-688"/>
+                                    <constraint firstItem="30z-bG-SPT" firstAttribute="leading" secondItem="reh-kb-0Ir" secondAttribute="leading" constant="8" id="KWI-iy-7Il"/>
+                                    <constraint firstItem="Z25-DE-i3J" firstAttribute="top" secondItem="7Xn-2l-aSb" secondAttribute="bottom" constant="32" id="NWc-E9-wm4"/>
+                                    <constraint firstItem="Tpt-vM-wJh" firstAttribute="centerY" secondItem="Z25-DE-i3J" secondAttribute="centerY" id="YPe-j8-pVq"/>
+                                    <constraint firstItem="i4m-tf-e5E" firstAttribute="top" secondItem="xXi-63-gF6" secondAttribute="bottom" constant="8" id="bRR-dm-c4r"/>
+                                    <constraint firstItem="knp-OQ-dLs" firstAttribute="centerY" secondItem="7Xn-2l-aSb" secondAttribute="centerY" id="pWk-47-FDh"/>
+                                    <constraint firstItem="xXi-63-gF6" firstAttribute="centerX" secondItem="reh-kb-0Ir" secondAttribute="centerX" id="r2w-5c-Egr"/>
+                                    <constraint firstItem="7Xn-2l-aSb" firstAttribute="top" secondItem="reh-kb-0Ir" secondAttribute="top" constant="8" id="rnv-tE-eF1"/>
+                                    <constraint firstItem="i4m-tf-e5E" firstAttribute="centerX" secondItem="reh-kb-0Ir" secondAttribute="centerX" id="yDL-nS-aUx"/>
+                                    <constraint firstItem="xXi-63-gF6" firstAttribute="top" secondItem="30z-bG-SPT" secondAttribute="bottom" constant="32" id="yXF-HM-O0i"/>
+                                    <constraint firstItem="knp-OQ-dLs" firstAttribute="leading" secondItem="7Xn-2l-aSb" secondAttribute="trailing" constant="56" id="zKs-2g-xBZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6fK-dc-rYp" firstAttribute="trailing" secondItem="reh-kb-0Ir" secondAttribute="trailing" constant="16" id="3Kw-Ua-pUr"/>
+                            <constraint firstItem="reh-kb-0Ir" firstAttribute="leading" secondItem="6fK-dc-rYp" secondAttribute="leading" constant="16" id="dE6-IE-Sr0"/>
+                            <constraint firstItem="reh-kb-0Ir" firstAttribute="top" secondItem="6fK-dc-rYp" secondAttribute="top" id="l8I-Si-fbG"/>
+                            <constraint firstItem="6fK-dc-rYp" firstAttribute="bottom" secondItem="reh-kb-0Ir" secondAttribute="bottom" constant="8" id="vrp-Lu-qRf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6fK-dc-rYp"/>
+                    </view>
+                    <connections>
+                        <outlet property="sampleView" destination="xXi-63-gF6" id="Xj5-xq-f80"/>
+                        <outlet property="stepperLabel" destination="Tpt-vM-wJh" id="tuW-ck-XtV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AH8-Mk-prM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-108" y="254"/>
+        </scene>
+    </scenes>
+</document>

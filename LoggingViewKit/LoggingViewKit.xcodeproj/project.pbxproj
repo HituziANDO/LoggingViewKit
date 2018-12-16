@@ -31,6 +31,7 @@
 		5E3DD58021C52F73004A7BF2 /* LGVLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3DD57F21C52F73004A7BF2 /* LGVLabel.m */; };
 		5E3DD58321C5352A004A7BF2 /* LGVTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3DD58221C5352A004A7BF2 /* LGVTextView.m */; };
 		5E3DD58621C5353E004A7BF2 /* LGVTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3DD58521C5353E004A7BF2 /* LGVTextField.m */; };
+		5E569B9D21C6851C00102FCF /* LGVSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E569B9C21C6851C00102FCF /* LGVSlider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		5E3DD58221C5352A004A7BF2 /* LGVTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVTextView.m; sourceTree = "<group>"; };
 		5E3DD58421C5353E004A7BF2 /* LGVTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVTextField.h; sourceTree = "<group>"; };
 		5E3DD58521C5353E004A7BF2 /* LGVTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVTextField.m; sourceTree = "<group>"; };
+		5E569B9B21C6851C00102FCF /* LGVSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVSlider.h; sourceTree = "<group>"; };
+		5E569B9C21C6851C00102FCF /* LGVSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVSlider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,7 @@
 				5E3DD57D21C321F7004A7BF2 /* LGVLogging.h */,
 				5E2B202421C0747D00661170 /* LGVLoggingViewService.h */,
 				19E596815F280D7EFEE5F877 /* LGVSegmentedControl.h */,
+				5E569B9B21C6851C00102FCF /* LGVSlider.h */,
 				19E59608202846FAC81024B8 /* LGVStepper.h */,
 				19E5963785132401E8B6C0F3 /* LGVSwitch.h */,
 				5E3DD58421C5353E004A7BF2 /* LGVTextField.h */,
@@ -150,6 +154,7 @@
 				5E3DD57F21C52F73004A7BF2 /* LGVLabel.m */,
 				5E2B202521C0747D00661170 /* LGVLoggingViewService.m */,
 				19E595CAFBC53C136F1C713C /* LGVSegmentedControl.m */,
+				5E569B9C21C6851C00102FCF /* LGVSlider.m */,
 				19E59CB084F34428B67C9667 /* LGVStepper.m */,
 				19E59F8435BA22878D77A95E /* LGVSwitch.m */,
 				5E3DD58521C5353E004A7BF2 /* LGVTextField.m */,
@@ -230,7 +235,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# ==============================\n# Set env\n# ==============================\nINFOPLIST=\"${PROJECT_NAME}/Resources/Info.plist\"\nFRAMEWORK_NAME=$(/usr/libexec/PlistBuddy -c \"Print CFBundleName\" ${INFOPLIST})\nBUILD_TARGET_NAME=$FRAMEWORK_NAME\nFRAMEWORK_BUILD_CONFIGURATION=\"${CONFIGURATION}\"\nFRAMEWORK_VERSION_NUMBER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" ${INFOPLIST})\nFRAMEWORK_VERSION=A\nFRAMEWORK_BUILD_PATH=\"Framework\"\nFRAMEWORK_DIR=\"${FRAMEWORK_BUILD_PATH}/${FRAMEWORK_NAME}.framework\"\nPACKAGENAME=\"${FRAMEWORK_NAME}-${FRAMEWORK_VERSION_NUMBER}.zip\"\n\n# ==============================\n# Build\n# ==============================\nxcodebuild -configuration ${FRAMEWORK_BUILD_CONFIGURATION} -target ${BUILD_TARGET_NAME} clean\nxcodebuild -configuration ${FRAMEWORK_BUILD_CONFIGURATION} -target ${BUILD_TARGET_NAME} -sdk iphonesimulator\n[ $? != 0 ] && exit 1\nxcodebuild -configuration ${FRAMEWORK_BUILD_CONFIGURATION} -target ${BUILD_TARGET_NAME} -sdk iphoneos\n[ $? != 0 ] && exit 1\n\n# ==============================\n# Make directories\n# ==============================\n[ -d \"${FRAMEWORK_BUILD_PATH}\" ] && rm -rf \"${FRAMEWORK_BUILD_PATH}\"\nmkdir -p ${FRAMEWORK_DIR}\nmkdir -p ${FRAMEWORK_DIR}/Headers\nmkdir -p ${FRAMEWORK_DIR}/Resources\n\n#mkdir -p ${FRAMEWORK_DIR}/Versions\n#mkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}\n#mkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}/Resources\n#mkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}/Headers\n#ln -s ${FRAMEWORK_VERSION} ${FRAMEWORK_DIR}/Versions/Current\n#ln -s Versions/Current/Headers ${FRAMEWORK_DIR}/Headers\n#ln -s Versions/Current/Resources ${FRAMEWORK_DIR}/Resources\n#ln -s Versions/Current/${FRAMEWORK_NAME} ${FRAMEWORK_DIR}/${FRAMEWORK_NAME}\n\n# ==============================\n# Make framework\n# ==============================\nlipo -create \\\nbuild/${FRAMEWORK_BUILD_CONFIGURATION}-iphoneos/lib${FRAMEWORK_NAME}.a \\\nbuild/${FRAMEWORK_BUILD_CONFIGURATION}-iphonesimulator/lib${FRAMEWORK_NAME}.a \\\n-o \"${FRAMEWORK_DIR}/${FRAMEWORK_NAME}\"\n#-o \"${FRAMEWORK_DIR}/Versions/Current/${FRAMEWORK_NAME}\"\n\ncp -Rf \"${PROJECT_NAME}/Headers/\" ${FRAMEWORK_DIR}/Headers/\ncp \"${PROJECT_NAME}/Resources/\" ${FRAMEWORK_DIR}/Resources/\ncp ${INFOPLIST} ${FRAMEWORK_DIR}/Resources/\ncd ${FRAMEWORK_BUILD_PATH}\nchmod -fR 755 \"${FRAMEWORK_NAME}.framework\"\nzip -ry ${PACKAGENAME} $(basename $FRAMEWORK_DIR)\ncd ${SRCROOT}\n\n# ==============================\n# Copy framework to sample app\n# ==============================\ncp -rf ${FRAMEWORK_DIR} ../LoggingViewSample/Framework\n\n";
+			shellScript = "# ==============================\n# Set env\n# ==============================\nINFOPLIST=\"${PROJECT_NAME}/Resources/Info.plist\"\nFRAMEWORK_NAME=$(/usr/libexec/PlistBuddy -c \"Print CFBundleName\" ${INFOPLIST})\nBUILD_TARGET_NAME=$FRAMEWORK_NAME\nFRAMEWORK_BUILD_CONFIGURATION=\"${CONFIGURATION}\"\nFRAMEWORK_VERSION_NUMBER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" ${INFOPLIST})\nFRAMEWORK_VERSION=A\nFRAMEWORK_BUILD_PATH=\"Framework\"\nFRAMEWORK_DIR=\"${FRAMEWORK_BUILD_PATH}/${FRAMEWORK_NAME}.framework\"\nPACKAGENAME=\"${FRAMEWORK_NAME}-${FRAMEWORK_VERSION_NUMBER}.zip\"\n\n# ==============================\n# Build\n# ==============================\nxcodebuild -configuration ${FRAMEWORK_BUILD_CONFIGURATION} -target ${BUILD_TARGET_NAME} clean\nxcodebuild -configuration ${FRAMEWORK_BUILD_CONFIGURATION} -target ${BUILD_TARGET_NAME} -sdk iphonesimulator\n[ $? != 0 ] && exit 1\nxcodebuild -configuration ${FRAMEWORK_BUILD_CONFIGURATION} -target ${BUILD_TARGET_NAME} -sdk iphoneos\n[ $? != 0 ] && exit 1\n\n# ==============================\n# Make directories\n# ==============================\n[ -d \"${FRAMEWORK_BUILD_PATH}\" ] && rm -rf \"${FRAMEWORK_BUILD_PATH}\"\nmkdir -p ${FRAMEWORK_DIR}\nmkdir -p ${FRAMEWORK_DIR}/Headers\nmkdir -p ${FRAMEWORK_DIR}/Resources\nmkdir -p ${FRAMEWORK_DIR}/Modules\n\n#mkdir -p ${FRAMEWORK_DIR}/Versions\n#mkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}\n#mkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}/Resources\n#mkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}/Headers\n#ln -s ${FRAMEWORK_VERSION} ${FRAMEWORK_DIR}/Versions/Current\n#ln -s Versions/Current/Headers ${FRAMEWORK_DIR}/Headers\n#ln -s Versions/Current/Resources ${FRAMEWORK_DIR}/Resources\n#ln -s Versions/Current/${FRAMEWORK_NAME} ${FRAMEWORK_DIR}/${FRAMEWORK_NAME}\n\n# ==============================\n# Make framework\n# ==============================\nlipo -create \\\nbuild/${FRAMEWORK_BUILD_CONFIGURATION}-iphoneos/lib${FRAMEWORK_NAME}.a \\\nbuild/${FRAMEWORK_BUILD_CONFIGURATION}-iphonesimulator/lib${FRAMEWORK_NAME}.a \\\n-o \"${FRAMEWORK_DIR}/${FRAMEWORK_NAME}\"\n#-o \"${FRAMEWORK_DIR}/Versions/Current/${FRAMEWORK_NAME}\"\n\ncp -Rf \"${PROJECT_NAME}/Headers/\" ${FRAMEWORK_DIR}/Headers/\ncp \"${PROJECT_NAME}/Resources/\" ${FRAMEWORK_DIR}/Resources/\ncp ${INFOPLIST} ${FRAMEWORK_DIR}/Resources/\ncp -Rf \"${PROJECT_NAME}/Modules/\" ${FRAMEWORK_DIR}/Modules/\ncd ${FRAMEWORK_BUILD_PATH}\nchmod -fR 755 \"${FRAMEWORK_NAME}.framework\"\nzip -ry ${PACKAGENAME} $(basename $FRAMEWORK_DIR)\ncd ${SRCROOT}\n\n# ==============================\n# Copy framework to sample app\n# ==============================\ncp -rf ${FRAMEWORK_DIR} ../Sample/ObjC/Framework\ncp -rf ${FRAMEWORK_DIR} ../Sample/Swift/Framework\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -243,6 +248,7 @@
 				5E2B202621C0747D00661170 /* LGVLoggingViewService.m in Sources */,
 				5E3DD58321C5352A004A7BF2 /* LGVTextView.m in Sources */,
 				19E5909D74811A91D84C239A /* LGVSwitch.m in Sources */,
+				5E569B9D21C6851C00102FCF /* LGVSlider.m in Sources */,
 				19E5949F14E798A8BF95912C /* LGVSegmentedControl.m in Sources */,
 				5E3DD58021C52F73004A7BF2 /* LGVLabel.m in Sources */,
 				5E3DD57C21C31B94004A7BF2 /* LGVView.m in Sources */,
@@ -381,10 +387,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				MODULEMAP_FILE = modlue.modluemap;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Modules";
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
@@ -393,10 +403,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				MODULEMAP_FILE = modlue.modluemap;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Modules";
 				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;

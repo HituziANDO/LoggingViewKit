@@ -4,7 +4,14 @@
    <FileRef
       location = "group:LoggingViewKit/LoggingViewKit.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:LoggingViewSample/LoggingViewSample.xcodeproj">
-   </FileRef>
+   <Group
+      location = "container:Sample"
+      name = "Sample">
+      <FileRef
+         location = "group:ObjC/LoggingViewSample.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Swift/LoggingViewSwiftSample.xcodeproj">
+      </FileRef>
+   </Group>
 </Workspace>

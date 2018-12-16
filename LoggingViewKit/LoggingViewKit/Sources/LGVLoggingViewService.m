@@ -68,11 +68,14 @@ static LGVLoggingViewService *_loggingViewService = nil;
                 // New value, because occurred at touchesEnded event.
                 info[@"newValue"] = @(((UISegmentedControl *) view).selectedSegmentIndex);
             }
+            else if ([view isKindOfClass:[UISlider class]]) {
+                // Old value, because occurred at touchesBegan event.
+                info[@"oldValue"] = @(((UISlider *) view).value);
+            }
             else if ([view isKindOfClass:[UIStepper class]]) {
                 info[@"newValue"] = @(((UIStepper *) view).value);
             }
             else if ([view isKindOfClass:[UISwitch class]]) {
-                // Old value, because occurred at touchesBegan event.
                 info[@"oldValue"] = @(((UISwitch *) view).on);
             }
 

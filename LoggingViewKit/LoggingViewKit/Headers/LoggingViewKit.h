@@ -11,6 +11,7 @@
 #import "LGVLogging.h"
 #import "LGVLoggingViewService.h"
 #import "LGVSegmentedControl.h"
+#import "LGVSlider.h"
 #import "LGVStepper.h"
 #import "LGVSwitch.h"
 #import "LGVTextField.h"
