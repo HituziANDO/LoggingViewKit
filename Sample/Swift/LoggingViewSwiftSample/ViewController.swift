@@ -50,21 +50,28 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
     @objc func testButtonPressed(_ sender: LGVButton) {
         if let loggingName = sender.loggingName {
             print("\(loggingName) Pressed")
+
+            print("All Logs: \(LGVLoggingViewService.shared().allLogs())")
         }
     }
 
     // MARK: - LGVLoggingViewServiceDelegate
 
-    func loggingViewService(_ service: LGVLoggingViewService, saveLogOfView view: LGVLogging,
-                            with event: UIEvent?, info: [AnyHashable: Any]) {
+    func loggingViewService(_ service: LGVLoggingViewService,
+                            willSave log: LGVLog,
+                            ofView view: LGVLogging,
+                            with event: UIEvent?) {
+
+    }
+
+    func loggingViewService(_ service: LGVLoggingViewService,
+                            didSave log: LGVLog,
+                            ofView view: LGVLogging,
+                            with event: UIEvent?,
+                            error: LGVError?) {
 
         if let loggingName = view.loggingName() {
-            if let event = event {
-                print("\(loggingName) \(info) \(event)")
-            }
-            else {
-                print("\(loggingName) \(info)")
-            }
+            print("\(loggingName)\n\(log)\n\(event)\n\(error)")
         }
     }
 }

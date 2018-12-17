@@ -10,22 +10,47 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class LGVError;
+@class LGVLog;
 @class LGVLoggingViewService;
 
+@protocol LGVDatabase;
 @protocol LGVLogging;
 
+UIKIT_EXTERN NSString *const LGVErrorDomain;
+
 @protocol LGVLoggingViewServiceDelegate <NSObject>
+@optional
 /**
  *
  * @param service The service object
+ * @param log The log of occurred event
  * @param view The target view
  * @param event Occurred event
- * @param info The appendix information
  */
 - (void)loggingViewService:(LGVLoggingViewService *)service
-             saveLogOfView:(id <LGVLogging>)view
+               willSaveLog:(LGVLog *)log
+                    ofView:(id <LGVLogging>)view
+                 withEvent:(nullable UIEvent *)event;
+/**
+ *
+ * @param service The service object
+ * @param log The saved log
+ * @param view The target view
+ * @param event Occurred event
+ * @param error nil if success, otherwise error object
+ */
+- (void)loggingViewService:(LGVLoggingViewService *)service
+                didSaveLog:(LGVLog *)log
+                    ofView:(id <LGVLogging>)view
                  withEvent:(nullable UIEvent *)event
-                      info:(NSDictionary *)info;
+                     error:(nullable LGVError *)error;
+
+@end
+
+@interface LGVError : NSError
+
++ (instancetype)errorWithMessage:(nullable NSString *)message;
 
 @end
 
@@ -34,6 +59,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  */
 @property (nonatomic, weak, nullable) id <LGVLoggingViewServiceDelegate> delegate;
+/**
+ *
+ */
+@property (nonatomic, nullable) id <LGVDatabase> database;
 
 /**
  *
@@ -41,6 +70,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)sharedService;
 
+/**
+ *
+ */
+- (NSArray<LGVLog *> *)allLogs;
 /**
  *
  */

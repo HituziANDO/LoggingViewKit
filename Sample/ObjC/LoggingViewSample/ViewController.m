@@ -54,16 +54,26 @@
 
 - (void)testButtonPressed:(LGVButton *)sender {
     NSLog(@"%@ Pressed", sender.loggingName);
+
+    NSLog(@"All Logs: %@", [[LGVLoggingViewService sharedService] allLogs]);
 }
 
 #pragma mark - LGVLoggingViewServiceDelegate
 
 - (void)loggingViewService:(LGVLoggingViewService *)service
-             saveLogOfView:(id <LGVLogging>)view
-                 withEvent:(nullable UIEvent *)event
-                      info:(NSDictionary *)info {
+               willSaveLog:(LGVLog *)log
+                    ofView:(id <LGVLogging>)view
+                 withEvent:(nullable UIEvent *)event {
 
-    NSLog(@"%@ %@ %@", view.loggingName, info, event);
+}
+
+- (void)loggingViewService:(LGVLoggingViewService *)service
+                didSaveLog:(LGVLog *)log
+                    ofView:(id <LGVLogging>)view
+                 withEvent:(nullable UIEvent *)event
+                     error:(nullable LGVError *)error {
+
+    NSLog(@"%@\n%@\n%@\n%@", view.loggingName, log, event, error);
 }
 
 @end
