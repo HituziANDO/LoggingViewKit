@@ -27,8 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)databaseWithPath:(NSString *)path;
 
-- (void)dropTable;
-
 @end
 
 NS_ASSUME_NONNULL_END

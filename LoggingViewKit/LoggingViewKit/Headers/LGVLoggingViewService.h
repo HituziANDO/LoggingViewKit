@@ -85,6 +85,10 @@ UIKIT_EXTERN NSString *const LGVErrorDomain;
 /**
  *
  */
+- (void)deleteAllLogs;
+/**
+ *
+ */
 - (void)loggingView:(id <LGVLogging>)loggingView
        touchesBegan:(NSSet<UITouch *> *)touches
           withEvent:(nullable UIEvent *)event;

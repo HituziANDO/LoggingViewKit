@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)addLog:(LGVLog *)log;
 - (NSArray<LGVLog *> *)allLogs;
 - (nullable LGVLog *)logByKey:(NSString *)key;
+- (void)deleteAllLogs;
 
 @end
 

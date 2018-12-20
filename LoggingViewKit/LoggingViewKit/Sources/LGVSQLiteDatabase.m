@@ -35,46 +35,6 @@
     return database;
 }
 
-- (void)createTable {
-    NSString *sql = @"CREATE TABLE IF NOT EXISTS lgv_logs ("
-                    "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    "key TEXT NOT NULL, "
-                    "name TEXT, "
-                    "click_x REAL, "
-                    "click_y REAL, "
-                    "absolute_click_x REAL, "
-                    "absolute_click_y REAL, "
-                    "info TEXT, "
-                    "created_at DATETIME NOT NULL"
-                    ");";
-
-    if (![self.db open]) {
-        return;
-    }
-
-    [self.db executeUpdate:sql];
-    [self.db close];
-}
-
-- (void)dropTable {
-    NSString *sql = @"DROP TABLE IF EXISTS lgv_logs;";
-
-    if (![self.db open]) {
-        return;
-    }
-
-    [self.db beginTransaction];
-
-    if ([self.db executeUpdate:sql]) {
-        [self.db commit];
-    }
-    else {
-        [self.db rollback];
-    }
-
-    [self.db close];
-}
-
 #pragma mark - LGVDatabase
 
 - (BOOL)addLog:(LGVLog *)log {
@@ -172,7 +132,48 @@
     return log;
 }
 
+- (void)deleteAllLogs {
+    NSString *sql = @"DELETE FROM lgv_logs;";
+
+    if (![self.db open]) {
+        return;
+    }
+
+    [self.db beginTransaction];
+
+    if ([self.db executeUpdate:sql]) {
+        [self.db commit];
+        [self.db executeUpdate:@"VACUUM"];
+    }
+    else {
+        [self.db rollback];
+    }
+
+    [self.db close];
+}
+
 #pragma mark - private method
+
+- (void)createTable {
+    NSString *sql = @"CREATE TABLE IF NOT EXISTS lgv_logs ("
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    "key TEXT NOT NULL, "
+                    "name TEXT, "
+                    "click_x REAL, "
+                    "click_y REAL, "
+                    "absolute_click_x REAL, "
+                    "absolute_click_y REAL, "
+                    "info TEXT, "
+                    "created_at DATETIME NOT NULL"
+                    ");";
+
+    if (![self.db open]) {
+        return;
+    }
+
+    [self.db executeUpdate:sql];
+    [self.db close];
+}
 
 - (NSString *)serialize:(NSDictionary *)dict {
     NSString *str = @"";

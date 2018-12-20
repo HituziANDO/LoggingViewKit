@@ -58,6 +58,10 @@ static LGVLoggingViewService *_loggingViewService = nil;
     return [self.defaultDatabase allLogs];
 }
 
+- (void)deleteAllLogs {
+    [self.defaultDatabase deleteAllLogs];
+}
+
 - (void)loggingView:(id <LGVLogging>)loggingView
        touchesBegan:(NSSet<UITouch *> *)touches
           withEvent:(nullable UIEvent *)event {
