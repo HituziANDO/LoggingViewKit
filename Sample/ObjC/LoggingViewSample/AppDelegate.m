@@ -6,6 +6,8 @@
 //  Copyright © 2018年 Hituzi Ando. All rights reserved.
 //
 
+#import <LoggingViewKit/LoggingViewKit.h>
+
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
@@ -17,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+    [[LGVLoggingViewService sharedService] startRecording];
+
     return YES;
 }
 

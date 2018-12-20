@@ -27,6 +27,8 @@ NSString *const LGVErrorDomain = @"jp.hituzi.LoggingViewKit.Error";
 
 @interface LGVLoggingViewService ()
 
+@property (nonatomic) BOOL isRecording;
+
 @end
 
 @implementation LGVLoggingViewService
@@ -43,6 +45,14 @@ static LGVLoggingViewService *_loggingViewService = nil;
 }
 
 #pragma mark - public method
+
+- (void)startRecording {
+    self.isRecording = YES;
+}
+
+- (void)stopRecording {
+    self.isRecording = NO;
+}
 
 - (NSArray<LGVLog *> *)allLogs {
     return [self.defaultDatabase allLogs];
@@ -67,6 +77,10 @@ static LGVLoggingViewService *_loggingViewService = nil;
 - (void)loggingView:(id <LGVLogging>)loggingView
             touches:(NSSet<UITouch *> *)touches
           withEvent:(nullable UIEvent *)event {
+
+    if (!self.isRecording) {
+        return;
+    }
 
     UITouch *touch = [touches anyObject];
 

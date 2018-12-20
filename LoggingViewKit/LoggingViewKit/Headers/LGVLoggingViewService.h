@@ -71,6 +71,14 @@ UIKIT_EXTERN NSString *const LGVErrorDomain;
 + (instancetype)sharedService;
 
 /**
+ * Starts recording logs.
+ */
+- (void)startRecording;
+/**
+ * Stops recording logs.
+ */
+- (void)stopRecording;
+/**
  *
  */
 - (NSArray<LGVLog *> *)allLogs;
