@@ -1,6 +1,6 @@
 # LoggingViewKit
 
-***LoggingViewKitはユーザがどのViewをタップしたかを記録するためのライブラリです***
+***LoggingViewKit is the library for recording which view the user touched.***
 
 ## Include in your iOS app
 
@@ -15,6 +15,7 @@ pod "LoggingViewKit"
 
 ### Manual Installation
 
+1. Download latest [LoggingViewKit](https://github.com/HituziANDO/LoggingViewKit/releases)
 1. Drag & Drop LoggingViewKit.framework into your Xcode project
 1. Add `-all_load` to Build Settings > Linking > Other Linker Flags
 
@@ -27,3 +28,91 @@ pod "LoggingViewKit"
 - Stepper
 - Switch
 - View
+
+## Usage
+
+1. Set LGV UI class in the storyboard
+
+	![screenshot1](./README/images/screenshot1.png)
+	
+1. Set arbitrary name to loggingName
+
+	![screenshot2](./README/images/screenshot2.png)
+	
+	**[NOTE]** Recommend setting a unique name.
+	
+1. Select On to record the view
+	
+	**[NOTE]** If select Off or Default, the view is not target to record.
+
+1. Start recording
+
+	**Objective-C**
+	
+	```objc
+	#import <LoggingViewKit/LoggingViewKit.h>
+	
+	...
+	
+	@implementation AppDelegate
+	
+	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+		
+		[[LGVLoggingViewService sharedService] startRecording];
+		
+		return YES;
+	}
+	```	
+	
+	**Swift**
+	
+	```swift
+	import LoggingViewKit
+	
+	@UIApplicationMain
+	class AppDelegate: UIResponder, UIApplicationDelegate {
+	
+		...
+	
+		func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+	
+			LGVLoggingViewService.shared().startRecording()
+	
+			return true
+		}
+		
+		...
+		
+	}
+	```
+
+5. Stop recording
+
+	**Objective-C**
+	
+	```objc
+	[[LGVLoggingViewService sharedService] stopRecording];
+	```
+	
+	**Swift**
+	
+	```swift
+	LGVLoggingViewService.shared().stopRecording()
+	```
+	
+6. Read logs
+
+	**Objective-C**
+	
+	```objc
+	NSArray<LGVLog *> *logs = [[LGVLoggingViewService sharedService] allLogs];
+	```
+	
+	**Swift**
+	
+	```swift
+	let logs = LGVLoggingViewService.shared().allLogs()
+	```
+
+More info, see my [sample project](https://github.com/HituziANDO/LoggingViewKit/tree/master/Sample).
+

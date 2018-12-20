@@ -79,11 +79,11 @@ UIKIT_EXTERN NSString *const LGVErrorDomain;
  */
 - (void)stopRecording;
 /**
- *
+ * Reads all logs in the database.
  */
 - (NSArray<LGVLog *> *)allLogs;
 /**
- *
+ * Deletes all logs in the database.
  */
 - (void)deleteAllLogs;
 /**
