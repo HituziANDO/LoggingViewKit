@@ -71,4 +71,3 @@ LoggingViewKit/Framework
 LoggingViewSample/Framework/*.framework
 Sample/ObjC/Framework/LoggingViewKit.framework
 Sample/Swift/Framework/LoggingViewKit.framework
-*.podspec

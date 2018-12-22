@@ -39,9 +39,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Enables the touched log of the label.
-    self.stepperLabel.userInteractionEnabled = YES;
-
     [LGVLoggingViewService sharedService].delegate = self;
 }
 

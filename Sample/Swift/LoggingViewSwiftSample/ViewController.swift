@@ -33,9 +33,6 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Enables the touched log of the label.
-        stepperLabel.isUserInteractionEnabled = true
-
         LGVLoggingViewService.shared().delegate = self
     }
 

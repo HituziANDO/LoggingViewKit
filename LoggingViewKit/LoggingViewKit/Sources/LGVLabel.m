@@ -12,6 +12,13 @@
 
 @implementation LGVLabel
 
+- (void)setLogging:(BOOL)logging {
+    _logging = logging;
+
+    // Enables the touched log of the receiver.
+    self.userInteractionEnabled = logging;
+}
+
 - (void)setTouchableExtension:(UIEdgeInsets)touchableExtension {
     self.touchableExtensionLeft = touchableExtension.left;
     self.touchableExtensionTop = touchableExtension.top;
