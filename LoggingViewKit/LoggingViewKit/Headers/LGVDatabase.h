@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class LGVLog;
 
 @protocol LGVDatabase <NSObject>
+@required
 /**
  * Adds given log to the database.
  *
@@ -20,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
  * @return YES if success, otherwise NO
  */
 - (BOOL)addLog:(LGVLog *)log;
+
+@optional
 /**
  * Reads all logs in the database.
  */
