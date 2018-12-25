@@ -113,30 +113,19 @@ static LGVLoggingViewService *_loggingViewService = nil;
             log.absoluteClickX = absolutePoint.x;
             log.absoluteClickY = absolutePoint.y;
 
-            NSMutableDictionary *info = @{
-                @"clickX": @(point.x),
-                @"clickY": @(point.y),
-                @"absoluteClickX": @(absolutePoint.x),
-                @"absoluteClickY": @(absolutePoint.y),
-            }.mutableCopy;
-
             if ([view isKindOfClass:[UISegmentedControl class]]) {
                 // New value, because occurred at touchesEnded event.
                 log.info[@"newValue"] = @(((UISegmentedControl *) view).selectedSegmentIndex);
-                info[@"newValue"] = @(((UISegmentedControl *) view).selectedSegmentIndex);
             }
             else if ([view isKindOfClass:[UISlider class]]) {
                 // Old value, because occurred at touchesBegan event.
                 log.info[@"oldValue"] = @(((UISlider *) view).value);
-                info[@"oldValue"] = @(((UISlider *) view).value);
             }
             else if ([view isKindOfClass:[UIStepper class]]) {
                 log.info[@"newValue"] = @(((UIStepper *) view).value);
-                info[@"newValue"] = @(((UIStepper *) view).value);
             }
             else if ([view isKindOfClass:[UISwitch class]]) {
                 log.info[@"oldValue"] = @(((UISwitch *) view).on);
-                info[@"oldValue"] = @(((UISwitch *) view).on);
             }
 
             if ([self.delegate respondsToSelector:@selector(loggingViewService:willSaveLog:ofView:withEvent:)]) {

@@ -116,3 +116,22 @@ pod "LoggingViewKit"
 
 More info, see my [sample project](https://github.com/HituziANDO/LoggingViewKit/tree/master/Sample).
 
+## Sample Log
+
+LoggingViewKit records the following log.
+
+```
+{
+    ID = 47;
+    absoluteClickX = "124.3333282470703";
+    absoluteClickY = "189.6666564941406";
+    clickX = "108.3333282470703";
+    clickY = "145.6666564941406";
+    createdAt = "2018-12-25 23:02:13 +0000";
+    info =     {
+        newValue = 2;
+    };
+    key = "7F34859D-2164-4B4B-B896-EA9D3D826C92";
+    name = SampleSegmentedControl;
+}
+```

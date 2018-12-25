@@ -90,7 +90,7 @@
         log.clickX = [results doubleForColumn:@"click_x"];
         log.clickY = [results doubleForColumn:@"click_y"];
         log.absoluteClickX = [results doubleForColumn:@"absolute_click_x"];
-        log.absoluteClickY = [results doubleForColumn:@"absolute_click_x"];
+        log.absoluteClickY = [results doubleForColumn:@"absolute_click_y"];
         log.info = [self deserialize:[results stringForColumn:@"info"]].mutableCopy;
         [logs addObject:log];
     }
@@ -123,7 +123,7 @@
         log.clickX = [results doubleForColumn:@"click_x"];
         log.clickY = [results doubleForColumn:@"click_y"];
         log.absoluteClickX = [results doubleForColumn:@"absolute_click_x"];
-        log.absoluteClickY = [results doubleForColumn:@"absolute_click_x"];
+        log.absoluteClickY = [results doubleForColumn:@"absolute_click_y"];
         log.info = [self deserialize:[results stringForColumn:@"info"]].mutableCopy;
     }
 
