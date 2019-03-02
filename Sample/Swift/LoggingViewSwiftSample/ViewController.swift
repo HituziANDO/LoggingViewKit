@@ -67,8 +67,5 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
                             with event: UIEvent?,
                             error: LGVError?) {
 
-        if let loggingName = view.loggingName() {
-            print("\(loggingName)\n\(log)\n\(event)\n\(error)")
-        }
     }
 }

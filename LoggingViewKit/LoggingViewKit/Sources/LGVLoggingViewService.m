@@ -135,7 +135,7 @@ static LGVLoggingViewService *_loggingViewService = nil;
             LGVError *error = nil;
 
             if (![self.defaultDatabase addLog:log]) {
-                error = [LGVError errorWithMessage:@"Failed to add the log into the database"];
+                error = [LGVError errorWithMessage:@"Failed to add a log into the database"];
             }
 
             LGVLog *savedLog = log;
@@ -145,8 +145,16 @@ static LGVLoggingViewService *_loggingViewService = nil;
                 savedLog = [self.defaultDatabase logByKey:log.key];
             }
 
+            if (self.isOutputToConsoleInRealTime) {
+                NSLog(@"[%@] %@", NSStringFromClass([self class]), error ? error.description : savedLog.description);
+            }
+
             if ([self.delegate respondsToSelector:@selector(loggingViewService:didSaveLog:ofView:withEvent:error:)]) {
-                [self.delegate loggingViewService:self didSaveLog:savedLog ofView:loggingView withEvent:event error:error];
+                [self.delegate loggingViewService:self
+                                       didSaveLog:savedLog
+                                           ofView:loggingView
+                                        withEvent:event
+                                            error:error];
             }
         });
     }

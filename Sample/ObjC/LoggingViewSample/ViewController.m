@@ -70,7 +70,6 @@
                  withEvent:(nullable UIEvent *)event
                      error:(nullable LGVError *)error {
 
-    NSLog(@"%@\n%@\n%@\n%@", view.loggingName, log, event, error);
 }
 
 @end

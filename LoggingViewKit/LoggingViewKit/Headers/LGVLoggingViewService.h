@@ -81,6 +81,10 @@ UIKIT_EXTERN NSString *const LGVErrorDomain;
  *
  */
 @property (nonatomic, nullable) id <LGVDatabase> database;
+/**
+ * Tells whether the service outputs a log to Xcode console in real time.
+ */
+@property (nonatomic, getter=isOutputToConsoleInRealTime) BOOL outputToConsoleInRealTime;
 
 /**
  *
