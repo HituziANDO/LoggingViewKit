@@ -42,19 +42,19 @@ UIKIT_EXTERN NSString *const LGVErrorDomain;
 /**
  *
  * @param service The service object
- * @param log The log of occurred event
- * @param view The target view
+ * @param log A log of occurred event
+ * @param view A target view
  * @param event Occurred event
  */
 - (void)loggingViewService:(LGVLoggingViewService *)service
                willSaveLog:(LGVLog *)log
                     ofView:(id <LGVLogging>)view
-                 withEvent:(nullable UIEvent *)event;
+                 withEvent:(nullable UIEvent *)event NS_SWIFT_NAME(loggingViewService(_:willSave:of:with:));
 /**
  *
  * @param service The service object
- * @param log The saved log
- * @param view The target view
+ * @param log A saved log
+ * @param view A target view
  * @param event Occurred event
  * @param error nil if success, otherwise error object
  */
@@ -62,7 +62,7 @@ UIKIT_EXTERN NSString *const LGVErrorDomain;
                 didSaveLog:(LGVLog *)log
                     ofView:(id <LGVLogging>)view
                  withEvent:(nullable UIEvent *)event
-                     error:(nullable LGVError *)error;
+                     error:(nullable LGVError *)error NS_SWIFT_NAME(loggingViewService(_:didSave:of:with:error:));
 
 @end
 
@@ -78,7 +78,7 @@ UIKIT_EXTERN NSString *const LGVErrorDomain;
  */
 @property (nonatomic, weak, nullable) id <LGVLoggingViewServiceDelegate> delegate;
 /**
- *
+ * The service saves logs to given database.
  */
 @property (nonatomic, nullable) id <LGVDatabase> database;
 /**

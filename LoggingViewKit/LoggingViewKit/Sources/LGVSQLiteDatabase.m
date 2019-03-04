@@ -176,28 +176,26 @@
 }
 
 - (NSString *)serialize:(NSDictionary *)dict {
-    NSString *str = @"";
-
     if ([NSJSONSerialization isValidJSONObject:dict]) {
         NSError *error = nil;
         NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
 
         if (!error) {
-            str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         }
     }
 
-    return str;
+    return @"";
 }
 
 - (NSDictionary *)deserialize:(NSString *)string {
     NSError *error = nil;
-    NSDictionary *logInfo = [NSJSONSerialization JSONObjectWithData:[string dataUsingEncoding:NSUTF8StringEncoding]
-                                                            options:NSJSONReadingAllowFragments
-                                                              error:&error];
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[string dataUsingEncoding:NSUTF8StringEncoding]
+                                                         options:NSJSONReadingAllowFragments
+                                                           error:&error];
 
     if (!error) {
-        return logInfo;
+        return dict;
     }
 
     return @{};

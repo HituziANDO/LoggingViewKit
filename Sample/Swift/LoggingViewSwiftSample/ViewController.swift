@@ -56,14 +56,14 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
 
     func loggingViewService(_ service: LGVLoggingViewService,
                             willSave log: LGVLog,
-                            ofView view: LGVLogging,
+                            of view: LGVLogging,
                             with event: UIEvent?) {
 
     }
 
     func loggingViewService(_ service: LGVLoggingViewService,
                             didSave log: LGVLog,
-                            ofView view: LGVLogging,
+                            of view: LGVLogging,
                             with event: UIEvent?,
                             error: LGVError?) {
 
