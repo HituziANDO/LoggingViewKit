@@ -40,6 +40,9 @@
     [super viewDidLoad];
 
     [LGVLoggingViewService sharedService].delegate = self;
+
+    // Deletes all logs.
+//    [[LGVLoggingViewService sharedService] deleteAllLogs];
 }
 
 #pragma mark - IBAction

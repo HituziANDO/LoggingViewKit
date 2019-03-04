@@ -34,6 +34,9 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
         super.viewDidLoad()
 
         LGVLoggingViewService.shared().delegate = self
+
+        // Deletes all logs.
+//        LGVLoggingViewService.shared().deleteAllLogs()
     }
 
     // MARK: - IBAction

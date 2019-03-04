@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "LoggingViewKit"
-  s.version      = "0.1.4"
+  s.version      = "0.2.0"
   s.summary      = "LoggingViewKit is simple view logging library."
 
   # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-  LoggingViewKit is the library for recording which view the user touched.
+  LoggingViewKit is a library for recording which view a user touched.
                    DESC
 
   s.homepage     = "https://github.com/HituziANDO/LoggingViewKit"

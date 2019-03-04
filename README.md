@@ -1,6 +1,6 @@
 # LoggingViewKit
 
-***LoggingViewKit is the library for recording which view the user touched.***
+***LoggingViewKit is a library for recording which view a user touched.***
 
 ## Include in your iOS app
 
@@ -15,9 +15,9 @@ pod "LoggingViewKit"
 
 ### Manual Installation
 
-1. Download latest [LoggingViewKit](https://github.com/HituziANDO/LoggingViewKit/releases)
-1. Drag & Drop LoggingViewKit.framework into your Xcode project
-1. Add `-all_load` to Build Settings > Linking > Other Linker Flags
+1. Downloads latest [LoggingViewKit](https://github.com/HituziANDO/LoggingViewKit/releases)
+1. Drags & Drops LoggingViewKit.framework into your Xcode project
+1. Adds `-all_load` to Build Settings > Linking > Other Linker Flags
 
 ## Supported View
 
@@ -29,23 +29,23 @@ pod "LoggingViewKit"
 - Switch
 - View
 
-## Usage
+## Quick Usage
 
-1. Set LGV UI class in the storyboard
+1. Sets LGV UI class in the storyboard
 
 	![screenshot1](./README/images/screenshot1.png)
 	
-1. Set arbitrary name to loggingName
+1. Sets arbitrary name to loggingName
 
 	![screenshot2](./README/images/screenshot2.png)
 	
 	**[NOTE]** Recommend setting a unique name.
 	
-1. Select On to record the view
+1. Selects `On` to record the view
 	
-	**[NOTE]** If select Off or Default, the view is not target to record.
+	**[NOTE]** If selects `Off` or `Default`, the view is not target to record.
 
-1. Start recording
+1. Starts recording
 
 	**Objective-C**
 	
@@ -86,7 +86,7 @@ pod "LoggingViewKit"
 	}
 	```
 
-5. Stop recording
+5. Stops recording
 
 	**Objective-C**
 	
@@ -100,7 +100,7 @@ pod "LoggingViewKit"
 	LGVLoggingViewService.shared().stopRecording()
 	```
 	
-6. Read logs
+6. Reads all logs
 
 	**Objective-C**
 	
@@ -112,6 +112,20 @@ pod "LoggingViewKit"
 	
 	```swift
 	let logs = LGVLoggingViewService.shared().allLogs()
+	```
+	
+7. Deletes all logs
+	
+	**Objective-C**
+	
+	```objc
+	[[LGVLoggingViewService sharedService] deleteAllLogs];
+	```
+	
+	**Swift**
+	
+	```swift
+	LGVLoggingViewService.shared().deleteAllLogs()
 	```
 
 More info, see my [sample project](https://github.com/HituziANDO/LoggingViewKit/tree/master/Sample).
