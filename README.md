@@ -15,9 +15,9 @@ pod "LoggingViewKit"
 
 ### Manual Installation
 
-1. Downloads latest [LoggingViewKit](https://github.com/HituziANDO/LoggingViewKit/releases)
-1. Drags & Drops LoggingViewKit.framework into your Xcode project
-1. Adds `-all_load` to Build Settings > Linking > Other Linker Flags
+1. Download latest [LoggingViewKit](https://github.com/HituziANDO/LoggingViewKit/releases)
+1. Drag & Drop LoggingViewKit.framework into your Xcode project
+1. Add `-all_load` to Build Settings > Linking > Other Linker Flags
 
 ## Supported View
 
@@ -31,44 +31,39 @@ pod "LoggingViewKit"
 
 ## Quick Usage
 
-1. Sets LGV UI class in the storyboard
+1. Set LGV UI class in the storyboard
 
 	![screenshot1](./README/images/screenshot1.png)
 	
-1. Sets arbitrary name to loggingName
+1. Set arbitrary name to loggingName
 
 	![screenshot2](./README/images/screenshot2.png)
 	
 	**[NOTE]** Recommend setting a unique name.
 	
-1. Selects `On` to record the view
+1. Select `On` to record the view
 	
-	**[NOTE]** If selects `Off` or `Default`, the view is not target to record.
+	**[NOTE]** If you select `Off` or `Default`, the view is not target to record.
 
-1. Starts recording
-
-	**Objective-C**
-	
-	```objc
-	#import <LoggingViewKit/LoggingViewKit.h>
-	
-	...
-	
-	@implementation AppDelegate
-	
-	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-		
-		[[LGVLoggingViewService sharedService] startRecording];
-		
-		return YES;
-	}
-	```	
+1. Import framework
 	
 	**Swift**
 	
 	```swift
 	import LoggingViewKit
+	```
 	
+	**Objective-C**
+	
+	```objc
+	#import <LoggingViewKit/LoggingViewKit.h>
+	```
+
+1. Start recording
+	
+	**Swift**
+	
+	```swift	
 	@UIApplicationMain
 	class AppDelegate: UIResponder, UIApplicationDelegate {
 	
@@ -85,14 +80,21 @@ pod "LoggingViewKit"
 		
 	}
 	```
-
-5. Stops recording
-
+	
 	**Objective-C**
 	
-	```objc
-	[[LGVLoggingViewService sharedService] stopRecording];
-	```
+	```objc	
+	@implementation AppDelegate
+	
+	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+		
+		[[LGVLoggingViewService sharedService] startRecording];
+		
+		return YES;
+	}
+	```	
+
+5. Stop recording
 	
 	**Swift**
 	
@@ -100,13 +102,13 @@ pod "LoggingViewKit"
 	LGVLoggingViewService.shared().stopRecording()
 	```
 	
-6. Reads all logs
-
 	**Objective-C**
 	
 	```objc
-	NSArray<LGVLog *> *logs = [[LGVLoggingViewService sharedService] allLogs];
+	[[LGVLoggingViewService sharedService] stopRecording];
 	```
+
+6. Read all logs
 	
 	**Swift**
 	
@@ -114,18 +116,24 @@ pod "LoggingViewKit"
 	let logs = LGVLoggingViewService.shared().allLogs()
 	```
 	
-7. Deletes all logs
-	
 	**Objective-C**
 	
 	```objc
-	[[LGVLoggingViewService sharedService] deleteAllLogs];
+	NSArray<LGVLog *> *logs = [[LGVLoggingViewService sharedService] allLogs];
 	```
+
+7. Delete all logs
 	
 	**Swift**
 	
 	```swift
 	LGVLoggingViewService.shared().deleteAllLogs()
+	```
+	
+	**Objective-C**
+	
+	```objc
+	[[LGVLoggingViewService sharedService] deleteAllLogs];
 	```
 
 More info, see my [sample project](https://github.com/HituziANDO/LoggingViewKit/tree/master/Sample).
@@ -147,5 +155,73 @@ LoggingViewKit records the following log.
     };
     key = "7F34859D-2164-4B4B-B896-EA9D3D826C92";
     name = SampleSegmentedControl;
+}
+```
+
+## Utility
+
+### Dump View Hierarchy
+
+LoggingViewKit can dump the hierarchy of specified view to Xcode console. The sample log is following.
+
+```
+2019-04-02 11:09:32.554393+0900 LoggingViewSwiftSample[93096:18885986] ===LGVUtility ViewHierarchy===
+UIView
+  LGVView
+    LGVButton
+    LGVSwitch
+      UISwitchModernVisualElement
+        UIView
+          UIView
+        UIView
+          UIView
+        UIView
+          UIImageView
+          UIImageView
+        UIImageView
+    LGVSegmentedControl
+      UISegment
+        UISegmentLabel
+        UIImageView
+      UISegment
+        UISegmentLabel
+        UIImageView
+      UISegment
+        UISegmentLabel
+        UIImageView
+      UISegment
+        UISegmentLabel
+        UIImageView
+    LGVStepper
+      _UIStepperButton
+      _UIStepperButton
+      UIImageView
+    LGVLabel
+    LGVView
+      LGVButton
+    LGVSlider
+```
+
+#### Usage
+
+**Swift**
+
+```swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+
+    // Dumps hierarchy of the root view.
+    LGVUtility.printViewHierarchy(view)
+}
+```
+
+**Objective-C**
+
+```objc
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    // Dumps the hierarchy of the root view.
+    [LGVUtility printViewHierarchy:self.view];
 }
 ```
