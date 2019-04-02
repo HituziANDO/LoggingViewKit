@@ -165,11 +165,11 @@ LoggingViewKit records the following log.
 LoggingViewKit can dump the hierarchy of specified view to Xcode console. The sample log is following.
 
 ```
-2019-04-02 11:09:32.554393+0900 LoggingViewSwiftSample[93096:18885986] ===LGVUtility ViewHierarchy===
+2019-04-02 12:11:59.876292+0900 LoggingViewSwiftSample[8616:19026371] ===LGVUtility ViewHierarchy===
 UIView
-  LGVView
-    LGVButton
-    LGVSwitch
+  LGVView(loggingName: (null))
+    LGVButton(loggingName: SampleButton)
+    LGVSwitch(loggingName: SampleSwitch)
       UISwitchModernVisualElement
         UIView
           UIView
@@ -179,7 +179,7 @@ UIView
           UIImageView
           UIImageView
         UIImageView
-    LGVSegmentedControl
+    LGVSegmentedControl(loggingName: SampleSegmentedControl)
       UISegment
         UISegmentLabel
         UIImageView
@@ -192,14 +192,14 @@ UIView
       UISegment
         UISegmentLabel
         UIImageView
-    LGVStepper
+    LGVStepper(loggingName: SampleStepper)
       _UIStepperButton
       _UIStepperButton
       UIImageView
-    LGVLabel
-    LGVView
-      LGVButton
-    LGVSlider
+    LGVLabel(loggingName: SampleLabel)
+    LGVView(loggingName: SampleView)
+      LGVButton(loggingName: TestButton)
+    LGVSlider(loggingName: SampleSlider)
 ```
 
 #### Usage

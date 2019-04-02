@@ -33,7 +33,16 @@ void LGVGetViewHierarchy(UIView *view, NSInteger depth, NSMutableArray *hierarch
         [indent appendString:@"  "];
     }
 
-    [hierarchy addObject:[NSString stringWithFormat:@"%@%@", indent, NSStringFromClass(view.class)]];
+    NSMutableString *item = [NSMutableString stringWithFormat:@"%@%@", indent, NSStringFromClass(view.class)];
+
+    if ([view respondsToSelector:NSSelectorFromString(@"loggingName")]) {
+        SEL sel = NSSelectorFromString(@"loggingName");
+        IMP imp = [view methodForSelector:sel];
+        NSString *(*func)(id, SEL) = (void *) imp;
+        [item appendFormat:@"(loggingName: %@)", func(view, sel)];
+    }
+
+    [hierarchy addObject:item];
 
     if (view.subviews.count > 0) {
         for (UIView *v in view.subviews) {
