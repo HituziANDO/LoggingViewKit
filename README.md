@@ -217,7 +217,7 @@ override func viewDidLoad() {
 }
 ```
 
-**[NOTE]** Recommend that you enclose with `#if DEBUG ~ #endif`. Then LoggingViewLit dumps logs only in Debug build.
+**[NOTE]** Recommend that you enclose with `#if DEBUG ~ #endif`. Then LoggingViewKit dumps logs only in Debug build.
 
 **How to Enable DEBUG Flag:**
 
@@ -237,4 +237,4 @@ override func viewDidLoad() {
 }
 ```
 
-**[NOTE]** Recommend that you enclose with `#ifdef DEBUG ~ #endif`. Then LoggingViewLit dumps logs only in Debug build.
+**[NOTE]** Recommend that you enclose with `#ifdef DEBUG ~ #endif`. Then LoggingViewKit dumps logs only in Debug build.
