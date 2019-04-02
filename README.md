@@ -210,10 +210,19 @@ UIView
 override func viewDidLoad() {
     super.viewDidLoad()
 
+    #if DEBUG
     // Dumps hierarchy of the root view.
     LGVUtility.printViewHierarchy(view)
+    #endif
 }
 ```
+
+**[NOTE]** Recommend that you enclose with `#if DEBUG ~ #endif`. Then LoggingViewLit dumps logs only in Debug build.
+
+**How to Enable DEBUG Flag:**
+
+1. Open Build Settings > Swift Compiler - Custom Flags > Other Swift Flags section
+1. Add `-DDEBUG` flag to Debug row
 
 **Objective-C**
 
@@ -221,7 +230,11 @@ override func viewDidLoad() {
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+#ifdef DEBUG
     // Dumps the hierarchy of the root view.
     [LGVUtility printViewHierarchy:self.view];
+#endif
 }
 ```
+
+**[NOTE]** Recommend that you enclose with `#ifdef DEBUG ~ #endif`. Then LoggingViewLit dumps logs only in Debug build.

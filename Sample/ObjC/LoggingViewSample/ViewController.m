@@ -44,8 +44,10 @@
     // Deletes all logs.
 //    [[LGVLoggingViewService sharedService] deleteAllLogs];
 
+#ifdef DEBUG
     // Dumps the hierarchy of the root view.
     [LGVUtility printViewHierarchy:self.view];
+#endif
 }
 
 #pragma mark - IBAction
