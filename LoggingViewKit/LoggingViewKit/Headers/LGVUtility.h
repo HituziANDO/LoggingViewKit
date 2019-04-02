@@ -24,20 +24,20 @@
 //  SOFTWARE.
 //
 
-#import "LGVFMDB.h"
+#import <UIKit/UIKit.h>
 
-#import "LGVButton.h"
-#import "LGVDatabase.h"
-#import "LGVLabel.h"
-#import "LGVLog.h"
-#import "LGVLogging.h"
-#import "LGVLoggingViewService.h"
-#import "LGVSegmentedControl.h"
-#import "LGVSlider.h"
-#import "LGVSQLiteDatabase.h"
-#import "LGVStepper.h"
-#import "LGVSwitch.h"
-#import "LGVTextField.h"
-#import "LGVTextView.h"
-#import "LGVUtility.h"
-#import "LGVView.h"
+NS_ASSUME_NONNULL_BEGIN
+
+UIKIT_EXTERN void LGVGetViewHierarchy(UIView *view, NSInteger depth, NSMutableArray *hierarchy);
+
+@interface LGVUtility : NSObject
+/**
+ * Prints hierarchy of given view to Xcode console.
+ *
+ * @param view A view
+ */
++ (void)printViewHierarchy:(UIView *)view;
+
+@end
+
+NS_ASSUME_NONNULL_END

@@ -24,20 +24,31 @@
 //  SOFTWARE.
 //
 
-#import "LGVFMDB.h"
-
-#import "LGVButton.h"
-#import "LGVDatabase.h"
-#import "LGVLabel.h"
-#import "LGVLog.h"
-#import "LGVLogging.h"
-#import "LGVLoggingViewService.h"
-#import "LGVSegmentedControl.h"
-#import "LGVSlider.h"
-#import "LGVSQLiteDatabase.h"
-#import "LGVStepper.h"
-#import "LGVSwitch.h"
-#import "LGVTextField.h"
-#import "LGVTextView.h"
 #import "LGVUtility.h"
-#import "LGVView.h"
+
+void LGVGetViewHierarchy(UIView *view, NSInteger depth, NSMutableArray *hierarchy) {
+    NSMutableString *indent = [NSMutableString new];
+
+    for (NSInteger i = 0; i < depth; i++) {
+        [indent appendString:@"  "];
+    }
+
+    [hierarchy addObject:[NSString stringWithFormat:@"%@%@", indent, NSStringFromClass(view.class)]];
+
+    if (view.subviews.count > 0) {
+        for (UIView *v in view.subviews) {
+            LGVGetViewHierarchy(v, depth + 1, hierarchy);
+        }
+    }
+}
+
+@implementation LGVUtility
+
++ (void)printViewHierarchy:(UIView *)view {
+    NSMutableArray *hierarchy = [NSMutableArray new];
+    LGVGetViewHierarchy(view, 0, hierarchy);
+    NSString *str = [hierarchy componentsJoinedByString:@"\n"];
+    NSLog(@"===%@ ViewHierarchy===\n%@", NSStringFromClass(self.class), str);
+}
+
+@end
