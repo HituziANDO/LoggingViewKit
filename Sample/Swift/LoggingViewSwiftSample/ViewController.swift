@@ -37,6 +37,9 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
 
         // Deletes all logs.
 //        LGVLoggingViewService.shared().deleteAllLogs()
+
+        // Dumps hierarchy of the root view.
+        LGVUtility.printViewHierarchy(view)
     }
 
     // MARK: - IBAction
