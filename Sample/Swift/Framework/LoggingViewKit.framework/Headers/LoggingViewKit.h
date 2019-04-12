@@ -24,7 +24,7 @@
 //  SOFTWARE.
 //
 
-#import "LGVFMDB.h"
+#import "FMDB/LGVFMDB.h"
 
 #import "LGVButton.h"
 #import "LGVDatabase.h"
@@ -39,5 +39,6 @@
 #import "LGVSwitch.h"
 #import "LGVTextField.h"
 #import "LGVTextView.h"
+#import "LGVTouching.h"
 #import "LGVUtility.h"
 #import "LGVView.h"

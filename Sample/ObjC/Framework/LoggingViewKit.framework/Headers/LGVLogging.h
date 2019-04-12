@@ -26,9 +26,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "LGVTouching.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol LGVLogging <NSObject>
+@protocol LGVLogging <LGVTouching>
 /**
  * The name to identify the view.
  */
@@ -37,14 +39,6 @@ NS_ASSUME_NONNULL_BEGIN
  * True if logging is enabled, otherwise false.
  */
 - (BOOL)isLogging;
-/**
- * Touchable bounds.
- */
-- (CGRect)touchableBounds;
-/**
- * Touchable frame.
- */
-- (CGRect)touchableFrame;
 
 @end
 

@@ -107,6 +107,7 @@
 		5E569BCF21C9BA0C00102FCF /* LGVDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVDatabase.h; sourceTree = "<group>"; };
 		5E7D751D2252F3E700EE3292 /* LGVUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVUtility.h; sourceTree = "<group>"; };
 		5E7D751E2252F3E700EE3292 /* LGVUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVUtility.m; sourceTree = "<group>"; };
+		5E94C7A52260D90700081E19 /* LGVTouching.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVTouching.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,14 +150,9 @@
 		5E2B201621C06D7100661170 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				5E94C7A02260D20E00081E19 /* FMDB */,
 				19E59C0292C650ECE333DFBA /* LGVButton.h */,
 				5E569BCF21C9BA0C00102FCF /* LGVDatabase.h */,
-				5E569BB121C69D3C00102FCF /* LGVFMDatabase.h */,
-				5E569BB821C69D3C00102FCF /* LGVFMDatabaseAdditions.h */,
-				5E569BB021C69D3C00102FCF /* LGVFMDatabasePool.h */,
-				5E569BAF21C69D3C00102FCF /* LGVFMDatabaseQueue.h */,
-				5E569BB221C69D3C00102FCF /* LGVFMDB.h */,
-				5E569BB321C69D3C00102FCF /* LGVFMResultSet.h */,
 				5E3DD57E21C52F73004A7BF2 /* LGVLabel.h */,
 				5E569BC921C9413400102FCF /* LGVLog.h */,
 				5E3DD57D21C321F7004A7BF2 /* LGVLogging.h */,
@@ -168,6 +164,7 @@
 				19E5963785132401E8B6C0F3 /* LGVSwitch.h */,
 				5E3DD58421C5353E004A7BF2 /* LGVTextField.h */,
 				5E3DD58121C5352A004A7BF2 /* LGVTextView.h */,
+				5E94C7A52260D90700081E19 /* LGVTouching.h */,
 				5E7D751D2252F3E700EE3292 /* LGVUtility.h */,
 				5E3DD57A21C31B94004A7BF2 /* LGVView.h */,
 				5E2B1FCF21C0203300661170 /* LoggingViewKit.h */,
@@ -212,6 +209,19 @@
 				5E569BB721C69D3C00102FCF /* LGVFMDatabasePool.m */,
 				5E569BB521C69D3C00102FCF /* LGVFMDatabaseQueue.m */,
 				5E569BB421C69D3C00102FCF /* LGVFMResultSet.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		5E94C7A02260D20E00081E19 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				5E569BB121C69D3C00102FCF /* LGVFMDatabase.h */,
+				5E569BB821C69D3C00102FCF /* LGVFMDatabaseAdditions.h */,
+				5E569BB021C69D3C00102FCF /* LGVFMDatabasePool.h */,
+				5E569BAF21C69D3C00102FCF /* LGVFMDatabaseQueue.h */,
+				5E569BB221C69D3C00102FCF /* LGVFMDB.h */,
+				5E569BB321C69D3C00102FCF /* LGVFMResultSet.h */,
 			);
 			path = FMDB;
 			sourceTree = "<group>";
