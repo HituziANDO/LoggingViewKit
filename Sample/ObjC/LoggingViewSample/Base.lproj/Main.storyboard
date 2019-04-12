@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -104,6 +104,18 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="loggingName" value="SampleSlider"/>
                                         </userDefinedRuntimeAttributes>
                                     </slider>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sample" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hq-p1-sVL" customClass="LGVTextField">
+                                        <rect key="frame" x="8" y="376" width="327" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingX">
+                                                <real key="value" value="32"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="loggingName" value="SampleTextField"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
@@ -114,12 +126,15 @@
                                     <constraint firstItem="Y23-a0-VvY" firstAttribute="centerY" secondItem="qUj-M0-Ean" secondAttribute="centerY" id="TLl-tt-b2a"/>
                                     <constraint firstItem="wzz-sa-dhs" firstAttribute="leading" secondItem="sS2-uV-FS8" secondAttribute="trailing" constant="56" id="WB7-HL-kRZ"/>
                                     <constraint firstItem="qUj-M0-Ean" firstAttribute="top" secondItem="sS2-uV-FS8" secondAttribute="bottom" constant="32" id="WW7-vp-mog"/>
+                                    <constraint firstItem="9hq-p1-sVL" firstAttribute="top" secondItem="Gon-yM-1QS" secondAttribute="bottom" constant="20" id="YFM-jz-q3x"/>
                                     <constraint firstItem="sS2-uV-FS8" firstAttribute="top" secondItem="dxz-m7-FU8" secondAttribute="top" constant="8" id="bsL-X4-Qm1"/>
                                     <constraint firstItem="sS2-uV-FS8" firstAttribute="leading" secondItem="dxz-m7-FU8" secondAttribute="leading" constant="8" id="cWb-8E-qf5"/>
                                     <constraint firstItem="ImI-eS-gWf" firstAttribute="centerX" secondItem="dxz-m7-FU8" secondAttribute="centerX" id="f51-vs-vGW"/>
                                     <constraint firstItem="Gon-yM-1QS" firstAttribute="top" secondItem="ImI-eS-gWf" secondAttribute="bottom" constant="8" id="fS5-p4-1Na"/>
                                     <constraint firstItem="RQ1-Tm-XT7" firstAttribute="leading" secondItem="dxz-m7-FU8" secondAttribute="leading" constant="8" id="lQl-Jy-DPL"/>
                                     <constraint firstItem="Gon-yM-1QS" firstAttribute="centerX" secondItem="dxz-m7-FU8" secondAttribute="centerX" id="mG6-oQ-dpJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="9hq-p1-sVL" secondAttribute="trailing" constant="8" id="sjT-pL-pEw"/>
+                                    <constraint firstItem="9hq-p1-sVL" firstAttribute="leading" secondItem="dxz-m7-FU8" secondAttribute="leading" constant="8" id="w20-zU-7Wm"/>
                                     <constraint firstItem="Y23-a0-VvY" firstAttribute="leading" secondItem="qUj-M0-Ean" secondAttribute="trailing" constant="13" id="yrO-vq-zYj"/>
                                 </constraints>
                             </view>

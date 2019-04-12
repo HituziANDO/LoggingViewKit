@@ -30,6 +30,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// NOTE: The touch event logging is not working.
 @interface LGVTextField : UITextField <LGVLogging>
 /**
 * The name to identify the view.
@@ -70,6 +71,12 @@ NS_ASSUME_NONNULL_BEGIN
  * Touchable frame.
  */
 @property (nonatomic, readonly) CGRect touchableFrame;
+/**
+ * Left and right padding.
+ *
+ * |<- paddingX ->| Text |<- paddingX ->|
+ */
+@property (nonatomic) IBInspectable CGFloat paddingX;
 
 @end
 

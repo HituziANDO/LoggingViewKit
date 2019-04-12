@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o8V-vK-s9L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o8V-vK-s9L">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -103,17 +104,32 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="loggingName" value="SampleSlider"/>
                                         </userDefinedRuntimeAttributes>
                                     </slider>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sample" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="agS-WP-Vt8" customClass="LGVTextField">
+                                        <rect key="frame" x="8" y="376" width="327" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="loggingName" value="SampleTextField"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingX">
+                                                <real key="value" value="32"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="30z-bG-SPT" firstAttribute="top" secondItem="Z25-DE-i3J" secondAttribute="bottom" constant="32" id="18h-js-J66"/>
                                     <constraint firstItem="Z25-DE-i3J" firstAttribute="leading" secondItem="reh-kb-0Ir" secondAttribute="leading" constant="8" id="7Yh-dJ-7Wk"/>
+                                    <constraint firstAttribute="trailing" secondItem="agS-WP-Vt8" secondAttribute="trailing" constant="8" id="ASs-1s-1PU"/>
                                     <constraint firstItem="7Xn-2l-aSb" firstAttribute="leading" secondItem="reh-kb-0Ir" secondAttribute="leading" constant="8" id="E7O-Tr-ieb"/>
                                     <constraint firstItem="Tpt-vM-wJh" firstAttribute="leading" secondItem="Z25-DE-i3J" secondAttribute="trailing" constant="13" id="IeT-KS-688"/>
                                     <constraint firstItem="30z-bG-SPT" firstAttribute="leading" secondItem="reh-kb-0Ir" secondAttribute="leading" constant="8" id="KWI-iy-7Il"/>
                                     <constraint firstItem="Z25-DE-i3J" firstAttribute="top" secondItem="7Xn-2l-aSb" secondAttribute="bottom" constant="32" id="NWc-E9-wm4"/>
+                                    <constraint firstItem="agS-WP-Vt8" firstAttribute="top" secondItem="i4m-tf-e5E" secondAttribute="bottom" constant="20" id="Y4d-x2-oKu"/>
                                     <constraint firstItem="Tpt-vM-wJh" firstAttribute="centerY" secondItem="Z25-DE-i3J" secondAttribute="centerY" id="YPe-j8-pVq"/>
                                     <constraint firstItem="i4m-tf-e5E" firstAttribute="top" secondItem="xXi-63-gF6" secondAttribute="bottom" constant="8" id="bRR-dm-c4r"/>
+                                    <constraint firstItem="agS-WP-Vt8" firstAttribute="leading" secondItem="reh-kb-0Ir" secondAttribute="leading" constant="8" id="ew2-Do-tP0"/>
                                     <constraint firstItem="knp-OQ-dLs" firstAttribute="centerY" secondItem="7Xn-2l-aSb" secondAttribute="centerY" id="pWk-47-FDh"/>
                                     <constraint firstItem="xXi-63-gF6" firstAttribute="centerX" secondItem="reh-kb-0Ir" secondAttribute="centerX" id="r2w-5c-Egr"/>
                                     <constraint firstItem="7Xn-2l-aSb" firstAttribute="top" secondItem="reh-kb-0Ir" secondAttribute="top" constant="8" id="rnv-tE-eF1"/>
@@ -139,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AH8-Mk-prM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-108" y="254"/>
+            <point key="canvasLocation" x="-108" y="253.2233883058471"/>
         </scene>
     </scenes>
 </document>

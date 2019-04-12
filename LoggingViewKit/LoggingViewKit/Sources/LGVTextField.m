@@ -75,4 +75,19 @@
     [super touchesEnded:touches withEvent:event];
 }
 
+- (CGRect)textRectForBounds:(CGRect)bounds {
+    CGRect rect = CGRectInset(bounds, self.paddingX, 0);
+    return rect.origin.x > bounds.origin.x ? rect : [super textRectForBounds:bounds];
+}
+
+- (CGRect)placeholderRectForBounds:(CGRect)bounds {
+    CGRect rect = CGRectInset(bounds, self.paddingX, 0);
+    return rect.origin.x > bounds.origin.x ? rect : [super placeholderRectForBounds:bounds];
+}
+
+- (CGRect)editingRectForBounds:(CGRect)bounds {
+    CGRect rect = CGRectInset(bounds, self.paddingX, 0);
+    return rect.origin.x > bounds.origin.x ? rect : [super editingRectForBounds:bounds];
+}
+
 @end
