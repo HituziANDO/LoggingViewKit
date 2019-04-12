@@ -69,6 +69,7 @@
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    // NOTE: The touch event logging is not working.
     [[LGVLoggingViewService sharedService] loggingView:self touchesEnded:touches withEvent:event];
 
     [super touchesEnded:touches withEvent:event];
