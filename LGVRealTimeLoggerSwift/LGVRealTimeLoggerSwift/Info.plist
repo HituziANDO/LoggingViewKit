@@ -3,26 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>English</string>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
-	<string>LoggingViewKit</string>
-	<key>CFBundleGetInfoString</key>
-	<string>LoggingViewKit</string>
+	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>jp.hituzi.LoggingViewKit</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>LoggingViewKit</string>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.3.0-beta</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
+	<string>0.2.4</string>
 	<key>CFBundleVersion</key>
-	<string>0.3.0-beta</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright Hituzi Ando. All rights reserved.</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 </dict>
 </plist>

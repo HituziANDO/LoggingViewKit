@@ -1,0 +1,11 @@
+framework module LGVRealTimeLoggerSwift {
+  umbrella header "LGVRealTimeLoggerSwift.h"
+
+  export *
+  module * { export * }
+}
+
+module LGVRealTimeLoggerSwift.Swift {
+    header "LGVRealTimeLoggerSwift-Swift.h"
+    requires objc
+}

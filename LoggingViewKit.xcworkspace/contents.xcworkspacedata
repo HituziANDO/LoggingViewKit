@@ -4,6 +4,9 @@
    <FileRef
       location = "group:LoggingViewKit/LoggingViewKit.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:LGVRealTimeLoggerSwift/LGVRealTimeLoggerSwift.xcodeproj">
+   </FileRef>
    <Group
       location = "container:Sample"
       name = "Sample">

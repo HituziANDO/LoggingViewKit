@@ -8,6 +8,7 @@
 
 import UIKit
 import LoggingViewKit
+import LGVRealTimeLoggerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,14 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         // Enable debug logging.
-        LGVRealTimeLogger.shared().logLevel = .debug
-        LGVRealTimeLogger.shared().addDestination(LGVXcodeConsoleDestination())
+        RealTimeLogger.shared.logLevel = .debug
+        RealTimeLogger.shared.add(destination: LGVXcodeConsoleDestination())
         if let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
-            LGVRealTimeLogger.shared().addDestination(LGVFileDestination(file: "debug.log", inDirectory: docDir))
+            RealTimeLogger.shared.add(destination: LGVFileDestination(file: "debug.log", inDirectory: docDir))
         }
 
         // Start recording.
         LGVLoggingViewService.shared().startRecording()
+        RealTimeLogger.shared.i("Started recording")
 
         return true
     }

@@ -1,9 +1,9 @@
 //
-//  LoggingViewKit
+//  LoggingViewKit - LGVRealTimeLoggerSwift
 //
 //  MIT License
 //
-//  Copyright (c) 2018-present Hituzi Ando. All rights reserved.
+//  Copyright (c) 2019-present Hituzi Ando. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,22 +24,14 @@
 //  SOFTWARE.
 //
 
-#import "LGVFMDB.h"
+#import <UIKit/UIKit.h>
 
-#import "LGVButton.h"
-#import "LGVDatabase.h"
-#import "LGVLabel.h"
-#import "LGVLog.h"
-#import "LGVLogging.h"
-#import "LGVLoggingViewService.h"
-#import "LGVRealTimeLogger.h"
-#import "LGVSegmentedControl.h"
-#import "LGVSlider.h"
-#import "LGVSQLiteDatabase.h"
-#import "LGVStepper.h"
-#import "LGVSwitch.h"
-#import "LGVTextField.h"
-#import "LGVTextView.h"
-#import "LGVTouching.h"
-#import "LGVUtility.h"
-#import "LGVView.h"
+//! Project version number for LGVRealTimeLoggerSwift.
+FOUNDATION_EXPORT double LGVRealTimeLoggerSwiftVersionNumber;
+
+//! Project version string for LGVRealTimeLoggerSwift.
+FOUNDATION_EXPORT const unsigned char LGVRealTimeLoggerSwiftVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <LGVRealTimeLoggerSwift/PublicHeader.h>
+
+#import <LoggingViewKit/LoggingViewKit.h>
