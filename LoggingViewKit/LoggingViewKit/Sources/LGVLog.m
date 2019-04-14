@@ -62,7 +62,11 @@
 }
 
 - (NSString *)description {
-    return [self dictionaryWithValuesForKeys:@[
+    return self.toDictionary.description;
+}
+
+- (NSDictionary *)toDictionary {
+    NSMutableDictionary *dictionary = [self dictionaryWithValuesForKeys:@[
         @"ID",
         @"key",
         @"name",
@@ -71,8 +75,10 @@
         @"absoluteClickX",
         @"absoluteClickY",
         @"info",
-        @"createdAt",
-    ]].description;
+    ]].mutableCopy;
+    dictionary[@"createdAt"] = self.createdAt.description;
+
+    return dictionary;
 }
 
 @end

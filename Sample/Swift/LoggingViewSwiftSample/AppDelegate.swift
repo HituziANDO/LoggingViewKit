@@ -18,7 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        LGVLoggingViewService.shared().isOutputToConsoleInRealTime = true
+        // Enable debug logging.
+        LGVRealTimeLogger.shared().logLevel = .debug
+        LGVRealTimeLogger.shared().addDestination(LGVXcodeConsoleDestination())
+        if let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
+            LGVRealTimeLogger.shared().addDestination(LGVFileDestination(file: "debug.log", inDirectory: docDir))
+        }
+
+        // Start recording.
         LGVLoggingViewService.shared().startRecording()
 
         return true

@@ -84,11 +84,13 @@ UIKIT_EXTERN NSString *const LGVErrorDomain;
 /**
  * Tells whether the service outputs a log to Xcode console in real time.
  */
-@property (nonatomic, getter=isOutputToConsoleInRealTime) BOOL outputToConsoleInRealTime;
+@property (nonatomic, getter=isOutputToConsoleInRealTime) BOOL outputToConsoleInRealTime DEPRECATED_MSG_ATTRIBUTE(
+    "Use `LGVRealTimeLogger` instead.");
 
 /**
+ * Returns the singleton instance.
  *
- * @return The singleton object
+ * @return The singleton instance.
  */
 + (instancetype)sharedService;
 

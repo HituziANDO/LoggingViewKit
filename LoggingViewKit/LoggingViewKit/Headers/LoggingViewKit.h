@@ -32,6 +32,7 @@
 #import "LGVLog.h"
 #import "LGVLogging.h"
 #import "LGVLoggingViewService.h"
+#import "LGVRealTimeLogger.h"
 #import "LGVSegmentedControl.h"
 #import "LGVSlider.h"
 #import "LGVSQLiteDatabase.h"

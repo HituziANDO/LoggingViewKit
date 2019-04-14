@@ -40,6 +40,7 @@
 		5E569BC121C7045B00102FCF /* LGVSQLiteDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E569BC021C7045B00102FCF /* LGVSQLiteDatabase.m */; };
 		5E569BCB21C9413400102FCF /* LGVLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E569BCA21C9413400102FCF /* LGVLog.m */; };
 		5E7D751F2252F3E700EE3292 /* LGVUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7D751E2252F3E700EE3292 /* LGVUtility.m */; };
+		5E94C7A82260DE8E00081E19 /* LGVRealTimeLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E94C7A72260DE8E00081E19 /* LGVRealTimeLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,8 @@
 		5E7D751D2252F3E700EE3292 /* LGVUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVUtility.h; sourceTree = "<group>"; };
 		5E7D751E2252F3E700EE3292 /* LGVUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVUtility.m; sourceTree = "<group>"; };
 		5E94C7A52260D90700081E19 /* LGVTouching.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVTouching.h; sourceTree = "<group>"; };
+		5E94C7A62260DE8800081E19 /* LGVRealTimeLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVRealTimeLogger.h; sourceTree = "<group>"; };
+		5E94C7A72260DE8E00081E19 /* LGVRealTimeLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVRealTimeLogger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,7 @@
 				5E569BCF21C9BA0C00102FCF /* LGVDatabase.h */,
 				5E3DD57E21C52F73004A7BF2 /* LGVLabel.h */,
 				5E569BC921C9413400102FCF /* LGVLog.h */,
+				5E94C7A62260DE8800081E19 /* LGVRealTimeLogger.h */,
 				5E3DD57D21C321F7004A7BF2 /* LGVLogging.h */,
 				5E2B202421C0747D00661170 /* LGVLoggingViewService.h */,
 				19E596815F280D7EFEE5F877 /* LGVSegmentedControl.h */,
@@ -187,6 +191,7 @@
 				19E59355C87F3CF38CDE1074 /* LGVButton.m */,
 				5E3DD57F21C52F73004A7BF2 /* LGVLabel.m */,
 				5E569BCA21C9413400102FCF /* LGVLog.m */,
+				5E94C7A72260DE8E00081E19 /* LGVRealTimeLogger.m */,
 				5E2B202521C0747D00661170 /* LGVLoggingViewService.m */,
 				19E595CAFBC53C136F1C713C /* LGVSegmentedControl.m */,
 				5E569B9C21C6851C00102FCF /* LGVSlider.m */,
@@ -319,6 +324,7 @@
 				5E569B9D21C6851C00102FCF /* LGVSlider.m in Sources */,
 				19E5949F14E798A8BF95912C /* LGVSegmentedControl.m in Sources */,
 				5E3DD58021C52F73004A7BF2 /* LGVLabel.m in Sources */,
+				5E94C7A82260DE8E00081E19 /* LGVRealTimeLogger.m in Sources */,
 				5E3DD57C21C31B94004A7BF2 /* LGVView.m in Sources */,
 				5E569BBC21C69D3C00102FCF /* LGVFMDatabaseAdditions.m in Sources */,
 				19E591D3BD384C7F946DF258 /* LGVButton.m in Sources */,

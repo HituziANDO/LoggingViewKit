@@ -29,6 +29,7 @@
 #import "LGVDatabase.h"
 #import "LGVLog.h"
 #import "LGVLogging.h"
+#import "LGVRealTimeLogger.h"
 #import "LGVSQLiteDatabase.h"
 
 NSString *const LGVErrorDomain = @"jp.hituzi.LGVErrorDomain";
@@ -37,7 +38,7 @@ NSString *const LGVErrorDomain = @"jp.hituzi.LGVErrorDomain";
 
 + (instancetype)errorWithMessage:(nullable NSString *)message {
     return [LGVError errorWithDomain:LGVErrorDomain code:1 userInfo:@{
-        @"message": message ? message : @""
+        NSLocalizedFailureReasonErrorKey: message ? message : @""
     }];
 }
 
@@ -161,6 +162,13 @@ static LGVLoggingViewService *_loggingViewService = nil;
             // Recreates the object with last inserted ID like the SQLite.
             if ([self.defaultDatabase respondsToSelector:@selector(logByKey:)]) {
                 savedLog = [self.defaultDatabase logByKey:log.key];
+            }
+
+            if (error) {
+                LGVLogD(@"%@ %@", error.description, error.localizedFailureReason);
+            }
+            else {
+                LGVLogDictionaryD(savedLog.toDictionary);
             }
 
             if (self.isOutputToConsoleInRealTime) {

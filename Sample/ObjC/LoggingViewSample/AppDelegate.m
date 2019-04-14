@@ -20,7 +20,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    [LGVLoggingViewService sharedService].outputToConsoleInRealTime = YES;
+    // Enable debug logging.
+    [LGVRealTimeLogger sharedLogger].logLevel = LGVLogLevelDebug;
+    [[LGVRealTimeLogger sharedLogger] addDestination:[LGVXcodeConsoleDestination destination]];
+    NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    [[LGVRealTimeLogger sharedLogger] addDestination:[LGVFileDestination destinationWithFile:@"debug.log"
+                                                                                 inDirectory:docDir]];
+
+    // Start recording.
     [[LGVLoggingViewService sharedService] startRecording];
 
     return YES;

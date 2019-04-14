@@ -63,6 +63,10 @@ NS_ASSUME_NONNULL_BEGIN
  * The created date.
  */
 @property (nonatomic, readonly) NSDate *createdAt;
+/**
+ * Converts the receiver to `NSDictionary`.
+ */
+@property (nonatomic, copy, readonly) NSDictionary *toDictionary;
 
 + (instancetype)log;
 + (instancetype)logWithKey:(NSString *)key createdAt:(NSDate *)createdAt;
