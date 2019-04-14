@@ -56,9 +56,10 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
 /**
  * Writes a log to a destination.
  *
- * @param string A log.
+ * @param log A log.
+ * @param logLevel A log level.
  */
-- (void)write:(NSString *)log;
+- (void)write:(NSString *)log logLevel:(LGVLogLevel)logLevel;
 
 @end
 

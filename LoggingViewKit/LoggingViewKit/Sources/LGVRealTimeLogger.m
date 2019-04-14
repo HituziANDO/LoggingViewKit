@@ -49,7 +49,7 @@ NSString *LGVStringFromLGVLogLevel(LGVLogLevel logLevel) {
 
 #pragma mark - LGVDestination
 
-- (void)write:(NSString *)log {
+- (void)write:(NSString *)log logLevel:(LGVLogLevel)logLevel {
     NSLog(@"\n%@\n", log);
 }
 
@@ -89,7 +89,7 @@ NSString *LGVStringFromLGVLogLevel(LGVLogLevel logLevel) {
 
 #pragma mark - LGVDestination
 
-- (void)write:(NSString *)log {
+- (void)write:(NSString *)log logLevel:(LGVLogLevel)logLevel {
     if ([[NSFileManager defaultManager] fileExistsAtPath:self.filePath]) {
         // Append
         NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:self.filePath];
@@ -256,7 +256,7 @@ NSString *LGVStringFromLGVLogLevel(LGVLogLevel logLevel) {
         }];
 
         [self.dests enumerateObjectsUsingBlock:^(id <LGVDestination> destination, NSUInteger idx, BOOL *stop) {
-            [destination write:log];
+            [destination write:log logLevel:logLevel];
         }];
     }
 }
