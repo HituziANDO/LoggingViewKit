@@ -1,6 +1,6 @@
 # LoggingViewKit
 
-***LoggingViewKit is a library for recording which view a user touched.***
+***LoggingViewKit is a library tracking a user operation.***
 
 ## Include in your iOS app
 
@@ -10,7 +10,7 @@ LoggingViewKit is available through [CocoaPods](http://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "LoggingViewKit"
+pod "LoggingViewKit", "0.2.3"
 ```
 
 ### Manual Installation

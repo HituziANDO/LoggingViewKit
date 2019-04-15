@@ -24,7 +24,7 @@
 //  SOFTWARE.
 //
 
-#import "FMDB/LGVFMDB.h"
+#import "LGVFMDB.h"
 
 #import "LGVButton.h"
 #import "LGVDatabase.h"

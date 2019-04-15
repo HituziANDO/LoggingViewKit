@@ -15,7 +15,7 @@
 		5E2B1FF421C06C2800661170 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2B1FF321C06C2800661170 /* main.m */; };
 		5E2B1FFE21C06C2800661170 /* LoggingViewSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2B1FFD21C06C2800661170 /* LoggingViewSampleTests.m */; };
 		5E2B200921C06C2800661170 /* LoggingViewSampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2B200821C06C2800661170 /* LoggingViewSampleUITests.m */; };
-		5E94C7A22260D38C00081E19 /* LoggingViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E94C7A12260D38C00081E19 /* LoggingViewKit.framework */; };
+		5E9CE5FA226414F300EF06E9 /* LoggingViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9CE5F9226414F300EF06E9 /* LoggingViewKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +53,7 @@
 		5E2B200821C06C2800661170 /* LoggingViewSampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoggingViewSampleUITests.m; sourceTree = "<group>"; };
 		5E2B200A21C06C2800661170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E3DD56D21C1C358004A7BF2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		5E94C7A12260D38C00081E19 /* LoggingViewKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoggingViewKit.framework; sourceTree = "<group>"; };
+		5E9CE5F9226414F300EF06E9 /* LoggingViewKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoggingViewKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E94C7A22260D38C00081E19 /* LoggingViewKit.framework in Frameworks */,
+				5E9CE5FA226414F300EF06E9 /* LoggingViewKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +141,7 @@
 		5E2B202121C0725E00661170 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				5E94C7A12260D38C00081E19 /* LoggingViewKit.framework */,
+				5E9CE5F9226414F300EF06E9 /* LoggingViewKit.framework */,
 			);
 			path = Framework;
 			sourceTree = "<group>";

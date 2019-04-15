@@ -12,7 +12,7 @@
 		5E3DD59B21C54194004A7BF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E3DD59A21C54194004A7BF2 /* Assets.xcassets */; };
 		5E3DD59E21C54194004A7BF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E3DD59C21C54194004A7BF2 /* LaunchScreen.storyboard */; };
 		5E3DD5B421C556EC004A7BF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E3DD5B321C556EC004A7BF2 /* Main.storyboard */; };
-		5E94C7A42260D3A400081E19 /* LoggingViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E94C7A32260D3A400081E19 /* LoggingViewKit.framework */; };
+		5E9CE5FC2264150400EF06E9 /* LoggingViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9CE5FB2264150400EF06E9 /* LoggingViewKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +24,7 @@
 		5E3DD59F21C54194004A7BF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E3DD5B321C556EC004A7BF2 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5E569B9721C66C4A00102FCF /* LoggingViewSwiftSample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LoggingViewSwiftSample-Bridging-Header.h"; sourceTree = "<group>"; };
-		5E94C7A32260D3A400081E19 /* LoggingViewKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoggingViewKit.framework; sourceTree = "<group>"; };
+		5E9CE5FB2264150400EF06E9 /* LoggingViewKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LoggingViewKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E94C7A42260D3A400081E19 /* LoggingViewKit.framework in Frameworks */,
+				5E9CE5FC2264150400EF06E9 /* LoggingViewKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +73,7 @@
 		5E3DD5A521C54307004A7BF2 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				5E94C7A32260D3A400081E19 /* LoggingViewKit.framework */,
+				5E9CE5FB2264150400EF06E9 /* LoggingViewKit.framework */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
