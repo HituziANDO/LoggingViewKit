@@ -21,12 +21,16 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		5E680373226429460032924C /* LGVRealTimeLoggerRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E680371226429460032924C /* LGVRealTimeLoggerRef.m */; };
+		5E680374226429460032924C /* LGVRealTimeLoggerRef.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E680372226429460032924C /* LGVRealTimeLoggerRef.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E9CE5E1226380D900EF06E9 /* LGVRealTimeLoggerSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9CE5DF226380D900EF06E9 /* LGVRealTimeLoggerSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E9CE5EE2263814600EF06E9 /* LoggingViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9CE5ED2263814600EF06E9 /* LoggingViewKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		5E9CE5F02263815500EF06E9 /* RealTimeLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9CE5EF2263815500EF06E9 /* RealTimeLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E680371226429460032924C /* LGVRealTimeLoggerRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVRealTimeLoggerRef.m; sourceTree = "<group>"; };
+		5E680372226429460032924C /* LGVRealTimeLoggerRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVRealTimeLoggerRef.h; sourceTree = "<group>"; };
 		5E9CE5DC226380D900EF06E9 /* LGVRealTimeLoggerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LGVRealTimeLoggerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E9CE5DF226380D900EF06E9 /* LGVRealTimeLoggerSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVRealTimeLoggerSwift.h; sourceTree = "<group>"; };
 		5E9CE5E0226380D900EF06E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 			children = (
 				5E9CE5EC2263812900EF06E9 /* Dependency */,
 				5E9CE5E0226380D900EF06E9 /* Info.plist */,
+				5E680372226429460032924C /* LGVRealTimeLoggerRef.h */,
+				5E680371226429460032924C /* LGVRealTimeLoggerRef.m */,
 				5E9CE5DF226380D900EF06E9 /* LGVRealTimeLoggerSwift.h */,
 				5E9CE5EF2263815500EF06E9 /* RealTimeLogger.swift */,
 			);
@@ -89,6 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E9CE5E1226380D900EF06E9 /* LGVRealTimeLoggerSwift.h in Headers */,
+				5E680374226429460032924C /* LGVRealTimeLoggerRef.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E680373226429460032924C /* LGVRealTimeLoggerRef.m in Sources */,
 				5E9CE5F02263815500EF06E9 /* RealTimeLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +326,7 @@
 		5E9CE5E5226380D900EF06E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -348,6 +357,7 @@
 		5E9CE5E6226380D900EF06E9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;

@@ -24,14 +24,22 @@
 //  SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-//! Project version number for LGVRealTimeLoggerSwift.
-FOUNDATION_EXPORT double LGVRealTimeLoggerSwiftVersionNumber;
+NS_ASSUME_NONNULL_BEGIN
 
-//! Project version string for LGVRealTimeLoggerSwift.
-FOUNDATION_EXPORT const unsigned char LGVRealTimeLoggerSwiftVersionString[];
+@interface LGVRealTimeLoggerRef : NSObject
 
-// In this header, you should import all the public headers of your framework using statements like #import <LGVRealTimeLoggerSwift/PublicHeader.h>
+@property (nonatomic) NSInteger logLevel;
+@property (nonatomic) id serializer;
+@property (nonatomic, copy, readonly) NSArray *destinations;
 
-#import <LGVRealTimeLoggerSwift/LGVRealTimeLoggerRef.h>
+- (void)addDestination:(id)destination;
+- (void)logWithLevel:(NSInteger)logLevel
+            function:(const char *)function
+                line:(NSUInteger)line
+          dictionary:(nullable NSDictionary *)dictionary;
+
+@end
+
+NS_ASSUME_NONNULL_END

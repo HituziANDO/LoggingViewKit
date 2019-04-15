@@ -1,5 +1,5 @@
 //
-//  LoggingViewKit - LGVRealTimeLoggerSwift
+//  LGVRealTimeLoggerSwift
 //
 //  MIT License
 //
@@ -34,4 +34,4 @@ FOUNDATION_EXPORT const unsigned char LGVRealTimeLoggerSwiftVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <LGVRealTimeLoggerSwift/PublicHeader.h>
 
-#import <LoggingViewKit/LoggingViewKit.h>
+#import <LGVRealTimeLoggerSwift/LGVRealTimeLoggerRef.h>

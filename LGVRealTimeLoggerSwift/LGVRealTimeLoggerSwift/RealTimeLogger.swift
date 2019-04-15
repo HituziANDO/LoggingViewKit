@@ -1,5 +1,5 @@
 //
-//  LoggingViewKit - LGVRealTimeLoggerSwift
+//  LGVRealTimeLoggerSwift
 //
 //  MIT License
 //
@@ -25,7 +25,11 @@
 //
 
 import Foundation
-import LoggingViewKit
+import UIKit
+
+public enum LogLevel: Int {
+    case off = -1, debug, info, warning, error
+}
 
 /// The LGVRealTimeLogger wrapper class in Swift.
 public class RealTimeLogger {
@@ -33,37 +37,39 @@ public class RealTimeLogger {
     /// The RealTimeLogger singleton instance.
     public static let shared = RealTimeLogger()
 
-    /// Log level.  Default level is "off".
-    public var logLevel:     LGVLogLevel {
+    private let loggerRef = LGVRealTimeLoggerRef()
+
+    /// Log level. Default level is "off".
+    public var  logLevel:     LogLevel {
         get {
-            return LGVRealTimeLogger.shared().logLevel
+            return LogLevel(rawValue: loggerRef.logLevel)!
         }
         set(logLevel) {
-            LGVRealTimeLogger.shared().logLevel = logLevel
+            loggerRef.logLevel = logLevel.rawValue
         }
     }
 
-    /// A serializer. Default is JSON serializer.
-    public var serializer:   LGVSerializer {
+    /// A serializer. Default serializer is JSON serializer.
+    public var  serializer:   Any {
         get {
-            return LGVRealTimeLogger.shared().serializer
+            return loggerRef.serializer
         }
         set(serializer) {
-            LGVRealTimeLogger.shared().serializer = serializer
+            loggerRef.serializer = serializer
         }
     }
 
     /// Returns added destinations.
-    public var destinations: [LGVDestination] {
-        return LGVRealTimeLogger.shared().destinations
+    public var  destinations: [Any] {
+        return loggerRef.destinations
     }
 
     /// Adds a destination outputting logs to the logger.
     ///
     /// - Parameters:
     ///   - destination: A destination outputting logs.
-    public func add(destination: LGVDestination) {
-        LGVRealTimeLogger.shared().addDestination(destination)
+    public func add(destination: Any) {
+        loggerRef.addDestination(destination)
     }
 
     /// Adds a debug log.
@@ -256,7 +262,7 @@ public class RealTimeLogger {
     ///   - dictionary: A dictionary.
     public func d(dictionary: [String: Any], file: String = #file, function: String = #function, line: UInt = #line) {
         let fileName = ((file as NSString).lastPathComponent as NSString).deletingPathExtension
-        LGVRealTimeLogger.shared().log(with: .debug, function: "\(fileName) \(function)", line: line, dictionary: dictionary)
+        loggerRef.log(withLevel: LogLevel.debug.rawValue, function: "\(fileName) \(function)", line: line, dictionary: dictionary)
     }
 
     /// Adds an info log.
@@ -265,7 +271,7 @@ public class RealTimeLogger {
     ///   - dictionary: A dictionary.
     public func i(dictionary: [String: Any], file: String = #file, function: String = #function, line: UInt = #line) {
         let fileName = ((file as NSString).lastPathComponent as NSString).deletingPathExtension
-        LGVRealTimeLogger.shared().log(with: .info, function: "\(fileName) \(function)", line: line, dictionary: dictionary)
+        loggerRef.log(withLevel: LogLevel.info.rawValue, function: "\(fileName) \(function)", line: line, dictionary: dictionary)
     }
 
     /// Adds a warning log.
@@ -274,7 +280,7 @@ public class RealTimeLogger {
     ///   - dictionary: A dictionary.
     public func w(dictionary: [String: Any], file: String = #file, function: String = #function, line: UInt = #line) {
         let fileName = ((file as NSString).lastPathComponent as NSString).deletingPathExtension
-        LGVRealTimeLogger.shared().log(with: .warning, function: "\(fileName) \(function)", line: line, dictionary: dictionary)
+        loggerRef.log(withLevel: LogLevel.warning.rawValue, function: "\(fileName) \(function)", line: line, dictionary: dictionary)
     }
 
     /// Adds an error log.
@@ -283,6 +289,6 @@ public class RealTimeLogger {
     ///   - dictionary: A dictionary.
     public func e(dictionary: [String: Any], file: String = #file, function: String = #function, line: UInt = #line) {
         let fileName = ((file as NSString).lastPathComponent as NSString).deletingPathExtension
-        LGVRealTimeLogger.shared().log(with: .error, function: "\(fileName) \(function)", line: line, dictionary: dictionary)
+        loggerRef.log(withLevel: LogLevel.error.rawValue, function: "\(fileName) \(function)", line: line, dictionary: dictionary)
     }
 }
