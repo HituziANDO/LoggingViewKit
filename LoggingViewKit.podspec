@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
                    DESC
   s.homepage     = "https://github.com/HituziANDO/LoggingViewKit"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
+  s.author       = "Hituzi Ando"
   s.platform     = :ios, "9.3"
   s.source       = { :git => "https://github.com/HituziANDO/LoggingViewKit.git", :tag => "#{s.version}" }
   s.source_files  = "LoggingViewKit/LoggingViewKit/**/*.{h,m}"
