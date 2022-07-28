@@ -10,7 +10,7 @@ LoggingViewKit is available through [CocoaPods](http://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "LoggingViewKit", "0.2.3"
+pod "LoggingViewKit"
 ```
 
 ### Manual Installation
