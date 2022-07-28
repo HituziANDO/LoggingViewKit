@@ -21,6 +21,14 @@ it, simply add the following line to your Podfile:
 pod "LoggingViewKit"
 ```
 
+#### Swift Package Manager
+
+LoggingViewKit is available through Swift Package Manager. To install it using Xcode, specify the git URL for LoggingViewKit.
+
+```
+https://github.com/HituziANDO/LoggingViewKit
+```
+
 ## Supported View
 
 - Button
