@@ -3,283 +3,368 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		5E2B201A21C06F2B00661170 /* Universal */ = {
+		5E34DE482890D6B500FC06FF /* LoggingViewKit-Universal */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 5E2B201B21C06F2B00661170 /* Build configuration list for PBXAggregateTarget "Universal" */;
+			buildConfigurationList = 5E34DE492890D6B500FC06FF /* Build configuration list for PBXAggregateTarget "LoggingViewKit-Universal" */;
 			buildPhases = (
-				5E2B202021C06FC400661170 /* ShellScript */,
+				5E34DE4C2890D6C500FC06FF /* ShellScript */,
 			);
 			dependencies = (
-				5E2B201F21C06FB900661170 /* PBXTargetDependency */,
 			);
-			name = Universal;
-			productName = Universal;
+			name = "LoggingViewKit-Universal";
+			productName = "LoggingViewKit-Universal";
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		19E5909D74811A91D84C239A /* LGVSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E59F8435BA22878D77A95E /* LGVSwitch.m */; };
-		19E591D3BD384C7F946DF258 /* LGVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E59355C87F3CF38CDE1074 /* LGVButton.m */; };
-		19E5949F14E798A8BF95912C /* LGVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E595CAFBC53C136F1C713C /* LGVSegmentedControl.m */; };
-		19E5953C6D5E4CD91F4C844B /* LGVStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E59CB084F34428B67C9667 /* LGVStepper.m */; };
-		5E2B202621C0747D00661170 /* LGVLoggingViewService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2B202521C0747D00661170 /* LGVLoggingViewService.m */; };
-		5E3DD57C21C31B94004A7BF2 /* LGVView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3DD57B21C31B94004A7BF2 /* LGVView.m */; };
-		5E3DD58021C52F73004A7BF2 /* LGVLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3DD57F21C52F73004A7BF2 /* LGVLabel.m */; };
-		5E3DD58321C5352A004A7BF2 /* LGVTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3DD58221C5352A004A7BF2 /* LGVTextView.m */; };
-		5E3DD58621C5353E004A7BF2 /* LGVTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3DD58521C5353E004A7BF2 /* LGVTextField.m */; };
-		5E569B9D21C6851C00102FCF /* LGVSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E569B9C21C6851C00102FCF /* LGVSlider.m */; };
-		5E569BBA21C69D3C00102FCF /* LGVFMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E569BB421C69D3C00102FCF /* LGVFMResultSet.m */; };
-		5E569BBB21C69D3C00102FCF /* LGVFMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E569BB521C69D3C00102FCF /* LGVFMDatabaseQueue.m */; };
-		5E569BBC21C69D3C00102FCF /* LGVFMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E569BB621C69D3C00102FCF /* LGVFMDatabaseAdditions.m */; };
-		5E569BBD21C69D3C00102FCF /* LGVFMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E569BB721C69D3C00102FCF /* LGVFMDatabasePool.m */; };
-		5E569BBE21C69D3C00102FCF /* LGVFMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E569BB921C69D3C00102FCF /* LGVFMDatabase.m */; };
-		5E569BC121C7045B00102FCF /* LGVSQLiteDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E569BC021C7045B00102FCF /* LGVSQLiteDatabase.m */; };
-		5E569BCB21C9413400102FCF /* LGVLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E569BCA21C9413400102FCF /* LGVLog.m */; };
-		5E7D751F2252F3E700EE3292 /* LGVUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7D751E2252F3E700EE3292 /* LGVUtility.m */; };
-		5E94C7A82260DE8E00081E19 /* LGVRealTimeLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E94C7A72260DE8E00081E19 /* LGVRealTimeLogger.m */; };
+		5E34DE332890D5B200FC06FF /* LoggingViewKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE322890D5B200FC06FF /* LoggingViewKit.docc */; };
+		5E34DE392890D5B200FC06FF /* LoggingViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E34DE2E2890D5B200FC06FF /* LoggingViewKit.framework */; };
+		5E34DE3E2890D5B200FC06FF /* LoggingViewKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE3D2890D5B200FC06FF /* LoggingViewKitTests.m */; };
+		5E34DE3F2890D5B200FC06FF /* LoggingViewKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE312890D5B200FC06FF /* LoggingViewKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE79289221E700FC06FF /* LGVLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE4D289221E600FC06FF /* LGVLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE7A289221E700FC06FF /* LGVSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE4E289221E600FC06FF /* LGVSegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE7B289221E700FC06FF /* LGVUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE4F289221E600FC06FF /* LGVUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE7C289221E700FC06FF /* LGVLoggingViewService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE50289221E600FC06FF /* LGVLoggingViewService.m */; };
+		5E34DE7D289221E700FC06FF /* LGVRealTimeLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE51289221E600FC06FF /* LGVRealTimeLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE7E289221E700FC06FF /* LGVSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE52289221E600FC06FF /* LGVSwitch.m */; };
+		5E34DE7F289221E700FC06FF /* LGVLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE53289221E600FC06FF /* LGVLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE80289221E700FC06FF /* LGVFMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE55289221E600FC06FF /* LGVFMDatabase.h */; };
+		5E34DE81289221E700FC06FF /* LGVFMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE56289221E600FC06FF /* LGVFMResultSet.m */; };
+		5E34DE82289221E700FC06FF /* LGVFMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE57289221E600FC06FF /* LGVFMDatabasePool.m */; };
+		5E34DE83289221E700FC06FF /* LGVFMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE58289221E600FC06FF /* LGVFMDatabaseQueue.h */; };
+		5E34DE84289221E700FC06FF /* LGVFMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE59289221E600FC06FF /* LGVFMDB.h */; };
+		5E34DE85289221E700FC06FF /* LGVFMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE5A289221E600FC06FF /* LGVFMDatabaseAdditions.h */; };
+		5E34DE86289221E700FC06FF /* LGVFMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE5B289221E600FC06FF /* LGVFMResultSet.h */; };
+		5E34DE87289221E700FC06FF /* LGVFMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE5C289221E600FC06FF /* LGVFMDatabase.m */; };
+		5E34DE88289221E700FC06FF /* LGVFMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE5D289221E600FC06FF /* LGVFMDatabaseQueue.m */; };
+		5E34DE89289221E700FC06FF /* LGVFMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE5E289221E600FC06FF /* LGVFMDatabasePool.h */; };
+		5E34DE8B289221E700FC06FF /* LGVFMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE60289221E600FC06FF /* LGVFMDatabaseAdditions.m */; };
+		5E34DE8C289221E700FC06FF /* LGVSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE61289221E600FC06FF /* LGVSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE8D289221E700FC06FF /* LGVView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE62289221E600FC06FF /* LGVView.m */; };
+		5E34DE8E289221E700FC06FF /* LGVTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE63289221E700FC06FF /* LGVTextField.m */; };
+		5E34DE8F289221E700FC06FF /* LGVLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE64289221E700FC06FF /* LGVLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE90289221E700FC06FF /* LGVRealTimeLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE65289221E700FC06FF /* LGVRealTimeLogger.m */; };
+		5E34DE91289221E700FC06FF /* LGVStepper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE66289221E700FC06FF /* LGVStepper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE92289221E700FC06FF /* LGVSQLiteDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE67289221E700FC06FF /* LGVSQLiteDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE93289221E700FC06FF /* LGVLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE68289221E700FC06FF /* LGVLog.m */; };
+		5E34DE94289221E700FC06FF /* LGVTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE69289221E700FC06FF /* LGVTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE95289221E700FC06FF /* LGVDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE6A289221E700FC06FF /* LGVDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE96289221E700FC06FF /* LGVSwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE6B289221E700FC06FF /* LGVSwitch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE97289221E700FC06FF /* LGVUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE6C289221E700FC06FF /* LGVUtility.m */; };
+		5E34DE98289221E700FC06FF /* LGVView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE6D289221E700FC06FF /* LGVView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE99289221E700FC06FF /* LGVButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE6E289221E700FC06FF /* LGVButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE9A289221E700FC06FF /* LGVStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE6F289221E700FC06FF /* LGVStepper.m */; };
+		5E34DE9B289221E700FC06FF /* LGVSQLiteDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE70289221E700FC06FF /* LGVSQLiteDatabase.m */; };
+		5E34DE9C289221E700FC06FF /* LGVTouching.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE71289221E700FC06FF /* LGVTouching.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE9D289221E700FC06FF /* LGVLoggingViewService.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE72289221E700FC06FF /* LGVLoggingViewService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DE9E289221E700FC06FF /* LGVSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE73289221E700FC06FF /* LGVSlider.m */; };
+		5E34DE9F289221E700FC06FF /* LGVTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE74289221E700FC06FF /* LGVTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DEA0289221E700FC06FF /* LGVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE75289221E700FC06FF /* LGVSegmentedControl.m */; };
+		5E34DEA1289221E700FC06FF /* LGVLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE76289221E700FC06FF /* LGVLabel.m */; };
+		5E34DEA2289221E700FC06FF /* LGVTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE77289221E700FC06FF /* LGVTextView.m */; };
+		5E34DEA3289221E700FC06FF /* LGVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE78289221E700FC06FF /* LGVButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5E2B201E21C06FB900661170 /* PBXContainerItemProxy */ = {
+		5E34DE3A2890D5B200FC06FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5E2B1FC421C0203300661170 /* Project object */;
+			containerPortal = 5E34DE252890D5B200FC06FF /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5E2B1FCB21C0203300661170;
+			remoteGlobalIDString = 5E34DE2D2890D5B200FC06FF;
 			remoteInfo = LoggingViewKit;
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		5E2B1FCA21C0203300661170 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		19E59355C87F3CF38CDE1074 /* LGVButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVButton.m; sourceTree = "<group>"; };
-		19E595CAFBC53C136F1C713C /* LGVSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVSegmentedControl.m; sourceTree = "<group>"; };
-		19E59608202846FAC81024B8 /* LGVStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVStepper.h; sourceTree = "<group>"; };
-		19E5963785132401E8B6C0F3 /* LGVSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVSwitch.h; sourceTree = "<group>"; };
-		19E596815F280D7EFEE5F877 /* LGVSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVSegmentedControl.h; sourceTree = "<group>"; };
-		19E59C0292C650ECE333DFBA /* LGVButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVButton.h; sourceTree = "<group>"; };
-		19E59CB084F34428B67C9667 /* LGVStepper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVStepper.m; sourceTree = "<group>"; };
-		19E59F8435BA22878D77A95E /* LGVSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVSwitch.m; sourceTree = "<group>"; };
-		5E2B1FCC21C0203300661170 /* libLoggingViewKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLoggingViewKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E2B1FCF21C0203300661170 /* LoggingViewKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggingViewKit.h; sourceTree = "<group>"; };
-		5E2B201921C06DC000661170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5E2B202421C0747D00661170 /* LGVLoggingViewService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LGVLoggingViewService.h; path = LoggingViewKit/Headers/LGVLoggingViewService.h; sourceTree = SOURCE_ROOT; };
-		5E2B202521C0747D00661170 /* LGVLoggingViewService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LGVLoggingViewService.m; path = LoggingViewKit/Sources/LGVLoggingViewService.m; sourceTree = SOURCE_ROOT; };
-		5E3DD57A21C31B94004A7BF2 /* LGVView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVView.h; sourceTree = "<group>"; };
-		5E3DD57B21C31B94004A7BF2 /* LGVView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVView.m; sourceTree = "<group>"; };
-		5E3DD57D21C321F7004A7BF2 /* LGVLogging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVLogging.h; sourceTree = "<group>"; };
-		5E3DD57E21C52F73004A7BF2 /* LGVLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVLabel.h; sourceTree = "<group>"; };
-		5E3DD57F21C52F73004A7BF2 /* LGVLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVLabel.m; sourceTree = "<group>"; };
-		5E3DD58121C5352A004A7BF2 /* LGVTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVTextView.h; sourceTree = "<group>"; };
-		5E3DD58221C5352A004A7BF2 /* LGVTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVTextView.m; sourceTree = "<group>"; };
-		5E3DD58421C5353E004A7BF2 /* LGVTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVTextField.h; sourceTree = "<group>"; };
-		5E3DD58521C5353E004A7BF2 /* LGVTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVTextField.m; sourceTree = "<group>"; };
-		5E569B9B21C6851C00102FCF /* LGVSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVSlider.h; sourceTree = "<group>"; };
-		5E569B9C21C6851C00102FCF /* LGVSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVSlider.m; sourceTree = "<group>"; };
-		5E569BAF21C69D3C00102FCF /* LGVFMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVFMDatabaseQueue.h; sourceTree = "<group>"; };
-		5E569BB021C69D3C00102FCF /* LGVFMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVFMDatabasePool.h; sourceTree = "<group>"; };
-		5E569BB121C69D3C00102FCF /* LGVFMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVFMDatabase.h; sourceTree = "<group>"; };
-		5E569BB221C69D3C00102FCF /* LGVFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVFMDB.h; sourceTree = "<group>"; };
-		5E569BB321C69D3C00102FCF /* LGVFMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVFMResultSet.h; sourceTree = "<group>"; };
-		5E569BB421C69D3C00102FCF /* LGVFMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVFMResultSet.m; sourceTree = "<group>"; };
-		5E569BB521C69D3C00102FCF /* LGVFMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVFMDatabaseQueue.m; sourceTree = "<group>"; };
-		5E569BB621C69D3C00102FCF /* LGVFMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVFMDatabaseAdditions.m; sourceTree = "<group>"; };
-		5E569BB721C69D3C00102FCF /* LGVFMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVFMDatabasePool.m; sourceTree = "<group>"; };
-		5E569BB821C69D3C00102FCF /* LGVFMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVFMDatabaseAdditions.h; sourceTree = "<group>"; };
-		5E569BB921C69D3C00102FCF /* LGVFMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVFMDatabase.m; sourceTree = "<group>"; };
-		5E569BBF21C7045B00102FCF /* LGVSQLiteDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVSQLiteDatabase.h; sourceTree = "<group>"; };
-		5E569BC021C7045B00102FCF /* LGVSQLiteDatabase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVSQLiteDatabase.m; sourceTree = "<group>"; };
-		5E569BC921C9413400102FCF /* LGVLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVLog.h; sourceTree = "<group>"; };
-		5E569BCA21C9413400102FCF /* LGVLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVLog.m; sourceTree = "<group>"; };
-		5E569BCF21C9BA0C00102FCF /* LGVDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVDatabase.h; sourceTree = "<group>"; };
-		5E7D751D2252F3E700EE3292 /* LGVUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVUtility.h; sourceTree = "<group>"; };
-		5E7D751E2252F3E700EE3292 /* LGVUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVUtility.m; sourceTree = "<group>"; };
-		5E94C7A52260D90700081E19 /* LGVTouching.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVTouching.h; sourceTree = "<group>"; };
-		5E94C7A62260DE8800081E19 /* LGVRealTimeLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVRealTimeLogger.h; sourceTree = "<group>"; };
-		5E94C7A72260DE8E00081E19 /* LGVRealTimeLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVRealTimeLogger.m; sourceTree = "<group>"; };
+		5E34DE2E2890D5B200FC06FF /* LoggingViewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoggingViewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E34DE312890D5B200FC06FF /* LoggingViewKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggingViewKit.h; sourceTree = "<group>"; };
+		5E34DE322890D5B200FC06FF /* LoggingViewKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = LoggingViewKit.docc; sourceTree = "<group>"; };
+		5E34DE382890D5B200FC06FF /* LoggingViewKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoggingViewKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E34DE3D2890D5B200FC06FF /* LoggingViewKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoggingViewKitTests.m; sourceTree = "<group>"; };
+		5E34DE4D289221E600FC06FF /* LGVLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVLog.h; sourceTree = "<group>"; };
+		5E34DE4E289221E600FC06FF /* LGVSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVSegmentedControl.h; sourceTree = "<group>"; };
+		5E34DE4F289221E600FC06FF /* LGVUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVUtility.h; sourceTree = "<group>"; };
+		5E34DE50289221E600FC06FF /* LGVLoggingViewService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVLoggingViewService.m; sourceTree = "<group>"; };
+		5E34DE51289221E600FC06FF /* LGVRealTimeLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVRealTimeLogger.h; sourceTree = "<group>"; };
+		5E34DE52289221E600FC06FF /* LGVSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVSwitch.m; sourceTree = "<group>"; };
+		5E34DE53289221E600FC06FF /* LGVLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVLabel.h; sourceTree = "<group>"; };
+		5E34DE55289221E600FC06FF /* LGVFMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVFMDatabase.h; sourceTree = "<group>"; };
+		5E34DE56289221E600FC06FF /* LGVFMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVFMResultSet.m; sourceTree = "<group>"; };
+		5E34DE57289221E600FC06FF /* LGVFMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVFMDatabasePool.m; sourceTree = "<group>"; };
+		5E34DE58289221E600FC06FF /* LGVFMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVFMDatabaseQueue.h; sourceTree = "<group>"; };
+		5E34DE59289221E600FC06FF /* LGVFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVFMDB.h; sourceTree = "<group>"; };
+		5E34DE5A289221E600FC06FF /* LGVFMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVFMDatabaseAdditions.h; sourceTree = "<group>"; };
+		5E34DE5B289221E600FC06FF /* LGVFMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVFMResultSet.h; sourceTree = "<group>"; };
+		5E34DE5C289221E600FC06FF /* LGVFMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVFMDatabase.m; sourceTree = "<group>"; };
+		5E34DE5D289221E600FC06FF /* LGVFMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVFMDatabaseQueue.m; sourceTree = "<group>"; };
+		5E34DE5E289221E600FC06FF /* LGVFMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVFMDatabasePool.h; sourceTree = "<group>"; };
+		5E34DE60289221E600FC06FF /* LGVFMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVFMDatabaseAdditions.m; sourceTree = "<group>"; };
+		5E34DE61289221E600FC06FF /* LGVSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVSlider.h; sourceTree = "<group>"; };
+		5E34DE62289221E600FC06FF /* LGVView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVView.m; sourceTree = "<group>"; };
+		5E34DE63289221E700FC06FF /* LGVTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVTextField.m; sourceTree = "<group>"; };
+		5E34DE64289221E700FC06FF /* LGVLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVLogging.h; sourceTree = "<group>"; };
+		5E34DE65289221E700FC06FF /* LGVRealTimeLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVRealTimeLogger.m; sourceTree = "<group>"; };
+		5E34DE66289221E700FC06FF /* LGVStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVStepper.h; sourceTree = "<group>"; };
+		5E34DE67289221E700FC06FF /* LGVSQLiteDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVSQLiteDatabase.h; sourceTree = "<group>"; };
+		5E34DE68289221E700FC06FF /* LGVLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVLog.m; sourceTree = "<group>"; };
+		5E34DE69289221E700FC06FF /* LGVTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVTextField.h; sourceTree = "<group>"; };
+		5E34DE6A289221E700FC06FF /* LGVDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVDatabase.h; sourceTree = "<group>"; };
+		5E34DE6B289221E700FC06FF /* LGVSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVSwitch.h; sourceTree = "<group>"; };
+		5E34DE6C289221E700FC06FF /* LGVUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVUtility.m; sourceTree = "<group>"; };
+		5E34DE6D289221E700FC06FF /* LGVView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVView.h; sourceTree = "<group>"; };
+		5E34DE6E289221E700FC06FF /* LGVButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVButton.h; sourceTree = "<group>"; };
+		5E34DE6F289221E700FC06FF /* LGVStepper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVStepper.m; sourceTree = "<group>"; };
+		5E34DE70289221E700FC06FF /* LGVSQLiteDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVSQLiteDatabase.m; sourceTree = "<group>"; };
+		5E34DE71289221E700FC06FF /* LGVTouching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVTouching.h; sourceTree = "<group>"; };
+		5E34DE72289221E700FC06FF /* LGVLoggingViewService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVLoggingViewService.h; sourceTree = "<group>"; };
+		5E34DE73289221E700FC06FF /* LGVSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVSlider.m; sourceTree = "<group>"; };
+		5E34DE74289221E700FC06FF /* LGVTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVTextView.h; sourceTree = "<group>"; };
+		5E34DE75289221E700FC06FF /* LGVSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVSegmentedControl.m; sourceTree = "<group>"; };
+		5E34DE76289221E700FC06FF /* LGVLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVLabel.m; sourceTree = "<group>"; };
+		5E34DE77289221E700FC06FF /* LGVTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVTextView.m; sourceTree = "<group>"; };
+		5E34DE78289221E700FC06FF /* LGVButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5E2B1FC921C0203300661170 /* Frameworks */ = {
+		5E34DE2B2890D5B200FC06FF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5E34DE352890D5B200FC06FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E34DE392890D5B200FC06FF /* LoggingViewKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5E2B1FC321C0203300661170 = {
+		5E34DE242890D5B200FC06FF = {
 			isa = PBXGroup;
 			children = (
-				5E2B1FCE21C0203300661170 /* LoggingViewKit */,
-				5E2B1FCD21C0203300661170 /* Products */,
+				5E34DE302890D5B200FC06FF /* LoggingViewKit */,
+				5E34DE3C2890D5B200FC06FF /* LoggingViewKitTests */,
+				5E34DE2F2890D5B200FC06FF /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5E2B1FCD21C0203300661170 /* Products */ = {
+		5E34DE2F2890D5B200FC06FF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5E2B1FCC21C0203300661170 /* libLoggingViewKit.a */,
+				5E34DE2E2890D5B200FC06FF /* LoggingViewKit.framework */,
+				5E34DE382890D5B200FC06FF /* LoggingViewKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5E2B1FCE21C0203300661170 /* LoggingViewKit */ = {
+		5E34DE302890D5B200FC06FF /* LoggingViewKit */ = {
 			isa = PBXGroup;
 			children = (
-				5E2B201621C06D7100661170 /* Headers */,
-				5E2B201721C06D7A00661170 /* Resources */,
-				5E2B201821C06D8100661170 /* Sources */,
+				5E34DE54289221E600FC06FF /* FMDB */,
+				5E34DE6E289221E700FC06FF /* LGVButton.h */,
+				5E34DE78289221E700FC06FF /* LGVButton.m */,
+				5E34DE6A289221E700FC06FF /* LGVDatabase.h */,
+				5E34DE53289221E600FC06FF /* LGVLabel.h */,
+				5E34DE76289221E700FC06FF /* LGVLabel.m */,
+				5E34DE4D289221E600FC06FF /* LGVLog.h */,
+				5E34DE68289221E700FC06FF /* LGVLog.m */,
+				5E34DE64289221E700FC06FF /* LGVLogging.h */,
+				5E34DE72289221E700FC06FF /* LGVLoggingViewService.h */,
+				5E34DE50289221E600FC06FF /* LGVLoggingViewService.m */,
+				5E34DE51289221E600FC06FF /* LGVRealTimeLogger.h */,
+				5E34DE65289221E700FC06FF /* LGVRealTimeLogger.m */,
+				5E34DE4E289221E600FC06FF /* LGVSegmentedControl.h */,
+				5E34DE75289221E700FC06FF /* LGVSegmentedControl.m */,
+				5E34DE61289221E600FC06FF /* LGVSlider.h */,
+				5E34DE73289221E700FC06FF /* LGVSlider.m */,
+				5E34DE67289221E700FC06FF /* LGVSQLiteDatabase.h */,
+				5E34DE70289221E700FC06FF /* LGVSQLiteDatabase.m */,
+				5E34DE66289221E700FC06FF /* LGVStepper.h */,
+				5E34DE6F289221E700FC06FF /* LGVStepper.m */,
+				5E34DE6B289221E700FC06FF /* LGVSwitch.h */,
+				5E34DE52289221E600FC06FF /* LGVSwitch.m */,
+				5E34DE69289221E700FC06FF /* LGVTextField.h */,
+				5E34DE63289221E700FC06FF /* LGVTextField.m */,
+				5E34DE74289221E700FC06FF /* LGVTextView.h */,
+				5E34DE77289221E700FC06FF /* LGVTextView.m */,
+				5E34DE71289221E700FC06FF /* LGVTouching.h */,
+				5E34DE4F289221E600FC06FF /* LGVUtility.h */,
+				5E34DE6C289221E700FC06FF /* LGVUtility.m */,
+				5E34DE6D289221E700FC06FF /* LGVView.h */,
+				5E34DE62289221E600FC06FF /* LGVView.m */,
+				5E34DE322890D5B200FC06FF /* LoggingViewKit.docc */,
+				5E34DE312890D5B200FC06FF /* LoggingViewKit.h */,
 			);
 			path = LoggingViewKit;
 			sourceTree = "<group>";
 		};
-		5E2B201621C06D7100661170 /* Headers */ = {
+		5E34DE3C2890D5B200FC06FF /* LoggingViewKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				19E59C0292C650ECE333DFBA /* LGVButton.h */,
-				5E569BCF21C9BA0C00102FCF /* LGVDatabase.h */,
-				5E569BB121C69D3C00102FCF /* LGVFMDatabase.h */,
-				5E569BB821C69D3C00102FCF /* LGVFMDatabaseAdditions.h */,
-				5E569BB021C69D3C00102FCF /* LGVFMDatabasePool.h */,
-				5E569BAF21C69D3C00102FCF /* LGVFMDatabaseQueue.h */,
-				5E569BB221C69D3C00102FCF /* LGVFMDB.h */,
-				5E569BB321C69D3C00102FCF /* LGVFMResultSet.h */,
-				5E3DD57E21C52F73004A7BF2 /* LGVLabel.h */,
-				5E569BC921C9413400102FCF /* LGVLog.h */,
-				5E3DD57D21C321F7004A7BF2 /* LGVLogging.h */,
-				5E2B202421C0747D00661170 /* LGVLoggingViewService.h */,
-				5E94C7A62260DE8800081E19 /* LGVRealTimeLogger.h */,
-				19E596815F280D7EFEE5F877 /* LGVSegmentedControl.h */,
-				5E569B9B21C6851C00102FCF /* LGVSlider.h */,
-				5E569BBF21C7045B00102FCF /* LGVSQLiteDatabase.h */,
-				19E59608202846FAC81024B8 /* LGVStepper.h */,
-				19E5963785132401E8B6C0F3 /* LGVSwitch.h */,
-				5E3DD58421C5353E004A7BF2 /* LGVTextField.h */,
-				5E3DD58121C5352A004A7BF2 /* LGVTextView.h */,
-				5E94C7A52260D90700081E19 /* LGVTouching.h */,
-				5E7D751D2252F3E700EE3292 /* LGVUtility.h */,
-				5E3DD57A21C31B94004A7BF2 /* LGVView.h */,
-				5E2B1FCF21C0203300661170 /* LoggingViewKit.h */,
+				5E34DE3D2890D5B200FC06FF /* LoggingViewKitTests.m */,
 			);
-			path = Headers;
+			path = LoggingViewKitTests;
 			sourceTree = "<group>";
 		};
-		5E2B201721C06D7A00661170 /* Resources */ = {
+		5E34DE54289221E600FC06FF /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
-				5E2B201921C06DC000661170 /* Info.plist */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		5E2B201821C06D8100661170 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				5E569B9E21C69A4C00102FCF /* FMDB */,
-				19E59355C87F3CF38CDE1074 /* LGVButton.m */,
-				5E3DD57F21C52F73004A7BF2 /* LGVLabel.m */,
-				5E569BCA21C9413400102FCF /* LGVLog.m */,
-				5E94C7A72260DE8E00081E19 /* LGVRealTimeLogger.m */,
-				5E2B202521C0747D00661170 /* LGVLoggingViewService.m */,
-				19E595CAFBC53C136F1C713C /* LGVSegmentedControl.m */,
-				5E569B9C21C6851C00102FCF /* LGVSlider.m */,
-				5E569BC021C7045B00102FCF /* LGVSQLiteDatabase.m */,
-				19E59CB084F34428B67C9667 /* LGVStepper.m */,
-				19E59F8435BA22878D77A95E /* LGVSwitch.m */,
-				5E3DD58521C5353E004A7BF2 /* LGVTextField.m */,
-				5E3DD58221C5352A004A7BF2 /* LGVTextView.m */,
-				5E7D751E2252F3E700EE3292 /* LGVUtility.m */,
-				5E3DD57B21C31B94004A7BF2 /* LGVView.m */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		5E569B9E21C69A4C00102FCF /* FMDB */ = {
-			isa = PBXGroup;
-			children = (
-				5E569BB921C69D3C00102FCF /* LGVFMDatabase.m */,
-				5E569BB621C69D3C00102FCF /* LGVFMDatabaseAdditions.m */,
-				5E569BB721C69D3C00102FCF /* LGVFMDatabasePool.m */,
-				5E569BB521C69D3C00102FCF /* LGVFMDatabaseQueue.m */,
-				5E569BB421C69D3C00102FCF /* LGVFMResultSet.m */,
+				5E34DE55289221E600FC06FF /* LGVFMDatabase.h */,
+				5E34DE5C289221E600FC06FF /* LGVFMDatabase.m */,
+				5E34DE5A289221E600FC06FF /* LGVFMDatabaseAdditions.h */,
+				5E34DE60289221E600FC06FF /* LGVFMDatabaseAdditions.m */,
+				5E34DE5E289221E600FC06FF /* LGVFMDatabasePool.h */,
+				5E34DE57289221E600FC06FF /* LGVFMDatabasePool.m */,
+				5E34DE58289221E600FC06FF /* LGVFMDatabaseQueue.h */,
+				5E34DE5D289221E600FC06FF /* LGVFMDatabaseQueue.m */,
+				5E34DE59289221E600FC06FF /* LGVFMDB.h */,
+				5E34DE5B289221E600FC06FF /* LGVFMResultSet.h */,
+				5E34DE56289221E600FC06FF /* LGVFMResultSet.m */,
 			);
 			path = FMDB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		5E34DE292890D5B200FC06FF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E34DE9D289221E700FC06FF /* LGVLoggingViewService.h in Headers */,
+				5E34DE8C289221E700FC06FF /* LGVSlider.h in Headers */,
+				5E34DE98289221E700FC06FF /* LGVView.h in Headers */,
+				5E34DE9C289221E700FC06FF /* LGVTouching.h in Headers */,
+				5E34DE91289221E700FC06FF /* LGVStepper.h in Headers */,
+				5E34DE94289221E700FC06FF /* LGVTextField.h in Headers */,
+				5E34DE7F289221E700FC06FF /* LGVLabel.h in Headers */,
+				5E34DE79289221E700FC06FF /* LGVLog.h in Headers */,
+				5E34DE89289221E700FC06FF /* LGVFMDatabasePool.h in Headers */,
+				5E34DE7B289221E700FC06FF /* LGVUtility.h in Headers */,
+				5E34DE99289221E700FC06FF /* LGVButton.h in Headers */,
+				5E34DE7A289221E700FC06FF /* LGVSegmentedControl.h in Headers */,
+				5E34DE95289221E700FC06FF /* LGVDatabase.h in Headers */,
+				5E34DE96289221E700FC06FF /* LGVSwitch.h in Headers */,
+				5E34DE92289221E700FC06FF /* LGVSQLiteDatabase.h in Headers */,
+				5E34DE9F289221E700FC06FF /* LGVTextView.h in Headers */,
+				5E34DE8F289221E700FC06FF /* LGVLogging.h in Headers */,
+				5E34DE7D289221E700FC06FF /* LGVRealTimeLogger.h in Headers */,
+				5E34DE85289221E700FC06FF /* LGVFMDatabaseAdditions.h in Headers */,
+				5E34DE83289221E700FC06FF /* LGVFMDatabaseQueue.h in Headers */,
+				5E34DE80289221E700FC06FF /* LGVFMDatabase.h in Headers */,
+				5E34DE3F2890D5B200FC06FF /* LoggingViewKit.h in Headers */,
+				5E34DE86289221E700FC06FF /* LGVFMResultSet.h in Headers */,
+				5E34DE84289221E700FC06FF /* LGVFMDB.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		5E2B1FCB21C0203300661170 /* LoggingViewKit */ = {
+		5E34DE2D2890D5B200FC06FF /* LoggingViewKit-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E2B1FD521C0203300661170 /* Build configuration list for PBXNativeTarget "LoggingViewKit" */;
+			buildConfigurationList = 5E34DE422890D5B200FC06FF /* Build configuration list for PBXNativeTarget "LoggingViewKit-iOS" */;
 			buildPhases = (
-				5E2B1FC821C0203300661170 /* Sources */,
-				5E2B1FC921C0203300661170 /* Frameworks */,
-				5E2B1FCA21C0203300661170 /* CopyFiles */,
+				5E34DE292890D5B200FC06FF /* Headers */,
+				5E34DE2A2890D5B200FC06FF /* Sources */,
+				5E34DE2B2890D5B200FC06FF /* Frameworks */,
+				5E34DE2C2890D5B200FC06FF /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = LoggingViewKit;
+			name = "LoggingViewKit-iOS";
 			productName = LoggingViewKit;
-			productReference = 5E2B1FCC21C0203300661170 /* libLoggingViewKit.a */;
-			productType = "com.apple.product-type.library.static";
+			productReference = 5E34DE2E2890D5B200FC06FF /* LoggingViewKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5E34DE372890D5B200FC06FF /* LoggingViewKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E34DE452890D5B200FC06FF /* Build configuration list for PBXNativeTarget "LoggingViewKitTests" */;
+			buildPhases = (
+				5E34DE342890D5B200FC06FF /* Sources */,
+				5E34DE352890D5B200FC06FF /* Frameworks */,
+				5E34DE362890D5B200FC06FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E34DE3B2890D5B200FC06FF /* PBXTargetDependency */,
+			);
+			name = LoggingViewKitTests;
+			productName = LoggingViewKitTests;
+			productReference = 5E34DE382890D5B200FC06FF /* LoggingViewKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5E2B1FC421C0203300661170 /* Project object */ = {
+		5E34DE252890D5B200FC06FF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = "Hituzi Ando";
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					5E2B1FCB21C0203300661170 = {
-						CreatedOnToolsVersion = 10.0;
+					5E34DE2D2890D5B200FC06FF = {
+						CreatedOnToolsVersion = 13.4.1;
 					};
-					5E2B201A21C06F2B00661170 = {
-						CreatedOnToolsVersion = 10.0;
+					5E34DE372890D5B200FC06FF = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					5E34DE482890D6B500FC06FF = {
+						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
 			};
-			buildConfigurationList = 5E2B1FC721C0203300661170 /* Build configuration list for PBXProject "LoggingViewKit" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = 5E34DE282890D5B200FC06FF /* Build configuration list for PBXProject "LoggingViewKit" */;
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
-			mainGroup = 5E2B1FC321C0203300661170;
-			productRefGroup = 5E2B1FCD21C0203300661170 /* Products */;
+			mainGroup = 5E34DE242890D5B200FC06FF;
+			productRefGroup = 5E34DE2F2890D5B200FC06FF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5E2B1FCB21C0203300661170 /* LoggingViewKit */,
-				5E2B201A21C06F2B00661170 /* Universal */,
+				5E34DE2D2890D5B200FC06FF /* LoggingViewKit-iOS */,
+				5E34DE372890D5B200FC06FF /* LoggingViewKitTests */,
+				5E34DE482890D6B500FC06FF /* LoggingViewKit-Universal */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		5E34DE2C2890D5B200FC06FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E34DE362890D5B200FC06FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXShellScriptBuildPhase section */
-		5E2B202021C06FC400661170 /* ShellScript */ = {
+		5E34DE4C2890D6C500FC06FF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -294,56 +379,64 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# ==============================\n# Set env\n# ==============================\nINFOPLIST=\"${PROJECT_NAME}/Resources/Info.plist\"\nFRAMEWORK_NAME=$(/usr/libexec/PlistBuddy -c \"Print CFBundleName\" ${INFOPLIST})\nBUILD_TARGET_NAME=$FRAMEWORK_NAME\nFRAMEWORK_BUILD_CONFIGURATION=\"${CONFIGURATION}\"\nFRAMEWORK_VERSION_NUMBER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" ${INFOPLIST})\nFRAMEWORK_VERSION=A\nFRAMEWORK_BUILD_PATH=\"Framework\"\nFRAMEWORK_DIR=\"${FRAMEWORK_BUILD_PATH}/${FRAMEWORK_NAME}.framework\"\nPACKAGENAME=\"${FRAMEWORK_NAME}-${FRAMEWORK_VERSION_NUMBER}.zip\"\n\n# ==============================\n# Build\n# ==============================\nxcodebuild -configuration ${FRAMEWORK_BUILD_CONFIGURATION} -target ${BUILD_TARGET_NAME} clean\nxcodebuild -configuration ${FRAMEWORK_BUILD_CONFIGURATION} -target ${BUILD_TARGET_NAME} -sdk iphonesimulator\n[ $? != 0 ] && exit 1\nxcodebuild -configuration ${FRAMEWORK_BUILD_CONFIGURATION} -target ${BUILD_TARGET_NAME} -sdk iphoneos\n[ $? != 0 ] && exit 1\n\n# ==============================\n# Make directories\n# ==============================\n[ -d \"${FRAMEWORK_BUILD_PATH}\" ] && rm -rf \"${FRAMEWORK_BUILD_PATH}\"\nmkdir -p ${FRAMEWORK_DIR}\nmkdir -p ${FRAMEWORK_DIR}/Headers\nmkdir -p ${FRAMEWORK_DIR}/Resources\nmkdir -p ${FRAMEWORK_DIR}/Modules\n\n#mkdir -p ${FRAMEWORK_DIR}/Versions\n#mkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}\n#mkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}/Resources\n#mkdir -p ${FRAMEWORK_DIR}/Versions/${FRAMEWORK_VERSION}/Headers\n#ln -s ${FRAMEWORK_VERSION} ${FRAMEWORK_DIR}/Versions/Current\n#ln -s Versions/Current/Headers ${FRAMEWORK_DIR}/Headers\n#ln -s Versions/Current/Resources ${FRAMEWORK_DIR}/Resources\n#ln -s Versions/Current/${FRAMEWORK_NAME} ${FRAMEWORK_DIR}/${FRAMEWORK_NAME}\n\n# ==============================\n# Make framework\n# ==============================\nlipo -create \\\nbuild/${FRAMEWORK_BUILD_CONFIGURATION}-iphoneos/lib${FRAMEWORK_NAME}.a \\\nbuild/${FRAMEWORK_BUILD_CONFIGURATION}-iphonesimulator/lib${FRAMEWORK_NAME}.a \\\n-o \"${FRAMEWORK_DIR}/${FRAMEWORK_NAME}\"\n#-o \"${FRAMEWORK_DIR}/Versions/Current/${FRAMEWORK_NAME}\"\n\ncp -Rf \"${PROJECT_NAME}/Headers/\" ${FRAMEWORK_DIR}/Headers/\ncp \"${PROJECT_NAME}/Resources/\" ${FRAMEWORK_DIR}/Resources/\ncp ${INFOPLIST} ${FRAMEWORK_DIR}/Resources/\ncp -Rf \"${PROJECT_NAME}/Modules/\" ${FRAMEWORK_DIR}/Modules/\ncd ${FRAMEWORK_BUILD_PATH}\nchmod -fR 755 \"${FRAMEWORK_NAME}.framework\"\nzip -ry ${PACKAGENAME} $(basename $FRAMEWORK_DIR)\ncd ${SRCROOT}\n\n# ==============================\n# Copy framework to sample app\n# ==============================\ncp -rf ${FRAMEWORK_DIR} ../Sample/ObjC/Framework\ncp -rf ${FRAMEWORK_DIR} ../Sample/Swift/Framework\n";
+			shellScript = "# 出力先ディレクトリ（プロジェクトの直下）\nOUTPUT_DIR=${PROJECT_DIR}/Output\n\n# 中間ファイルの出力先ディレクトリ\nDERIVED_DIR=${OUTPUT_DIR}/${CONFIGURATION}-derived\n\n# archiveの出力先ディレクトリ\nARCHIVE_DIR=${OUTPUT_DIR}/${CONFIGURATION}-archive\n\n# xcframeworkの出力先ディレクトリ\nXCFRAMEWORK_DIR=${OUTPUT_DIR}/${CONFIGURATION}-xcframework\n\n# 出力先ディレクトリ削除\nrm -rf ${OUTPUT_DIR}\n\n# 中間ファイルの出力先ディレクトリ作成\nmkdir -p ${DERIVED_DIR}\n\n# アーカイブファイルの出力先ディレクトリ作成\nmkdir -p ${ARCHIVE_DIR}\n\n# xcframeworkの出力先ディレクトリ作成\nmkdir -p ${XCFRAMEWORK_DIR}\n\n# iOS実機用のarchiveファイル\nARCHIVE_FILE_IOS=${ARCHIVE_DIR}/ios.xcarchive\necho \"ARCHIVE_FILE_IOS:${ARCHIVE_FILE_IOS}\"\n\n# iOSシミュレータ用のarchiveファイル\nARCHIVE_FILE_IOS_SIMULATOR=${ARCHIVE_DIR}/iossimulator.xcarchive\necho \"ARCHIVE_FILE_IOS_SIMULATOR:${ARCHIVE_FILE_IOS_SIMULATOR}\"\n\n# macCatalyst用のarchiveファイル\nARCHIVE_FILE_IOS_MACCATALYST=${ARCHIVE_DIR}/maccatalyst.xcarchive\necho \"ARCHIVE_FILE_IOS_MACCATALYST:${ARCHIVE_FILE_IOS_MACCATALYST}\"\n\n# macOS用のarchiveファイル\n#ARCHIVE_FILE_MACOS=${ARCHIVE_DIR}/macos.xcarchive\n#echo \"ARCHIVE_FILE_MACOS:${ARCHIVE_FILE_MACOS}\"\n\n# iOS実機用のarchiveファイル作成\nxcodebuild archive \\\n-scheme \"${PROJECT_NAME}-iOS\" \\\n-destination=\"iOS\" \\\n-archivePath $ARCHIVE_FILE_IOS \\\n-derivedDataPath $DERIVED_DIR \\\n-sdk iphoneos SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# iOSシミュレータ用のarchiveファイル作成\nxcodebuild archive \\\n-scheme \"${PROJECT_NAME}-iOS\" \\\n-destination=\"iOS Simulator\" \\\n-archivePath $ARCHIVE_FILE_IOS_SIMULATOR \\\n-derivedDataPath $DERIVED_DIR \\\n-sdk iphonesimulator SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# macCatalyst用のarchiveファイル作成\nxcodebuild archive \\\n-scheme \"${PROJECT_NAME}-iOS\" \\\n-destination='platform=macOS,arch=x86_64,variant=Mac Catalyst' \\\n-archivePath $ARCHIVE_FILE_IOS_MACCATALYST SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# macOS用のarchiveファイル作成\n#xcodebuild archive \\\n#-scheme \"${PROJECT_NAME}-macOS\" \\\n#-destination=\"platform=macOS\" \\\n#-archivePath $ARCHIVE_FILE_MACOS \\\n#-derivedDataPath $DERIVED_DIR \\\n#SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# xcframework作成\nxcodebuild -create-xcframework \\\n-framework $ARCHIVE_FILE_IOS/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n-framework $ARCHIVE_FILE_IOS_SIMULATOR/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n-framework $ARCHIVE_FILE_IOS_MACCATALYST/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n-output $XCFRAMEWORK_DIR/${PROJECT_NAME}.xcframework\n#-framework $ARCHIVE_FILE_MACOS/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n\n# xcframeworkの出力ディレクトリをFinderで開く\nopen ${XCFRAMEWORK_DIR}\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5E2B1FC821C0203300661170 /* Sources */ = {
+		5E34DE2A2890D5B200FC06FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E3DD58621C5353E004A7BF2 /* LGVTextField.m in Sources */,
-				5E569BCB21C9413400102FCF /* LGVLog.m in Sources */,
-				5E569BBE21C69D3C00102FCF /* LGVFMDatabase.m in Sources */,
-				5E569BBB21C69D3C00102FCF /* LGVFMDatabaseQueue.m in Sources */,
-				5E2B202621C0747D00661170 /* LGVLoggingViewService.m in Sources */,
-				5E3DD58321C5352A004A7BF2 /* LGVTextView.m in Sources */,
-				5E569BBA21C69D3C00102FCF /* LGVFMResultSet.m in Sources */,
-				5E569BBD21C69D3C00102FCF /* LGVFMDatabasePool.m in Sources */,
-				5E7D751F2252F3E700EE3292 /* LGVUtility.m in Sources */,
-				19E5909D74811A91D84C239A /* LGVSwitch.m in Sources */,
-				5E569B9D21C6851C00102FCF /* LGVSlider.m in Sources */,
-				19E5949F14E798A8BF95912C /* LGVSegmentedControl.m in Sources */,
-				5E3DD58021C52F73004A7BF2 /* LGVLabel.m in Sources */,
-				5E94C7A82260DE8E00081E19 /* LGVRealTimeLogger.m in Sources */,
-				5E3DD57C21C31B94004A7BF2 /* LGVView.m in Sources */,
-				5E569BBC21C69D3C00102FCF /* LGVFMDatabaseAdditions.m in Sources */,
-				19E591D3BD384C7F946DF258 /* LGVButton.m in Sources */,
-				5E569BC121C7045B00102FCF /* LGVSQLiteDatabase.m in Sources */,
-				19E5953C6D5E4CD91F4C844B /* LGVStepper.m in Sources */,
+				5E34DEA2289221E700FC06FF /* LGVTextView.m in Sources */,
+				5E34DE7E289221E700FC06FF /* LGVSwitch.m in Sources */,
+				5E34DE87289221E700FC06FF /* LGVFMDatabase.m in Sources */,
+				5E34DEA3289221E700FC06FF /* LGVButton.m in Sources */,
+				5E34DE9E289221E700FC06FF /* LGVSlider.m in Sources */,
+				5E34DE82289221E700FC06FF /* LGVFMDatabasePool.m in Sources */,
+				5E34DEA1289221E700FC06FF /* LGVLabel.m in Sources */,
+				5E34DE8B289221E700FC06FF /* LGVFMDatabaseAdditions.m in Sources */,
+				5E34DE97289221E700FC06FF /* LGVUtility.m in Sources */,
+				5E34DEA0289221E700FC06FF /* LGVSegmentedControl.m in Sources */,
+				5E34DE9A289221E700FC06FF /* LGVStepper.m in Sources */,
+				5E34DE88289221E700FC06FF /* LGVFMDatabaseQueue.m in Sources */,
+				5E34DE7C289221E700FC06FF /* LGVLoggingViewService.m in Sources */,
+				5E34DE9B289221E700FC06FF /* LGVSQLiteDatabase.m in Sources */,
+				5E34DE90289221E700FC06FF /* LGVRealTimeLogger.m in Sources */,
+				5E34DE81289221E700FC06FF /* LGVFMResultSet.m in Sources */,
+				5E34DE8E289221E700FC06FF /* LGVTextField.m in Sources */,
+				5E34DE8D289221E700FC06FF /* LGVView.m in Sources */,
+				5E34DE93289221E700FC06FF /* LGVLog.m in Sources */,
+				5E34DE332890D5B200FC06FF /* LoggingViewKit.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E34DE342890D5B200FC06FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E34DE3E2890D5B200FC06FF /* LoggingViewKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5E2B201F21C06FB900661170 /* PBXTargetDependency */ = {
+		5E34DE3B2890D5B200FC06FF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5E2B1FCB21C0203300661170 /* LoggingViewKit */;
-			targetProxy = 5E2B201E21C06FB900661170 /* PBXContainerItemProxy */;
+			target = 5E34DE2D2890D5B200FC06FF /* LoggingViewKit-iOS */;
+			targetProxy = 5E34DE3A2890D5B200FC06FF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		5E2B1FD321C0203300661170 /* Debug */ = {
+		5E34DE402890D5B200FC06FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -362,14 +455,15 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -390,20 +484,20 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		5E2B1FD421C0203300661170 /* Release */ = {
+		5E34DE412890D5B200FC06FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -422,14 +516,15 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -444,94 +539,149 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		5E2B1FD621C0203300661170 /* Debug */ = {
+		5E34DE432890D5B200FC06FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 22072800;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				MODULEMAP_FILE = modlue.modluemap;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.hituzi.LoggingViewKit;
+				PRODUCT_NAME = LoggingViewKit;
 				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Modules";
-				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Debug;
 		};
-		5E2B1FD721C0203300661170 /* Release */ = {
+		5E34DE442890D5B200FC06FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 22072800;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				MODULEMAP_FILE = modlue.modluemap;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.hituzi.LoggingViewKit;
+				PRODUCT_NAME = LoggingViewKit;
 				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Modules";
-				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
 			};
 			name = Release;
 		};
-		5E2B201C21C06F2B00661170 /* Debug */ = {
+		5E34DE462890D5B200FC06FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.hituzi.LoggingViewKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		5E2B201D21C06F2B00661170 /* Release */ = {
+		5E34DE472890D5B200FC06FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.hituzi.LoggingViewKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5E34DE4A2890D6B500FC06FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "arm64 armv7 armv7s i386 x86_64";
+			};
+			name = Debug;
+		};
+		5E34DE4B2890D6B500FC06FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5E2B1FC721C0203300661170 /* Build configuration list for PBXProject "LoggingViewKit" */ = {
+		5E34DE282890D5B200FC06FF /* Build configuration list for PBXProject "LoggingViewKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5E2B1FD321C0203300661170 /* Debug */,
-				5E2B1FD421C0203300661170 /* Release */,
+				5E34DE402890D5B200FC06FF /* Debug */,
+				5E34DE412890D5B200FC06FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5E2B1FD521C0203300661170 /* Build configuration list for PBXNativeTarget "LoggingViewKit" */ = {
+		5E34DE422890D5B200FC06FF /* Build configuration list for PBXNativeTarget "LoggingViewKit-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5E2B1FD621C0203300661170 /* Debug */,
-				5E2B1FD721C0203300661170 /* Release */,
+				5E34DE432890D5B200FC06FF /* Debug */,
+				5E34DE442890D5B200FC06FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5E2B201B21C06F2B00661170 /* Build configuration list for PBXAggregateTarget "Universal" */ = {
+		5E34DE452890D5B200FC06FF /* Build configuration list for PBXNativeTarget "LoggingViewKitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5E2B201C21C06F2B00661170 /* Debug */,
-				5E2B201D21C06F2B00661170 /* Release */,
+				5E34DE462890D5B200FC06FF /* Debug */,
+				5E34DE472890D5B200FC06FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E34DE492890D6B500FC06FF /* Build configuration list for PBXAggregateTarget "LoggingViewKit-Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E34DE4A2890D6B500FC06FF /* Debug */,
+				5E34DE4B2890D6B500FC06FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5E2B1FC421C0203300661170 /* Project object */;
+	rootObject = 5E34DE252890D5B200FC06FF /* Project object */;
 }
