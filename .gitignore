@@ -74,3 +74,4 @@ LoggingViewSample/Framework/*.framework
 LoggingViewKit/Output
 .swiftpm
 .build
+MEMO.md
