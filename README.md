@@ -1,8 +1,16 @@
 # LoggingViewKit
 
-***LoggingViewKit is a library tracking a user operation.***
+LoggingViewKit is a library tracking a user operation.
 
-## Include in your iOS app
+## Include in Your Project
+
+### Carthage
+
+LoggingViewKit is available through [Carthage](https://github.com/Carthage/Carthage). To install it, simply add the following line to your Cartfile:
+
+```
+github "HituziANDO/LoggingViewKit"
+```
 
 ### CocoaPods
 
@@ -12,12 +20,6 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "LoggingViewKit"
 ```
-
-### Manual Installation
-
-1. Download latest [LoggingViewKit](https://github.com/HituziANDO/LoggingViewKit/releases)
-1. Drag & Drop LoggingViewKit.framework into your Xcode project
-1. Add `-all_load` to Build Settings > Linking > Other Linker Flags
 
 ## Supported View
 
@@ -33,11 +35,11 @@ pod "LoggingViewKit"
 
 1. Set LGV UI class in the storyboard
 
-	![screenshot1](./README/images/screenshot1.png)
+	![screenshot1](./readme-images/screenshot1.png)
 	
 1. Set arbitrary name to loggingName
 
-	![screenshot2](./README/images/screenshot2.png)
+	![screenshot2](./readme-images/screenshot2.png)
 	
 	**[NOTE]** Recommend setting a unique name.
 	
