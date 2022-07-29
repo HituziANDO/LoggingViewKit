@@ -45,29 +45,35 @@ import LoggingViewKit
 
 ## Usage
 
-1. Set UI class such as `LGVButton` in the storyboard
-
-	![screenshot1](./readme-images/screenshot1.png)
+1. Programmatically write click event
 	
-	LoggingViewKit has following UI classes by default.
+	In following code, `buttonPressed` method is set to the action method of UIButton.
 	
-	- Button
-	- Label
-	- SegmentedControl
-	- Slider
-	- Stepper
-	- Switch
-	- View
+	**Swift**
 	
-	1. Set arbitrary name to Logging Name field
+	```swift
+	@objc func buttonPressed(_ sender: Any) {
+       // Records a click event.
+       let attr = LGVLoggingAttribute(view: sender,
+                                      name: "SampleButton",
+                                      loggingEnabled: true)
+       attr.info = ["more-info": "test"]
+       LGVLoggingViewService.shared().click(attr)
+   }
+	```
 	
-		![screenshot2](./readme-images/screenshot2.png)
-		
-		**[NOTE]** Recommend setting a unique name.
-		
-	1. Select `On` in Logging field to record the view
-		
-		**[NOTE]** If you select `Off` or `Default`, the view is not target to record.
+	**Objective-C**
+	
+	```objc
+	- (void)buttonPressed:(id)sender {
+       // Records a click event.
+       LGVLoggingAttribute *attr = [LGVLoggingAttribute attributeWithView:sender
+                                                                     name:@"SampleButton"
+                                                           loggingEnabled:YES];
+       attr.info = @{ @"more-info": @"test" };
+       [[LGVLoggingViewService sharedService] click:attr];
+   }
+	```
 
 1. Start recording
 	
@@ -83,7 +89,7 @@ import LoggingViewKit
 	[[LGVLoggingViewService sharedService] startRecording];
 	```	
 
-5. Stop recording
+1. Stop recording
 	
 	**Swift**
 	
@@ -97,7 +103,7 @@ import LoggingViewKit
 	[[LGVLoggingViewService sharedService] stopRecording];
 	```
 
-6. Read all logs
+1. Read all logs
 	
 	**Swift**
 	
@@ -111,7 +117,7 @@ import LoggingViewKit
 	NSArray<LGVLog *> *logs = [[LGVLoggingViewService sharedService] allLogs];
 	```
 
-7. Delete all logs
+1. Delete all logs
 	
 	**Swift**
 	
@@ -126,6 +132,32 @@ import LoggingViewKit
 	```
 
 More info, see my [sample project](https://github.com/HituziANDO/LoggingViewKit/tree/master/Sample).
+
+### Use Storyboard
+
+If you use the storyboard, you can set UI class such as `LGVButton` in the storyboard.
+
+![screenshot1](./readme-images/screenshot1.png)
+
+LoggingViewKit has following UI classes by default.
+
+- Button
+- Label
+- SegmentedControl
+- Slider
+- Stepper
+- Switch
+- View
+
+1. Set arbitrary name to Logging Name field
+
+	![screenshot2](./readme-images/screenshot2.png)
+	
+	**[NOTE]** Recommend setting a unique name.
+	
+1. Select `On` in Logging field to record the view
+	
+	**[NOTE]** If you select `Off` or `Default`, the view is not target to record.
 
 ## Sample Log
 
