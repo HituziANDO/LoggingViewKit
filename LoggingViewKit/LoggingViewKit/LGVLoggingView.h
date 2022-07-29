@@ -3,7 +3,7 @@
 //
 //  MIT License
 //
-//  Copyright (c) 2019-present Hituzi Ando. All rights reserved.
+//  Copyright (c) 2022-present Hituzi Ando. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,16 +24,37 @@
 //  SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import "LGVLogging.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol LGVTouching <NSObject>
-@optional
+@interface LGVLoggingView : NSObject <LGVLogging>
 /**
- * Returns the frame detected whether a user touches the view.
+ * The appendix information.
  */
-- (CGRect)touchableFrame;
+@property (nonatomic, copy, readonly, nullable) NSDictionary *info;
+
+/**
+ * Creates an object that has specified name to identify the view.
+ *
+ * @param name A name to identify the view.
+ * @param enabled Tells whether the logging is enabled.
+ * @return
+ */
++ (instancetype)named:(nullable NSString *)name loggingEnabled:(BOOL)enabled;
+/**
+ * Creates an object that has specified name to identify the view.
+ *
+ * @param name A name to identify the view.
+ * @param enabled Tells whether the logging is enabled.
+ * @param info An appendix information.
+ * @return
+ */
++ (instancetype)named:(nullable NSString *)name
+       loggingEnabled:(BOOL)enabled
+                 info:(nullable NSDictionary *)info;
 
 @end
 

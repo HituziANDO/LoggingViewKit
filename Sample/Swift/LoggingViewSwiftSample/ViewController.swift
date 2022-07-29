@@ -26,10 +26,20 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
         return button
     }()
 
+    private lazy var getLogButton: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 44, width: 100, height: 40))
+        button.backgroundColor = UIColor.green.withAlphaComponent(0.7)
+        button.setTitle("Get Log", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.addTarget(self, action: #selector(getLogButtonPressed), for: .touchUpInside)
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         sampleView.addSubview(testButton)
+        sampleView.addSubview(getLogButton)
 
         LGVLoggingViewService.shared().delegate = self
 
@@ -53,9 +63,17 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
     @objc func testButtonPressed(_ sender: LGVButton) {
         if let loggingName = sender.loggingName {
             print("\(loggingName) Pressed")
-
-            print("All Logs: \(LGVLoggingViewService.shared().allLogs())")
         }
+    }
+
+    @objc func getLogButtonPressed(_ sender: Any) {
+        // Records a click event.
+        let view = LGVLoggingView.named("GetLogButton",
+                                        loggingEnabled: true,
+                                        info: ["more-info": "test"])
+        LGVLoggingViewService.shared().click(view)
+
+        print("All Logs: \(LGVLoggingViewService.shared().allLogs())")
     }
 
     // MARK: - LGVLoggingViewServiceDelegate

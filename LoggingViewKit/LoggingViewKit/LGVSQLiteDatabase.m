@@ -39,7 +39,8 @@
 @implementation LGVSQLiteDatabase
 
 + (instancetype)defaultDatabase {
-    NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *docDir = NSSearchPathForDirectoriesInDomains(
+        NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     NSString *path = [docDir stringByAppendingPathComponent:@"logging_view_kit.db"];
 
     return [self databaseWithPath:path];
@@ -57,8 +58,16 @@
 
 - (BOOL)addLog:(LGVLog *)log {
     NSString *sql = @"INSERT INTO lgv_logs "
-                    "(key, name, click_x, click_y, absolute_click_x, absolute_click_y, info, created_at) "
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+                    "(key, "
+                    "event_type, "
+                    "name, "
+                    "click_x, "
+                    "click_y, "
+                    "absolute_click_x, "
+                    "absolute_click_y, "
+                    "info, "
+                    "created_at) "
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
     if (![self.db open]) {
         return NO;
@@ -68,6 +77,7 @@
 
     const BOOL success = [self.db executeUpdate:sql withArgumentsInArray:@[
         log.key,
+        log.eventType,
         log.name ? log.name : @"",
         @(log.clickX),
         @(log.clickY),
@@ -104,6 +114,7 @@
         LGVLog *log = [LGVLog logWithKey:[results stringForColumn:@"key"]
                                createdAt:[results dateForColumn:@"created_at"]];
         log.ID = [results longLongIntForColumn:@"id"];
+        log.eventType = [results stringForColumn:@"event_type"];
         log.name = [results stringForColumn:@"name"];
         log.clickX = [results doubleForColumn:@"click_x"];
         log.clickY = [results doubleForColumn:@"click_y"];
@@ -137,6 +148,7 @@
         log = [LGVLog logWithKey:[results stringForColumn:@"key"]
                        createdAt:[results dateForColumn:@"created_at"]];
         log.ID = [results longLongIntForColumn:@"id"];
+        log.eventType = [results stringForColumn:@"event_type"];
         log.name = [results stringForColumn:@"name"];
         log.clickX = [results doubleForColumn:@"click_x"];
         log.clickY = [results doubleForColumn:@"click_y"];
@@ -176,6 +188,7 @@
     NSString *sql = @"CREATE TABLE IF NOT EXISTS lgv_logs ("
                     "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     "key TEXT NOT NULL, "
+                    "event_type TEXT NOT NULL, "
                     "name TEXT, "
                     "click_x REAL, "
                     "click_y REAL, "

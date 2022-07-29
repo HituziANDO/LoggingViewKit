@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet LGVLabel *stepperLabel;
 @property (weak, nonatomic) IBOutlet LGVView *sampleView;
 @property (nonatomic) LGVButton *testButton;
+@property (nonatomic) UIButton *getLogButton;
 
 @end
 
@@ -34,6 +35,15 @@
                         action:@selector(testButtonPressed:)
               forControlEvents:UIControlEventTouchUpInside];
     [self.sampleView addSubview:self.testButton];
+
+    self.getLogButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 44.f, 100.f, 40.f)];
+    self.getLogButton.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:.7f];
+    [self.getLogButton setTitle:@"Get Log" forState:UIControlStateNormal];
+    [self.getLogButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.getLogButton addTarget:self
+                          action:@selector(getLogButtonPressed:)
+                forControlEvents:UIControlEventTouchUpInside];
+    [self.sampleView addSubview:self.getLogButton];
 }
 
 - (void)viewDidLoad {
@@ -59,6 +69,14 @@
 
 - (void)testButtonPressed:(LGVButton *)sender {
     NSLog(@"%@ Pressed", sender.loggingName);
+}
+
+- (void)getLogButtonPressed:(id)sender {
+    // Records a click event.
+    LGVLoggingView *view = [LGVLoggingView named:@"GetLogButton"
+                                  loggingEnabled:YES
+                                            info:@{ @"more-info": @"test" }];
+    [[LGVLoggingViewService sharedService] click:view];
 
     NSLog(@"All Logs: %@", [[LGVLoggingViewService sharedService] allLogs]);
 }

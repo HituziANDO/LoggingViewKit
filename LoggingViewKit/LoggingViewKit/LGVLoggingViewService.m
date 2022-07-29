@@ -29,6 +29,7 @@
 #import "LGVDatabase.h"
 #import "LGVLog.h"
 #import "LGVLogging.h"
+#import "LGVLoggingView.h"
 #import "LGVRealTimeLogger.h"
 #import "LGVSQLiteDatabase.h"
 
@@ -99,51 +100,57 @@ static LGVLoggingViewService *_loggingViewService = nil;
         return;
     }
 
-    if (![loggingView isKindOfClass:[UIView class]]) {
-        return;
-    }
-
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIView *view = (UIView *) loggingView;
-
-        LGVLog *log = [LGVLog log];
+        LGVLog *log = [LGVLog logWithEventType:@"click"];
         log.name = loggingView.loggingName;
 
-        if (touches) {
-            UITouch *touch = [touches anyObject];
-            CGPoint point = [touch locationInView:view.superview];
+        if ([loggingView isKindOfClass:[UIView class]]) {
+            UIView *view = (UIView *) loggingView;
 
-            CGRect frame = view.frame;
-            if ([loggingView respondsToSelector:@selector(touchableFrame)]) {
-                frame = loggingView.touchableFrame;
+            if (touches) {
+                UITouch *touch = [touches anyObject];
+                CGPoint point = [touch locationInView:view.superview];
+
+                CGRect frame = view.frame;
+                if ([loggingView respondsToSelector:@selector(touchableFrame)]) {
+                    frame = loggingView.touchableFrame;
+                }
+
+                if (!CGRectContainsPoint(frame, point)) {
+                    // Clicked outside the view.
+                    return;
+                }
+
+                CGPoint absolutePoint = [view.superview convertPoint:point toView:nil];
+
+                log.clickX = point.x;
+                log.clickY = point.y;
+                log.absoluteClickX = absolutePoint.x;
+                log.absoluteClickY = absolutePoint.y;
             }
 
-            if (!CGRectContainsPoint(frame, point)) {
-                // Clicked outside the view.
-                return;
+            if ([view isKindOfClass:[UISegmentedControl class]]) {
+                // New value, because occurred at touchesEnded event.
+                log.info[@"newValue"] = @(((UISegmentedControl *) view).selectedSegmentIndex);
             }
+            else if ([view isKindOfClass:[UISlider class]]) {
+                // Old value, because occurred at touchesBegan event.
+                log.info[@"oldValue"] = @(((UISlider *) view).value);
+            }
+            else if ([view isKindOfClass:[UIStepper class]]) {
+                log.info[@"newValue"] = @(((UIStepper *) view).value);
+            }
+            else if ([view isKindOfClass:[UISwitch class]]) {
+                log.info[@"oldValue"] = @(((UISwitch *) view).on);
+            }
+        }
+        else if ([loggingView isKindOfClass:[LGVLoggingView class]]) {
+            LGVLoggingView *view = (LGVLoggingView *) loggingView;
 
-            CGPoint absolutePoint = [view.superview convertPoint:point toView:nil];
-
-            log.clickX = point.x;
-            log.clickY = point.y;
-            log.absoluteClickX = absolutePoint.x;
-            log.absoluteClickY = absolutePoint.y;
-        }
-
-        if ([view isKindOfClass:[UISegmentedControl class]]) {
-            // New value, because occurred at touchesEnded event.
-            log.info[@"newValue"] = @(((UISegmentedControl *) view).selectedSegmentIndex);
-        }
-        else if ([view isKindOfClass:[UISlider class]]) {
-            // Old value, because occurred at touchesBegan event.
-            log.info[@"oldValue"] = @(((UISlider *) view).value);
-        }
-        else if ([view isKindOfClass:[UIStepper class]]) {
-            log.info[@"newValue"] = @(((UIStepper *) view).value);
-        }
-        else if ([view isKindOfClass:[UISwitch class]]) {
-            log.info[@"oldValue"] = @(((UISwitch *) view).on);
+            if (view.info) {
+                // Appends more information.
+                [log.info setDictionary:view.info];
+            }
         }
 
         if ([self.delegate respondsToSelector:@selector(loggingViewService:willSaveLog:ofView:withEvent:)]) {

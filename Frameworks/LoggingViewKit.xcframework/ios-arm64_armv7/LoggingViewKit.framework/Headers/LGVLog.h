@@ -28,6 +28,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+FOUNDATION_EXTERN const double LGVUndefinedLocation;
+
 @interface LGVLog : NSObject
 
 @property (nonatomic) long long int ID;
@@ -35,6 +37,10 @@ NS_ASSUME_NONNULL_BEGIN
  * The key.
  */
 @property (nonatomic, copy, readonly) NSString *key;
+/**
+ * The type of an event.
+ */
+@property (nonatomic, copy) NSString *eventType;
 /**
  * The name of the view.
  */
@@ -68,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy, readonly) NSDictionary *toDictionary;
 
-+ (instancetype)log;
++ (instancetype)logWithEventType:(NSString *)eventType;
 + (instancetype)logWithKey:(NSString *)key createdAt:(NSDate *)createdAt;
 
 @end

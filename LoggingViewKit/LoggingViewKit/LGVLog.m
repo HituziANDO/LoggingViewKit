@@ -26,6 +26,8 @@
 
 #import "LGVLog.h"
 
+const double LGVUndefinedLocation = -1;
+
 @interface LGVLog ()
 
 @property (nonatomic, copy) NSString *key;
@@ -35,10 +37,15 @@
 
 @implementation LGVLog
 
-+ (instancetype)log {
++ (instancetype)logWithEventType:(NSString *)eventType {
     LGVLog *log = [LGVLog new];
     log.key = [NSUUID UUID].UUIDString.uppercaseString;
+    log.eventType = eventType;
     log.createdAt = [NSDate date];
+    log.clickX = LGVUndefinedLocation;
+    log.clickY = LGVUndefinedLocation;
+    log.absoluteClickX = LGVUndefinedLocation;
+    log.absoluteClickY = LGVUndefinedLocation;
 
     return log;
 }
@@ -52,9 +59,7 @@
 }
 
 - (instancetype)init {
-    self = [super init];
-
-    if (self) {
+    if (self = [super init]) {
         _info = [NSMutableDictionary new];
     }
 
@@ -69,6 +74,7 @@
     NSMutableDictionary *dictionary = [self dictionaryWithValuesForKeys:@[
         @"ID",
         @"key",
+        @"eventType",
         @"name",
         @"clickX",
         @"clickY",

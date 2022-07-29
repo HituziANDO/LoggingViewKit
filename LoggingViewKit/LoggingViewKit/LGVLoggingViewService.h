@@ -24,6 +24,7 @@
 //  SOFTWARE.
 //
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -35,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol LGVDatabase;
 @protocol LGVLogging;
 
-UIKIT_EXTERN NSString *const LGVErrorDomain;
+FOUNDATION_EXTERN NSString *const LGVErrorDomain;
 
 @protocol LGVLoggingViewServiceDelegate <NSObject>
 @optional
@@ -49,7 +50,8 @@ UIKIT_EXTERN NSString *const LGVErrorDomain;
 - (void)loggingViewService:(LGVLoggingViewService *)service
                willSaveLog:(LGVLog *)log
                     ofView:(id <LGVLogging>)view
-                 withEvent:(nullable UIEvent *)event NS_SWIFT_NAME(loggingViewService(_:willSave:of:with:));
+                 withEvent:(nullable UIEvent *)event
+NS_SWIFT_NAME(loggingViewService(_:willSave:of:with:));
 /**
  *
  * @param service The service object
@@ -62,7 +64,8 @@ UIKIT_EXTERN NSString *const LGVErrorDomain;
                 didSaveLog:(LGVLog *)log
                     ofView:(id <LGVLogging>)view
                  withEvent:(nullable UIEvent *)event
-                     error:(nullable LGVError *)error NS_SWIFT_NAME(loggingViewService(_:didSave:of:with:error:));
+                     error:(nullable LGVError *)error
+NS_SWIFT_NAME(loggingViewService(_:didSave:of:with:error:));
 
 @end
 
@@ -84,8 +87,8 @@ UIKIT_EXTERN NSString *const LGVErrorDomain;
 /**
  * Tells whether the service outputs a log to Xcode console in real time.
  */
-@property (nonatomic, getter=isOutputToConsoleInRealTime) BOOL outputToConsoleInRealTime DEPRECATED_MSG_ATTRIBUTE(
-    "Use `LGVRealTimeLogger` instead.");
+@property (nonatomic, getter=isOutputToConsoleInRealTime) BOOL outputToConsoleInRealTime
+    DEPRECATED_MSG_ATTRIBUTE("Use `LGVRealTimeLogger` instead.");
 
 /**
  * Returns the singleton instance.

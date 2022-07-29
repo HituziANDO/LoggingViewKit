@@ -18,15 +18,19 @@
 		</data>
 		<key>Headers/LGVLog.h</key>
 		<data>
-		5OvmQRQuBnvlydaQw5z8m0wgFWI=
+		c1QBElN5z8aUPMDPTwBsKwbbjQE=
 		</data>
 		<key>Headers/LGVLogging.h</key>
 		<data>
-		qAZcY7uHcblja3/8DcbOaTvUS5U=
+		qoRNxM/9Z68UnhdZydCCobgMjrY=
+		</data>
+		<key>Headers/LGVLoggingView.h</key>
+		<data>
+		q3w6mBRVNWN0qj4lMk+7/8xS6fU=
 		</data>
 		<key>Headers/LGVLoggingViewService.h</key>
 		<data>
-		U3JRoXNZSH9UXEr5nlEkfSPfLUk=
+		rvqNo92ZqeZoNcVaqVDS4bLyg3I=
 		</data>
 		<key>Headers/LGVRealTimeLogger.h</key>
 		<data>
@@ -60,10 +64,6 @@
 		<data>
 		GxuY+j8DGxpCWE0y2U0LY6CPeY4=
 		</data>
-		<key>Headers/LGVTouching.h</key>
-		<data>
-		IulnAeahSJJbHbT884nrG4c4na4=
-		</data>
 		<key>Headers/LGVUtility.h</key>
 		<data>
 		tLX2xcS7+nhUkbRvFQ86UmlWgAA=
@@ -74,7 +74,7 @@
 		</data>
 		<key>Headers/LoggingViewKit.h</key>
 		<data>
-		EOmaUanMbwcRnKVwF+vIzf3h2QY=
+		wA13l5zmhYVBMaP70bez8dBYdG4=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -124,33 +124,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5OvmQRQuBnvlydaQw5z8m0wgFWI=
+			c1QBElN5z8aUPMDPTwBsKwbbjQE=
 			</data>
 			<key>hash2</key>
 			<data>
-			I0lZkrRA+El4+YWxgynE4Hv+LJzeC/3T/j28+BhjzdE=
+			i2HpWzN5O0V3aWrJ6pJ+1WSDSpq5tZkshFR9fowBX20=
 			</data>
 		</dict>
 		<key>Headers/LGVLogging.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qAZcY7uHcblja3/8DcbOaTvUS5U=
+			qoRNxM/9Z68UnhdZydCCobgMjrY=
 			</data>
 			<key>hash2</key>
 			<data>
-			U2H8NvVD8FoYf+M+w/M1oh7X3gW8udTNol4W2S5IhOc=
+			RNRTQTuPwcSBvmGRAbiNSCLwHZa9Uo3Kla1vc0+OaNE=
+			</data>
+		</dict>
+		<key>Headers/LGVLoggingView.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			q3w6mBRVNWN0qj4lMk+7/8xS6fU=
+			</data>
+			<key>hash2</key>
+			<data>
+			odmalUy9BHQNy+cnRVjOwBjqthrF+dEVJPTeHM+1ShI=
 			</data>
 		</dict>
 		<key>Headers/LGVLoggingViewService.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			U3JRoXNZSH9UXEr5nlEkfSPfLUk=
+			rvqNo92ZqeZoNcVaqVDS4bLyg3I=
 			</data>
 			<key>hash2</key>
 			<data>
-			jOaBeX+ppfhni1x1Jn+o5Mnp0zduVNMrkh65+VHZWNE=
+			tMW4vVovDuapIi30r1qmed+ht5bulbk9CKjtxdA/sjc=
 			</data>
 		</dict>
 		<key>Headers/LGVRealTimeLogger.h</key>
@@ -241,17 +252,6 @@
 			mjlCPokHl4C1gswEGLXFh4iGELA4jNfxbtaCtoiYA7Y=
 			</data>
 		</dict>
-		<key>Headers/LGVTouching.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			IulnAeahSJJbHbT884nrG4c4na4=
-			</data>
-			<key>hash2</key>
-			<data>
-			H+ui/+Au9BLLbUEy/2KPHPgdD9zoJfJEWvQA4pxXVrg=
-			</data>
-		</dict>
 		<key>Headers/LGVUtility.h</key>
 		<dict>
 			<key>hash</key>
@@ -278,11 +278,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			EOmaUanMbwcRnKVwF+vIzf3h2QY=
+			wA13l5zmhYVBMaP70bez8dBYdG4=
 			</data>
 			<key>hash2</key>
 			<data>
-			LHpOTz18Ys11Rf5K1slxnnFMR1nSCKdvd4p03zfSe+I=
+			lbEP2rNPBCDd1w0D1Q7P43o/I/LCoABm34g3qw3bsbo=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

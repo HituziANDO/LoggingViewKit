@@ -24,11 +24,19 @@
 //  SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
-
-#import "LGVTouching.h"
+#import <CoreGraphics/CoreGraphics.h>
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+@protocol LGVTouching <NSObject>
+@optional
+/**
+ * Returns the frame detected whether a user touches the view.
+ */
+- (CGRect)touchableFrame;
+
+@end
 
 @protocol LGVLogging <LGVTouching>
 /**
