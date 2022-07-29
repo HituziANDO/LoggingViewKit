@@ -1,6 +1,6 @@
 # LoggingViewKit
 
-LoggingViewKit is a library tracking a user operation.
+LoggingViewKit is a framework records a user's click operation.
 
 ## Include in Your Project
 
@@ -29,79 +29,58 @@ LoggingViewKit is available through Swift Package Manager. To install it using X
 https://github.com/HituziANDO/LoggingViewKit
 ```
 
-## Supported View
+## Import framework
 
-- Button
-- Label
-- SegmentedControl
-- Slider
-- Stepper
-- Switch
-- View
+**Swift**
 
-## Quick Usage
+```swift
+import LoggingViewKit
+```
 
-1. Set LGV UI class in the storyboard
+**Objective-C**
+
+```objc
+#import <LoggingViewKit/LoggingViewKit.h>
+```
+
+## Usage
+
+1. Set UI class such as `LGVButton` in the storyboard
 
 	![screenshot1](./readme-images/screenshot1.png)
 	
-1. Set arbitrary name to loggingName
-
-	![screenshot2](./readme-images/screenshot2.png)
+	LoggingViewKit has following UI classes by default.
 	
-	**[NOTE]** Recommend setting a unique name.
+	- Button
+	- Label
+	- SegmentedControl
+	- Slider
+	- Stepper
+	- Switch
+	- View
 	
-1. Select `On` to record the view
+	1. Set arbitrary name to Logging Name field
 	
-	**[NOTE]** If you select `Off` or `Default`, the view is not target to record.
-
-1. Import framework
-	
-	**Swift**
-	
-	```swift
-	import LoggingViewKit
-	```
-	
-	**Objective-C**
-	
-	```objc
-	#import <LoggingViewKit/LoggingViewKit.h>
-	```
+		![screenshot2](./readme-images/screenshot2.png)
+		
+		**[NOTE]** Recommend setting a unique name.
+		
+	1. Select `On` in Logging field to record the view
+		
+		**[NOTE]** If you select `Off` or `Default`, the view is not target to record.
 
 1. Start recording
 	
 	**Swift**
 	
 	```swift	
-	@UIApplicationMain
-	class AppDelegate: UIResponder, UIApplicationDelegate {
-	
-		...
-	
-		func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-	
-			LGVLoggingViewService.shared().startRecording()
-	
-			return true
-		}
-		
-		...
-		
-	}
+	LGVLoggingViewService.shared().startRecording()
 	```
 	
 	**Objective-C**
 	
 	```objc	
-	@implementation AppDelegate
-	
-	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-		
-		[[LGVLoggingViewService sharedService] startRecording];
-		
-		return YES;
-	}
+	[[LGVLoggingViewService sharedService] startRecording];
 	```	
 
 5. Stop recording
@@ -150,7 +129,7 @@ More info, see my [sample project](https://github.com/HituziANDO/LoggingViewKit/
 
 ## Sample Log
 
-LoggingViewKit records the following log.
+LoggingViewKit records logs like the following log.
 
 ```
 {
