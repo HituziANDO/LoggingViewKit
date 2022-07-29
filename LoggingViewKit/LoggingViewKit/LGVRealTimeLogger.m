@@ -26,7 +26,7 @@
 
 #import "LGVRealTimeLogger.h"
 
-NSString *LGVStringFromLGVLogLevel(LGVLogLevel logLevel) {
+NSString *LGVLogLevelToString(LGVLogLevel logLevel) {
     switch (logLevel) {
         case LGVLogLevelDebug:
             return @"Debug";
@@ -63,16 +63,17 @@ NSString *LGVStringFromLGVLogLevel(LGVLogLevel logLevel) {
 
 @implementation LGVFileDestination
 
-+ (instancetype)destinationWithFile:(NSString *)fileName inDirectory:(NSString *)directory {
++ (instancetype)destinationWithFile:(NSString *)fileName
+                        inDirectory:(NSString *)directory {
     if (![[NSFileManager defaultManager] fileExistsAtPath:directory]) {
         if (![[NSFileManager defaultManager] createDirectoryAtPath:directory
                                        withIntermediateDirectories:YES
                                                         attributes:nil
                                                              error:nil]) {
-
+            NSString *reason = [NSString stringWithFormat:@"Failed to create a directory at %@",
+                                                          directory];
             @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                           reason:[NSString stringWithFormat:@"Failed to create a directory at %@",
-                                                                             directory]
+                                           reason:reason
                                          userInfo:nil];
         }
     }
@@ -94,23 +95,57 @@ NSString *LGVStringFromLGVLogLevel(LGVLogLevel logLevel) {
         // Append
         NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:self.filePath];
         [fileHandle seekToEndOfFile];
-        [fileHandle writeData:[[NSString stringWithFormat:@",\n%@", log] dataUsingEncoding:NSUTF8StringEncoding]];
+        [fileHandle writeData:[[NSString stringWithFormat:@",\n%@", log]
+                                         dataUsingEncoding:NSUTF8StringEncoding]];
     }
     else {
         // Create
         NSError *error = nil;
 
-        if (![log writeToFile:self.filePath atomically:YES encoding:NSUTF8StringEncoding error:&error]) {
-            LGVLogE(@"%@ failed to write a log. %@", NSStringFromClass([self class]), error.description);
+        if (![log writeToFile:self.filePath
+                   atomically:YES
+                     encoding:NSUTF8StringEncoding
+                        error:&error]) {
+            NSLog(@"%@ failed to write a log. %@",
+                  NSStringFromClass([self class]), error.description);
         }
     }
 }
 
 @end
 
-@implementation LGVJSONSerializer
+@implementation LGVStringSerializer
 
-#pragma mark - LGVSerializer
+- (NSString *)serialize:(NSDictionary *)dictionary {
+    NSMutableArray<NSString *> *messages = [NSMutableArray new];
+
+    if (dictionary[@"timestamp"]) {
+        [messages addObject:dictionary[@"timestamp"]];
+    }
+    if (dictionary[@"logLevel"]) {
+        NSString *str = [NSString stringWithFormat:@"[%@]", dictionary[@"logLevel"]];
+        [messages addObject:str];
+    }
+    if (dictionary[@"method"] && dictionary[@"line"]) {
+        NSString *str = [NSString stringWithFormat:@"%@:%@",
+                                                   dictionary[@"method"], dictionary[@"line"]];
+        [messages addObject:str];
+    }
+    if (dictionary[@"isMainThread"]) {
+        NSString *str = [NSString stringWithFormat:@"mainThread:%d",
+                                                   [dictionary[@"isMainThread"] boolValue]];
+        [messages addObject:str];
+    }
+    if (dictionary[@"message"]) {
+        [messages addObject:dictionary[@"message"]];
+    }
+
+    return [messages componentsJoinedByString:@" "];
+}
+
+@end
+
+@implementation LGVJSONSerializer
 
 - (NSString *)serialize:(NSDictionary *)dictionary {
     if ([NSJSONSerialization isValidJSONObject:dictionary]) {
@@ -127,7 +162,7 @@ NSString *LGVStringFromLGVLogLevel(LGVLogLevel logLevel) {
 
 @interface LGVRealTimeLogger ()
 
-@property (nonatomic, copy) NSMutableArray<id <LGVDestination>> *dests;
+@property (nonatomic) NSMutableArray<id <LGVDestination>> *destinations;
 
 @end
 
@@ -144,40 +179,31 @@ NSString *LGVStringFromLGVLogLevel(LGVLogLevel logLevel) {
 }
 
 - (instancetype)init {
-    self = [super init];
-
-    if (self) {
-        _logLevel = LGVLogLevelOff;
-        _serializer = [LGVJSONSerializer new];
-        _dests = [NSMutableArray new];
+    if (self = [super init]) {
+        _logLevel = LGVLogLevelDebug;
+        _serializer = [LGVStringSerializer new];
+        _destinations = [NSMutableArray new];
     }
 
     return self;
-}
-
-#pragma mark - property
-
-- (NSArray<id <LGVDestination>> *)destinations {
-    return [self.dests copy];
 }
 
 #pragma mark - public method
 
 - (instancetype)addDestination:(id <LGVDestination>)destination {
     if (destination) {
-        [self.dests addObject:destination];
+        [self.destinations addObject:destination];
     }
 
     return self;
 }
 
-- (void)logWithLevel:(LGVLogLevel)logLevel
-            function:(const char *)function
-                line:(NSUInteger)line
-              format:(nullable NSString *)format, ... {
+- (void)logWithLevel:(LGVLogLevel)logLevel format:(nullable NSString *)format, ... {
+    if (self.logLevel == LGVLogLevelOff || self.logLevel > logLevel) {
+        return;
+    }
 
     NSString *message;
-
     if (format) {
         va_list args;
         va_start(args, format);
@@ -185,79 +211,44 @@ NSString *LGVStringFromLGVLogLevel(LGVLogLevel logLevel) {
         va_end(args);
     }
 
-    [self logWithLevel:logLevel function:function line:line dictionary:@{
-        @"message": message ? message : @"",
+    NSString *log = [self.serializer serialize:@{
+        @"logLevel": LGVLogLevelToString(logLevel),
+        @"timestamp": [NSDate date].description,
+        @"message": message ?: @"",
     }];
+
+    for (id <LGVDestination> dest in self.destinations) {
+        [dest write:log logLevel:logLevel];
+    }
 }
 
 - (void)logWithLevel:(LGVLogLevel)logLevel
             function:(const char *)function
                 line:(NSUInteger)line
-               point:(CGPoint)point
-             comment:(nullable NSString *)comment {
+              format:(nullable NSString *)format, ... {
+    if (self.logLevel == LGVLogLevelOff || self.logLevel > logLevel) {
+        return;
+    }
 
-    [self logWithLevel:logLevel
-              function:function
-                  line:line
-            dictionary:@{
-                @"x": @(point.x),
-                @"y": @(point.y),
-                @"comment": comment ? comment : @"",
-            }];
-}
+    NSString *message;
+    if (format) {
+        va_list args;
+        va_start(args, format);
+        message = [[NSString alloc] initWithFormat:format arguments:args];
+        va_end(args);
+    }
 
-- (void)logWithLevel:(LGVLogLevel)logLevel
-            function:(const char *)function
-                line:(NSUInteger)line
-                size:(CGSize)size
-             comment:(nullable NSString *)comment {
+    NSString *log = [self.serializer serialize:@{
+        @"logLevel": LGVLogLevelToString(logLevel),
+        @"method": [NSString stringWithCString:function encoding:NSUTF8StringEncoding],
+        @"line": @(line),
+        @"isMainThread": @([NSThread currentThread].isMainThread),
+        @"timestamp": [NSDate date].description,
+        @"message": message ?: @"",
+    }];
 
-    [self logWithLevel:logLevel
-              function:function
-                  line:line
-            dictionary:@{
-                @"width": @(size.width),
-                @"height": @(size.height),
-                @"comment": comment ? comment : @"",
-            }];
-}
-
-- (void)logWithLevel:(LGVLogLevel)logLevel
-            function:(const char *)function
-                line:(NSUInteger)line
-                rect:(CGRect)rect
-             comment:(nullable NSString *)comment {
-
-    [self logWithLevel:logLevel
-              function:function
-                  line:line
-            dictionary:@{
-                @"x": @(rect.origin.x),
-                @"y": @(rect.origin.y),
-                @"width": @(rect.size.width),
-                @"height": @(rect.size.height),
-                @"comment": comment ? comment : @"",
-            }];
-}
-
-- (void)logWithLevel:(LGVLogLevel)logLevel
-            function:(const char *)function
-                line:(NSUInteger)line
-          dictionary:(nullable NSDictionary *)dictionary {
-
-    if (self.logLevel != LGVLogLevelOff && self.logLevel <= logLevel) {
-        NSString *log = [self.serializer serialize:@{
-            @"logLevel": LGVStringFromLGVLogLevel(logLevel),
-            @"method": [NSString stringWithCString:function encoding:NSUTF8StringEncoding],
-            @"line": @(line),
-            @"isMainThread": @([NSThread currentThread].isMainThread),
-            @"timestamp": [NSDate date].description,
-            @"log": dictionary ? dictionary : @{},
-        }];
-
-        [self.dests enumerateObjectsUsingBlock:^(id <LGVDestination> destination, NSUInteger idx, BOOL *stop) {
-            [destination write:log logLevel:logLevel];
-        }];
+    for (id <LGVDestination> dest in self.destinations) {
+        [dest write:log logLevel:logLevel];
     }
 }
 

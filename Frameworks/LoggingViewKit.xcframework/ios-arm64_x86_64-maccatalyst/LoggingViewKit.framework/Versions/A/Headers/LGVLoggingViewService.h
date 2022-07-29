@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class LGVError;
 @class LGVLog;
 @class LGVLoggingViewService;
+@class LGVRealTimeLogger;
 
 @protocol LGVDatabase;
 @protocol LGVLogging;
@@ -85,10 +86,9 @@ NS_SWIFT_NAME(loggingViewService(_:didSave:of:with:error:));
  */
 @property (nonatomic, nullable) id <LGVDatabase> database;
 /**
- * Tells whether the service outputs a log to Xcode console in real time.
+ * If you set the logger object, LoggingViewService outputs a log.
  */
-@property (nonatomic, getter=isOutputToConsoleInRealTime) BOOL outputToConsoleInRealTime
-    DEPRECATED_MSG_ATTRIBUTE("Use `LGVRealTimeLogger` instead.");
+@property (nonatomic, nullable) LGVRealTimeLogger *logger;
 
 /**
  * Returns the singleton instance.

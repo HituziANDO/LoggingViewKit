@@ -21,11 +21,12 @@
     // Override point for customization after application launch.
 
     // Enable debug logging.
-    [LGVRealTimeLogger sharedLogger].logLevel = LGVLogLevelDebug;
-    [[LGVRealTimeLogger sharedLogger] addDestination:[LGVXcodeConsoleDestination destination]];
+    LGVRealTimeLogger *logger = [LGVRealTimeLogger new];
+    [logger addDestination:[LGVXcodeConsoleDestination destination]];
     NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    [[LGVRealTimeLogger sharedLogger] addDestination:[LGVFileDestination destinationWithFile:@"debug.log"
-                                                                                 inDirectory:docDir]];
+    [logger addDestination:[LGVFileDestination destinationWithFile:@"debug.log"
+                                                       inDirectory:docDir]];
+    [LGVLoggingViewService sharedService].logger = logger;
 
     // Start recording.
     [[LGVLoggingViewService sharedService] startRecording];

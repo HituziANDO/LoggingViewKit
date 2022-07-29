@@ -25,7 +25,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -33,23 +32,23 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
     /**
      * No logs.
      */
-        LGVLogLevelOff = -1,
+    LGVLogLevelOff = -1,
     /**
      * Outputs debug, info, warning and error logs.
      */
-        LGVLogLevelDebug,
+    LGVLogLevelDebug,
     /**
      * Outputs info, warning and error logs.
      */
-        LGVLogLevelInfo,
+    LGVLogLevelInfo,
     /**
      * Outputs warning and error logs.
      */
-        LGVLogLevelWarning,
+    LGVLogLevelWarning,
     /**
      * Outputs error logs.
      */
-        LGVLogLevelError,
+    LGVLogLevelError,
 };
 
 @protocol LGVDestination <NSObject>
@@ -83,10 +82,12 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
  * Creates new instance that it outputs a log to given file.
  *
  * @param fileName A file name. The file is put in given directory.
- * @param directory A directory path. If the directory doesn't exist, it is created by the receiver.
+ * @param directory A directory path. If the directory doesn't exist,
+ * it is created by the receiver.
  * @return A destination.
  */
-+ (instancetype)destinationWithFile:(NSString *)fileName inDirectory:(NSString *)directory;
++ (instancetype)destinationWithFile:(NSString *)fileName
+                        inDirectory:(NSString *)directory;
 /**
  * Creates new instance that it outputs a log to given file.
  *
@@ -108,6 +109,10 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
 
 @end
 
+@interface LGVStringSerializer : NSObject <LGVSerializer>
+
+@end
+
 @interface LGVJSONSerializer : NSObject <LGVSerializer>
 
 @end
@@ -121,10 +126,6 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
  * A serializer. Default is JSON serializer.
  */
 @property (nonatomic) id <LGVSerializer> serializer;
-/**
- * Returns added destinations.
- */
-@property (nonatomic, copy, readonly) NSArray<id <LGVDestination>> *destinations;
 
 /**
  * Returns the singleton instance.
@@ -144,78 +145,23 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
  * Adds a log.
  *
  * @param logLevel The log level.
+ * @param format A message using a format.
+ */
+- (void)logWithLevel:(LGVLogLevel)logLevel format:(nullable NSString *)format, ...;
+/**
+ * Adds a log.
+ *
+ * @param logLevel The log level.
  * @param function Set `__FUNCTION__`.
  * @param line Set `__LINE__`.
- * @param format Å message using a format.
+ * @param format A message using a format.
  */
 - (void)logWithLevel:(LGVLogLevel)logLevel
             function:(const char *)function
                 line:(NSUInteger)line
               format:(nullable NSString *)format, ...;
-/**
- * Adds a log.
- *
- * @param logLevel The log level.
- * @param function Set `__FUNCTION__`.
- * @param line Set `__LINE__`.
- * @param point A point.
- * @param comment A comment.
- */
-- (void)logWithLevel:(LGVLogLevel)logLevel
-            function:(const char *)function
-                line:(NSUInteger)line
-               point:(CGPoint)point
-             comment:(nullable NSString *)comment;
-/**
- * Adds a log.
- *
- * @param logLevel The log level.
- * @param function Set `__FUNCTION__`.
- * @param line Set `__LINE__`.
- * @param size A size.
- * @param comment A comment.
- */
-- (void)logWithLevel:(LGVLogLevel)logLevel
-            function:(const char *)function
-                line:(NSUInteger)line
-                size:(CGSize)size
-             comment:(nullable NSString *)comment;
-/**
- * Adds a log.
- *
- * @param logLevel The log level.
- * @param function Set `__FUNCTION__`.
- * @param line Set `__LINE__`.
- * @param rect A rect.
- * @param comment A comment.
- */
-- (void)logWithLevel:(LGVLogLevel)logLevel
-            function:(const char *)function
-                line:(NSUInteger)line
-                rect:(CGRect)rect
-             comment:(nullable NSString *)comment;
-/**
- * Adds a log.
- *
- * @param logLevel The log level.
- * @param function Set `__FUNCTION__`.
- * @param line Set `__LINE__`.
- * @param dictionary A dictionary.
- */
-- (void)logWithLevel:(LGVLogLevel)logLevel
-            function:(const char *)function
-                line:(NSUInteger)line
-          dictionary:(nullable NSDictionary *)dictionary;
 
 @end
-
-/**
- * Get a string of log level as `NSString` from `LGVLogLevel` value.
- *
- * @param logLevel A log level.
- * @return A string of log level.
- */
-FOUNDATION_EXTERN NSString *LGVStringFromLGVLogLevel(LGVLogLevel logLevel);
 
 #define LGVLogD(...) [[LGVRealTimeLogger sharedLogger] \
     logWithLevel:LGVLogLevelDebug function:__FUNCTION__ line:__LINE__ format:__VA_ARGS__]
@@ -225,41 +171,5 @@ FOUNDATION_EXTERN NSString *LGVStringFromLGVLogLevel(LGVLogLevel logLevel);
     logWithLevel:LGVLogLevelWarning function:__FUNCTION__ line:__LINE__ format:__VA_ARGS__]
 #define LGVLogE(...) [[LGVRealTimeLogger sharedLogger] \
     logWithLevel:LGVLogLevelError function:__FUNCTION__ line:__LINE__ format:__VA_ARGS__]
-
-#define LGVLogPointD(_point, _comment) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelDebug function:__FUNCTION__ line:__LINE__ point:_point comment:_comment]
-#define LGVLogPointI(_point, _comment) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelInfo function:__FUNCTION__ line:__LINE__ point:_point comment:_comment]
-#define LGVLogPointW(_point, _comment) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelWarning function:__FUNCTION__ line:__LINE__ point:_point comment:_comment]
-#define LGVLogPointE(_point, _comment) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelError function:__FUNCTION__ line:__LINE__ point:_point comment:_comment]
-
-#define LGVLogSizeD(_size, _comment) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelDebug function:__FUNCTION__ line:__LINE__ size:_size comment:_comment]
-#define LGVLogSizeI(_size, _comment) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelInfo function:__FUNCTION__ line:__LINE__ size:_size comment:_comment]
-#define LGVLogSizeW(_size, _comment) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelWarning function:__FUNCTION__ line:__LINE__ size:_size comment:_comment]
-#define LGVLogSizeE(_size, _comment) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelError function:__FUNCTION__ line:__LINE__ size:_size comment:_comment]
-
-#define LGVLogRectD(_rect, _comment) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelDebug function:__FUNCTION__ line:__LINE__ rect:_rect comment:_comment]
-#define LGVLogRectI(_rect, _comment) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelInfo function:__FUNCTION__ line:__LINE__ rect:_rect comment:_comment]
-#define LGVLogRectW(_rect, _comment) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelWarning function:__FUNCTION__ line:__LINE__ rect:_rect comment:_comment]
-#define LGVLogRectE(_rect, _comment) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelError function:__FUNCTION__ line:__LINE__ rect:_rect comment:_comment]
-
-#define LGVLogDictionaryD(dict) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelDebug function:__FUNCTION__ line:__LINE__ dictionary:dict]
-#define LGVLogDictionaryI(dict) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelInfo function:__FUNCTION__ line:__LINE__ dictionary:dict]
-#define LGVLogDictionaryW(dict) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelWarning function:__FUNCTION__ line:__LINE__ dictionary:dict]
-#define LGVLogDictionaryE(dict) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelError function:__FUNCTION__ line:__LINE__ dictionary:dict]
 
 NS_ASSUME_NONNULL_END

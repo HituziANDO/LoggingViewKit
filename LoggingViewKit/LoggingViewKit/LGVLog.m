@@ -67,7 +67,26 @@ const double LGVUndefinedLocation = -1;
 }
 
 - (NSString *)description {
-    return self.toDictionary.description;
+    return [NSString stringWithFormat:@"ID: %lld\n"
+                                      "key: %@\n"
+                                      "eventType: %@\n"
+                                      "name: %@\n"
+                                      "clickX: %lf\n"
+                                      "clickY: %lf\n"
+                                      "absoluteClickX: %lf\n"
+                                      "absoluteClickY: %lf\n"
+                                      "info: %@\n"
+                                      "createdAt: %@",
+                                      self.ID,
+                                      self.key,
+                                      self.eventType,
+                                      self.name,
+                                      self.clickX,
+                                      self.clickY,
+                                      self.absoluteClickX,
+                                      self.absoluteClickY,
+                                      self.info,
+                                      self.createdAt];
 }
 
 - (NSDictionary *)toDictionary {

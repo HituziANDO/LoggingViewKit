@@ -19,11 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         // Enable debug logging.
-        LGVRealTimeLogger.shared().logLevel = .debug
-        LGVRealTimeLogger.shared().addDestination(LGVXcodeConsoleDestination())
+        let logger = LGVRealTimeLogger()
+        logger.add(LGVXcodeConsoleDestination())
         if let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first {
-            LGVRealTimeLogger.shared().addDestination(LGVFileDestination(file: "debug.log", inDirectory: docDir))
+            logger.add(LGVFileDestination(file: "debug.log", inDirectory: docDir))
         }
+        LGVLoggingViewService.shared().logger = logger
 
         // Start recording.
         LGVLoggingViewService.shared().startRecording()

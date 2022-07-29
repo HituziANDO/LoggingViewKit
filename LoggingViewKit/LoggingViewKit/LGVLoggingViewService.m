@@ -174,14 +174,11 @@ static LGVLoggingViewService *_loggingViewService = nil;
         }
 
         if (error) {
-            LGVLogD(@"%@ %@", error.description, error.localizedFailureReason);
+            [self.logger logWithLevel:LGVLogLevelDebug
+                               format:@"%@ %@", error.description, error.localizedFailureReason];
         }
         else {
-            LGVLogDictionaryD(savedLog.toDictionary);
-        }
-
-        if (self.isOutputToConsoleInRealTime) {
-            NSLog(@"[%@] %@", NSStringFromClass([self class]), error ? error.description : savedLog.description);
+            [self.logger logWithLevel:LGVLogLevelDebug format:@"%@", savedLog];
         }
 
         if ([self.delegate respondsToSelector:@selector(loggingViewService:didSaveLog:ofView:withEvent:error:)]) {
