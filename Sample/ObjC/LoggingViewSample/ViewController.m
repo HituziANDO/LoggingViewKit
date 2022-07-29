@@ -56,7 +56,7 @@
 
 #ifdef DEBUG
     // Dumps the hierarchy of the root view.
-    [LGVUtility printViewHierarchy:self.view];
+    [LGVViewHierarchy dump:self.view];
 #endif
 }
 

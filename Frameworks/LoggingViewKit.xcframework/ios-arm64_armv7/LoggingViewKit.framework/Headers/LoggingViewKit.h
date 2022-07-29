@@ -30,5 +30,5 @@ FOUNDATION_EXPORT const unsigned char LoggingViewKitVersionString[];
 #import "LGVSwitch.h"
 #import "LGVTextField.h"
 #import "LGVTextView.h"
-#import "LGVUtility.h"
 #import "LGVView.h"
+#import "LGVViewHierarchy.h"

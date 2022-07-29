@@ -28,15 +28,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-UIKIT_EXTERN void LGVGetViewHierarchy(UIView *view, NSInteger depth, NSMutableArray *hierarchy);
-
-@interface LGVUtility : NSObject
+@interface LGVViewHierarchy : NSObject
 /**
  * Prints hierarchy of given view to Xcode console.
  *
  * @param view A view
  */
-+ (void)printViewHierarchy:(UIView *)view;
++ (void)dump:(UIView *)view;
 
 @end
 

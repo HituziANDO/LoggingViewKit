@@ -64,17 +64,17 @@
 		<data>
 		GxuY+j8DGxpCWE0y2U0LY6CPeY4=
 		</data>
-		<key>Headers/LGVUtility.h</key>
-		<data>
-		tLX2xcS7+nhUkbRvFQ86UmlWgAA=
-		</data>
 		<key>Headers/LGVView.h</key>
 		<data>
 		OfPVZKoFLI5TSHmTlpVM7EuxjnE=
 		</data>
+		<key>Headers/LGVViewHierarchy.h</key>
+		<data>
+		r4M97gICBLFEc7Qv/l7CK5Xxtjk=
+		</data>
 		<key>Headers/LoggingViewKit.h</key>
 		<data>
-		wA13l5zmhYVBMaP70bez8dBYdG4=
+		Vc5KasOPqkScGOBQHZNnfouwrOw=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -252,17 +252,6 @@
 			mjlCPokHl4C1gswEGLXFh4iGELA4jNfxbtaCtoiYA7Y=
 			</data>
 		</dict>
-		<key>Headers/LGVUtility.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			tLX2xcS7+nhUkbRvFQ86UmlWgAA=
-			</data>
-			<key>hash2</key>
-			<data>
-			4d3QZhsjE95NEoCeKpnxKtXWwas50sGeJEkpWMvo0fs=
-			</data>
-		</dict>
 		<key>Headers/LGVView.h</key>
 		<dict>
 			<key>hash</key>
@@ -274,15 +263,26 @@
 			re3s16CuKVDWSxU9q8IsNKuMaOqKUtBp0xXekuGuXBU=
 			</data>
 		</dict>
+		<key>Headers/LGVViewHierarchy.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			r4M97gICBLFEc7Qv/l7CK5Xxtjk=
+			</data>
+			<key>hash2</key>
+			<data>
+			C6JxEHGJw3nohl4CSPAHrVa540ijcNP+Qv/yiiaudv0=
+			</data>
+		</dict>
 		<key>Headers/LoggingViewKit.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			wA13l5zmhYVBMaP70bez8dBYdG4=
+			Vc5KasOPqkScGOBQHZNnfouwrOw=
 			</data>
 			<key>hash2</key>
 			<data>
-			lbEP2rNPBCDd1w0D1Q7P43o/I/LCoABm34g3qw3bsbo=
+			GufEzWsgDmypQjv4GVRIdX/yuiRx1/1H2llLs2DuMIU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

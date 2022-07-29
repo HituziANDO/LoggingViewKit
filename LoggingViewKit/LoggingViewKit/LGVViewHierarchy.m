@@ -24,7 +24,7 @@
 //  SOFTWARE.
 //
 
-#import "LGVUtility.h"
+#import "LGVViewHierarchy.h"
 
 void LGVGetViewHierarchy(UIView *view, NSInteger depth, NSMutableArray *hierarchy) {
     NSMutableString *indent = [NSMutableString new];
@@ -51,13 +51,13 @@ void LGVGetViewHierarchy(UIView *view, NSInteger depth, NSMutableArray *hierarch
     }
 }
 
-@implementation LGVUtility
+@implementation LGVViewHierarchy
 
-+ (void)printViewHierarchy:(UIView *)view {
++ (void)dump:(UIView *)view {
     NSMutableArray *hierarchy = [NSMutableArray new];
     LGVGetViewHierarchy(view, 0, hierarchy);
     NSString *str = [hierarchy componentsJoinedByString:@"\n"];
-    NSLog(@"===%@ ViewHierarchy===\n%@", NSStringFromClass(self.class), str);
+    NSLog(@"===ViewHierarchy===\n%@", str);
 }
 
 @end

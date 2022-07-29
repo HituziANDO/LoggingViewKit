@@ -48,7 +48,7 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
 
         #if DEBUG
         // Dumps hierarchy of the root view.
-        LGVUtility.printViewHierarchy(view)
+        LGVViewHierarchy.dump(view)
         #endif
     }
 

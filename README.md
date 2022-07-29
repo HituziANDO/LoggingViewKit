@@ -155,6 +155,7 @@ LoggingViewKit records the following log.
 ```
 {
     ID = 47;
+    eventType = "click";
     absoluteClickX = "124.3333282470703";
     absoluteClickY = "189.6666564941406";
     clickX = "108.3333282470703";
@@ -168,14 +169,12 @@ LoggingViewKit records the following log.
 }
 ```
 
-## Utility
-
-### Dump View Hierarchy
+## Dump View Hierarchy
 
 LoggingViewKit can dump the hierarchy of specified view to Xcode console. The sample log is following.
 
 ```
-2019-04-02 12:11:59.876292+0900 LoggingViewSwiftSample[8616:19026371] ===LGVUtility ViewHierarchy===
+2019-04-02 12:11:59.876292+0900 LoggingViewSwiftSample[8616:19026371] ===ViewHierarchy===
 UIView
   LGVView(loggingName: (null))
     LGVButton(loggingName: SampleButton)
@@ -212,7 +211,7 @@ UIView
     LGVSlider(loggingName: SampleSlider)
 ```
 
-#### Usage
+### Usage
 
 **Swift**
 
@@ -222,7 +221,7 @@ override func viewDidLoad() {
 
     #if DEBUG
     // Dumps hierarchy of the root view.
-    LGVUtility.printViewHierarchy(view)
+    LGVViewHierarchy.dump(view)
     #endif
 }
 ```
@@ -242,7 +241,7 @@ override func viewDidLoad() {
 
 #ifdef DEBUG
     // Dumps the hierarchy of the root view.
-    [LGVUtility printViewHierarchy:self.view];
+    [LGVViewHierarchy dump:self.view];
 #endif
 }
 ```
