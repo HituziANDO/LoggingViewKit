@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E34DEAB289225BC00FC06FF /* LoggingViewKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E34DEA92892258E00FC06FF /* LoggingViewKit.xcframework */; };
-		5E34DEAC289225BC00FC06FF /* LoggingViewKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5E34DEA92892258E00FC06FF /* LoggingViewKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5E34DED22893690000FC06FF /* LoggingViewKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E34DED0289368FB00FC06FF /* LoggingViewKit.xcframework */; };
+		5E34DED32893690000FC06FF /* LoggingViewKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5E34DED0289368FB00FC06FF /* LoggingViewKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5E3DD59421C54192004A7BF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3DD59321C54192004A7BF2 /* AppDelegate.swift */; };
 		5E3DD59621C54193004A7BF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3DD59521C54193004A7BF2 /* ViewController.swift */; };
 		5E3DD59B21C54194004A7BF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E3DD59A21C54194004A7BF2 /* Assets.xcassets */; };
@@ -23,7 +23,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5E34DEAC289225BC00FC06FF /* LoggingViewKit.xcframework in Embed Frameworks */,
+				5E34DED32893690000FC06FF /* LoggingViewKit.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -31,7 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5E34DEA92892258E00FC06FF /* LoggingViewKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LoggingViewKit.xcframework; sourceTree = "<group>"; };
+		5E34DED0289368FB00FC06FF /* LoggingViewKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LoggingViewKit.xcframework; path = ../../../Frameworks/LoggingViewKit.xcframework; sourceTree = "<group>"; };
 		5E3DD59021C54192004A7BF2 /* LoggingViewSwiftSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoggingViewSwiftSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3DD59321C54192004A7BF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E3DD59521C54193004A7BF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E34DEAB289225BC00FC06FF /* LoggingViewKit.xcframework in Frameworks */,
+				5E34DED22893690000FC06FF /* LoggingViewKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +88,7 @@
 		5E3DD5A521C54307004A7BF2 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				5E34DEA92892258E00FC06FF /* LoggingViewKit.xcframework */,
+				5E34DED0289368FB00FC06FF /* LoggingViewKit.xcframework */,
 			);
 			path = Framework;
 			sourceTree = "<group>";

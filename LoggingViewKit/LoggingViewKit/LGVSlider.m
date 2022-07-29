@@ -64,12 +64,12 @@
     return rect;
 }
 
-- (BOOL)pointInside:(CGPoint)point withEvent:(nullable UIEvent *)event {
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
     return CGRectContainsPoint(self.touchableBounds, point);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
-    [[LGVLoggingViewService sharedService] loggingView:self touchesBegan:touches withEvent:event];
+    [[LGVLoggingViewService sharedService] click:self withTouches:touches event:event];
 
     [super touchesBegan:touches withEvent:event];
 }

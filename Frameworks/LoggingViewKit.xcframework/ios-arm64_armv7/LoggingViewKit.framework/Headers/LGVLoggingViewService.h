@@ -111,17 +111,15 @@ UIKIT_EXTERN NSString *const LGVErrorDomain;
  */
 - (void)deleteAllLogs;
 /**
- *
+ * Records a click event.
  */
-- (void)loggingView:(id <LGVLogging>)loggingView
-       touchesBegan:(NSSet<UITouch *> *)touches
-          withEvent:(nullable UIEvent *)event;
+- (void)click:(id <LGVLogging>)loggingView;
 /**
- *
+ * Records a click event with a point that a user touched.
  */
-- (void)loggingView:(id <LGVLogging>)loggingView
-       touchesEnded:(NSSet<UITouch *> *)touches
-          withEvent:(nullable UIEvent *)event;
+- (void)click:(id <LGVLogging>)loggingView
+  withTouches:(nullable NSSet<UITouch *> *)touches
+        event:(nullable UIEvent *)event NS_SWIFT_NAME(click(_:touches:event:));
 
 @end
 

@@ -88,103 +88,101 @@ static LGVLoggingViewService *_loggingViewService = nil;
     }
 }
 
-- (void)loggingView:(id <LGVLogging>)loggingView
-       touchesBegan:(NSSet<UITouch *> *)touches
-          withEvent:(nullable UIEvent *)event {
-
-    [self loggingView:loggingView touches:touches withEvent:event];
+- (void)click:(id <LGVLogging>)loggingView {
+    [self click:loggingView withTouches:nil event:nil];
 }
 
-- (void)loggingView:(id <LGVLogging>)loggingView
-       touchesEnded:(NSSet<UITouch *> *)touches
-          withEvent:(nullable UIEvent *)event {
-
-    [self loggingView:loggingView touches:touches withEvent:event];
-}
-
-#pragma mark - private method
-
-- (void)loggingView:(id <LGVLogging>)loggingView
-            touches:(NSSet<UITouch *> *)touches
-          withEvent:(nullable UIEvent *)event {
-
-    if (!self.isRecording) {
+- (void)click:(id <LGVLogging>)loggingView
+  withTouches:(NSSet<UITouch *> *)touches
+        event:(UIEvent *)event {
+    if (!self.isRecording || !loggingView.isLogging) {
         return;
     }
-
-    UITouch *touch = [touches anyObject];
 
     if (![loggingView isKindOfClass:[UIView class]]) {
         return;
     }
 
-    UIView *view = (UIView *) loggingView;
-    CGPoint point = [touch locationInView:view.superview];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIView *view = (UIView *) loggingView;
 
-    if (loggingView.isLogging && CGRectContainsPoint(loggingView.touchableFrame, point)) {
-        dispatch_async(dispatch_get_main_queue(), ^{
+        LGVLog *log = [LGVLog log];
+        log.name = loggingView.loggingName;
+
+        if (touches) {
+            UITouch *touch = [touches anyObject];
+            CGPoint point = [touch locationInView:view.superview];
+
+            if (!CGRectContainsPoint(loggingView.touchableFrame, point)) {
+                // Clicked outside the view.
+                return;
+            }
+
             CGPoint absolutePoint = [view.superview convertPoint:point toView:nil];
 
-            LGVLog *log = [LGVLog log];
-            log.name = loggingView.loggingName;
             log.clickX = point.x;
             log.clickY = point.y;
             log.absoluteClickX = absolutePoint.x;
             log.absoluteClickY = absolutePoint.y;
+        }
 
-            if ([view isKindOfClass:[UISegmentedControl class]]) {
-                // New value, because occurred at touchesEnded event.
-                log.info[@"newValue"] = @(((UISegmentedControl *) view).selectedSegmentIndex);
-            }
-            else if ([view isKindOfClass:[UISlider class]]) {
-                // Old value, because occurred at touchesBegan event.
-                log.info[@"oldValue"] = @(((UISlider *) view).value);
-            }
-            else if ([view isKindOfClass:[UIStepper class]]) {
-                log.info[@"newValue"] = @(((UIStepper *) view).value);
-            }
-            else if ([view isKindOfClass:[UISwitch class]]) {
-                log.info[@"oldValue"] = @(((UISwitch *) view).on);
-            }
+        if ([view isKindOfClass:[UISegmentedControl class]]) {
+            // New value, because occurred at touchesEnded event.
+            log.info[@"newValue"] = @(((UISegmentedControl *) view).selectedSegmentIndex);
+        }
+        else if ([view isKindOfClass:[UISlider class]]) {
+            // Old value, because occurred at touchesBegan event.
+            log.info[@"oldValue"] = @(((UISlider *) view).value);
+        }
+        else if ([view isKindOfClass:[UIStepper class]]) {
+            log.info[@"newValue"] = @(((UIStepper *) view).value);
+        }
+        else if ([view isKindOfClass:[UISwitch class]]) {
+            log.info[@"oldValue"] = @(((UISwitch *) view).on);
+        }
 
-            if ([self.delegate respondsToSelector:@selector(loggingViewService:willSaveLog:ofView:withEvent:)]) {
-                [self.delegate loggingViewService:self willSaveLog:log ofView:loggingView withEvent:event];
-            }
+        if ([self.delegate respondsToSelector:@selector(loggingViewService:willSaveLog:ofView:withEvent:)]) {
+            [self.delegate loggingViewService:self
+                                  willSaveLog:log
+                                       ofView:loggingView
+                                    withEvent:event];
+        }
 
-            LGVError *error = nil;
+        LGVError *error = nil;
 
-            if (![self.defaultDatabase addLog:log]) {
-                error = [LGVError errorWithMessage:@"Failed to add a log into the database"];
-            }
+        if (![self.defaultDatabase addLog:log]) {
+            error = [LGVError errorWithMessage:@"Failed to add a log into the database"];
+        }
 
-            LGVLog *savedLog = log;
+        LGVLog *savedLog = log;
 
-            // Recreates the object with last inserted ID like the SQLite.
-            if ([self.defaultDatabase respondsToSelector:@selector(logByKey:)]) {
-                savedLog = [self.defaultDatabase logByKey:log.key];
-            }
+        // Recreates the object with last inserted ID like the SQLite.
+        if ([self.defaultDatabase respondsToSelector:@selector(logByKey:)]) {
+            savedLog = [self.defaultDatabase logByKey:log.key];
+        }
 
-            if (error) {
-                LGVLogD(@"%@ %@", error.description, error.localizedFailureReason);
-            }
-            else {
-                LGVLogDictionaryD(savedLog.toDictionary);
-            }
+        if (error) {
+            LGVLogD(@"%@ %@", error.description, error.localizedFailureReason);
+        }
+        else {
+            LGVLogDictionaryD(savedLog.toDictionary);
+        }
 
-            if (self.isOutputToConsoleInRealTime) {
-                NSLog(@"[%@] %@", NSStringFromClass([self class]), error ? error.description : savedLog.description);
-            }
+        if (self.isOutputToConsoleInRealTime) {
+            NSLog(@"[%@] %@", NSStringFromClass([self class]), error ? error.description : savedLog.description);
+        }
 
-            if ([self.delegate respondsToSelector:@selector(loggingViewService:didSaveLog:ofView:withEvent:error:)]) {
-                [self.delegate loggingViewService:self
-                                       didSaveLog:savedLog
-                                           ofView:loggingView
-                                        withEvent:event
-                                            error:error];
-            }
-        });
-    }
+        if ([self.delegate respondsToSelector:@selector(loggingViewService:didSaveLog:ofView:withEvent:error:)]) {
+            [self.delegate loggingViewService:self
+                                   didSaveLog:savedLog
+                                       ofView:loggingView
+                                    withEvent:event
+                                        error:error];
+        }
+    });
 }
+
+#pragma mark - private method
 
 - (id <LGVDatabase>)defaultDatabase {
     if (!self.database) {
