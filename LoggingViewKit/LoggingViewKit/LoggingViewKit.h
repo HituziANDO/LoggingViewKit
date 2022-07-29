@@ -20,7 +20,7 @@ FOUNDATION_EXPORT const unsigned char LoggingViewKitVersionString[];
 #import "LGVLabel.h"
 #import "LGVLog.h"
 #import "LGVLogging.h"
-#import "LGVLoggingView.h"
+#import "LGVLoggingAttribute.h"
 #import "LGVLoggingViewService.h"
 #import "LGVRealTimeLogger.h"
 #import "LGVSegmentedControl.h"

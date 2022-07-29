@@ -26,6 +26,7 @@
 
 #import "LGVSegmentedControl.h"
 
+#import "LGVLoggingAttribute.h"
 #import "LGVLoggingViewService.h"
 
 @implementation LGVSegmentedControl
@@ -69,7 +70,11 @@
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [[LGVLoggingViewService sharedService] click:self withTouches:touches event:event];
+    LGVLoggingAttribute *attribute = [LGVLoggingAttribute attributeWithView:self
+                                                                       name:self.loggingName
+                                                             loggingEnabled:self.isLogging];
+    attribute.event = event;
+    [[LGVLoggingViewService sharedService] click:attribute withTouches:touches];
 
     [super touchesEnded:touches withEvent:event];
 }

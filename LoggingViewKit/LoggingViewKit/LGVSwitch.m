@@ -26,6 +26,7 @@
 
 #import "LGVSwitch.h"
 
+#import "LGVLoggingAttribute.h"
 #import "LGVLoggingViewService.h"
 
 @implementation LGVSwitch
@@ -72,7 +73,11 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
 
-    [[LGVLoggingViewService sharedService] click:self withTouches:touches event:event];
+    LGVLoggingAttribute *attribute = [LGVLoggingAttribute attributeWithView:self
+                                                                       name:self.loggingName
+                                                             loggingEnabled:self.isLogging];
+    attribute.event = event;
+    [[LGVLoggingViewService sharedService] click:attribute withTouches:touches];
 }
 
 @end

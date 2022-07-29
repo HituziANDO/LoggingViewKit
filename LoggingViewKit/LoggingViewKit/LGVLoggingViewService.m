@@ -29,7 +29,7 @@
 #import "LGVDatabase.h"
 #import "LGVLog.h"
 #import "LGVLogging.h"
-#import "LGVLoggingView.h"
+#import "LGVLoggingAttribute.h"
 #import "LGVRealTimeLogger.h"
 #import "LGVSQLiteDatabase.h"
 
@@ -89,31 +89,29 @@ static LGVLoggingViewService *_loggingViewService = nil;
     }
 }
 
-- (void)click:(id <LGVLogging>)loggingView {
-    [self click:loggingView withTouches:nil event:nil];
+- (void)click:(LGVLoggingAttribute *)attribute {
+    [self click:attribute withTouches:nil];
 }
 
-- (void)click:(id <LGVLogging>)loggingView
-  withTouches:(NSSet<UITouch *> *)touches
-        event:(UIEvent *)event {
-    if (!self.isRecording || !loggingView.isLogging) {
+- (void)click:(LGVLoggingAttribute *)attribute withTouches:(NSSet<UITouch *> *)touches {
+    if (!self.isRecording || !attribute.loggingEnabled) {
         return;
     }
 
     dispatch_async(dispatch_get_main_queue(), ^{
         LGVLog *log = [LGVLog logWithEventType:@"click"];
-        log.name = loggingView.loggingName;
+        log.name = attribute.name;
 
-        if ([loggingView isKindOfClass:[UIView class]]) {
-            UIView *view = (UIView *) loggingView;
+        if (attribute.view) {
+            UIView *view = attribute.view;
 
             if (touches) {
                 UITouch *touch = [touches anyObject];
                 CGPoint point = [touch locationInView:view.superview];
 
                 CGRect frame = view.frame;
-                if ([loggingView respondsToSelector:@selector(touchableFrame)]) {
-                    frame = loggingView.touchableFrame;
+                if ([view respondsToSelector:@selector(touchableFrame)]) {
+                    frame = ((id <LGVTouching>) view).touchableFrame;
                 }
 
                 if (!CGRectContainsPoint(frame, point)) {
@@ -144,20 +142,14 @@ static LGVLoggingViewService *_loggingViewService = nil;
                 log.info[@"oldValue"] = @(((UISwitch *) view).on);
             }
         }
-        else if ([loggingView isKindOfClass:[LGVLoggingView class]]) {
-            LGVLoggingView *view = (LGVLoggingView *) loggingView;
 
-            if (view.info) {
-                // Appends more information.
-                [log.info setDictionary:view.info];
-            }
+        if (attribute.info) {
+            // Appends more information.
+            [log.info setDictionary:attribute.info];
         }
 
-        if ([self.delegate respondsToSelector:@selector(loggingViewService:willSaveLog:ofView:withEvent:)]) {
-            [self.delegate loggingViewService:self
-                                  willSaveLog:log
-                                       ofView:loggingView
-                                    withEvent:event];
+        if ([self.delegate respondsToSelector:@selector(loggingViewService:willSaveLog:attribute:)]) {
+            [self.delegate loggingViewService:self willSaveLog:log attribute:attribute];
         }
 
         LGVError *error = nil;
@@ -181,11 +173,10 @@ static LGVLoggingViewService *_loggingViewService = nil;
             [self.logger logWithLevel:LGVLogLevelDebug format:@"%@", savedLog];
         }
 
-        if ([self.delegate respondsToSelector:@selector(loggingViewService:didSaveLog:ofView:withEvent:error:)]) {
+        if ([self.delegate respondsToSelector:@selector(loggingViewService:didSaveLog:attribute:error:)]) {
             [self.delegate loggingViewService:self
                                    didSaveLog:savedLog
-                                       ofView:loggingView
-                                    withEvent:event
+                                    attribute:attribute
                                         error:error];
         }
     });

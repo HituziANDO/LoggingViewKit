@@ -24,49 +24,44 @@
 //  SOFTWARE.
 //
 
-#import "LGVLoggingView.h"
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface LGVLoggingView ()
+NS_ASSUME_NONNULL_BEGIN
 
-@property (nonatomic, copy, nullable) NSString *name;
-@property (nonatomic) BOOL loggingEnabled;
+@interface LGVLoggingAttribute : NSObject
+/**
+ * The name to identify the view.
+ */
+@property (nonatomic, copy, readonly, nullable) NSString *name;
+/**
+ * Tells whether the logging is enabled.
+ */
+@property (nonatomic, readonly) BOOL loggingEnabled;
+/**
+ * The target view recorded.
+ */
+@property (nonatomic, readonly, nullable) id view;
+/**
+ * The appendix information.
+ */
+@property (nonatomic, copy, nullable) NSDictionary *info;
+/**
+ * The touch event.
+ */
+@property (nonatomic, nullable) UIEvent *event;
 
-@end
-
-@implementation LGVLoggingView
-
-+ (instancetype)named:(NSString *)name loggingEnabled:(BOOL)enabled {
-    return [[LGVLoggingView alloc] initWithName:name
-                                 loggingEnabled:enabled
-                                           info:nil];
-}
-
-+ (instancetype)named:(NSString *)name
-       loggingEnabled:(BOOL)enabled
-                 info:(NSDictionary *)info {
-    return [[LGVLoggingView alloc] initWithName:name
-                                 loggingEnabled:enabled
-                                           info:info];
-}
-
-- (instancetype)initWithName:(NSString *)name
-              loggingEnabled:(BOOL)enabled
-                        info:(NSDictionary *)info {
-    if (self = [super init]) {
-        _name = name;
-        _loggingEnabled = enabled;
-        _info = info;
-    }
-
-    return self;
-}
-
-- (nullable NSString *)loggingName {
-    return self.name;
-}
-
-- (BOOL)isLogging {
-    return self.loggingEnabled;
-}
+/**
+ * Creates an object that has specified name to identify the view.
+ *
+ * @param view A target view.
+ * @param name A name to identify the view.
+ * @param enabled Tells whether the logging is enabled.
+ */
++ (instancetype)attributeWithView:(nullable id)view
+                             name:(nullable NSString *)name
+                   loggingEnabled:(BOOL)enabled;
 
 @end
+
+NS_ASSUME_NONNULL_END

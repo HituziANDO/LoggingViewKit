@@ -73,10 +73,11 @@
 
 - (void)getLogButtonPressed:(id)sender {
     // Records a click event.
-    LGVLoggingView *view = [LGVLoggingView named:@"GetLogButton"
-                                  loggingEnabled:YES
-                                            info:@{ @"more-info": @"test" }];
-    [[LGVLoggingViewService sharedService] click:view];
+    LGVLoggingAttribute *attr = [LGVLoggingAttribute attributeWithView:sender
+                                                                  name:@"GetLogButton"
+                                                        loggingEnabled:YES];
+    attr.info = @{ @"more-info": @"test" };
+    [[LGVLoggingViewService sharedService] click:attr];
 
     NSLog(@"All Logs: %@", [[LGVLoggingViewService sharedService] allLogs]);
 }
@@ -85,16 +86,14 @@
 
 - (void)loggingViewService:(LGVLoggingViewService *)service
                willSaveLog:(LGVLog *)log
-                    ofView:(id <LGVLogging>)view
-                 withEvent:(nullable UIEvent *)event {
+                 attribute:(LGVLoggingAttribute *)attribute {
 
 }
 
 - (void)loggingViewService:(LGVLoggingViewService *)service
                 didSaveLog:(LGVLog *)log
-                    ofView:(id <LGVLogging>)view
-                 withEvent:(nullable UIEvent *)event
-                     error:(nullable LGVError *)error {
+                 attribute:(LGVLoggingAttribute *)attribute
+                     error:(LGVError *)error {
 
 }
 

@@ -31,11 +31,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class LGVError;
 @class LGVLog;
+@class LGVLoggingAttribute;
 @class LGVLoggingViewService;
 @class LGVRealTimeLogger;
 
 @protocol LGVDatabase;
-@protocol LGVLogging;
 
 FOUNDATION_EXTERN NSString *const LGVErrorDomain;
 
@@ -45,28 +45,24 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  *
  * @param service The service object
  * @param log A log of occurred event
- * @param view A target view
- * @param event Occurred event
+ * @param attribute An attribute of the target view.
  */
 - (void)loggingViewService:(LGVLoggingViewService *)service
                willSaveLog:(LGVLog *)log
-                    ofView:(id <LGVLogging>)view
-                 withEvent:(nullable UIEvent *)event
-NS_SWIFT_NAME(loggingViewService(_:willSave:of:with:));
+                 attribute:(LGVLoggingAttribute *)attribute
+NS_SWIFT_NAME(loggingViewService(_:willSave:attribute:));
 /**
  *
  * @param service The service object
  * @param log A saved log
- * @param view A target view
- * @param event Occurred event
+ * @param attribute An attribute of the target view.
  * @param error nil if success, otherwise error object
  */
 - (void)loggingViewService:(LGVLoggingViewService *)service
                 didSaveLog:(LGVLog *)log
-                    ofView:(id <LGVLogging>)view
-                 withEvent:(nullable UIEvent *)event
+                 attribute:(LGVLoggingAttribute *)attribute
                      error:(nullable LGVError *)error
-NS_SWIFT_NAME(loggingViewService(_:didSave:of:with:error:));
+NS_SWIFT_NAME(loggingViewService(_:didSave:attribute:error:));
 
 @end
 
@@ -116,13 +112,12 @@ NS_SWIFT_NAME(loggingViewService(_:didSave:of:with:error:));
 /**
  * Records a click event.
  */
-- (void)click:(id <LGVLogging>)loggingView;
+- (void)click:(LGVLoggingAttribute *)attribute;
 /**
  * Records a click event with a point that a user touched.
  */
-- (void)click:(id <LGVLogging>)loggingView
-  withTouches:(nullable NSSet<UITouch *> *)touches
-        event:(nullable UIEvent *)event NS_SWIFT_NAME(click(_:touches:event:));
+- (void)click:(LGVLoggingAttribute *)attribute
+  withTouches:(nullable NSSet<UITouch *> *)touches NS_SWIFT_NAME(click(_:touches:));
 
 @end
 

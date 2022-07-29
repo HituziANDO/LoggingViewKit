@@ -66,8 +66,8 @@
 		5E34DEA1289221E700FC06FF /* LGVLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE76289221E700FC06FF /* LGVLabel.m */; };
 		5E34DEA2289221E700FC06FF /* LGVTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE77289221E700FC06FF /* LGVTextView.m */; };
 		5E34DEA3289221E700FC06FF /* LGVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE78289221E700FC06FF /* LGVButton.m */; };
-		5E34DED628937ED100FC06FF /* LGVLoggingView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DED428937ED100FC06FF /* LGVLoggingView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E34DED728937ED100FC06FF /* LGVLoggingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DED528937ED100FC06FF /* LGVLoggingView.m */; };
+		5E34DED628937ED100FC06FF /* LGVLoggingAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DED428937ED100FC06FF /* LGVLoggingAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E34DED728937ED100FC06FF /* LGVLoggingAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DED528937ED100FC06FF /* LGVLoggingAttribute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,8 +127,8 @@
 		5E34DE76289221E700FC06FF /* LGVLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVLabel.m; sourceTree = "<group>"; };
 		5E34DE77289221E700FC06FF /* LGVTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVTextView.m; sourceTree = "<group>"; };
 		5E34DE78289221E700FC06FF /* LGVButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVButton.m; sourceTree = "<group>"; };
-		5E34DED428937ED100FC06FF /* LGVLoggingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVLoggingView.h; sourceTree = "<group>"; };
-		5E34DED528937ED100FC06FF /* LGVLoggingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVLoggingView.m; sourceTree = "<group>"; };
+		5E34DED428937ED100FC06FF /* LGVLoggingAttribute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVLoggingAttribute.h; sourceTree = "<group>"; };
+		5E34DED528937ED100FC06FF /* LGVLoggingAttribute.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVLoggingAttribute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,8 +180,8 @@
 				5E34DE4D289221E600FC06FF /* LGVLog.h */,
 				5E34DE68289221E700FC06FF /* LGVLog.m */,
 				5E34DE64289221E700FC06FF /* LGVLogging.h */,
-				5E34DED428937ED100FC06FF /* LGVLoggingView.h */,
-				5E34DED528937ED100FC06FF /* LGVLoggingView.m */,
+				5E34DED428937ED100FC06FF /* LGVLoggingAttribute.h */,
+				5E34DED528937ED100FC06FF /* LGVLoggingAttribute.m */,
 				5E34DE72289221E700FC06FF /* LGVLoggingViewService.h */,
 				5E34DE50289221E600FC06FF /* LGVLoggingViewService.m */,
 				5E34DE51289221E600FC06FF /* LGVRealTimeLogger.h */,
@@ -258,7 +258,7 @@
 				5E34DE96289221E700FC06FF /* LGVSwitch.h in Headers */,
 				5E34DE92289221E700FC06FF /* LGVSQLiteDatabase.h in Headers */,
 				5E34DE9F289221E700FC06FF /* LGVTextView.h in Headers */,
-				5E34DED628937ED100FC06FF /* LGVLoggingView.h in Headers */,
+				5E34DED628937ED100FC06FF /* LGVLoggingAttribute.h in Headers */,
 				5E34DE8F289221E700FC06FF /* LGVLogging.h in Headers */,
 				5E34DE7D289221E700FC06FF /* LGVRealTimeLogger.h in Headers */,
 				5E34DE85289221E700FC06FF /* LGVFMDatabaseAdditions.h in Headers */,
@@ -401,7 +401,7 @@
 				5E34DE8B289221E700FC06FF /* LGVFMDatabaseAdditions.m in Sources */,
 				5E34DE97289221E700FC06FF /* LGVViewHierarchy.m in Sources */,
 				5E34DEA0289221E700FC06FF /* LGVSegmentedControl.m in Sources */,
-				5E34DED728937ED100FC06FF /* LGVLoggingView.m in Sources */,
+				5E34DED728937ED100FC06FF /* LGVLoggingAttribute.m in Sources */,
 				5E34DE9A289221E700FC06FF /* LGVStepper.m in Sources */,
 				5E34DE88289221E700FC06FF /* LGVFMDatabaseQueue.m in Sources */,
 				5E34DE7C289221E700FC06FF /* LGVLoggingViewService.m in Sources */,

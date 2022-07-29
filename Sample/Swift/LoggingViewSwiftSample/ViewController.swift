@@ -68,10 +68,11 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
 
     @objc func getLogButtonPressed(_ sender: Any) {
         // Records a click event.
-        let view = LGVLoggingView.named("GetLogButton",
-                                        loggingEnabled: true,
-                                        info: ["more-info": "test"])
-        LGVLoggingViewService.shared().click(view)
+        let attr = LGVLoggingAttribute(view: sender,
+                                       name: "GetLogButton",
+                                       loggingEnabled: true)
+        attr.info = ["more-info": "test"]
+        LGVLoggingViewService.shared().click(attr)
 
         print("All Logs: \(LGVLoggingViewService.shared().allLogs())")
     }
@@ -80,15 +81,13 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
 
     func loggingViewService(_ service: LGVLoggingViewService,
                             willSave log: LGVLog,
-                            of view: LGVLogging,
-                            with event: UIEvent?) {
+                            attribute: LGVLoggingAttribute) {
 
     }
 
     func loggingViewService(_ service: LGVLoggingViewService,
                             didSave log: LGVLog,
-                            of view: LGVLogging,
-                            with event: UIEvent?,
+                            attribute: LGVLoggingAttribute,
                             error: LGVError?) {
 
     }

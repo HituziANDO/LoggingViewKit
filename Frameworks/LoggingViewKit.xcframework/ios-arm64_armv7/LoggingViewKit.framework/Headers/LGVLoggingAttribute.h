@@ -25,36 +25,42 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import "LGVLogging.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LGVLoggingView : NSObject <LGVLogging>
+@interface LGVLoggingAttribute : NSObject
+/**
+ * The name to identify the view.
+ */
+@property (nonatomic, copy, readonly, nullable) NSString *name;
+/**
+ * Tells whether the logging is enabled.
+ */
+@property (nonatomic, readonly) BOOL loggingEnabled;
+/**
+ * The target view recorded.
+ */
+@property (nonatomic, readonly, nullable) id view;
 /**
  * The appendix information.
  */
-@property (nonatomic, copy, readonly, nullable) NSDictionary *info;
+@property (nonatomic, copy, nullable) NSDictionary *info;
+/**
+ * The touch event.
+ */
+@property (nonatomic, nullable) UIEvent *event;
 
 /**
  * Creates an object that has specified name to identify the view.
  *
+ * @param view A target view.
  * @param name A name to identify the view.
  * @param enabled Tells whether the logging is enabled.
- * @return
  */
-+ (instancetype)named:(nullable NSString *)name loggingEnabled:(BOOL)enabled;
-/**
- * Creates an object that has specified name to identify the view.
- *
- * @param name A name to identify the view.
- * @param enabled Tells whether the logging is enabled.
- * @param info An appendix information.
- * @return
- */
-+ (instancetype)named:(nullable NSString *)name
-       loggingEnabled:(BOOL)enabled
-                 info:(nullable NSDictionary *)info;
++ (instancetype)attributeWithView:(nullable id)view
+                             name:(nullable NSString *)name
+                   loggingEnabled:(BOOL)enabled;
 
 @end
 

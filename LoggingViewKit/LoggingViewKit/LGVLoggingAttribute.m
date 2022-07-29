@@ -24,38 +24,28 @@
 //  SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import "LGVLoggingAttribute.h"
 
-#import "LGVLogging.h"
+@implementation LGVLoggingAttribute
 
-NS_ASSUME_NONNULL_BEGIN
++ (instancetype)attributeWithView:(id)view
+                             name:(NSString *)name
+                   loggingEnabled:(BOOL)enabled {
+    return [[LGVLoggingAttribute alloc] initWithView:view
+                                                name:name
+                                      loggingEnabled:enabled];
+}
 
-@interface LGVLoggingView : NSObject <LGVLogging>
-/**
- * The appendix information.
- */
-@property (nonatomic, copy, readonly, nullable) NSDictionary *info;
+- (instancetype)initWithView:(id)view
+                        name:(NSString *)name
+              loggingEnabled:(BOOL)enabled {
+    if (self = [super init]) {
+        _view = view;
+        _name = name;
+        _loggingEnabled = enabled;
+    }
 
-/**
- * Creates an object that has specified name to identify the view.
- *
- * @param name A name to identify the view.
- * @param enabled Tells whether the logging is enabled.
- * @return
- */
-+ (instancetype)named:(nullable NSString *)name loggingEnabled:(BOOL)enabled;
-/**
- * Creates an object that has specified name to identify the view.
- *
- * @param name A name to identify the view.
- * @param enabled Tells whether the logging is enabled.
- * @param info An appendix information.
- * @return
- */
-+ (instancetype)named:(nullable NSString *)name
-       loggingEnabled:(BOOL)enabled
-                 info:(nullable NSDictionary *)info;
+    return self;
+}
 
 @end
-
-NS_ASSUME_NONNULL_END
