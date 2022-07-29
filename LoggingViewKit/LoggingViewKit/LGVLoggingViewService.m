@@ -113,7 +113,12 @@ static LGVLoggingViewService *_loggingViewService = nil;
             UITouch *touch = [touches anyObject];
             CGPoint point = [touch locationInView:view.superview];
 
-            if (!CGRectContainsPoint(loggingView.touchableFrame, point)) {
+            CGRect frame = view.frame;
+            if ([loggingView respondsToSelector:@selector(touchableFrame)]) {
+                frame = loggingView.touchableFrame;
+            }
+
+            if (!CGRectContainsPoint(frame, point)) {
                 // Clicked outside the view.
                 return;
             }

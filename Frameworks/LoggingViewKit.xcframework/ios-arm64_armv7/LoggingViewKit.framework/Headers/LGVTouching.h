@@ -29,12 +29,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol LGVTouching <NSObject>
+@optional
 /**
- * Touchable bounds.
- */
-- (CGRect)touchableBounds;
-/**
- * Touchable frame.
+ * Returns the frame detected whether a user touches the view.
  */
 - (CGRect)touchableFrame;
 
