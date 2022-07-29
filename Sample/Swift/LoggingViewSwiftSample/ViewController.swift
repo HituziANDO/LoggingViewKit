@@ -11,27 +11,25 @@ import LoggingViewKit
 
 class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
 
-
     @IBOutlet weak var stepperLabel: LGVLabel!
-    @IBOutlet weak var sampleView:   LGVView!
-    var testButton: LGVButton!
+    @IBOutlet weak var sampleView: LGVView!
 
-    override func loadView() {
-        super.loadView()
-
-        testButton = LGVButton(frame: CGRect(x: 0, y: 0, width: 100.0, height: 40.0))
-        testButton.loggingName = "TestButton"
-        testButton.isLogging = true
-        testButton.touchableExtension = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
-        testButton.backgroundColor = UIColor.blue.withAlphaComponent(0.7)
-        testButton.setTitle("Test", for: .normal)
-        testButton.setTitleColor(UIColor.white, for: .normal)
-        testButton.addTarget(self, action: #selector(testButtonPressed), for: .touchUpInside)
-        self.sampleView.addSubview(testButton)
-    }
+    private lazy var testButton: LGVButton = {
+        let button = LGVButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        button.loggingName = "TestButton"
+        button.isLogging = true
+        button.touchableExtension = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
+        button.backgroundColor = UIColor.blue.withAlphaComponent(0.7)
+        button.setTitle("Test", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.addTarget(self, action: #selector(testButtonPressed), for: .touchUpInside)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        sampleView.addSubview(testButton)
 
         LGVLoggingViewService.shared().delegate = self
 
