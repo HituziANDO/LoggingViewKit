@@ -26,7 +26,7 @@
 
 #import "LGVRealTimeLogger.h"
 
-NSString *LGVLogLevelToString(LGVLogLevel logLevel) {
+NSString * LGVLogLevelToString(LGVLogLevel logLevel) {
     switch (logLevel) {
         case LGVLogLevelDebug:
             return @"Debug";
@@ -43,13 +43,13 @@ NSString *LGVLogLevelToString(LGVLogLevel logLevel) {
 
 @implementation LGVXcodeConsoleDestination
 
-+ (instancetype)destination {
++ (instancetype) destination {
     return [LGVXcodeConsoleDestination new];
 }
 
 #pragma mark - LGVDestination
 
-- (void)write:(NSString *)log logLevel:(LGVLogLevel)logLevel {
+- (void) write:(NSString *)log logLevel:(LGVLogLevel)logLevel {
     NSLog(@"\n%@\n", log);
 }
 
@@ -63,15 +63,15 @@ NSString *LGVLogLevelToString(LGVLogLevel logLevel) {
 
 @implementation LGVFileDestination
 
-+ (instancetype)destinationWithFile:(NSString *)fileName
-                        inDirectory:(NSString *)directory {
++ (instancetype) destinationWithFile:(NSString *)fileName
+                         inDirectory:(NSString *)directory {
     if (![[NSFileManager defaultManager] fileExistsAtPath:directory]) {
         if (![[NSFileManager defaultManager] createDirectoryAtPath:directory
                                        withIntermediateDirectories:YES
                                                         attributes:nil
                                                              error:nil]) {
             NSString *reason = [NSString stringWithFormat:@"Failed to create a directory at %@",
-                                                          directory];
+                                directory];
             @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                            reason:reason
                                          userInfo:nil];
@@ -81,8 +81,9 @@ NSString *LGVLogLevelToString(LGVLogLevel logLevel) {
     return [self destinationWithFilePath:[directory stringByAppendingPathComponent:fileName]];
 }
 
-+ (instancetype)destinationWithFilePath:(NSString *)filePath {
++ (instancetype) destinationWithFilePath:(NSString *)filePath {
     LGVFileDestination *destination = [LGVFileDestination new];
+
     destination.filePath = filePath;
 
     return destination;
@@ -90,13 +91,13 @@ NSString *LGVLogLevelToString(LGVLogLevel logLevel) {
 
 #pragma mark - LGVDestination
 
-- (void)write:(NSString *)log logLevel:(LGVLogLevel)logLevel {
+- (void) write:(NSString *)log logLevel:(LGVLogLevel)logLevel {
     if ([[NSFileManager defaultManager] fileExistsAtPath:self.filePath]) {
         // Append
         NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:self.filePath];
         [fileHandle seekToEndOfFile];
         [fileHandle writeData:[[NSString stringWithFormat:@",\n%@", log]
-                                         dataUsingEncoding:NSUTF8StringEncoding]];
+                               dataUsingEncoding:NSUTF8StringEncoding]];
     }
     else {
         // Create
@@ -116,7 +117,7 @@ NSString *LGVLogLevelToString(LGVLogLevel logLevel) {
 
 @implementation LGVStringSerializer
 
-- (NSString *)serialize:(NSDictionary *)dictionary {
+- (NSString *) serialize:(NSDictionary *)dictionary {
     NSMutableArray<NSString *> *messages = [NSMutableArray new];
 
     if (dictionary[@"timestamp"]) {
@@ -128,12 +129,12 @@ NSString *LGVLogLevelToString(LGVLogLevel logLevel) {
     }
     if (dictionary[@"method"] && dictionary[@"line"]) {
         NSString *str = [NSString stringWithFormat:@"%@:%@",
-                                                   dictionary[@"method"], dictionary[@"line"]];
+                         dictionary[@"method"], dictionary[@"line"]];
         [messages addObject:str];
     }
     if (dictionary[@"isMainThread"]) {
         NSString *str = [NSString stringWithFormat:@"mainThread:%d",
-                                                   [dictionary[@"isMainThread"] boolValue]];
+                         [dictionary[@"isMainThread"] boolValue]];
         [messages addObject:str];
     }
     if (dictionary[@"message"]) {
@@ -147,7 +148,7 @@ NSString *LGVLogLevelToString(LGVLogLevel logLevel) {
 
 @implementation LGVJSONSerializer
 
-- (NSString *)serialize:(NSDictionary *)dictionary {
+- (NSString *) serialize:(NSDictionary *)dictionary {
     if ([NSJSONSerialization isValidJSONObject:dictionary]) {
         NSData *data = [NSJSONSerialization dataWithJSONObject:dictionary
                                                        options:NSJSONWritingPrettyPrinted
@@ -162,15 +163,16 @@ NSString *LGVLogLevelToString(LGVLogLevel logLevel) {
 
 @interface LGVRealTimeLogger ()
 
-@property (nonatomic) NSMutableArray<id <LGVDestination>> *destinations;
+@property (nonatomic) NSMutableArray<id <LGVDestination> > *destinations;
 
 @end
 
 @implementation LGVRealTimeLogger
 
-+ (instancetype)sharedLogger {
++ (instancetype) sharedLogger {
     static LGVRealTimeLogger *logger = nil;
     static dispatch_once_t onceToken;
+
     dispatch_once(&onceToken, ^{
         logger = [LGVRealTimeLogger new];
     });
@@ -178,7 +180,7 @@ NSString *LGVLogLevelToString(LGVLogLevel logLevel) {
     return logger;
 }
 
-- (instancetype)init {
+- (instancetype) init {
     if (self = [super init]) {
         _logLevel = LGVLogLevelDebug;
         _serializer = [LGVStringSerializer new];
@@ -190,7 +192,7 @@ NSString *LGVLogLevelToString(LGVLogLevel logLevel) {
 
 #pragma mark - public method
 
-- (instancetype)addDestination:(id <LGVDestination>)destination {
+- (instancetype) addDestination:(id <LGVDestination>)destination {
     if (destination) {
         [self.destinations addObject:destination];
     }
@@ -198,7 +200,7 @@ NSString *LGVLogLevelToString(LGVLogLevel logLevel) {
     return self;
 }
 
-- (void)logWithLevel:(LGVLogLevel)logLevel format:(nullable NSString *)format, ... {
+- (void) logWithLevel:(LGVLogLevel)logLevel format:(nullable NSString *)format, ... {
     if (self.logLevel == LGVLogLevelOff || self.logLevel > logLevel) {
         return;
     }
@@ -212,20 +214,20 @@ NSString *LGVLogLevelToString(LGVLogLevel logLevel) {
     }
 
     NSString *log = [self.serializer serialize:@{
-        @"logLevel": LGVLogLevelToString(logLevel),
-        @"timestamp": [NSDate date].description,
-        @"message": message ?: @"",
-    }];
+                         @"logLevel": LGVLogLevelToString(logLevel),
+                         @"timestamp": [NSDate date].description,
+                         @"message": message ?: @"",
+                     }];
 
     for (id <LGVDestination> dest in self.destinations) {
         [dest write:log logLevel:logLevel];
     }
 }
 
-- (void)logWithLevel:(LGVLogLevel)logLevel
-            function:(const char *)function
-                line:(NSUInteger)line
-              format:(nullable NSString *)format, ... {
+- (void) logWithLevel:(LGVLogLevel)logLevel
+             function:(const char *)function
+                 line:(NSUInteger)line
+               format:(nullable NSString *)format, ... {
     if (self.logLevel == LGVLogLevelOff || self.logLevel > logLevel) {
         return;
     }
@@ -239,13 +241,13 @@ NSString *LGVLogLevelToString(LGVLogLevel logLevel) {
     }
 
     NSString *log = [self.serializer serialize:@{
-        @"logLevel": LGVLogLevelToString(logLevel),
-        @"method": [NSString stringWithCString:function encoding:NSUTF8StringEncoding],
-        @"line": @(line),
-        @"isMainThread": @([NSThread currentThread].isMainThread),
-        @"timestamp": [NSDate date].description,
-        @"message": message ?: @"",
-    }];
+                         @"logLevel": LGVLogLevelToString(logLevel),
+                         @"method": [NSString stringWithCString:function encoding:NSUTF8StringEncoding],
+                         @"line": @(line),
+                         @"isMainThread": @([NSThread currentThread].isMainThread),
+                         @"timestamp": [NSDate date].description,
+                         @"message": message ?: @"",
+                     }];
 
     for (id <LGVDestination> dest in self.destinations) {
         [dest write:log logLevel:logLevel];

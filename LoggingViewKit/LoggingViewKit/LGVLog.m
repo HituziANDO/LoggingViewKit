@@ -37,8 +37,9 @@ const double LGVUndefinedLocation = -1;
 
 @implementation LGVLog
 
-+ (instancetype)logWithEventType:(NSString *)eventType {
++ (instancetype) logWithEventType:(NSString *)eventType {
     LGVLog *log = [LGVLog new];
+
     log.key = [NSUUID UUID].UUIDString.uppercaseString;
     log.eventType = eventType;
     log.createdAt = [NSDate date];
@@ -50,15 +51,16 @@ const double LGVUndefinedLocation = -1;
     return log;
 }
 
-+ (instancetype)logWithKey:(NSString *)key createdAt:(NSDate *)createdAt {
++ (instancetype) logWithKey:(NSString *)key createdAt:(NSDate *)createdAt {
     LGVLog *log = [LGVLog new];
+
     log.key = key;
     log.createdAt = createdAt;
 
     return log;
 }
 
-- (instancetype)init {
+- (instancetype) init {
     if (self = [super init]) {
         _info = [NSMutableDictionary new];
     }
@@ -66,41 +68,42 @@ const double LGVUndefinedLocation = -1;
     return self;
 }
 
-- (NSString *)description {
+- (NSString *) description {
     return [NSString stringWithFormat:@"ID: %lld\n"
-                                      "key: %@\n"
-                                      "eventType: %@\n"
-                                      "name: %@\n"
-                                      "clickX: %lf\n"
-                                      "clickY: %lf\n"
-                                      "absoluteClickX: %lf\n"
-                                      "absoluteClickY: %lf\n"
-                                      "info: %@\n"
-                                      "createdAt: %@",
-                                      self.ID,
-                                      self.key,
-                                      self.eventType,
-                                      self.name,
-                                      self.clickX,
-                                      self.clickY,
-                                      self.absoluteClickX,
-                                      self.absoluteClickY,
-                                      self.info,
-                                      self.createdAt];
+            "key: %@\n"
+            "eventType: %@\n"
+            "name: %@\n"
+            "clickX: %lf\n"
+            "clickY: %lf\n"
+            "absoluteClickX: %lf\n"
+            "absoluteClickY: %lf\n"
+            "info: %@\n"
+            "createdAt: %@",
+            self.ID,
+            self.key,
+            self.eventType,
+            self.name,
+            self.clickX,
+            self.clickY,
+            self.absoluteClickX,
+            self.absoluteClickY,
+            self.info,
+            self.createdAt];
 }
 
-- (NSDictionary *)toDictionary {
+- (NSDictionary *) toDictionary {
     NSMutableDictionary *dictionary = [self dictionaryWithValuesForKeys:@[
-        @"ID",
-        @"key",
-        @"eventType",
-        @"name",
-        @"clickX",
-        @"clickY",
-        @"absoluteClickX",
-        @"absoluteClickY",
-        @"info",
-    ]].mutableCopy;
+                                           @"ID",
+                                           @"key",
+                                           @"eventType",
+                                           @"name",
+                                           @"clickX",
+                                           @"clickY",
+                                           @"absoluteClickX",
+                                           @"absoluteClickY",
+                                           @"info",
+        ]].mutableCopy;
+
     dictionary[@"createdAt"] = self.createdAt.description;
 
     return dictionary;

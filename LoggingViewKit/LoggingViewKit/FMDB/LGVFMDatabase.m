@@ -1,6 +1,6 @@
 #import "LGVFMDatabase.h"
-#import <unistd.h>
 #import <objc/runtime.h>
+#import <unistd.h>
 
 #if LGVFMDB_SQLITE_STANDALONE
 #import <sqlite3/sqlite3.h>
@@ -23,8 +23,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-- (LGVFMResultSet *_Nullable)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray *_Nullable)arrayArgs orDictionary:(NSDictionary *_Nullable)dictionaryArgs orVAList:(va_list)args;
-- (BOOL)executeUpdate:(NSString *)sql error:(NSError *_Nullable *)outErr withArgumentsInArray:(NSArray *_Nullable)arrayArgs orDictionary:(NSDictionary *_Nullable)dictionaryArgs orVAList:(va_list)args;
+- (LGVFMResultSet *_Nullable) executeQuery:(NSString *)sql withArgumentsInArray:(NSArray *_Nullable)arrayArgs orDictionary:(NSDictionary *_Nullable)dictionaryArgs orVAList:(va_list)args;
+- (BOOL) executeUpdate:(NSString *)sql error:(NSError *_Nullable *)outErr withArgumentsInArray:(NSArray *_Nullable)arrayArgs orDictionary:(NSDictionary *_Nullable)dictionaryArgs orVAList:(va_list)args;
 
 NS_ASSUME_NONNULL_END
 
@@ -41,23 +41,23 @@ NS_ASSUME_NONNULL_END
 
 #pragma mark LGVFMDatabase instantiation and deallocation
 
-+ (instancetype)databaseWithPath:(NSString *)aPath {
++ (instancetype) databaseWithPath:(NSString *)aPath {
     return LGVFMDBReturnAutoreleased([[self alloc] initWithPath:aPath]);
 }
 
-+ (instancetype)databaseWithURL:(NSURL *)url {
++ (instancetype) databaseWithURL:(NSURL *)url {
     return LGVFMDBReturnAutoreleased([[self alloc] initWithURL:url]);
 }
 
-- (instancetype)init {
+- (instancetype) init {
     return [self initWithPath:nil];
 }
 
-- (instancetype)initWithURL:(NSURL *)url {
+- (instancetype) initWithURL:(NSURL *)url {
     return [self initWithPath:url.path];
 }
 
-- (instancetype)initWithPath:(NSString *)path {
+- (instancetype) initWithPath:(NSString *)path {
 
     assert(sqlite3_threadsafe()); // whoa there big boy- gotta make sure sqlite it happy with what we're going to do.
 
@@ -77,13 +77,13 @@ NS_ASSUME_NONNULL_END
 }
 
 #if !__has_feature(objc_arc)
-- (void)finalize {
+- (void) finalize {
     [self close];
     [super finalize];
 }
 #endif
 
-- (void)dealloc {
+- (void) dealloc {
     [self close];
     LGVFMDBRelease(_openResultSets);
     LGVFMDBRelease(_cachedStatements);
@@ -96,11 +96,11 @@ NS_ASSUME_NONNULL_END
 #endif
 }
 
-- (NSURL *)databaseURL {
+- (NSURL *) databaseURL {
     return _databasePath ? [NSURL fileURLWithPath:_databasePath] : nil;
 }
 
-+ (NSString *)LGVFMDBUserVersion {
++ (NSString *) LGVFMDBUserVersion {
     return @"2.7.5";
 }
 
@@ -108,7 +108,7 @@ NS_ASSUME_NONNULL_END
 // /* need to make sure to do X with LGVFMDB version 2.4 or later */
 // if ([LGVFMDatabase LGVFMDBVersion] >= 0x0240) { … }
 
-+ (SInt32)LGVFMDBVersion {
++ (SInt32) LGVFMDBVersion {
 
     // we go through these hoops so that we only have to change the version number in a single spot.
     static dispatch_once_t once;
@@ -133,20 +133,20 @@ NS_ASSUME_NONNULL_END
 
 #pragma mark SQLite information
 
-+ (NSString *)sqliteLibVersion {
++ (NSString *) sqliteLibVersion {
     return [NSString stringWithFormat:@"%s", sqlite3_libversion()];
 }
 
-+ (BOOL)isSQLiteThreadSafe {
++ (BOOL) isSQLiteThreadSafe {
     // make sure to read the sqlite headers on this guy!
     return sqlite3_threadsafe() != 0;
 }
 
-- (void *)sqliteHandle {
+- (void *) sqliteHandle {
     return _db;
 }
 
-- (const char *)sqlitePath {
+- (const char *) sqlitePath {
 
     if (!_databasePath) {
         return ":memory:";
@@ -162,7 +162,7 @@ NS_ASSUME_NONNULL_END
 
 #pragma mark Open and close database
 
-- (BOOL)open {
+- (BOOL) open {
     if (_isOpen) {
         return YES;
     }
@@ -191,11 +191,11 @@ NS_ASSUME_NONNULL_END
     return YES;
 }
 
-- (BOOL)openWithFlags:(int)flags {
+- (BOOL) openWithFlags:(int)flags {
     return [self openWithFlags:flags vfs:nil];
 }
 
-- (BOOL)openWithFlags:(int)flags vfs:(NSString *)vfsName {
+- (BOOL) openWithFlags:(int)flags vfs:(NSString *)vfsName {
 #if SQLITE_VERSION_NUMBER >= 3005000
     if (_isOpen) {
         return YES;
@@ -229,7 +229,7 @@ NS_ASSUME_NONNULL_END
 #endif
 }
 
-- (BOOL)close {
+- (BOOL) close {
 
     [self clearCachedStatements];
     [self closeOpenResultSets];
@@ -259,7 +259,8 @@ NS_ASSUME_NONNULL_END
         else if (SQLITE_OK != rc) {
             NSLog(@"error closing!: %d", rc);
         }
-    } while (retry);
+    }
+    while (retry);
 
     _db = nil;
     _isOpen = false;
@@ -301,7 +302,7 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
     return 0;
 }
 
-- (void)setMaxBusyRetryTimeInterval:(NSTimeInterval)timeout {
+- (void) setMaxBusyRetryTimeInterval:(NSTimeInterval)timeout {
 
     _maxBusyRetryTimeInterval = timeout;
 
@@ -318,7 +319,7 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
     }
 }
 
-- (NSTimeInterval)maxBusyRetryTimeInterval {
+- (NSTimeInterval) maxBusyRetryTimeInterval {
     return _maxBusyRetryTimeInterval;
 }
 
@@ -326,13 +327,13 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
 // we no longer make busyRetryTimeout public
 // but for folks who don't bother noticing that the interface to LGVFMDatabase changed,
 // we'll still implement the method so they don't get suprise crashes
-- (int)busyRetryTimeout {
+- (int) busyRetryTimeout {
     NSLog(@"%s:%d", __FUNCTION__, __LINE__);
     NSLog(@"LGVFMDB: busyRetryTimeout no longer works, please use maxBusyRetryTimeInterval");
     return -1;
 }
 
-- (void)setBusyRetryTimeout:(int)i {
+- (void) setBusyRetryTimeout:(int)i {
 #pragma unused(i)
     NSLog(@"%s:%d", __FUNCTION__, __LINE__);
     NSLog(@"LGVFMDB: setBusyRetryTimeout does nothing, please use setMaxBusyRetryTimeInterval:");
@@ -340,17 +341,18 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
 
 #pragma mark Result set functions
 
-- (BOOL)hasOpenResultSets {
+- (BOOL) hasOpenResultSets {
     return [_openResultSets count] > 0;
 }
 
-- (void)closeOpenResultSets {
+- (void) closeOpenResultSets {
 
-    //Copy the set so we don't get mutation errors
+    // Copy the set so we don't get mutation errors
     NSSet *openSetCopy = LGVFMDBReturnAutoreleased([_openResultSets copy]);
+
     for (NSValue *rsInWrappedInATastyValueMeal in openSetCopy) {
         LGVFMResultSet *rs = (LGVFMResultSet * )
-        [rsInWrappedInATastyValueMeal pointerValue];
+            [rsInWrappedInATastyValueMeal pointerValue];
 
         [rs setParentDB:nil];
         [rs close];
@@ -359,7 +361,7 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
     }
 }
 
-- (void)resultSetDidClose:(LGVFMResultSet *)resultSet {
+- (void) resultSetDidClose:(LGVFMResultSet *)resultSet {
     NSValue *setValue = [NSValue valueWithNonretainedObject:resultSet];
 
     [_openResultSets removeObject:setValue];
@@ -367,7 +369,7 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
 
 #pragma mark Cached statements
 
-- (void)clearCachedStatements {
+- (void) clearCachedStatements {
 
     for (NSMutableSet *statements in [_cachedStatements objectEnumerator]) {
         for (LGVFMStatement *statement in [statements allObjects]) {
@@ -378,20 +380,20 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
     [_cachedStatements removeAllObjects];
 }
 
-- (LGVFMStatement *)cachedStatementForQuery:(NSString *)query {
+- (LGVFMStatement *) cachedStatementForQuery:(NSString *)query {
 
     NSMutableSet *statements = [_cachedStatements objectForKey:query];
 
-    return [[statements objectsPassingTest:^BOOL(LGVFMStatement *statement, BOOL *stop) {
+    return [[statements objectsPassingTest:^BOOL (LGVFMStatement *statement, BOOL *stop) {
 
-        *stop = ![statement inUse];
-        return *stop;
+                 *stop = ![statement inUse];
+                 return *stop;
 
-    }] anyObject];
+             }] anyObject];
 }
 
 
-- (void)setCachedStatement:(LGVFMStatement *)statement forQuery:(NSString *)query {
+- (void) setCachedStatement:(LGVFMStatement *)statement forQuery:(NSString *)query {
     NSParameterAssert(query);
     if (!query) {
         NSLog(@"API misuse, -[LGVFMDatabase setCachedStatement:forQuery:] query must not be nil");
@@ -415,47 +417,47 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
 
 #pragma mark Key routines
 
-- (BOOL)rekey:(NSString *)key {
+- (BOOL) rekey:(NSString *)key {
     NSData *keyData = [NSData dataWithBytes:(void *) [key UTF8String] length:(NSUInteger) strlen([key UTF8String])];
 
     return [self rekeyWithData:keyData];
 }
 
-- (BOOL)rekeyWithData:(NSData *)keyData {
+- (BOOL) rekeyWithData:(NSData *)keyData {
 #ifdef SQLITE_HAS_CODEC
     if (!keyData) {
         return NO;
     }
-    
-    int rc = sqlite3_rekey(_db, [keyData bytes], (int)[keyData length]);
-    
+
+    int rc = sqlite3_rekey(_db, [keyData bytes], (int) [keyData length]);
+
     if (rc != SQLITE_OK) {
         NSLog(@"error on rekey: %d", rc);
         NSLog(@"%@", [self lastErrorMessage]);
     }
-    
-    return (rc == SQLITE_OK);
+
+    return rc == SQLITE_OK;
 #else
 #pragma unused(keyData)
     return NO;
 #endif
 }
 
-- (BOOL)setKey:(NSString *)key {
+- (BOOL) setKey:(NSString *)key {
     NSData *keyData = [NSData dataWithBytes:[key UTF8String] length:(NSUInteger) strlen([key UTF8String])];
 
     return [self setKeyWithData:keyData];
 }
 
-- (BOOL)setKeyWithData:(NSData *)keyData {
+- (BOOL) setKeyWithData:(NSData *)keyData {
 #ifdef SQLITE_HAS_CODEC
     if (!keyData) {
         return NO;
     }
-    
-    int rc = sqlite3_key(_db, [keyData bytes], (int)[keyData length]);
-    
-    return (rc == SQLITE_OK);
+
+    int rc = sqlite3_key(_db, [keyData bytes], (int) [keyData length]);
+
+    return rc == SQLITE_OK;
 #else
 #pragma unused(keyData)
     return NO;
@@ -464,9 +466,10 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
 
 #pragma mark Date routines
 
-+ (NSDateFormatter *)storeableDateFormat:(NSString *)format {
++ (NSDateFormatter *) storeableDateFormat:(NSString *)format {
 
     NSDateFormatter *result = LGVFMDBReturnAutoreleased([[NSDateFormatter alloc] init]);
+
     result.dateFormat = format;
     result.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
     result.locale = LGVFMDBReturnAutoreleased([[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]);
@@ -474,26 +477,26 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
 }
 
 
-- (BOOL)hasDateFormatter {
+- (BOOL) hasDateFormatter {
     return _dateFormat != nil;
 }
 
-- (void)setDateFormat:(NSDateFormatter *)format {
+- (void) setDateFormat:(NSDateFormatter *)format {
     LGVFMDBAutorelease(_dateFormat);
     _dateFormat = LGVFMDBReturnRetained(format);
 }
 
-- (NSDate *)dateFromString:(NSString *)s {
+- (NSDate *) dateFromString:(NSString *)s {
     return [_dateFormat dateFromString:s];
 }
 
-- (NSString *)stringFromDate:(NSDate *)date {
+- (NSString *) stringFromDate:(NSDate *)date {
     return [_dateFormat stringFromDate:date];
 }
 
 #pragma mark State of database
 
-- (BOOL)goodConnection {
+- (BOOL) goodConnection {
 
     if (!_isOpen) {
         return NO;
@@ -509,7 +512,7 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
     return NO;
 }
 
-- (void)warnInUse {
+- (void) warnInUse {
     NSLog(@"The LGVFMDatabase %@ is currently in use.", self);
 
 #ifndef NS_BLOCK_ASSERTIONS
@@ -520,7 +523,7 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
 #endif
 }
 
-- (BOOL)databaseExists {
+- (BOOL) databaseExists {
 
     if (!_isOpen) {
 
@@ -541,37 +544,37 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
 
 #pragma mark Error routines
 
-- (NSString *)lastErrorMessage {
+- (NSString *) lastErrorMessage {
     return [NSString stringWithUTF8String:sqlite3_errmsg(_db)];
 }
 
-- (BOOL)hadError {
+- (BOOL) hadError {
     int lastErrCode = [self lastErrorCode];
 
-    return (lastErrCode > SQLITE_OK && lastErrCode < SQLITE_ROW);
+    return lastErrCode > SQLITE_OK && lastErrCode < SQLITE_ROW;
 }
 
-- (int)lastErrorCode {
+- (int) lastErrorCode {
     return sqlite3_errcode(_db);
 }
 
-- (int)lastExtendedErrorCode {
+- (int) lastExtendedErrorCode {
     return sqlite3_extended_errcode(_db);
 }
 
-- (NSError *)errorWithMessage:(NSString *)message {
+- (NSError *) errorWithMessage:(NSString *)message {
     NSDictionary *errorMessage = [NSDictionary dictionaryWithObject:message forKey:NSLocalizedDescriptionKey];
 
     return [NSError errorWithDomain:@"LGVFMDatabase" code:sqlite3_errcode(_db) userInfo:errorMessage];
 }
 
-- (NSError *)lastError {
+- (NSError *) lastError {
     return [self errorWithMessage:[self lastErrorMessage]];
 }
 
 #pragma mark Update information routines
 
-- (sqlite_int64)lastInsertRowId {
+- (sqlite_int64) lastInsertRowId {
 
     if (_isExecutingStatement) {
         [self warnInUse];
@@ -587,7 +590,7 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
     return ret;
 }
 
-- (int)changes {
+- (int) changes {
     if (_isExecutingStatement) {
         [self warnInUse];
         return 0;
@@ -604,13 +607,13 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
 
 #pragma mark SQL manipulation
 
-- (void)bindObject:(id)obj toColumn:(int)idx inStatement:(sqlite3_stmt *)pStmt {
+- (void) bindObject:(id)obj toColumn:(int)idx inStatement:(sqlite3_stmt *)pStmt {
 
     if ((!obj) || ((NSNull *) obj == [NSNull null])) {
         sqlite3_bind_null(pStmt, idx);
     }
 
-        // FIXME - someday check the return codes on these binds.
+    // FIXME - someday check the return codes on these binds.
     else if ([obj isKindOfClass:[NSData class]]) {
         const void *bytes = [obj bytes];
         if (!bytes) {
@@ -678,10 +681,11 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
     }
 }
 
-- (void)extractSQL:(NSString *)sql argumentsList:(va_list)args intoString:(NSMutableString *)cleanedSQL arguments:(NSMutableArray *)arguments {
+- (void) extractSQL:(NSString *)sql argumentsList:(va_list)args intoString:(NSMutableString *)cleanedSQL arguments:(NSMutableArray *)arguments {
 
     NSUInteger length = [sql length];
     unichar last = '\0';
+
     for (NSUInteger i = 0; i < length; ++i) {
         id arg = nil;
         unichar current = [sql characterAtIndex:i];
@@ -696,7 +700,7 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
                     arg = [NSString stringWithFormat:@"%c", va_arg(args, int)];
                     break;
                 case 's':
-                    arg = [NSString stringWithUTF8String:va_arg(args, char*)];
+                    arg = [NSString stringWithUTF8String:va_arg(args, char *)];
                     break;
                 case 'd':
                 case 'D':
@@ -747,11 +751,11 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
                         if (next == 'l') {
                             i++;
                             if (i < length && [sql characterAtIndex:i] == 'd') {
-                                //%lld
+                                // %lld
                                 arg = [NSNumber numberWithLongLong:va_arg(args, long long)];
                             }
                             else if (i < length && [sql characterAtIndex:i] == 'u') {
-                                //%llu
+                                // %llu
                                 arg = [NSNumber numberWithUnsignedLongLong:va_arg(args, unsigned long long)];
                             }
                             else {
@@ -759,11 +763,11 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
                             }
                         }
                         else if (next == 'd') {
-                            //%ld
+                            // %ld
                             arg = [NSNumber numberWithLong:va_arg(args, long)];
                         }
                         else if (next == 'u') {
-                            //%lu
+                            // %lu
                             arg = [NSNumber numberWithUnsignedLong:va_arg(args, unsigned long)];
                         }
                         else {
@@ -800,11 +804,11 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
 
 #pragma mark Execute queries
 
-- (LGVFMResultSet *)executeQuery:(NSString *)sql withParameterDictionary:(NSDictionary *)arguments {
+- (LGVFMResultSet *) executeQuery:(NSString *)sql withParameterDictionary:(NSDictionary *)arguments {
     return [self executeQuery:sql withArgumentsInArray:nil orDictionary:arguments orVAList:nil];
 }
 
-- (LGVFMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray *)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args {
+- (LGVFMResultSet *) executeQuery:(NSString *)sql withArgumentsInArray:(NSArray *)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args {
 
     if (![self databaseExists]) {
         return 0x00;
@@ -897,7 +901,7 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
                 obj = va_arg(args, id);
             }
             else {
-                //We ran out of arguments
+                // We ran out of arguments
                 break;
             }
 
@@ -950,8 +954,9 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
     return rs;
 }
 
-- (LGVFMResultSet *)executeQuery:(NSString *)sql, ... {
+- (LGVFMResultSet *) executeQuery:(NSString *)sql, ... {
     va_list args;
+
     va_start(args, sql);
 
     id result = [self executeQuery:sql withArgumentsInArray:nil orDictionary:nil orVAList:args];
@@ -960,8 +965,9 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
     return result;
 }
 
-- (LGVFMResultSet *)executeQueryWithFormat:(NSString *)format, ... {
+- (LGVFMResultSet *) executeQueryWithFormat:(NSString *)format, ... {
     va_list args;
+
     va_start(args, format);
 
     NSMutableString *sql = [NSMutableString stringWithCapacity:[format length]];
@@ -973,25 +979,26 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
     return [self executeQuery:sql withArgumentsInArray:arguments];
 }
 
-- (LGVFMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray *)arguments {
+- (LGVFMResultSet *) executeQuery:(NSString *)sql withArgumentsInArray:(NSArray *)arguments {
     return [self executeQuery:sql withArgumentsInArray:arguments orDictionary:nil orVAList:nil];
 }
 
-- (LGVFMResultSet *)executeQuery:(NSString *)sql values:(NSArray *)values error:(NSError *__autoreleasing *)error {
+- (LGVFMResultSet *) executeQuery:(NSString *)sql values:(NSArray *)values error:(NSError *__autoreleasing *)error {
     LGVFMResultSet *rs = [self executeQuery:sql withArgumentsInArray:values orDictionary:nil orVAList:nil];
+
     if (!rs && error) {
         *error = [self lastError];
     }
     return rs;
 }
 
-- (LGVFMResultSet *)executeQuery:(NSString *)sql withVAList:(va_list)args {
+- (LGVFMResultSet *) executeQuery:(NSString *)sql withVAList:(va_list)args {
     return [self executeQuery:sql withArgumentsInArray:nil orDictionary:nil orVAList:args];
 }
 
 #pragma mark Execute updates
 
-- (BOOL)executeUpdate:(NSString *)sql error:(NSError **)outErr withArgumentsInArray:(NSArray *)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args {
+- (BOOL) executeUpdate:(NSString *)sql error:(NSError **)outErr withArgumentsInArray:(NSArray *)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args {
 
     if (![self databaseExists]) {
         return NO;
@@ -1094,7 +1101,7 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
                 obj = va_arg(args, id);
             }
             else {
-                //We ran out of arguments
+                // We ran out of arguments
                 break;
             }
 
@@ -1129,8 +1136,8 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
     }
 
     /* Call sqlite3_step() to run the virtual machine. Since the SQL being
-     ** executed is not a SELECT statement, we assume no data will be returned.
-     */
+    ** executed is not a SELECT statement, we assume no data will be returned.
+    */
 
     rc = sqlite3_step(pStmt);
 
@@ -1198,8 +1205,8 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
     }
     else {
         /* Finalize the virtual machine. This releases all memory and other
-         ** resources allocated by the sqlite3_prepare() call above.
-         */
+        ** resources allocated by the sqlite3_prepare() call above.
+        */
         closeErrorCode = sqlite3_finalize(pStmt);
     }
 
@@ -1211,12 +1218,13 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
     }
 
     _isExecutingStatement = NO;
-    return (rc == SQLITE_DONE || rc == SQLITE_OK);
+    return rc == SQLITE_DONE || rc == SQLITE_OK;
 }
 
 
-- (BOOL)executeUpdate:(NSString *)sql, ... {
+- (BOOL) executeUpdate:(NSString *)sql, ... {
     va_list args;
+
     va_start(args, sql);
 
     BOOL result = [self executeUpdate:sql error:nil withArgumentsInArray:nil orDictionary:nil orVAList:args];
@@ -1225,24 +1233,25 @@ static int LGVFMDBDatabaseBusyHandler(void *f, int count) {
     return result;
 }
 
-- (BOOL)executeUpdate:(NSString *)sql withArgumentsInArray:(NSArray *)arguments {
+- (BOOL) executeUpdate:(NSString *)sql withArgumentsInArray:(NSArray *)arguments {
     return [self executeUpdate:sql error:nil withArgumentsInArray:arguments orDictionary:nil orVAList:nil];
 }
 
-- (BOOL)executeUpdate:(NSString *)sql values:(NSArray *)values error:(NSError *__autoreleasing *)error {
+- (BOOL) executeUpdate:(NSString *)sql values:(NSArray *)values error:(NSError *__autoreleasing *)error {
     return [self executeUpdate:sql error:error withArgumentsInArray:values orDictionary:nil orVAList:nil];
 }
 
-- (BOOL)executeUpdate:(NSString *)sql withParameterDictionary:(NSDictionary *)arguments {
+- (BOOL) executeUpdate:(NSString *)sql withParameterDictionary:(NSDictionary *)arguments {
     return [self executeUpdate:sql error:nil withArgumentsInArray:nil orDictionary:arguments orVAList:nil];
 }
 
-- (BOOL)executeUpdate:(NSString *)sql withVAList:(va_list)args {
+- (BOOL) executeUpdate:(NSString *)sql withVAList:(va_list)args {
     return [self executeUpdate:sql error:nil withArgumentsInArray:nil orDictionary:nil orVAList:args];
 }
 
-- (BOOL)executeUpdateWithFormat:(NSString *)format, ... {
+- (BOOL) executeUpdateWithFormat:(NSString *)format, ... {
     va_list args;
+
     va_start(args, format);
 
     NSMutableString *sql = [NSMutableString stringWithCapacity:[format length]];
@@ -1277,11 +1286,11 @@ int LGVFMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **valu
     return execCallbackBlock(dictionary);
 }
 
-- (BOOL)executeStatements:(NSString *)sql {
+- (BOOL) executeStatements:(NSString *)sql {
     return [self executeStatements:sql withResultBlock:nil];
 }
 
-- (BOOL)executeStatements:(NSString *)sql withResultBlock:(__attribute__((noescape)) LGVFMDBExecuteStatementsCallbackBlock)block {
+- (BOOL) executeStatements:(NSString *)sql withResultBlock:(__attribute__((noescape)) LGVFMDBExecuteStatementsCallbackBlock)block {
 
     int rc;
     char *errmsg = nil;
@@ -1293,12 +1302,13 @@ int LGVFMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **valu
         sqlite3_free(errmsg);
     }
 
-    return (rc == SQLITE_OK);
+    return rc == SQLITE_OK;
 }
 
-- (BOOL)executeUpdate:(NSString *)sql withErrorAndBindings:(NSError **)outErr, ... {
+- (BOOL) executeUpdate:(NSString *)sql withErrorAndBindings:(NSError **)outErr, ... {
 
     va_list args;
+
     va_start(args, outErr);
 
     BOOL result = [self executeUpdate:sql error:outErr withArgumentsInArray:nil orDictionary:nil orVAList:args];
@@ -1311,8 +1321,9 @@ int LGVFMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **valu
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-implementations"
 
-- (BOOL)update:(NSString *)sql withErrorAndBindings:(NSError **)outErr, ... {
+- (BOOL) update:(NSString *)sql withErrorAndBindings:(NSError **)outErr, ... {
     va_list args;
+
     va_start(args, outErr);
 
     BOOL result = [self executeUpdate:sql error:outErr withArgumentsInArray:nil orDictionary:nil orVAList:args];
@@ -1325,7 +1336,7 @@ int LGVFMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **valu
 
 #pragma mark Transactions
 
-- (BOOL)rollback {
+- (BOOL) rollback {
     BOOL b = [self executeUpdate:@"rollback transaction"];
 
     if (b) {
@@ -1335,7 +1346,7 @@ int LGVFMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **valu
     return b;
 }
 
-- (BOOL)commit {
+- (BOOL) commit {
     BOOL b = [self executeUpdate:@"commit transaction"];
 
     if (b) {
@@ -1345,9 +1356,10 @@ int LGVFMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **valu
     return b;
 }
 
-- (BOOL)beginTransaction {
+- (BOOL) beginTransaction {
 
     BOOL b = [self executeUpdate:@"begin exclusive transaction"];
+
     if (b) {
         _isInTransaction = YES;
     }
@@ -1355,9 +1367,10 @@ int LGVFMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **valu
     return b;
 }
 
-- (BOOL)beginDeferredTransaction {
+- (BOOL) beginDeferredTransaction {
 
     BOOL b = [self executeUpdate:@"begin deferred transaction"];
+
     if (b) {
         _isInTransaction = YES;
     }
@@ -1365,9 +1378,10 @@ int LGVFMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **valu
     return b;
 }
 
-- (BOOL)beginImmediateTransaction {
+- (BOOL) beginImmediateTransaction {
 
     BOOL b = [self executeUpdate:@"begin immediate transaction"];
+
     if (b) {
         _isInTransaction = YES;
     }
@@ -1375,9 +1389,10 @@ int LGVFMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **valu
     return b;
 }
 
-- (BOOL)beginExclusiveTransaction {
+- (BOOL) beginExclusiveTransaction {
 
     BOOL b = [self executeUpdate:@"begin exclusive transaction"];
+
     if (b) {
         _isInTransaction = YES;
     }
@@ -1385,11 +1400,11 @@ int LGVFMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **valu
     return b;
 }
 
-- (BOOL)inTransaction {
+- (BOOL) inTransaction {
     return _isInTransaction;
 }
 
-- (BOOL)interrupt {
+- (BOOL) interrupt {
     if (_db) {
         sqlite3_interrupt([self sqliteHandle]);
         return YES;
@@ -1397,11 +1412,11 @@ int LGVFMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **valu
     return NO;
 }
 
-static NSString *LGVFMDBEscapeSavePointName(NSString *savepointName) {
+static NSString * LGVFMDBEscapeSavePointName(NSString *savepointName) {
     return [savepointName stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
 }
 
-- (BOOL)startSavePointWithName:(NSString *)name error:(NSError **)outErr {
+- (BOOL) startSavePointWithName:(NSString *)name error:(NSError **)outErr {
 #if SQLITE_VERSION_NUMBER >= 3007000
     NSParameterAssert(name);
 
@@ -1410,12 +1425,14 @@ static NSString *LGVFMDBEscapeSavePointName(NSString *savepointName) {
     return [self executeUpdate:sql error:outErr withArgumentsInArray:nil orDictionary:nil orVAList:nil];
 #else
     NSString *errorMessage = NSLocalizedStringFromTable(@"Save point functions require SQLite 3.7", @"LGVFMDB", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors) {
+        NSLog(@"%@", errorMessage);
+    }
     return NO;
 #endif
 }
 
-- (BOOL)releaseSavePointWithName:(NSString *)name error:(NSError **)outErr {
+- (BOOL) releaseSavePointWithName:(NSString *)name error:(NSError **)outErr {
 #if SQLITE_VERSION_NUMBER >= 3007000
     NSParameterAssert(name);
 
@@ -1424,12 +1441,14 @@ static NSString *LGVFMDBEscapeSavePointName(NSString *savepointName) {
     return [self executeUpdate:sql error:outErr withArgumentsInArray:nil orDictionary:nil orVAList:nil];
 #else
     NSString *errorMessage = NSLocalizedStringFromTable(@"Save point functions require SQLite 3.7", @"LGVFMDB", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors) {
+        NSLog(@"%@", errorMessage);
+    }
     return NO;
 #endif
 }
 
-- (BOOL)rollbackToSavePointWithName:(NSString *)name error:(NSError **)outErr {
+- (BOOL) rollbackToSavePointWithName:(NSString *)name error:(NSError **)outErr {
 #if SQLITE_VERSION_NUMBER >= 3007000
     NSParameterAssert(name);
 
@@ -1438,12 +1457,14 @@ static NSString *LGVFMDBEscapeSavePointName(NSString *savepointName) {
     return [self executeUpdate:sql error:outErr withArgumentsInArray:nil orDictionary:nil orVAList:nil];
 #else
     NSString *errorMessage = NSLocalizedStringFromTable(@"Save point functions require SQLite 3.7", @"LGVFMDB", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors) {
+        NSLog(@"%@", errorMessage);
+    }
     return NO;
 #endif
 }
 
-- (NSError *)inSavePoint:(__attribute__((noescape)) void (^)(BOOL *rollback))block {
+- (NSError *) inSavePoint:(__attribute__((noescape)) void (^)(BOOL *rollback))block {
 #if SQLITE_VERSION_NUMBER >= 3007000
     static unsigned long savePointIdx = 0;
 
@@ -1470,21 +1491,24 @@ static NSString *LGVFMDBEscapeSavePointName(NSString *savepointName) {
     return err;
 #else
     NSString *errorMessage = NSLocalizedStringFromTable(@"Save point functions require SQLite 3.7", @"LGVFMDB", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
-    return [NSError errorWithDomain:@"LGVFMDatabase" code:0 userInfo:@{NSLocalizedDescriptionKey : errorMessage}];
+    if (self.logsErrors) {
+        NSLog(@"%@", errorMessage);
+    }
+    return [NSError errorWithDomain:@"LGVFMDatabase" code:0 userInfo:@{ NSLocalizedDescriptionKey : errorMessage }];
 #endif
 }
 
-- (BOOL)checkpoint:(LGVFMDBCheckpointMode)checkpointMode error:(NSError *__autoreleasing *)error {
+- (BOOL) checkpoint:(LGVFMDBCheckpointMode)checkpointMode error:(NSError *__autoreleasing *)error {
     return [self checkpoint:checkpointMode name:nil logFrameCount:NULL checkpointCount:NULL error:error];
 }
 
-- (BOOL)checkpoint:(LGVFMDBCheckpointMode)checkpointMode name:(NSString *)name error:(NSError *__autoreleasing *)error {
+- (BOOL) checkpoint:(LGVFMDBCheckpointMode)checkpointMode name:(NSString *)name error:(NSError *__autoreleasing *)error {
     return [self checkpoint:checkpointMode name:name logFrameCount:NULL checkpointCount:NULL error:error];
 }
 
-- (BOOL)checkpoint:(LGVFMDBCheckpointMode)checkpointMode name:(NSString *)name logFrameCount:(int *)logFrameCount checkpointCount:(int *)checkpointCount error:(NSError *__autoreleasing *)error {
+- (BOOL) checkpoint:(LGVFMDBCheckpointMode)checkpointMode name:(NSString *)name logFrameCount:(int *)logFrameCount checkpointCount:(int *)checkpointCount error:(NSError *__autoreleasing *)error {
     const char *dbName = [name UTF8String];
+
 #if SQLITE_VERSION_NUMBER >= 3007006
     int err = sqlite3_wal_checkpoint_v2(_db, dbName, checkpointMode, logFrameCount, checkpointCount);
 #else
@@ -1495,7 +1519,9 @@ static NSString *LGVFMDBEscapeSavePointName(NSString *savepointName) {
         if (error) {
             *error = [self lastError];
         }
-        if (self.logsErrors) { NSLog(@"%@", [self lastErrorMessage]); }
+        if (self.logsErrors) {
+            NSLog(@"%@", [self lastErrorMessage]);
+        }
         if (self.crashOnErrors) {
             NSAssert(false, @"%@", [self lastErrorMessage]);
             abort();
@@ -1509,11 +1535,11 @@ static NSString *LGVFMDBEscapeSavePointName(NSString *savepointName) {
 
 #pragma mark Cache statements
 
-- (BOOL)shouldCacheStatements {
+- (BOOL) shouldCacheStatements {
     return _shouldCacheStatements;
 }
 
-- (void)setShouldCacheStatements:(BOOL)value {
+- (void) setShouldCacheStatements:(BOOL)value {
 
     _shouldCacheStatements = value;
 
@@ -1531,7 +1557,7 @@ static NSString *LGVFMDBEscapeSavePointName(NSString *savepointName) {
 void LGVFMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqlite3_value **argv); // -Wmissing-prototypes
 void LGVFMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqlite3_value **argv) {
 #if !__has_feature(objc_arc)
-    void (^block)(sqlite3_context *context, int argc, sqlite3_value **argv) = (id)sqlite3_user_data(context);
+    void (^block)(sqlite3_context *context, int argc, sqlite3_value **argv) = (id) sqlite3_user_data(context);
 #else
     void (^block)(sqlite3_context *context, int argc, sqlite3_value **argv) = (__bridge id) sqlite3_user_data(context);
 #endif
@@ -1544,11 +1570,11 @@ void LGVFMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqli
 
 // deprecated because "arguments" parameter is not maximum argument count, but actual argument count.
 
-- (void)makeFunctionNamed:(NSString *)name maximumArguments:(int)arguments withBlock:(void (^)(void *context, int argc, void **argv))block {
+- (void) makeFunctionNamed:(NSString *)name maximumArguments:(int)arguments withBlock:(void (^)(void *context, int argc, void **argv))block {
     [self makeFunctionNamed:name arguments:arguments block:block];
 }
 
-- (void)makeFunctionNamed:(NSString *)name arguments:(int)arguments block:(void (^)(void *context, int argc, void **argv))block {
+- (void) makeFunctionNamed:(NSString *)name arguments:(int)arguments block:(void (^)(void *context, int argc, void **argv))block {
 
     if (!_openFunctions) {
         _openFunctions = [NSMutableSet new];
@@ -1560,76 +1586,78 @@ void LGVFMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqli
 
     /* I tried adding custom functions to release the block when the connection is destroyed- but they seemed to never be called, so we use _openFunctions to store the values instead. */
 #if !__has_feature(objc_arc)
-    sqlite3_create_function([self sqliteHandle], [name UTF8String], arguments, SQLITE_UTF8, (void*)b, &LGVFMDBBlockSQLiteCallBackFunction, 0x00, 0x00);
+    sqlite3_create_function([self sqliteHandle], [name UTF8String], arguments, SQLITE_UTF8, (void *) b, &LGVFMDBBlockSQLiteCallBackFunction, 0x00, 0x00);
 #else
     sqlite3_create_function([self sqliteHandle], [name UTF8String], arguments, SQLITE_UTF8, (__bridge void *) b, &LGVFMDBBlockSQLiteCallBackFunction, 0x00, 0x00);
 #endif
 }
 
-- (SqliteValueType)valueType:(void *)value {
+- (SqliteValueType) valueType:(void *)value {
     return sqlite3_value_type(value);
 }
 
-- (int)valueInt:(void *)value {
+- (int) valueInt:(void *)value {
     return sqlite3_value_int(value);
 }
 
-- (long long)valueLong:(void *)value {
+- (long long) valueLong:(void *)value {
     return sqlite3_value_int64(value);
 }
 
-- (double)valueDouble:(void *)value {
+- (double) valueDouble:(void *)value {
     return sqlite3_value_double(value);
 }
 
-- (NSData *)valueData:(void *)value {
+- (NSData *) valueData:(void *)value {
     const void *bytes = sqlite3_value_blob(value);
     int length = sqlite3_value_bytes(value);
+
     return bytes ? [NSData dataWithBytes:bytes length:(NSUInteger) length] : nil;
 }
 
-- (NSString *)valueString:(void *)value {
+- (NSString *) valueString:(void *)value {
     const char *cString = (const char *) sqlite3_value_text(value);
+
     return cString ? [NSString stringWithUTF8String:cString] : nil;
 }
 
-- (void)resultNullInContext:(void *)context {
+- (void) resultNullInContext:(void *)context {
     sqlite3_result_null(context);
 }
 
-- (void)resultInt:(int)value context:(void *)context {
+- (void) resultInt:(int)value context:(void *)context {
     sqlite3_result_int(context, value);
 }
 
-- (void)resultLong:(long long)value context:(void *)context {
+- (void) resultLong:(long long)value context:(void *)context {
     sqlite3_result_int64(context, value);
 }
 
-- (void)resultDouble:(double)value context:(void *)context {
+- (void) resultDouble:(double)value context:(void *)context {
     sqlite3_result_double(context, value);
 }
 
-- (void)resultData:(NSData *)data context:(void *)context {
+- (void) resultData:(NSData *)data context:(void *)context {
     sqlite3_result_blob(context, data.bytes, (int) data.length, SQLITE_TRANSIENT);
 }
 
-- (void)resultString:(NSString *)value context:(void *)context {
+- (void) resultString:(NSString *)value context:(void *)context {
     sqlite3_result_text(context, [value UTF8String], -1, SQLITE_TRANSIENT);
 }
 
-- (void)resultError:(NSString *)error context:(void *)context {
+- (void) resultError:(NSString *)error context:(void *)context {
     sqlite3_result_error(context, [error UTF8String], -1);
 }
 
-- (void)resultErrorCode:(int)errorCode context:(void *)context {
+- (void) resultErrorCode:(int)errorCode context:(void *)context {
     sqlite3_result_error_code(context, errorCode);
 }
 
-- (void)resultErrorNoMemoryInContext:(void *)context {
+- (void) resultErrorNoMemoryInContext:(void *)context {
     sqlite3_result_error_nomem(context);
 }
 
-- (void)resultErrorTooBigInContext:(void *)context {
+- (void) resultErrorTooBigInContext:(void *)context {
     sqlite3_result_error_toobig(context);
 }
 
@@ -1639,13 +1667,13 @@ void LGVFMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqli
 @implementation LGVFMStatement
 
 #if !__has_feature(objc_arc)
-- (void)finalize {
+- (void) finalize {
     [self close];
     [super finalize];
 }
 #endif
 
-- (void)dealloc {
+- (void) dealloc {
     [self close];
     LGVFMDBRelease(_query);
 #if !__has_feature(objc_arc)
@@ -1653,7 +1681,7 @@ void LGVFMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqli
 #endif
 }
 
-- (void)close {
+- (void) close {
     if (_statement) {
         sqlite3_finalize(_statement);
         _statement = 0x00;
@@ -1662,7 +1690,7 @@ void LGVFMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqli
     _inUse = NO;
 }
 
-- (void)reset {
+- (void) reset {
     if (_statement) {
         sqlite3_reset(_statement);
     }
@@ -1670,7 +1698,7 @@ void LGVFMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqli
     _inUse = NO;
 }
 
-- (NSString *)description {
+- (NSString *) description {
     return [NSString stringWithFormat:@"%@ %ld hit(s) for query %@", [super description], _useCount, _query];
 }
 

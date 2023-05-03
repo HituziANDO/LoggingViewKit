@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Returns the frame detected whether a user touches the view.
  */
-- (CGRect)touchableFrame;
+- (CGRect) touchableFrame;
 
 @end
 
@@ -42,11 +42,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * The name to identify the view.
  */
-- (nullable NSString *)loggingName;
+- (nullable NSString *) loggingName;
 /**
  * True if logging is enabled, otherwise false.
  */
-- (BOOL)isLogging;
+- (BOOL) isLogging;
 
 @end
 

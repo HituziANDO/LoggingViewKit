@@ -6,13 +6,12 @@
 //  Copyright © 2018年 Hituzi Ando. All rights reserved.
 //
 
-import UIKit
 import LoggingViewKit
+import UIKit
 
 class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
-
-    @IBOutlet weak var stepperLabel: LGVLabel!
-    @IBOutlet weak var sampleView: LGVView!
+    @IBOutlet var stepperLabel: LGVLabel!
+    @IBOutlet var sampleView: LGVView!
 
     private lazy var testButton: LGVButton = {
         let button = LGVButton(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
@@ -81,14 +80,10 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
 
     func loggingViewService(_ service: LGVLoggingViewService,
                             willSave log: LGVLog,
-                            attribute: LGVLoggingAttribute) {
-
-    }
+                            attribute: LGVLoggingAttribute) {}
 
     func loggingViewService(_ service: LGVLoggingViewService,
                             didSave log: LGVLog,
                             attribute: LGVLoggingAttribute,
-                            error: LGVError?) {
-
-    }
+                            error: LGVError?) {}
 }

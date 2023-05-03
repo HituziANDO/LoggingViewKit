@@ -28,17 +28,17 @@
 
 @implementation LGVLoggingAttribute
 
-+ (instancetype)attributeWithView:(id)view
-                             name:(NSString *)name
-                   loggingEnabled:(BOOL)enabled {
++ (instancetype) attributeWithView:(id)view
+                              name:(NSString *)name
+                    loggingEnabled:(BOOL)enabled {
     return [[LGVLoggingAttribute alloc] initWithView:view
                                                 name:name
                                       loggingEnabled:enabled];
 }
 
-- (instancetype)initWithView:(id)view
-                        name:(NSString *)name
-              loggingEnabled:(BOOL)enabled {
+- (instancetype) initWithView:(id)view
+                         name:(NSString *)name
+               loggingEnabled:(BOOL)enabled {
     if (self = [super init]) {
         _view = view;
         _name = name;

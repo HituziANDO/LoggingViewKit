@@ -74,8 +74,8 @@ FOUNDATION_EXTERN const double LGVUndefinedLocation;
  */
 @property (nonatomic, copy, readonly) NSDictionary *toDictionary;
 
-+ (instancetype)logWithEventType:(NSString *)eventType;
-+ (instancetype)logWithKey:(NSString *)key createdAt:(NSDate *)createdAt;
++ (instancetype) logWithEventType:(NSString *)eventType;
++ (instancetype) logWithKey:(NSString *)key createdAt:(NSDate *)createdAt;
 
 @end
 

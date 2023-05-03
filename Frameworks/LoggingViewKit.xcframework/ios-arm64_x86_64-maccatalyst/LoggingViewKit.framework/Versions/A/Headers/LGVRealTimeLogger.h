@@ -58,7 +58,7 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
  * @param log A log.
  * @param logLevel A log level.
  */
-- (void)write:(NSString *)log logLevel:(LGVLogLevel)logLevel;
+- (void) write:(NSString *)log logLevel:(LGVLogLevel)logLevel;
 
 @end
 
@@ -68,7 +68,7 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
  *
  * @return A destination.
  */
-+ (instancetype)destination;
++ (instancetype) destination;
 
 @end
 
@@ -86,15 +86,15 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
  * it is created by the receiver.
  * @return A destination.
  */
-+ (instancetype)destinationWithFile:(NSString *)fileName
-                        inDirectory:(NSString *)directory;
++ (instancetype) destinationWithFile:(NSString *)fileName
+                         inDirectory:(NSString *)directory;
 /**
  * Creates new instance that it outputs a log to given file.
  *
  * @param filePath A file path.
  * @return A destination.
  */
-+ (instancetype)destinationWithFilePath:(NSString *)filePath;
++ (instancetype) destinationWithFilePath:(NSString *)filePath;
 
 @end
 
@@ -105,7 +105,7 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
  * @param dictionary A log data.
  * @return Serialized log as `NSString`.
  */
-- (NSString *)serialize:(NSDictionary *)dictionary;
+- (NSString *) serialize:(NSDictionary *)dictionary;
 
 @end
 
@@ -132,7 +132,7 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
  *
  * @return The singleton instance.
  */
-+ (instancetype)sharedLogger;
++ (instancetype) sharedLogger;
 
 /**
  * Adds a destination outputting logs to the logger.
@@ -140,14 +140,14 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
  * @param destination A destination outputting logs.
  * @return The receiver.
  */
-- (instancetype)addDestination:(id <LGVDestination>)destination;
+- (instancetype) addDestination:(id <LGVDestination>)destination;
 /**
  * Adds a log.
  *
  * @param logLevel The log level.
  * @param format A message using a format.
  */
-- (void)logWithLevel:(LGVLogLevel)logLevel format:(nullable NSString *)format, ...;
+- (void) logWithLevel:(LGVLogLevel)logLevel format:(nullable NSString *)format, ...;
 /**
  * Adds a log.
  *
@@ -156,20 +156,20 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
  * @param line Set `__LINE__`.
  * @param format A message using a format.
  */
-- (void)logWithLevel:(LGVLogLevel)logLevel
-            function:(const char *)function
-                line:(NSUInteger)line
-              format:(nullable NSString *)format, ...;
+- (void) logWithLevel:(LGVLogLevel)logLevel
+             function:(const char *)function
+                 line:(NSUInteger)line
+               format:(nullable NSString *)format, ...;
 
 @end
 
 #define LGVLogD(...) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelDebug function:__FUNCTION__ line:__LINE__ format:__VA_ARGS__]
+                      logWithLevel:LGVLogLevelDebug function:__FUNCTION__ line:__LINE__ format:__VA_ARGS__]
 #define LGVLogI(...) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelInfo function:__FUNCTION__ line:__LINE__ format:__VA_ARGS__]
+                      logWithLevel:LGVLogLevelInfo function:__FUNCTION__ line:__LINE__ format:__VA_ARGS__]
 #define LGVLogW(...) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelWarning function:__FUNCTION__ line:__LINE__ format:__VA_ARGS__]
+                      logWithLevel:LGVLogLevelWarning function:__FUNCTION__ line:__LINE__ format:__VA_ARGS__]
 #define LGVLogE(...) [[LGVRealTimeLogger sharedLogger] \
-    logWithLevel:LGVLogLevelError function:__FUNCTION__ line:__LINE__ format:__VA_ARGS__]
+                      logWithLevel:LGVLogLevelError function:__FUNCTION__ line:__LINE__ format:__VA_ARGS__]
 
 NS_ASSUME_NONNULL_END

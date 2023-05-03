@@ -38,21 +38,21 @@ NS_ASSUME_NONNULL_BEGIN
  * @param log Saving log
  * @return YES if success, otherwise NO
  */
-- (BOOL)addLog:(LGVLog *)log;
+- (BOOL) addLog:(LGVLog *)log;
 
 @optional
 /**
  * Reads all logs in the database.
  */
-- (NSArray<LGVLog *> *)allLogs;
+- (NSArray<LGVLog *> *) allLogs;
 /**
  * Finds the log for given key. If not found it, this method returns nil.
  */
-- (nullable LGVLog *)logByKey:(NSString *)key;
+- (nullable LGVLog *) logByKey:(NSString *)key;
 /**
  * Deletes all logs in the database.
  */
-- (void)deleteAllLogs;
+- (void) deleteAllLogs;
 
 @end
 

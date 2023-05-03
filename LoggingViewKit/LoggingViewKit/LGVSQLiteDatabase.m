@@ -38,7 +38,7 @@
 
 @implementation LGVSQLiteDatabase
 
-+ (instancetype)defaultDatabase {
++ (instancetype) defaultDatabase {
     NSString *docDir = NSSearchPathForDirectoriesInDomains(
         NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     NSString *path = [docDir stringByAppendingPathComponent:@"logging_view_kit.db"];
@@ -46,8 +46,9 @@
     return [self databaseWithPath:path];
 }
 
-+ (instancetype)databaseWithPath:(NSString *)path {
++ (instancetype) databaseWithPath:(NSString *)path {
     LGVSQLiteDatabase *database = [LGVSQLiteDatabase new];
+
     database.db = [LGVFMDatabase databaseWithPath:path];
     [database createTable];
 
@@ -56,18 +57,18 @@
 
 #pragma mark - LGVDatabase
 
-- (BOOL)addLog:(LGVLog *)log {
+- (BOOL) addLog:(LGVLog *)log {
     NSString *sql = @"INSERT INTO lgv_logs "
-                    "(key, "
-                    "event_type, "
-                    "name, "
-                    "click_x, "
-                    "click_y, "
-                    "absolute_click_x, "
-                    "absolute_click_y, "
-                    "info, "
-                    "created_at) "
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        "(key, "
+        "event_type, "
+        "name, "
+        "click_x, "
+        "click_y, "
+        "absolute_click_x, "
+        "absolute_click_y, "
+        "info, "
+        "created_at) "
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
     if (![self.db open]) {
         return NO;
@@ -76,15 +77,15 @@
     [self.db beginTransaction];
 
     const BOOL success = [self.db executeUpdate:sql withArgumentsInArray:@[
-        log.key,
-        log.eventType,
-        log.name ? log.name : @"",
-        @(log.clickX),
-        @(log.clickY),
-        @(log.absoluteClickX),
-        @(log.absoluteClickY),
-        [self serialize:log.info],
-        log.createdAt,
+                              log.key,
+                              log.eventType,
+                              log.name ? log.name : @"",
+                              @(log.clickX),
+                              @(log.clickY),
+                              @(log.absoluteClickX),
+                              @(log.absoluteClickY),
+                              [self serialize:log.info],
+                              log.createdAt,
     ]];
 
     if (success) {
@@ -99,7 +100,7 @@
     return success;
 }
 
-- (NSArray<LGVLog *> *)allLogs {
+- (NSArray<LGVLog *> *) allLogs {
     NSMutableArray *logs = [NSMutableArray new];
 
     NSString *sql = @"SELECT * FROM lgv_logs ORDER BY id;";
@@ -129,7 +130,7 @@
     return logs;
 }
 
-- (LGVLog *)logByKey:(NSString *)key {
+- (LGVLog *) logByKey:(NSString *)key {
     if (key.length <= 0) {
         return nil;
     }
@@ -162,7 +163,7 @@
     return log;
 }
 
-- (void)deleteAllLogs {
+- (void) deleteAllLogs {
     NSString *sql = @"DELETE FROM lgv_logs;";
 
     if (![self.db open]) {
@@ -184,19 +185,19 @@
 
 #pragma mark - private method
 
-- (void)createTable {
+- (void) createTable {
     NSString *sql = @"CREATE TABLE IF NOT EXISTS lgv_logs ("
-                    "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    "key TEXT NOT NULL, "
-                    "event_type TEXT NOT NULL, "
-                    "name TEXT, "
-                    "click_x REAL, "
-                    "click_y REAL, "
-                    "absolute_click_x REAL, "
-                    "absolute_click_y REAL, "
-                    "info TEXT, "
-                    "created_at DATETIME NOT NULL"
-                    ");";
+        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+        "key TEXT NOT NULL, "
+        "event_type TEXT NOT NULL, "
+        "name TEXT, "
+        "click_x REAL, "
+        "click_y REAL, "
+        "absolute_click_x REAL, "
+        "absolute_click_y REAL, "
+        "info TEXT, "
+        "created_at DATETIME NOT NULL"
+        ");";
 
     if (![self.db open]) {
         return;
@@ -206,7 +207,7 @@
     [self.db close];
 }
 
-- (NSString *)serialize:(NSDictionary *)dict {
+- (NSString *) serialize:(NSDictionary *)dict {
     if ([NSJSONSerialization isValidJSONObject:dict]) {
         NSError *error = nil;
         NSData *data = [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
@@ -219,7 +220,7 @@
     return @"";
 }
 
-- (NSDictionary *)deserialize:(NSString *)string {
+- (NSDictionary *) deserialize:(NSString *)string {
     NSError *error = nil;
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[string dataUsingEncoding:NSUTF8StringEncoding]
                                                          options:NSJSONReadingAllowFragments

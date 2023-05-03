@@ -21,7 +21,7 @@
 
 @implementation ViewController
 
-- (void)loadView {
+- (void) loadView {
     [super loadView];
 
     self.testButton = [[LGVButton alloc] initWithFrame:CGRectMake(0, 0, 100.f, 40.f)];
@@ -46,7 +46,7 @@
     [self.sampleView addSubview:self.getLogButton];
 }
 
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
 
     [LGVLoggingViewService sharedService].delegate = self;
@@ -62,20 +62,22 @@
 
 #pragma mark - IBAction
 
-- (IBAction)stepperChanged:(id)sender {
+- (IBAction) stepperChanged:(id)sender {
     LGVStepper *stepper = (LGVStepper *) sender;
+
     self.stepperLabel.text = [NSString stringWithFormat:@"%.1lf", stepper.value];
 }
 
-- (void)testButtonPressed:(LGVButton *)sender {
+- (void) testButtonPressed:(LGVButton *)sender {
     NSLog(@"%@ Pressed", sender.loggingName);
 }
 
-- (void)getLogButtonPressed:(id)sender {
+- (void) getLogButtonPressed:(id)sender {
     // Records a click event.
     LGVLoggingAttribute *attr = [LGVLoggingAttribute attributeWithView:sender
                                                                   name:@"GetLogButton"
                                                         loggingEnabled:YES];
+
     attr.info = @{ @"more-info": @"test" };
     [[LGVLoggingViewService sharedService] click:attr];
 
@@ -84,16 +86,16 @@
 
 #pragma mark - LGVLoggingViewServiceDelegate
 
-- (void)loggingViewService:(LGVLoggingViewService *)service
-               willSaveLog:(LGVLog *)log
-                 attribute:(LGVLoggingAttribute *)attribute {
+- (void) loggingViewService:(LGVLoggingViewService *)service
+                willSaveLog:(LGVLog *)log
+                  attribute:(LGVLoggingAttribute *)attribute {
 
 }
 
-- (void)loggingViewService:(LGVLoggingViewService *)service
-                didSaveLog:(LGVLog *)log
-                 attribute:(LGVLoggingAttribute *)attribute
-                     error:(LGVError *)error {
+- (void) loggingViewService:(LGVLoggingViewService *)service
+                 didSaveLog:(LGVLog *)log
+                  attribute:(LGVLoggingAttribute *)attribute
+                      error:(LGVError *)error {
 
 }
 

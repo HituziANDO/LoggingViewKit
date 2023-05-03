@@ -14,8 +14,8 @@
 
 #endif
 
-#import "LGVFMDatabasePool.h"
 #import "LGVFMDatabase.h"
+#import "LGVFMDatabasePool.h"
 
 typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
     LGVFMDBTransactionExclusive,
@@ -30,8 +30,8 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
     NSMutableArray *_databaseOutPool;
 }
 
-- (void)pushDatabaseBackInPool:(LGVFMDatabase *)db;
-- (LGVFMDatabase *)db;
+- (void) pushDatabaseBackInPool:(LGVFMDatabase *)db;
+- (LGVFMDatabase *) db;
 
 @end
 
@@ -43,27 +43,27 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
 @synthesize openFlags = _openFlags;
 
 
-+ (instancetype)databasePoolWithPath:(NSString *)aPath {
++ (instancetype) databasePoolWithPath:(NSString *)aPath {
     return LGVFMDBReturnAutoreleased([[self alloc] initWithPath:aPath]);
 }
 
-+ (instancetype)databasePoolWithURL:(NSURL *)url {
++ (instancetype) databasePoolWithURL:(NSURL *)url {
     return LGVFMDBReturnAutoreleased([[self alloc] initWithPath:url.path]);
 }
 
-+ (instancetype)databasePoolWithPath:(NSString *)aPath flags:(int)openFlags {
++ (instancetype) databasePoolWithPath:(NSString *)aPath flags:(int)openFlags {
     return LGVFMDBReturnAutoreleased([[self alloc] initWithPath:aPath flags:openFlags]);
 }
 
-+ (instancetype)databasePoolWithURL:(NSURL *)url flags:(int)openFlags {
++ (instancetype) databasePoolWithURL:(NSURL *)url flags:(int)openFlags {
     return LGVFMDBReturnAutoreleased([[self alloc] initWithPath:url.path flags:openFlags]);
 }
 
-- (instancetype)initWithURL:(NSURL *)url flags:(int)openFlags vfs:(NSString *)vfsName {
+- (instancetype) initWithURL:(NSURL *)url flags:(int)openFlags vfs:(NSString *)vfsName {
     return [self initWithPath:url.path flags:openFlags vfs:vfsName];
 }
 
-- (instancetype)initWithPath:(NSString *)aPath flags:(int)openFlags vfs:(NSString *)vfsName {
+- (instancetype) initWithPath:(NSString *)aPath flags:(int)openFlags vfs:(NSString *)vfsName {
 
     self = [super init];
 
@@ -79,32 +79,32 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
     return self;
 }
 
-- (instancetype)initWithPath:(NSString *)aPath flags:(int)openFlags {
+- (instancetype) initWithPath:(NSString *)aPath flags:(int)openFlags {
     return [self initWithPath:aPath flags:openFlags vfs:nil];
 }
 
-- (instancetype)initWithURL:(NSURL *)url flags:(int)openFlags {
+- (instancetype) initWithURL:(NSURL *)url flags:(int)openFlags {
     return [self initWithPath:url.path flags:openFlags vfs:nil];
 }
 
-- (instancetype)initWithPath:(NSString *)aPath {
+- (instancetype) initWithPath:(NSString *)aPath {
     // default flags for sqlite3_open
     return [self initWithPath:aPath flags:SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE];
 }
 
-- (instancetype)initWithURL:(NSURL *)url {
+- (instancetype) initWithURL:(NSURL *)url {
     return [self initWithPath:url.path];
 }
 
-- (instancetype)init {
+- (instancetype) init {
     return [self initWithPath:nil];
 }
 
-+ (Class)databaseClass {
++ (Class) databaseClass {
     return [LGVFMDatabase class];
 }
 
-- (void)dealloc {
+- (void) dealloc {
 
     _delegate = 0x00;
     LGVFMDBRelease(_path);
@@ -122,11 +122,11 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
 }
 
 
-- (void)executeLocked:(void (^)(void))aBlock {
+- (void) executeLocked:(void (^)(void))aBlock {
     dispatch_sync(_lockQueue, aBlock);
 }
 
-- (void)pushDatabaseBackInPool:(LGVFMDatabase *)db {
+- (void) pushDatabaseBackInPool:(LGVFMDatabase *)db {
 
     if (!db) { // db can be null if we set an upper bound on the # of databases to create.
         return;
@@ -134,116 +134,116 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
 
     [self executeLocked:^() {
 
-        if ([self->_databaseInPool containsObject:db]) {
-            [[NSException exceptionWithName:@"Database already in pool" reason:@"The LGVFMDatabase being put back into the pool is already present in the pool" userInfo:nil] raise];
-        }
+         if ([self->_databaseInPool containsObject:db]) {
+             [[NSException exceptionWithName:@"Database already in pool" reason:@"The LGVFMDatabase being put back into the pool is already present in the pool" userInfo:nil] raise];
+         }
 
-        [self->_databaseInPool addObject:db];
-        [self->_databaseOutPool removeObject:db];
+         [self->_databaseInPool addObject:db];
+         [self->_databaseOutPool removeObject:db];
 
-    }];
+     }];
 }
 
-- (LGVFMDatabase *)db {
+- (LGVFMDatabase *) db {
 
     __block LGVFMDatabase *db;
 
 
     [self executeLocked:^() {
-        db = [self->_databaseInPool lastObject];
+         db = [self->_databaseInPool lastObject];
 
-        BOOL shouldNotifyDelegate = NO;
+         BOOL shouldNotifyDelegate = NO;
 
-        if (db) {
-            [self->_databaseOutPool addObject:db];
-            [self->_databaseInPool removeLastObject];
-        }
-        else {
+         if (db) {
+             [self->_databaseOutPool addObject:db];
+             [self->_databaseInPool removeLastObject];
+         }
+         else {
 
-            if (self->_maximumNumberOfDatabasesToCreate) {
-                NSUInteger currentCount = [self->_databaseOutPool count] + [self->_databaseInPool count];
+             if (self->_maximumNumberOfDatabasesToCreate) {
+                 NSUInteger currentCount = [self->_databaseOutPool count] + [self->_databaseInPool count];
 
-                if (currentCount >= self->_maximumNumberOfDatabasesToCreate) {
-                    NSLog(@"Maximum number of databases (%ld) has already been reached!", (long) currentCount);
-                    return;
-                }
-            }
+                 if (currentCount >= self->_maximumNumberOfDatabasesToCreate) {
+                     NSLog(@"Maximum number of databases (%ld) has already been reached!", (long) currentCount);
+                     return;
+                 }
+             }
 
-            db = [[[self class] databaseClass] databaseWithPath:self->_path];
-            shouldNotifyDelegate = YES;
-        }
+             db = [[[self class] databaseClass] databaseWithPath:self->_path];
+             shouldNotifyDelegate = YES;
+         }
 
-        //This ensures that the db is opened before returning
+         // This ensures that the db is opened before returning
 #if SQLITE_VERSION_NUMBER >= 3005000
-        BOOL success = [db openWithFlags:self->_openFlags vfs:self->_vfsName];
+         BOOL success = [db openWithFlags:self->_openFlags vfs:self->_vfsName];
 #else
-        BOOL success = [db open];
+         BOOL success = [db open];
 #endif
-        if (success) {
-            if ([self->_delegate respondsToSelector:@selector(databasePool:shouldAddDatabaseToPool:)] && ![self->_delegate databasePool:self shouldAddDatabaseToPool:db]) {
-                [db close];
-                db = 0x00;
-            }
-            else {
-                //It should not get added in the pool twice if lastObject was found
-                if (![self->_databaseOutPool containsObject:db]) {
-                    [self->_databaseOutPool addObject:db];
+         if (success) {
+             if ([self->_delegate respondsToSelector:@selector(databasePool:shouldAddDatabaseToPool:)] && ![self->_delegate databasePool:self shouldAddDatabaseToPool:db]) {
+                 [db close];
+                 db = 0x00;
+             }
+             else {
+                 // It should not get added in the pool twice if lastObject was found
+                 if (![self->_databaseOutPool containsObject:db]) {
+                     [self->_databaseOutPool addObject:db];
 
-                    if (shouldNotifyDelegate && [self->_delegate respondsToSelector:@selector(databasePool:didAddDatabase:)]) {
-                        [self->_delegate databasePool:self didAddDatabase:db];
-                    }
-                }
-            }
-        }
-        else {
-            NSLog(@"Could not open up the database at path %@", self->_path);
-            db = 0x00;
-        }
-    }];
+                     if (shouldNotifyDelegate && [self->_delegate respondsToSelector:@selector(databasePool:didAddDatabase:)]) {
+                         [self->_delegate databasePool:self didAddDatabase:db];
+                     }
+                 }
+             }
+         }
+         else {
+             NSLog(@"Could not open up the database at path %@", self->_path);
+             db = 0x00;
+         }
+     }];
 
     return db;
 }
 
-- (NSUInteger)countOfCheckedInDatabases {
+- (NSUInteger) countOfCheckedInDatabases {
 
     __block NSUInteger count;
 
     [self executeLocked:^() {
-        count = [self->_databaseInPool count];
-    }];
+         count = [self->_databaseInPool count];
+     }];
 
     return count;
 }
 
-- (NSUInteger)countOfCheckedOutDatabases {
+- (NSUInteger) countOfCheckedOutDatabases {
 
     __block NSUInteger count;
 
     [self executeLocked:^() {
-        count = [self->_databaseOutPool count];
-    }];
+         count = [self->_databaseOutPool count];
+     }];
 
     return count;
 }
 
-- (NSUInteger)countOfOpenDatabases {
+- (NSUInteger) countOfOpenDatabases {
     __block NSUInteger count;
 
     [self executeLocked:^() {
-        count = [self->_databaseOutPool count] + [self->_databaseInPool count];
-    }];
+         count = [self->_databaseOutPool count] + [self->_databaseInPool count];
+     }];
 
     return count;
 }
 
-- (void)releaseAllDatabases {
+- (void) releaseAllDatabases {
     [self executeLocked:^() {
-        [self->_databaseOutPool removeAllObjects];
-        [self->_databaseInPool removeAllObjects];
-    }];
+         [self->_databaseOutPool removeAllObjects];
+         [self->_databaseInPool removeAllObjects];
+     }];
 }
 
-- (void)inDatabase:(__attribute__((noescape)) void (^)(LGVFMDatabase *db))block {
+- (void) inDatabase:(__attribute__((noescape)) void (^)(LGVFMDatabase *db))block {
 
     LGVFMDatabase *db = [self db];
 
@@ -252,7 +252,7 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
     [self pushDatabaseBackInPool:db];
 }
 
-- (void)beginTransaction:(LGVFMDBTransaction)transaction withBlock:(void (^)(LGVFMDatabase *db, BOOL *rollback))block {
+- (void) beginTransaction:(LGVFMDBTransaction)transaction withBlock:(void (^)(LGVFMDatabase *db, BOOL *rollback))block {
 
     BOOL shouldRollback = NO;
 
@@ -283,23 +283,23 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
     [self pushDatabaseBackInPool:db];
 }
 
-- (void)inTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
+- (void) inTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
     [self beginTransaction:LGVFMDBTransactionExclusive withBlock:block];
 }
 
-- (void)inDeferredTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
+- (void) inDeferredTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
     [self beginTransaction:LGVFMDBTransactionDeferred withBlock:block];
 }
 
-- (void)inExclusiveTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
+- (void) inExclusiveTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
     [self beginTransaction:LGVFMDBTransactionExclusive withBlock:block];
 }
 
-- (void)inImmediateTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
+- (void) inImmediateTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
     [self beginTransaction:LGVFMDBTransactionImmediate withBlock:block];
 }
 
-- (NSError *)inSavePoint:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
+- (NSError *) inSavePoint:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
 #if SQLITE_VERSION_NUMBER >= 3007000
     static unsigned long savePointIdx = 0;
 
@@ -329,8 +329,10 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
     return err;
 #else
     NSString *errorMessage = NSLocalizedStringFromTable(@"Save point functions require SQLite 3.7", @"LGVFMDB", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
-    return [NSError errorWithDomain:@"LGVFMDatabase" code:0 userInfo:@{NSLocalizedDescriptionKey : errorMessage}];
+    if (self.logsErrors) {
+        NSLog(@"%@", errorMessage);
+    }
+    return [NSError errorWithDomain:@"LGVFMDatabase" code:0 userInfo:@{ NSLocalizedDescriptionKey : errorMessage }];
 #endif
 }
 
