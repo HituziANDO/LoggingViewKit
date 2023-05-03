@@ -45,6 +45,10 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
         // Deletes all logs.
 //        LGVLoggingViewService.shared().deleteAllLogs()
 
+        // Records viewDidLoad as the custom event.
+        let attr = LGVLoggingAttribute(name: "ViewController")
+        LGVLoggingViewService.shared().customEvent("viewDidLoad", attribute: attr)
+
         #if DEBUG
         // Dumps hierarchy of the root view.
         LGVViewHierarchy.dump(view)

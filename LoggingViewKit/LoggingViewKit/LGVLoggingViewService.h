@@ -116,6 +116,12 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  * Records a click event.
  */
 - (void) click:(LGVLoggingAttribute *)attribute;
+/**
+ * Records a custom event.
+ *
+ * @param eventType An event type. This value is used as a type of the log.
+ */
+- (void) customEvent:(NSString *)eventType attribute:(LGVLoggingAttribute *)attribute;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -54,6 +54,10 @@
     // Deletes all logs.
 //    [[LGVLoggingViewService sharedService] deleteAllLogs];
 
+    // Records viewDidLoad as the custom event.
+    LGVLoggingAttribute *attr = [LGVLoggingAttribute attributeWithName:@"ViewController"];
+    [[LGVLoggingViewService sharedService] customEvent:@"viewDidLoad" attribute:attr];
+
 #ifdef DEBUG
     // Dumps the hierarchy of the root view.
     [LGVViewHierarchy dump:self.view];

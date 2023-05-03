@@ -36,6 +36,20 @@
                                       loggingEnabled:enabled];
 }
 
++ (instancetype) attributeWithView:(id)view name:(NSString *)name {
+    return [self attributeWithView:view name:name loggingEnabled:YES];
+}
+
++ (instancetype) attributeWithName:(NSString *)name loggingEnabled:(BOOL)enabled {
+    return [[LGVLoggingAttribute alloc] initWithView:nil
+                                                name:name
+                                      loggingEnabled:enabled];
+}
+
++ (instancetype) attributeWithName:(NSString *)name {
+    return [self attributeWithName:name loggingEnabled:YES];
+}
+
 - (instancetype) initWithView:(id)view
                          name:(NSString *)name
                loggingEnabled:(BOOL)enabled {
