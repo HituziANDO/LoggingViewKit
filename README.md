@@ -1,5 +1,11 @@
 # LoggingViewKit
 
+![release](https://img.shields.io/github/v/release/HituziANDO/LoggingViewKit?display_name=tag)
+![Pod Platform](https://img.shields.io/cocoapods/p/LoggingViewKit.svg?style=flat)
+[![Pod Version](https://img.shields.io/cocoapods/v/LoggingViewKit.svg?style=flat)](https://cocoapods.org/pods/LoggingViewKit)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
+
 LoggingViewKit is a framework records a user's click operation.
 
 ## Include in Your Project
