@@ -30,15 +30,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LGVLabel : UILabel <LGVLogging>
+@interface LGVButton : UIButton <LGVLogging>
 /**
-* The name to identify the view.
-*/
+ * The name to identify the view.
+ */
 @property (nonatomic, copy, nullable) IBInspectable NSString *loggingName;
 /**
  * True if logging is enabled, otherwise false.
  */
-@property (nonatomic, getter=isLogging) IBInspectable BOOL logging;
+@property (nonatomic, getter = isLogging) IBInspectable BOOL logging;
 /**
  * Touchable extension left.
  */

@@ -26,7 +26,7 @@
 
 #import "LGVViewHierarchy.h"
 
-void LGVGetViewHierarchy(UIView *view, NSInteger depth, NSMutableArray *hierarchy) {
+void LGVGetViewHierarchy(_LGVView *view, NSInteger depth, NSMutableArray *hierarchy) {
     NSMutableString *indent = [NSMutableString new];
 
     for (NSInteger i = 0; i < depth; i++) {
@@ -45,7 +45,7 @@ void LGVGetViewHierarchy(UIView *view, NSInteger depth, NSMutableArray *hierarch
     [hierarchy addObject:item];
 
     if (view.subviews.count > 0) {
-        for (UIView *v in view.subviews) {
+        for (_LGVView *v in view.subviews) {
             LGVGetViewHierarchy(v, depth + 1, hierarchy);
         }
     }
@@ -53,8 +53,9 @@ void LGVGetViewHierarchy(UIView *view, NSInteger depth, NSMutableArray *hierarch
 
 @implementation LGVViewHierarchy
 
-+ (void)dump:(UIView *)view {
++ (void) dump:(_LGVView *)view {
     NSMutableArray *hierarchy = [NSMutableArray new];
+
     LGVGetViewHierarchy(view, 0, hierarchy);
     NSString *str = [hierarchy componentsJoinedByString:@"\n"];
     NSLog(@"===ViewHierarchy===\n%@", str);

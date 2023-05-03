@@ -26,7 +26,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "LGVDatabase.h"
+#import <LoggingViewKit/LGVDatabase.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -36,14 +36,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @return New instance
  */
-+ (instancetype)defaultDatabase;
++ (instancetype) defaultDatabase;
 /**
  * Creates a new instance.
  *
  * @param path Database file path
  * @return New instance
  */
-+ (instancetype)databaseWithPath:(NSString *)path;
++ (instancetype) databaseWithPath:(NSString *)path;
 
 @end
 

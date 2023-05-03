@@ -37,10 +37,10 @@ NSString *const LGVErrorDomain = @"jp.hituzi.LGVErrorDomain";
 
 @implementation LGVError
 
-+ (instancetype)errorWithMessage:(nullable NSString *)message {
++ (instancetype) errorWithMessage:(nullable NSString *)message {
     return [LGVError errorWithDomain:LGVErrorDomain code:1 userInfo:@{
-        NSLocalizedFailureReasonErrorKey: message ? message : @""
-    }];
+                NSLocalizedFailureReasonErrorKey: message ? message : @""
+            }];
 }
 
 @end
@@ -55,8 +55,9 @@ NSString *const LGVErrorDomain = @"jp.hituzi.LGVErrorDomain";
 
 static LGVLoggingViewService *_loggingViewService = nil;
 
-+ (instancetype)sharedService {
++ (instancetype) sharedService {
     static dispatch_once_t onceToken;
+
     dispatch_once(&onceToken, ^{
         _loggingViewService = [LGVLoggingViewService new];
     });
@@ -66,15 +67,15 @@ static LGVLoggingViewService *_loggingViewService = nil;
 
 #pragma mark - public method
 
-- (void)startRecording {
+- (void) startRecording {
     self.isRecording = YES;
 }
 
-- (void)stopRecording {
+- (void) stopRecording {
     self.isRecording = NO;
 }
 
-- (NSArray<LGVLog *> *)allLogs {
+- (NSArray<LGVLog *> *) allLogs {
     if ([self.defaultDatabase respondsToSelector:@selector(allLogs)]) {
         return [self.defaultDatabase allLogs];
     }
@@ -83,17 +84,22 @@ static LGVLoggingViewService *_loggingViewService = nil;
     }
 }
 
-- (void)deleteAllLogs {
+- (void) deleteAllLogs {
     if ([self.defaultDatabase respondsToSelector:@selector(deleteAllLogs)]) {
         [self.defaultDatabase deleteAllLogs];
     }
 }
 
-- (void)click:(LGVLoggingAttribute *)attribute {
+- (void) click:(LGVLoggingAttribute *)attribute {
+#if TARGET_OS_IOS
     [self click:attribute withTouches:nil];
+#elif TARGET_OS_OSX
+    // TODO: impl
+#endif
 }
 
-- (void)click:(LGVLoggingAttribute *)attribute withTouches:(NSSet<UITouch *> *)touches {
+#if TARGET_OS_IOS
+- (void) click:(LGVLoggingAttribute *)attribute withTouches:(NSSet<UITouch *> *)touches {
     if (!self.isRecording || !attribute.loggingEnabled) {
         return;
     }
@@ -181,10 +187,11 @@ static LGVLoggingViewService *_loggingViewService = nil;
         }
     });
 }
+#endif
 
 #pragma mark - private method
 
-- (id <LGVDatabase>)defaultDatabase {
+- (id <LGVDatabase>) defaultDatabase {
     if (!self.database) {
         self.database = [LGVSQLiteDatabase defaultDatabase];
     }

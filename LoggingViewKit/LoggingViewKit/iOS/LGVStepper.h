@@ -30,7 +30,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LGVView : UIView <LGVLogging>
+@interface LGVStepper : UIStepper <LGVLogging>
 /**
  * The name to identify the view.
  */
@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * True if logging is enabled, otherwise false.
  */
-@property (nonatomic, getter=isLogging) IBInspectable BOOL logging;
+@property (nonatomic, getter = isLogging) IBInspectable BOOL logging;
 /**
  * Touchable extension left.
  */

@@ -24,36 +24,30 @@
 //  SOFTWARE.
 //
 
-#import "LGVLabel.h"
+#import "LGVTextField.h"
 
 #import "LGVLoggingAttribute.h"
 #import "LGVLoggingViewService.h"
 
-@implementation LGVLabel
+@implementation LGVTextField
 
-- (void)setLogging:(BOOL)logging {
-    _logging = logging;
-
-    // Enables the touched log of the receiver.
-    self.userInteractionEnabled = logging;
-}
-
-- (void)setTouchableExtension:(UIEdgeInsets)touchableExtension {
+- (void) setTouchableExtension:(UIEdgeInsets)touchableExtension {
     self.touchableExtensionLeft = touchableExtension.left;
     self.touchableExtensionTop = touchableExtension.top;
     self.touchableExtensionRight = touchableExtension.right;
     self.touchableExtensionBottom = touchableExtension.bottom;
 }
 
-- (UIEdgeInsets)touchableExtension {
+- (UIEdgeInsets) touchableExtension {
     return UIEdgeInsetsMake(self.touchableExtensionTop,
                             self.touchableExtensionLeft,
                             self.touchableExtensionBottom,
                             self.touchableExtensionRight);
 }
 
-- (CGRect)touchableBounds {
+- (CGRect) touchableBounds {
     CGRect rect = self.bounds;
+
     rect.origin.x -= self.touchableExtensionLeft;
     rect.origin.y -= self.touchableExtensionTop;
     rect.size.width += (self.touchableExtensionLeft + self.touchableExtensionRight);
@@ -62,8 +56,9 @@
     return rect;
 }
 
-- (CGRect)touchableFrame {
+- (CGRect) touchableFrame {
     CGRect rect = self.frame;
+
     rect.origin.x -= self.touchableExtensionLeft;
     rect.origin.y -= self.touchableExtensionTop;
     rect.size.width += (self.touchableExtensionLeft + self.touchableExtensionRight);
@@ -72,18 +67,38 @@
     return rect;
 }
 
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+- (BOOL) pointInside:(CGPoint)point withEvent:(UIEvent *)event {
     return CGRectContainsPoint(self.touchableBounds, point);
 }
 
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (void) touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    // NOTE: The touch event logging is not working.
     LGVLoggingAttribute *attribute = [LGVLoggingAttribute attributeWithView:self
                                                                        name:self.loggingName
                                                              loggingEnabled:self.isLogging];
+
     attribute.event = event;
     [[LGVLoggingViewService sharedService] click:attribute withTouches:touches];
 
     [super touchesEnded:touches withEvent:event];
+}
+
+- (CGRect) textRectForBounds:(CGRect)bounds {
+    CGRect rect = CGRectInset(bounds, self.paddingX, 0);
+
+    return rect.origin.x > bounds.origin.x ? rect : [super textRectForBounds:bounds];
+}
+
+- (CGRect) placeholderRectForBounds:(CGRect)bounds {
+    CGRect rect = CGRectInset(bounds, self.paddingX, 0);
+
+    return rect.origin.x > bounds.origin.x ? rect : [super placeholderRectForBounds:bounds];
+}
+
+- (CGRect) editingRectForBounds:(CGRect)bounds {
+    CGRect rect = CGRectInset(bounds, self.paddingX, 0);
+
+    return rect.origin.x > bounds.origin.x ? rect : [super editingRectForBounds:bounds];
 }
 
 @end

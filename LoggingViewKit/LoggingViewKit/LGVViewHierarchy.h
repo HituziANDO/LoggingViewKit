@@ -24,7 +24,17 @@
 //  SOFTWARE.
 //
 
+#import <Foundation/Foundation.h>
+
+#if TARGET_OS_IOS
 #import <UIKit/UIKit.h>
+
+typedef UIView _LGVView;
+#elif TARGET_OS_OSX
+#import <AppKit/AppKit.h>
+
+typedef NSView _LGVView;
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param view A view
  */
-+ (void)dump:(UIView *)view;
++ (void) dump:(_LGVView *)view;
 
 @end
 

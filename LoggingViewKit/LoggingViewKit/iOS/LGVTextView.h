@@ -23,13 +23,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 //
+
 #import <UIKit/UIKit.h>
 
 #import "LGVLogging.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LGVSwitch : UISwitch <LGVLogging>
+@interface LGVTextView : UITextView <LGVLogging>
 /**
  * The name to identify the view.
  */
@@ -37,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * True if logging is enabled, otherwise false.
  */
-@property (nonatomic, getter=isLogging) IBInspectable BOOL logging;
+@property (nonatomic, getter = isLogging) IBInspectable BOOL logging;
 /**
  * Touchable extension left.
  */
