@@ -116,13 +116,6 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  * Records a click event.
  */
 - (void) click:(LGVLoggingAttribute *)attribute;
-#if TARGET_OS_IOS
-/**
- * Records a click event with a point that a user touched.
- */
-- (void)  click:(LGVLoggingAttribute *)attribute
-    withTouches:(nullable NSSet<UITouch *> *) touches NS_SWIFT_NAME(click(_:touches:));
-#endif
 @end
 
 NS_ASSUME_NONNULL_END

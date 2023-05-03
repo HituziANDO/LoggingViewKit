@@ -77,7 +77,8 @@
                                                              loggingEnabled:self.isLogging];
 
     attribute.event = event;
-    [[LGVLoggingViewService sharedService] click:attribute withTouches:touches];
+    attribute.touches = touches;
+    [[LGVLoggingViewService sharedService] click:attribute];
 
     [super touchesEnded:touches withEvent:event];
 }

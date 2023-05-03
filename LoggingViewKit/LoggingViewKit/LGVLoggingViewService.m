@@ -91,15 +91,6 @@ static LGVLoggingViewService *_loggingViewService = nil;
 }
 
 - (void) click:(LGVLoggingAttribute *)attribute {
-#if TARGET_OS_IOS
-    [self click:attribute withTouches:nil];
-#elif TARGET_OS_OSX
-    // TODO: impl
-#endif
-}
-
-#if TARGET_OS_IOS
-- (void) click:(LGVLoggingAttribute *)attribute withTouches:(NSSet<UITouch *> *)touches {
     if (!self.isRecording || !attribute.loggingEnabled) {
         return;
     }
@@ -108,8 +99,10 @@ static LGVLoggingViewService *_loggingViewService = nil;
         LGVLog *log = [LGVLog logWithEventType:@"click"];
         log.name = attribute.name;
 
+#if TARGET_OS_IOS
         if (attribute.view) {
             UIView *view = attribute.view;
+            NSSet<UITouch *> *touches = attribute.touches;
 
             if (touches) {
                 UITouch *touch = [touches anyObject];
@@ -148,6 +141,31 @@ static LGVLoggingViewService *_loggingViewService = nil;
                 log.info[@"oldValue"] = @(((UISwitch *) view).on);
             }
         }
+#elif TARGET_OS_MAC
+        if (attribute.view) {
+            NSView *view = attribute.view;
+            NSEvent *event = attribute.event;
+
+            if (event) {
+                NSPoint point = [view convertPoint:event.locationInWindow fromView:nil];
+
+                CGRect frame = view.frame;
+                if ([view respondsToSelector:@selector(touchableFrame)]) {
+                    frame = ((id <LGVTouching>) view).touchableFrame;
+                }
+
+                if (!CGRectContainsPoint(frame, point)) {
+                    // Clicked outside the view.
+                    return;
+                }
+
+                log.clickX = point.x;
+                log.clickY = point.y;
+                log.absoluteClickX = event.locationInWindow.x;
+                log.absoluteClickY = event.locationInWindow.y;
+            }
+        }
+#endif
 
         if (attribute.info) {
             // Appends more information.
@@ -187,7 +205,6 @@ static LGVLoggingViewService *_loggingViewService = nil;
         }
     });
 }
-#endif
 
 #pragma mark - private method
 

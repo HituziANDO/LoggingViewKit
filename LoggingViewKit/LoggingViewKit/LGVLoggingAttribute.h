@@ -28,6 +28,8 @@
 
 #if TARGET_OS_IOS
 #import <UIKit/UIKit.h>
+#elif TARGET_OS_MAC
+#import <AppKit/AppKit.h>
 #endif
 
 NS_ASSUME_NONNULL_BEGIN
@@ -54,6 +56,15 @@ NS_ASSUME_NONNULL_BEGIN
  * The touch event.
  */
 @property (nonatomic, nullable) UIEvent *event;
+/**
+ * A set of touches to record a click event with a point that a user touched.
+ */
+@property (nonatomic, nullable) NSSet<UITouch *> *touches;
+#elif TARGET_OS_MAC
+/**
+ * The mouse event.
+ */
+@property (nonatomic, nullable) NSEvent *event;
 #endif
 /**
  * Creates an object that has specified name to identify the view.
