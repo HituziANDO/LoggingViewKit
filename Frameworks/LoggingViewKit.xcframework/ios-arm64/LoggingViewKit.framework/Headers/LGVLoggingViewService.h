@@ -109,13 +109,27 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  */
 - (NSArray<LGVLog *> *) allLogs;
 /**
+ * Reads logs by given event type in the database.
+ */
+- (NSArray<LGVLog *> *) logsByEventType:(NSString *) eventType NS_SWIFT_NAME(logs(eventType:));
+/**
  * Deletes all logs in the database.
  */
 - (void) deleteAllLogs;
 /**
+ * Deletes logs by given event type in the database.
+ */
+- (void) deleteLogsByEventType:(NSString *) eventType NS_SWIFT_NAME(deleteLogs(eventType:));
+/**
  * Records a click event.
  */
 - (void) click:(LGVLoggingAttribute *)attribute;
+/**
+ * Records a custom event.
+ *
+ * @param eventType An event type. This value is used as a type of the log.
+ */
+- (void) customEvent:(NSString *)eventType attribute:(LGVLoggingAttribute *)attribute;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -76,6 +76,28 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype) attributeWithView:(nullable id)view
                               name:(nullable NSString *)name
                     loggingEnabled:(BOOL)enabled;
+/**
+ * Creates an object that has specified name to identify the view. The logging is always enabled.
+ *
+ * @param view A target view.
+ * @param name A name to identify the view.
+ */
++ (instancetype) attributeWithView:(nullable id)view
+                              name:(nullable NSString *)name;
+/**
+ * Creates an object that has specified name to identify the log item.
+ *
+ * @param name A name to identify the log item.
+ * @param enabled Tells whether the logging is enabled.
+ */
++ (instancetype) attributeWithName:(nullable NSString *)name
+                    loggingEnabled:(BOOL)enabled;
+/**
+ * Creates an object that has specified name to identify the log item. The logging is always enabled.
+ *
+ * @param name A name to identify the log item.
+ */
++ (instancetype) attributeWithName:(nullable NSString *)name;
 
 @end
 
