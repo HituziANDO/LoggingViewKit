@@ -25,7 +25,12 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#if TARGET_OS_IOS
 #import <UIKit/UIKit.h>
+#elif TARGET_OS_MAC
+#import <AppKit/AppKit.h>
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -46,11 +51,21 @@ NS_ASSUME_NONNULL_BEGIN
  * The appendix information.
  */
 @property (nonatomic, copy, nullable) NSDictionary *info;
+#if TARGET_OS_IOS
 /**
  * The touch event.
  */
 @property (nonatomic, nullable) UIEvent *event;
-
+/**
+ * A set of touches to record a click event with a point that a user touched.
+ */
+@property (nonatomic, nullable) NSSet<UITouch *> *touches;
+#elif TARGET_OS_MAC
+/**
+ * The mouse event.
+ */
+@property (nonatomic, nullable) NSEvent *event;
+#endif
 /**
  * Creates an object that has specified name to identify the view.
  *
@@ -58,9 +73,9 @@ NS_ASSUME_NONNULL_BEGIN
  * @param name A name to identify the view.
  * @param enabled Tells whether the logging is enabled.
  */
-+ (instancetype)attributeWithView:(nullable id)view
-                             name:(nullable NSString *)name
-                   loggingEnabled:(BOOL)enabled;
++ (instancetype) attributeWithView:(nullable id)view
+                              name:(nullable NSString *)name
+                    loggingEnabled:(BOOL)enabled;
 
 @end
 

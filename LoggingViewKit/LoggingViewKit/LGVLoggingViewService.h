@@ -25,7 +25,10 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#if TARGET_OS_IOS
 #import <UIKit/UIKit.h>
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -47,10 +50,10 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  * @param log A log of occurred event
  * @param attribute An attribute of the target view.
  */
-- (void)loggingViewService:(LGVLoggingViewService *)service
-               willSaveLog:(LGVLog *)log
-                 attribute:(LGVLoggingAttribute *)attribute
-NS_SWIFT_NAME(loggingViewService(_:willSave:attribute:));
+- (void) loggingViewService           :(LGVLoggingViewService *)service
+                willSaveLog           :(LGVLog *)log
+                  attribute           :(LGVLoggingAttribute *) attribute
+    NS_SWIFT_NAME(loggingViewService(_:willSave:attribute:));
 /**
  *
  * @param service The service object
@@ -58,17 +61,17 @@ NS_SWIFT_NAME(loggingViewService(_:willSave:attribute:));
  * @param attribute An attribute of the target view.
  * @param error nil if success, otherwise error object
  */
-- (void)loggingViewService:(LGVLoggingViewService *)service
-                didSaveLog:(LGVLog *)log
-                 attribute:(LGVLoggingAttribute *)attribute
-                     error:(nullable LGVError *)error
-NS_SWIFT_NAME(loggingViewService(_:didSave:attribute:error:));
+- (void) loggingViewService           :(LGVLoggingViewService *)service
+                 didSaveLog           :(LGVLog *)log
+                  attribute           :(LGVLoggingAttribute *)attribute
+                      error           :(nullable LGVError *) error
+    NS_SWIFT_NAME(loggingViewService(_:didSave:attribute:error:));
 
 @end
 
 @interface LGVError : NSError
 
-+ (instancetype)errorWithMessage:(nullable NSString *)message;
++ (instancetype) errorWithMessage:(nullable NSString *)message;
 
 @end
 
@@ -91,34 +94,28 @@ NS_SWIFT_NAME(loggingViewService(_:didSave:attribute:error:));
  *
  * @return The singleton instance.
  */
-+ (instancetype)sharedService;
++ (instancetype) sharedService;
 
 /**
  * Starts recording logs.
  */
-- (void)startRecording;
+- (void) startRecording;
 /**
  * Stops recording logs.
  */
-- (void)stopRecording;
+- (void) stopRecording;
 /**
  * Reads all logs in the database.
  */
-- (NSArray<LGVLog *> *)allLogs;
+- (NSArray<LGVLog *> *) allLogs;
 /**
  * Deletes all logs in the database.
  */
-- (void)deleteAllLogs;
+- (void) deleteAllLogs;
 /**
  * Records a click event.
  */
-- (void)click:(LGVLoggingAttribute *)attribute;
-/**
- * Records a click event with a point that a user touched.
- */
-- (void)click:(LGVLoggingAttribute *)attribute
-  withTouches:(nullable NSSet<UITouch *> *)touches NS_SWIFT_NAME(click(_:touches:));
-
+- (void) click:(LGVLoggingAttribute *)attribute;
 @end
 
 NS_ASSUME_NONNULL_END

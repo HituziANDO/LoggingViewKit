@@ -37,10 +37,10 @@ NSString *const LGVErrorDomain = @"jp.hituzi.LGVErrorDomain";
 
 @implementation LGVError
 
-+ (instancetype)errorWithMessage:(nullable NSString *)message {
++ (instancetype) errorWithMessage:(nullable NSString *)message {
     return [LGVError errorWithDomain:LGVErrorDomain code:1 userInfo:@{
-        NSLocalizedFailureReasonErrorKey: message ? message : @""
-    }];
+                NSLocalizedFailureReasonErrorKey: message ? message : @""
+            }];
 }
 
 @end
@@ -55,8 +55,9 @@ NSString *const LGVErrorDomain = @"jp.hituzi.LGVErrorDomain";
 
 static LGVLoggingViewService *_loggingViewService = nil;
 
-+ (instancetype)sharedService {
++ (instancetype) sharedService {
     static dispatch_once_t onceToken;
+
     dispatch_once(&onceToken, ^{
         _loggingViewService = [LGVLoggingViewService new];
     });
@@ -66,15 +67,15 @@ static LGVLoggingViewService *_loggingViewService = nil;
 
 #pragma mark - public method
 
-- (void)startRecording {
+- (void) startRecording {
     self.isRecording = YES;
 }
 
-- (void)stopRecording {
+- (void) stopRecording {
     self.isRecording = NO;
 }
 
-- (NSArray<LGVLog *> *)allLogs {
+- (NSArray<LGVLog *> *) allLogs {
     if ([self.defaultDatabase respondsToSelector:@selector(allLogs)]) {
         return [self.defaultDatabase allLogs];
     }
@@ -83,17 +84,13 @@ static LGVLoggingViewService *_loggingViewService = nil;
     }
 }
 
-- (void)deleteAllLogs {
+- (void) deleteAllLogs {
     if ([self.defaultDatabase respondsToSelector:@selector(deleteAllLogs)]) {
         [self.defaultDatabase deleteAllLogs];
     }
 }
 
-- (void)click:(LGVLoggingAttribute *)attribute {
-    [self click:attribute withTouches:nil];
-}
-
-- (void)click:(LGVLoggingAttribute *)attribute withTouches:(NSSet<UITouch *> *)touches {
+- (void) click:(LGVLoggingAttribute *)attribute {
     if (!self.isRecording || !attribute.loggingEnabled) {
         return;
     }
@@ -102,8 +99,10 @@ static LGVLoggingViewService *_loggingViewService = nil;
         LGVLog *log = [LGVLog logWithEventType:@"click"];
         log.name = attribute.name;
 
+#if TARGET_OS_IOS
         if (attribute.view) {
             UIView *view = attribute.view;
+            NSSet<UITouch *> *touches = attribute.touches;
 
             if (touches) {
                 UITouch *touch = [touches anyObject];
@@ -142,6 +141,31 @@ static LGVLoggingViewService *_loggingViewService = nil;
                 log.info[@"oldValue"] = @(((UISwitch *) view).on);
             }
         }
+#elif TARGET_OS_MAC
+        if (attribute.view) {
+            NSView *view = attribute.view;
+            NSEvent *event = attribute.event;
+
+            if (event) {
+                NSPoint point = [view convertPoint:event.locationInWindow fromView:nil];
+
+                CGRect frame = view.frame;
+                if ([view respondsToSelector:@selector(touchableFrame)]) {
+                    frame = ((id <LGVTouching>) view).touchableFrame;
+                }
+
+                if (!CGRectContainsPoint(frame, point)) {
+                    // Clicked outside the view.
+                    return;
+                }
+
+                log.clickX = point.x;
+                log.clickY = point.y;
+                log.absoluteClickX = event.locationInWindow.x;
+                log.absoluteClickY = event.locationInWindow.y;
+            }
+        }
+#endif
 
         if (attribute.info) {
             // Appends more information.
@@ -184,7 +208,7 @@ static LGVLoggingViewService *_loggingViewService = nil;
 
 #pragma mark - private method
 
-- (id <LGVDatabase>)defaultDatabase {
+- (id <LGVDatabase>) defaultDatabase {
     if (!self.database) {
         self.database = [LGVSQLiteDatabase defaultDatabase];
     }

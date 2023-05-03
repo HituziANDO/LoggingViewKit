@@ -24,29 +24,30 @@
 //  SOFTWARE.
 //
 
-#import "LGVView.h"
+#import "LGVSlider.h"
 
 #import "LGVLoggingAttribute.h"
 #import "LGVLoggingViewService.h"
 
-@implementation LGVView
+@implementation LGVSlider
 
-- (void)setTouchableExtension:(UIEdgeInsets)touchableExtension {
+- (void) setTouchableExtension:(UIEdgeInsets)touchableExtension {
     self.touchableExtensionLeft = touchableExtension.left;
     self.touchableExtensionTop = touchableExtension.top;
     self.touchableExtensionRight = touchableExtension.right;
     self.touchableExtensionBottom = touchableExtension.bottom;
 }
 
-- (UIEdgeInsets)touchableExtension {
+- (UIEdgeInsets) touchableExtension {
     return UIEdgeInsetsMake(self.touchableExtensionTop,
                             self.touchableExtensionLeft,
                             self.touchableExtensionBottom,
                             self.touchableExtensionRight);
 }
 
-- (CGRect)touchableBounds {
+- (CGRect) touchableBounds {
     CGRect rect = self.bounds;
+
     rect.origin.x -= self.touchableExtensionLeft;
     rect.origin.y -= self.touchableExtensionTop;
     rect.size.width += (self.touchableExtensionLeft + self.touchableExtensionRight);
@@ -55,8 +56,9 @@
     return rect;
 }
 
-- (CGRect)touchableFrame {
+- (CGRect) touchableFrame {
     CGRect rect = self.frame;
+
     rect.origin.x -= self.touchableExtensionLeft;
     rect.origin.y -= self.touchableExtensionTop;
     rect.size.width += (self.touchableExtensionLeft + self.touchableExtensionRight);
@@ -65,18 +67,20 @@
     return rect;
 }
 
-- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+- (BOOL) pointInside:(CGPoint)point withEvent:(UIEvent *)event {
     return CGRectContainsPoint(self.touchableBounds, point);
 }
 
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
     LGVLoggingAttribute *attribute = [LGVLoggingAttribute attributeWithView:self
                                                                        name:self.loggingName
                                                              loggingEnabled:self.isLogging];
-    attribute.event = event;
-    [[LGVLoggingViewService sharedService] click:attribute withTouches:touches];
 
-    [super touchesEnded:touches withEvent:event];
+    attribute.event = event;
+    attribute.touches = touches;
+    [[LGVLoggingViewService sharedService] click:attribute];
+
+    [super touchesBegan:touches withEvent:event];
 }
 
 @end

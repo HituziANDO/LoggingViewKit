@@ -21,17 +21,57 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		19E5902B41FE76F49BB7B5CA /* LGVLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 19E5930112F635746F29CE53 /* LGVLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19E590C7AF5BEEF722F59447 /* LGVTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E5975EC7E90486D71AAA6A /* LGVTextView.m */; };
+		19E590F59FE7954E7DB71DFC /* LGVTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 19E593C4F0C92F5A2E6B6218 /* LGVTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19E593E50E1B556766D7E912 /* LGVStepper.h in Headers */ = {isa = PBXBuildFile; fileRef = 19E5952CB160E9E882AAD8EB /* LGVStepper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19E5953DC4DF6D982B85529B /* LGVStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E59C2EC2904239BA1B33A6 /* LGVStepper.m */; };
+		19E5955BF1E185134794DFCA /* LGVSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E597FC477BE87CF87DE368 /* LGVSwitch.m */; };
+		19E5965F4F56478A6107A75D /* LGVSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 19E5908583423CD0B8E2F152 /* LGVSegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19E59674252E74E83CF7B53C /* LGVSwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = 19E5958E0564EB7CE310FEF3 /* LGVSwitch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19E5973A1998FEF74B752BD7 /* LGVTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E59873365CBF76676228B8 /* LGVTextField.m */; };
+		19E5979BCFB2568B2CC6BB0A /* LGVTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 19E5954E0EBB53ED5CB14CEF /* LGVTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19E597FB5A536048051AEF25 /* LGVLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E59742EE004A141B5C516E /* LGVLabel.m */; };
+		19E5989EA8552B62B53A9B99 /* LGVSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E591280BCE59769E69A76B /* LGVSlider.m */; };
+		19E59966F30CBA7AC4F18A1F /* LGVSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 19E596A824859E404682C1EC /* LGVSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19E59A95C2C5396D7C711392 /* LGVView.h in Headers */ = {isa = PBXBuildFile; fileRef = 19E59614CA27ADFDA513AAF9 /* LGVView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19E59AC65AC73D87D9535719 /* LGVView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E593AE3574B7CB172FCABA /* LGVView.m */; };
+		19E59DB4C6B7522E1621BFA5 /* LGVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E59A1537AEE73D49F5405B /* LGVSegmentedControl.m */; };
+		5E01EC902A017047003AD471 /* LGVFMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE55289221E600FC06FF /* LGVFMDatabase.h */; };
+		5E01EC912A017047003AD471 /* LGVFMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE5A289221E600FC06FF /* LGVFMDatabaseAdditions.h */; };
+		5E01EC922A017047003AD471 /* LGVFMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE5E289221E600FC06FF /* LGVFMDatabasePool.h */; };
+		5E01EC932A017047003AD471 /* LGVFMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE58289221E600FC06FF /* LGVFMDatabaseQueue.h */; };
+		5E01EC942A017047003AD471 /* LGVFMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE59289221E600FC06FF /* LGVFMDB.h */; };
+		5E01EC952A017047003AD471 /* LGVFMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE5B289221E600FC06FF /* LGVFMResultSet.h */; };
+		5E01EC962A017069003AD471 /* LGVDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE6A289221E700FC06FF /* LGVDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E01EC972A017069003AD471 /* LGVLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE4D289221E600FC06FF /* LGVLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E01EC982A017069003AD471 /* LGVLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE64289221E700FC06FF /* LGVLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E01EC992A017069003AD471 /* LGVLoggingAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DED428937ED100FC06FF /* LGVLoggingAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E01EC9A2A017069003AD471 /* LGVLoggingViewService.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE72289221E700FC06FF /* LGVLoggingViewService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E01EC9B2A017069003AD471 /* LGVRealTimeLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE51289221E600FC06FF /* LGVRealTimeLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E01EC9C2A017069003AD471 /* LGVSQLiteDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE67289221E700FC06FF /* LGVSQLiteDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E01EC9D2A017069003AD471 /* LGVViewHierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE4F289221E600FC06FF /* LGVViewHierarchy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E01EC9E2A017069003AD471 /* LoggingViewKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE312890D5B200FC06FF /* LoggingViewKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E01ECA32A01776F003AD471 /* LGVFMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE5C289221E600FC06FF /* LGVFMDatabase.m */; };
+		5E01ECA42A01776F003AD471 /* LGVFMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE60289221E600FC06FF /* LGVFMDatabaseAdditions.m */; };
+		5E01ECA52A01776F003AD471 /* LGVFMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE57289221E600FC06FF /* LGVFMDatabasePool.m */; };
+		5E01ECA62A01776F003AD471 /* LGVFMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE5D289221E600FC06FF /* LGVFMDatabaseQueue.m */; };
+		5E01ECA72A01776F003AD471 /* LGVFMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE56289221E600FC06FF /* LGVFMResultSet.m */; };
+		5E01ECA82A01777A003AD471 /* LGVLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE68289221E700FC06FF /* LGVLog.m */; };
+		5E01ECA92A01777A003AD471 /* LGVLoggingAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DED528937ED100FC06FF /* LGVLoggingAttribute.m */; };
+		5E01ECAA2A01777A003AD471 /* LGVLoggingViewService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE50289221E600FC06FF /* LGVLoggingViewService.m */; };
+		5E01ECAB2A01777A003AD471 /* LGVRealTimeLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE65289221E700FC06FF /* LGVRealTimeLogger.m */; };
+		5E01ECAC2A01777A003AD471 /* LGVSQLiteDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE70289221E700FC06FF /* LGVSQLiteDatabase.m */; };
+		5E01ECAD2A01777A003AD471 /* LGVViewHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE6C289221E700FC06FF /* LGVViewHierarchy.m */; };
+		5E01ECAE2A0178D4003AD471 /* LoggingViewKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE322890D5B200FC06FF /* LoggingViewKit.docc */; };
 		5E34DE332890D5B200FC06FF /* LoggingViewKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE322890D5B200FC06FF /* LoggingViewKit.docc */; };
 		5E34DE392890D5B200FC06FF /* LoggingViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E34DE2E2890D5B200FC06FF /* LoggingViewKit.framework */; };
 		5E34DE3E2890D5B200FC06FF /* LoggingViewKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE3D2890D5B200FC06FF /* LoggingViewKitTests.m */; };
 		5E34DE3F2890D5B200FC06FF /* LoggingViewKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE312890D5B200FC06FF /* LoggingViewKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E34DE79289221E700FC06FF /* LGVLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE4D289221E600FC06FF /* LGVLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E34DE7A289221E700FC06FF /* LGVSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE4E289221E600FC06FF /* LGVSegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E34DE7B289221E700FC06FF /* LGVViewHierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE4F289221E600FC06FF /* LGVViewHierarchy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E34DE7C289221E700FC06FF /* LGVLoggingViewService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE50289221E600FC06FF /* LGVLoggingViewService.m */; };
 		5E34DE7D289221E700FC06FF /* LGVRealTimeLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE51289221E600FC06FF /* LGVRealTimeLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E34DE7E289221E700FC06FF /* LGVSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE52289221E600FC06FF /* LGVSwitch.m */; };
-		5E34DE7F289221E700FC06FF /* LGVLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE53289221E600FC06FF /* LGVLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E34DE80289221E700FC06FF /* LGVFMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE55289221E600FC06FF /* LGVFMDatabase.h */; };
 		5E34DE81289221E700FC06FF /* LGVFMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE56289221E600FC06FF /* LGVFMResultSet.m */; };
 		5E34DE82289221E700FC06FF /* LGVFMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE57289221E600FC06FF /* LGVFMDatabasePool.m */; };
@@ -43,28 +83,15 @@
 		5E34DE88289221E700FC06FF /* LGVFMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE5D289221E600FC06FF /* LGVFMDatabaseQueue.m */; };
 		5E34DE89289221E700FC06FF /* LGVFMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE5E289221E600FC06FF /* LGVFMDatabasePool.h */; };
 		5E34DE8B289221E700FC06FF /* LGVFMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE60289221E600FC06FF /* LGVFMDatabaseAdditions.m */; };
-		5E34DE8C289221E700FC06FF /* LGVSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE61289221E600FC06FF /* LGVSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E34DE8D289221E700FC06FF /* LGVView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE62289221E600FC06FF /* LGVView.m */; };
-		5E34DE8E289221E700FC06FF /* LGVTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE63289221E700FC06FF /* LGVTextField.m */; };
 		5E34DE8F289221E700FC06FF /* LGVLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE64289221E700FC06FF /* LGVLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E34DE90289221E700FC06FF /* LGVRealTimeLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE65289221E700FC06FF /* LGVRealTimeLogger.m */; };
-		5E34DE91289221E700FC06FF /* LGVStepper.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE66289221E700FC06FF /* LGVStepper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E34DE92289221E700FC06FF /* LGVSQLiteDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE67289221E700FC06FF /* LGVSQLiteDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E34DE93289221E700FC06FF /* LGVLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE68289221E700FC06FF /* LGVLog.m */; };
-		5E34DE94289221E700FC06FF /* LGVTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE69289221E700FC06FF /* LGVTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E34DE95289221E700FC06FF /* LGVDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE6A289221E700FC06FF /* LGVDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E34DE96289221E700FC06FF /* LGVSwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE6B289221E700FC06FF /* LGVSwitch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E34DE97289221E700FC06FF /* LGVViewHierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE6C289221E700FC06FF /* LGVViewHierarchy.m */; };
-		5E34DE98289221E700FC06FF /* LGVView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE6D289221E700FC06FF /* LGVView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E34DE99289221E700FC06FF /* LGVButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE6E289221E700FC06FF /* LGVButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E34DE9A289221E700FC06FF /* LGVStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE6F289221E700FC06FF /* LGVStepper.m */; };
 		5E34DE9B289221E700FC06FF /* LGVSQLiteDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE70289221E700FC06FF /* LGVSQLiteDatabase.m */; };
 		5E34DE9D289221E700FC06FF /* LGVLoggingViewService.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE72289221E700FC06FF /* LGVLoggingViewService.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E34DE9E289221E700FC06FF /* LGVSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE73289221E700FC06FF /* LGVSlider.m */; };
-		5E34DE9F289221E700FC06FF /* LGVTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE74289221E700FC06FF /* LGVTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E34DEA0289221E700FC06FF /* LGVSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE75289221E700FC06FF /* LGVSegmentedControl.m */; };
-		5E34DEA1289221E700FC06FF /* LGVLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE76289221E700FC06FF /* LGVLabel.m */; };
-		5E34DEA2289221E700FC06FF /* LGVTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE77289221E700FC06FF /* LGVTextView.m */; };
 		5E34DEA3289221E700FC06FF /* LGVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE78289221E700FC06FF /* LGVButton.m */; };
 		5E34DED628937ED100FC06FF /* LGVLoggingAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DED428937ED100FC06FF /* LGVLoggingAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E34DED728937ED100FC06FF /* LGVLoggingAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DED528937ED100FC06FF /* LGVLoggingAttribute.m */; };
@@ -81,18 +108,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19E5908583423CD0B8E2F152 /* LGVSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVSegmentedControl.h; sourceTree = "<group>"; };
+		19E591280BCE59769E69A76B /* LGVSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVSlider.m; sourceTree = "<group>"; };
+		19E5930112F635746F29CE53 /* LGVLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVLabel.h; sourceTree = "<group>"; };
+		19E593AE3574B7CB172FCABA /* LGVView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVView.m; sourceTree = "<group>"; };
+		19E593C4F0C92F5A2E6B6218 /* LGVTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVTextView.h; sourceTree = "<group>"; };
+		19E5952CB160E9E882AAD8EB /* LGVStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVStepper.h; sourceTree = "<group>"; };
+		19E5954E0EBB53ED5CB14CEF /* LGVTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVTextField.h; sourceTree = "<group>"; };
+		19E5958E0564EB7CE310FEF3 /* LGVSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVSwitch.h; sourceTree = "<group>"; };
+		19E59614CA27ADFDA513AAF9 /* LGVView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVView.h; sourceTree = "<group>"; };
+		19E596A824859E404682C1EC /* LGVSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVSlider.h; sourceTree = "<group>"; };
+		19E59742EE004A141B5C516E /* LGVLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVLabel.m; sourceTree = "<group>"; };
+		19E5975EC7E90486D71AAA6A /* LGVTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVTextView.m; sourceTree = "<group>"; };
+		19E597FC477BE87CF87DE368 /* LGVSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVSwitch.m; sourceTree = "<group>"; };
+		19E59873365CBF76676228B8 /* LGVTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVTextField.m; sourceTree = "<group>"; };
+		19E59A1537AEE73D49F5405B /* LGVSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVSegmentedControl.m; sourceTree = "<group>"; };
+		19E59C2EC2904239BA1B33A6 /* LGVStepper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVStepper.m; sourceTree = "<group>"; };
+		5E01EC882A016616003AD471 /* LoggingViewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoggingViewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E34DE2E2890D5B200FC06FF /* LoggingViewKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoggingViewKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E34DE312890D5B200FC06FF /* LoggingViewKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggingViewKit.h; sourceTree = "<group>"; };
 		5E34DE322890D5B200FC06FF /* LoggingViewKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = LoggingViewKit.docc; sourceTree = "<group>"; };
 		5E34DE382890D5B200FC06FF /* LoggingViewKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoggingViewKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E34DE3D2890D5B200FC06FF /* LoggingViewKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoggingViewKitTests.m; sourceTree = "<group>"; };
 		5E34DE4D289221E600FC06FF /* LGVLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVLog.h; sourceTree = "<group>"; };
-		5E34DE4E289221E600FC06FF /* LGVSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVSegmentedControl.h; sourceTree = "<group>"; };
 		5E34DE4F289221E600FC06FF /* LGVViewHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVViewHierarchy.h; sourceTree = "<group>"; };
 		5E34DE50289221E600FC06FF /* LGVLoggingViewService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVLoggingViewService.m; sourceTree = "<group>"; };
 		5E34DE51289221E600FC06FF /* LGVRealTimeLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVRealTimeLogger.h; sourceTree = "<group>"; };
-		5E34DE52289221E600FC06FF /* LGVSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVSwitch.m; sourceTree = "<group>"; };
-		5E34DE53289221E600FC06FF /* LGVLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVLabel.h; sourceTree = "<group>"; };
 		5E34DE55289221E600FC06FF /* LGVFMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVFMDatabase.h; sourceTree = "<group>"; };
 		5E34DE56289221E600FC06FF /* LGVFMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVFMResultSet.m; sourceTree = "<group>"; };
 		5E34DE57289221E600FC06FF /* LGVFMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVFMDatabasePool.m; sourceTree = "<group>"; };
@@ -104,34 +145,28 @@
 		5E34DE5D289221E600FC06FF /* LGVFMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVFMDatabaseQueue.m; sourceTree = "<group>"; };
 		5E34DE5E289221E600FC06FF /* LGVFMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVFMDatabasePool.h; sourceTree = "<group>"; };
 		5E34DE60289221E600FC06FF /* LGVFMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVFMDatabaseAdditions.m; sourceTree = "<group>"; };
-		5E34DE61289221E600FC06FF /* LGVSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVSlider.h; sourceTree = "<group>"; };
-		5E34DE62289221E600FC06FF /* LGVView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVView.m; sourceTree = "<group>"; };
-		5E34DE63289221E700FC06FF /* LGVTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVTextField.m; sourceTree = "<group>"; };
 		5E34DE64289221E700FC06FF /* LGVLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVLogging.h; sourceTree = "<group>"; };
 		5E34DE65289221E700FC06FF /* LGVRealTimeLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVRealTimeLogger.m; sourceTree = "<group>"; };
-		5E34DE66289221E700FC06FF /* LGVStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVStepper.h; sourceTree = "<group>"; };
 		5E34DE67289221E700FC06FF /* LGVSQLiteDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVSQLiteDatabase.h; sourceTree = "<group>"; };
 		5E34DE68289221E700FC06FF /* LGVLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVLog.m; sourceTree = "<group>"; };
-		5E34DE69289221E700FC06FF /* LGVTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVTextField.h; sourceTree = "<group>"; };
 		5E34DE6A289221E700FC06FF /* LGVDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVDatabase.h; sourceTree = "<group>"; };
-		5E34DE6B289221E700FC06FF /* LGVSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVSwitch.h; sourceTree = "<group>"; };
 		5E34DE6C289221E700FC06FF /* LGVViewHierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVViewHierarchy.m; sourceTree = "<group>"; };
-		5E34DE6D289221E700FC06FF /* LGVView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVView.h; sourceTree = "<group>"; };
 		5E34DE6E289221E700FC06FF /* LGVButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVButton.h; sourceTree = "<group>"; };
-		5E34DE6F289221E700FC06FF /* LGVStepper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVStepper.m; sourceTree = "<group>"; };
 		5E34DE70289221E700FC06FF /* LGVSQLiteDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVSQLiteDatabase.m; sourceTree = "<group>"; };
 		5E34DE72289221E700FC06FF /* LGVLoggingViewService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVLoggingViewService.h; sourceTree = "<group>"; };
-		5E34DE73289221E700FC06FF /* LGVSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVSlider.m; sourceTree = "<group>"; };
-		5E34DE74289221E700FC06FF /* LGVTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVTextView.h; sourceTree = "<group>"; };
-		5E34DE75289221E700FC06FF /* LGVSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVSegmentedControl.m; sourceTree = "<group>"; };
-		5E34DE76289221E700FC06FF /* LGVLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVLabel.m; sourceTree = "<group>"; };
-		5E34DE77289221E700FC06FF /* LGVTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVTextView.m; sourceTree = "<group>"; };
 		5E34DE78289221E700FC06FF /* LGVButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVButton.m; sourceTree = "<group>"; };
 		5E34DED428937ED100FC06FF /* LGVLoggingAttribute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVLoggingAttribute.h; sourceTree = "<group>"; };
 		5E34DED528937ED100FC06FF /* LGVLoggingAttribute.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVLoggingAttribute.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5E01EC852A016616003AD471 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5E34DE2B2890D5B200FC06FF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -150,6 +185,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E01EC8F2A016C8E003AD471 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5E34DE6E289221E700FC06FF /* LGVButton.h */,
+				5E34DE78289221E700FC06FF /* LGVButton.m */,
+				19E5930112F635746F29CE53 /* LGVLabel.h */,
+				19E59742EE004A141B5C516E /* LGVLabel.m */,
+				19E5908583423CD0B8E2F152 /* LGVSegmentedControl.h */,
+				19E59A1537AEE73D49F5405B /* LGVSegmentedControl.m */,
+				19E596A824859E404682C1EC /* LGVSlider.h */,
+				19E591280BCE59769E69A76B /* LGVSlider.m */,
+				19E5952CB160E9E882AAD8EB /* LGVStepper.h */,
+				19E59C2EC2904239BA1B33A6 /* LGVStepper.m */,
+				19E5958E0564EB7CE310FEF3 /* LGVSwitch.h */,
+				19E597FC477BE87CF87DE368 /* LGVSwitch.m */,
+				19E5954E0EBB53ED5CB14CEF /* LGVTextField.h */,
+				19E59873365CBF76676228B8 /* LGVTextField.m */,
+				19E593C4F0C92F5A2E6B6218 /* LGVTextView.h */,
+				19E5975EC7E90486D71AAA6A /* LGVTextView.m */,
+				19E59614CA27ADFDA513AAF9 /* LGVView.h */,
+				19E593AE3574B7CB172FCABA /* LGVView.m */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
 		5E34DE242890D5B200FC06FF = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +224,7 @@
 			children = (
 				5E34DE2E2890D5B200FC06FF /* LoggingViewKit.framework */,
 				5E34DE382890D5B200FC06FF /* LoggingViewKitTests.xctest */,
+				5E01EC882A016616003AD471 /* LoggingViewKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,11 +233,8 @@
 			isa = PBXGroup;
 			children = (
 				5E34DE54289221E600FC06FF /* FMDB */,
-				5E34DE6E289221E700FC06FF /* LGVButton.h */,
-				5E34DE78289221E700FC06FF /* LGVButton.m */,
+				5E01EC8F2A016C8E003AD471 /* iOS */,
 				5E34DE6A289221E700FC06FF /* LGVDatabase.h */,
-				5E34DE53289221E600FC06FF /* LGVLabel.h */,
-				5E34DE76289221E700FC06FF /* LGVLabel.m */,
 				5E34DE4D289221E600FC06FF /* LGVLog.h */,
 				5E34DE68289221E700FC06FF /* LGVLog.m */,
 				5E34DE64289221E700FC06FF /* LGVLogging.h */,
@@ -186,22 +244,8 @@
 				5E34DE50289221E600FC06FF /* LGVLoggingViewService.m */,
 				5E34DE51289221E600FC06FF /* LGVRealTimeLogger.h */,
 				5E34DE65289221E700FC06FF /* LGVRealTimeLogger.m */,
-				5E34DE4E289221E600FC06FF /* LGVSegmentedControl.h */,
-				5E34DE75289221E700FC06FF /* LGVSegmentedControl.m */,
-				5E34DE61289221E600FC06FF /* LGVSlider.h */,
-				5E34DE73289221E700FC06FF /* LGVSlider.m */,
 				5E34DE67289221E700FC06FF /* LGVSQLiteDatabase.h */,
 				5E34DE70289221E700FC06FF /* LGVSQLiteDatabase.m */,
-				5E34DE66289221E700FC06FF /* LGVStepper.h */,
-				5E34DE6F289221E700FC06FF /* LGVStepper.m */,
-				5E34DE6B289221E700FC06FF /* LGVSwitch.h */,
-				5E34DE52289221E600FC06FF /* LGVSwitch.m */,
-				5E34DE69289221E700FC06FF /* LGVTextField.h */,
-				5E34DE63289221E700FC06FF /* LGVTextField.m */,
-				5E34DE74289221E700FC06FF /* LGVTextView.h */,
-				5E34DE77289221E700FC06FF /* LGVTextView.m */,
-				5E34DE6D289221E700FC06FF /* LGVView.h */,
-				5E34DE62289221E600FC06FF /* LGVView.m */,
 				5E34DE4F289221E600FC06FF /* LGVViewHierarchy.h */,
 				5E34DE6C289221E700FC06FF /* LGVViewHierarchy.m */,
 				5E34DE322890D5B200FC06FF /* LoggingViewKit.docc */,
@@ -239,25 +283,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5E01EC832A016616003AD471 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E01EC962A017069003AD471 /* LGVDatabase.h in Headers */,
+				5E01EC972A017069003AD471 /* LGVLog.h in Headers */,
+				5E01EC982A017069003AD471 /* LGVLogging.h in Headers */,
+				5E01EC992A017069003AD471 /* LGVLoggingAttribute.h in Headers */,
+				5E01EC9A2A017069003AD471 /* LGVLoggingViewService.h in Headers */,
+				5E01EC9B2A017069003AD471 /* LGVRealTimeLogger.h in Headers */,
+				5E01EC9C2A017069003AD471 /* LGVSQLiteDatabase.h in Headers */,
+				5E01EC9D2A017069003AD471 /* LGVViewHierarchy.h in Headers */,
+				5E01EC9E2A017069003AD471 /* LoggingViewKit.h in Headers */,
+				5E01EC902A017047003AD471 /* LGVFMDatabase.h in Headers */,
+				5E01EC912A017047003AD471 /* LGVFMDatabaseAdditions.h in Headers */,
+				5E01EC922A017047003AD471 /* LGVFMDatabasePool.h in Headers */,
+				5E01EC932A017047003AD471 /* LGVFMDatabaseQueue.h in Headers */,
+				5E01EC942A017047003AD471 /* LGVFMDB.h in Headers */,
+				5E01EC952A017047003AD471 /* LGVFMResultSet.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5E34DE292890D5B200FC06FF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5E34DE9D289221E700FC06FF /* LGVLoggingViewService.h in Headers */,
-				5E34DE8C289221E700FC06FF /* LGVSlider.h in Headers */,
-				5E34DE98289221E700FC06FF /* LGVView.h in Headers */,
-				5E34DE91289221E700FC06FF /* LGVStepper.h in Headers */,
-				5E34DE94289221E700FC06FF /* LGVTextField.h in Headers */,
-				5E34DE7F289221E700FC06FF /* LGVLabel.h in Headers */,
 				5E34DE79289221E700FC06FF /* LGVLog.h in Headers */,
 				5E34DE89289221E700FC06FF /* LGVFMDatabasePool.h in Headers */,
 				5E34DE7B289221E700FC06FF /* LGVViewHierarchy.h in Headers */,
 				5E34DE99289221E700FC06FF /* LGVButton.h in Headers */,
-				5E34DE7A289221E700FC06FF /* LGVSegmentedControl.h in Headers */,
 				5E34DE95289221E700FC06FF /* LGVDatabase.h in Headers */,
-				5E34DE96289221E700FC06FF /* LGVSwitch.h in Headers */,
 				5E34DE92289221E700FC06FF /* LGVSQLiteDatabase.h in Headers */,
-				5E34DE9F289221E700FC06FF /* LGVTextView.h in Headers */,
 				5E34DED628937ED100FC06FF /* LGVLoggingAttribute.h in Headers */,
 				5E34DE8F289221E700FC06FF /* LGVLogging.h in Headers */,
 				5E34DE7D289221E700FC06FF /* LGVRealTimeLogger.h in Headers */,
@@ -267,12 +325,38 @@
 				5E34DE3F2890D5B200FC06FF /* LoggingViewKit.h in Headers */,
 				5E34DE86289221E700FC06FF /* LGVFMResultSet.h in Headers */,
 				5E34DE84289221E700FC06FF /* LGVFMDB.h in Headers */,
+				19E5902B41FE76F49BB7B5CA /* LGVLabel.h in Headers */,
+				19E5965F4F56478A6107A75D /* LGVSegmentedControl.h in Headers */,
+				19E59966F30CBA7AC4F18A1F /* LGVSlider.h in Headers */,
+				19E593E50E1B556766D7E912 /* LGVStepper.h in Headers */,
+				19E59674252E74E83CF7B53C /* LGVSwitch.h in Headers */,
+				19E5979BCFB2568B2CC6BB0A /* LGVTextField.h in Headers */,
+				19E590F59FE7954E7DB71DFC /* LGVTextView.h in Headers */,
+				19E59A95C2C5396D7C711392 /* LGVView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		5E01EC872A016616003AD471 /* LoggingViewKit-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E01EC8E2A016616003AD471 /* Build configuration list for PBXNativeTarget "LoggingViewKit-macOS" */;
+			buildPhases = (
+				5E01EC832A016616003AD471 /* Headers */,
+				5E01EC842A016616003AD471 /* Sources */,
+				5E01EC852A016616003AD471 /* Frameworks */,
+				5E01EC862A016616003AD471 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LoggingViewKit-macOS";
+			productName = "LoggingViewKit-macOS";
+			productReference = 5E01EC882A016616003AD471 /* LoggingViewKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		5E34DE2D2890D5B200FC06FF /* LoggingViewKit-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5E34DE422890D5B200FC06FF /* Build configuration list for PBXNativeTarget "LoggingViewKit-iOS" */;
@@ -318,6 +402,9 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					5E01EC872A016616003AD471 = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					5E34DE2D2890D5B200FC06FF = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -343,6 +430,7 @@
 			projectRoot = "";
 			targets = (
 				5E34DE2D2890D5B200FC06FF /* LoggingViewKit-iOS */,
+				5E01EC872A016616003AD471 /* LoggingViewKit-macOS */,
 				5E34DE372890D5B200FC06FF /* LoggingViewKitTests */,
 				5E34DE482890D6B500FC06FF /* LoggingViewKit-Universal */,
 			);
@@ -350,6 +438,13 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5E01EC862A016616003AD471 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5E34DE2C2890D5B200FC06FF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,36 +477,55 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# 出力先ディレクトリ（プロジェクトの直下）\nOUTPUT_DIR=${PROJECT_DIR}/Output\n\n# 中間ファイルの出力先ディレクトリ\nDERIVED_DIR=${OUTPUT_DIR}/${CONFIGURATION}-derived\n\n# archiveの出力先ディレクトリ\nARCHIVE_DIR=${OUTPUT_DIR}/${CONFIGURATION}-archive\n\n# xcframeworkの出力先ディレクトリ\nXCFRAMEWORK_DIR=${OUTPUT_DIR}/${CONFIGURATION}-xcframework\n\n# 出力先ディレクトリ削除\nrm -rf ${OUTPUT_DIR}\n\n# 中間ファイルの出力先ディレクトリ作成\nmkdir -p ${DERIVED_DIR}\n\n# アーカイブファイルの出力先ディレクトリ作成\nmkdir -p ${ARCHIVE_DIR}\n\n# xcframeworkの出力先ディレクトリ作成\nmkdir -p ${XCFRAMEWORK_DIR}\n\n# iOS実機用のarchiveファイル\nARCHIVE_FILE_IOS=${ARCHIVE_DIR}/ios.xcarchive\necho \"ARCHIVE_FILE_IOS:${ARCHIVE_FILE_IOS}\"\n\n# iOSシミュレータ用のarchiveファイル\nARCHIVE_FILE_IOS_SIMULATOR=${ARCHIVE_DIR}/iossimulator.xcarchive\necho \"ARCHIVE_FILE_IOS_SIMULATOR:${ARCHIVE_FILE_IOS_SIMULATOR}\"\n\n# macCatalyst用のarchiveファイル\nARCHIVE_FILE_IOS_MACCATALYST=${ARCHIVE_DIR}/maccatalyst.xcarchive\necho \"ARCHIVE_FILE_IOS_MACCATALYST:${ARCHIVE_FILE_IOS_MACCATALYST}\"\n\n# macOS用のarchiveファイル\n#ARCHIVE_FILE_MACOS=${ARCHIVE_DIR}/macos.xcarchive\n#echo \"ARCHIVE_FILE_MACOS:${ARCHIVE_FILE_MACOS}\"\n\n# iOS実機用のarchiveファイル作成\nxcodebuild archive \\\n-scheme \"${PROJECT_NAME}-iOS\" \\\n-destination=\"iOS\" \\\n-archivePath $ARCHIVE_FILE_IOS \\\n-derivedDataPath $DERIVED_DIR \\\n-sdk iphoneos SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# iOSシミュレータ用のarchiveファイル作成\nxcodebuild archive \\\n-scheme \"${PROJECT_NAME}-iOS\" \\\n-destination=\"iOS Simulator\" \\\n-archivePath $ARCHIVE_FILE_IOS_SIMULATOR \\\n-derivedDataPath $DERIVED_DIR \\\n-sdk iphonesimulator SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# macCatalyst用のarchiveファイル作成\nxcodebuild archive \\\n-scheme \"${PROJECT_NAME}-iOS\" \\\n-destination='platform=macOS,arch=x86_64,variant=Mac Catalyst' \\\n-archivePath $ARCHIVE_FILE_IOS_MACCATALYST SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# macOS用のarchiveファイル作成\n#xcodebuild archive \\\n#-scheme \"${PROJECT_NAME}-macOS\" \\\n#-destination=\"platform=macOS\" \\\n#-archivePath $ARCHIVE_FILE_MACOS \\\n#-derivedDataPath $DERIVED_DIR \\\n#SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# xcframework作成\nxcodebuild -create-xcframework \\\n-framework $ARCHIVE_FILE_IOS/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n-framework $ARCHIVE_FILE_IOS_SIMULATOR/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n-framework $ARCHIVE_FILE_IOS_MACCATALYST/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n-output $XCFRAMEWORK_DIR/${PROJECT_NAME}.xcframework\n#-framework $ARCHIVE_FILE_MACOS/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n\n# SPM配布用にxcframeworkを格納するディレクトリ\nPRODUCT_FRAMEWORK_DIR=${PROJECT_DIR}/../Frameworks\n\nrm -rf ${PRODUCT_FRAMEWORK_DIR}\nmkdir -p ${PRODUCT_FRAMEWORK_DIR}\n\n# xcframeworkを配布用ディレクトリに移動\nmv ${XCFRAMEWORK_DIR}/${PROJECT_NAME}.xcframework ${PRODUCT_FRAMEWORK_DIR}\n\n# xcframeworkの出力ディレクトリをFinderで開く\nopen ${PRODUCT_FRAMEWORK_DIR}\n\n# 中間ディレクトリを削除\nrm -rf ${OUTPUT_DIR}\n";
+			shellScript = "# 出力先ディレクトリ（プロジェクトの直下）\nOUTPUT_DIR=${PROJECT_DIR}/Output\n\n# 中間ファイルの出力先ディレクトリ\nDERIVED_DIR=${OUTPUT_DIR}/${CONFIGURATION}-derived\n\n# archiveの出力先ディレクトリ\nARCHIVE_DIR=${OUTPUT_DIR}/${CONFIGURATION}-archive\n\n# xcframeworkの出力先ディレクトリ\nXCFRAMEWORK_DIR=${OUTPUT_DIR}/${CONFIGURATION}-xcframework\n\n# 出力先ディレクトリ削除\nrm -rf ${OUTPUT_DIR}\n\n# 中間ファイルの出力先ディレクトリ作成\nmkdir -p ${DERIVED_DIR}\n\n# アーカイブファイルの出力先ディレクトリ作成\nmkdir -p ${ARCHIVE_DIR}\n\n# xcframeworkの出力先ディレクトリ作成\nmkdir -p ${XCFRAMEWORK_DIR}\n\n# iOS実機用のarchiveファイル\nARCHIVE_FILE_IOS=${ARCHIVE_DIR}/ios.xcarchive\necho \"ARCHIVE_FILE_IOS:${ARCHIVE_FILE_IOS}\"\n\n# iOSシミュレータ用のarchiveファイル\nARCHIVE_FILE_IOS_SIMULATOR=${ARCHIVE_DIR}/iossimulator.xcarchive\necho \"ARCHIVE_FILE_IOS_SIMULATOR:${ARCHIVE_FILE_IOS_SIMULATOR}\"\n\n# macCatalyst用のarchiveファイル\nARCHIVE_FILE_IOS_MACCATALYST=${ARCHIVE_DIR}/maccatalyst.xcarchive\necho \"ARCHIVE_FILE_IOS_MACCATALYST:${ARCHIVE_FILE_IOS_MACCATALYST}\"\n\n# macOS用のarchiveファイル\nARCHIVE_FILE_MACOS=${ARCHIVE_DIR}/macos.xcarchive\necho \"ARCHIVE_FILE_MACOS:${ARCHIVE_FILE_MACOS}\"\n\n# iOS実機用のarchiveファイル作成\nxcodebuild archive \\\n-scheme \"${PROJECT_NAME}-iOS\" \\\n-destination=\"iOS\" \\\n-archivePath $ARCHIVE_FILE_IOS \\\n-derivedDataPath $DERIVED_DIR \\\n-sdk iphoneos SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# iOSシミュレータ用のarchiveファイル作成\nxcodebuild archive \\\n-scheme \"${PROJECT_NAME}-iOS\" \\\n-destination=\"iOS Simulator\" \\\n-archivePath $ARCHIVE_FILE_IOS_SIMULATOR \\\n-derivedDataPath $DERIVED_DIR \\\n-sdk iphonesimulator SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# macCatalyst用のarchiveファイル作成\nxcodebuild archive \\\n-scheme \"${PROJECT_NAME}-iOS\" \\\n-destination='platform=macOS,arch=x86_64,variant=Mac Catalyst' \\\n-archivePath $ARCHIVE_FILE_IOS_MACCATALYST SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# macOS用のarchiveファイル作成\nxcodebuild archive \\\n-scheme \"${PROJECT_NAME}-macOS\" \\\n-destination=\"platform=macOS\" \\\n-archivePath $ARCHIVE_FILE_MACOS \\\n-derivedDataPath $DERIVED_DIR \\\nSKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES\n\n# xcframework作成\nxcodebuild -create-xcframework \\\n-framework $ARCHIVE_FILE_IOS/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n-framework $ARCHIVE_FILE_IOS_SIMULATOR/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n-framework $ARCHIVE_FILE_IOS_MACCATALYST/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n-framework $ARCHIVE_FILE_MACOS/Products/Library/Frameworks/${PROJECT_NAME}.framework \\\n-output $XCFRAMEWORK_DIR/${PROJECT_NAME}.xcframework\n\n# SPM配布用にxcframeworkを格納するディレクトリ\nPRODUCT_FRAMEWORK_DIR=${PROJECT_DIR}/../Frameworks\n\nrm -rf ${PRODUCT_FRAMEWORK_DIR}\nmkdir -p ${PRODUCT_FRAMEWORK_DIR}\n\n# xcframeworkを配布用ディレクトリに移動\nmv ${XCFRAMEWORK_DIR}/${PROJECT_NAME}.xcframework ${PRODUCT_FRAMEWORK_DIR}\n\n# xcframeworkの出力ディレクトリをFinderで開く\nopen ${PRODUCT_FRAMEWORK_DIR}\n\n# 中間ディレクトリを削除\nrm -rf ${OUTPUT_DIR}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5E01EC842A016616003AD471 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E01ECAE2A0178D4003AD471 /* LoggingViewKit.docc in Sources */,
+				5E01ECA82A01777A003AD471 /* LGVLog.m in Sources */,
+				5E01ECA92A01777A003AD471 /* LGVLoggingAttribute.m in Sources */,
+				5E01ECAA2A01777A003AD471 /* LGVLoggingViewService.m in Sources */,
+				5E01ECAB2A01777A003AD471 /* LGVRealTimeLogger.m in Sources */,
+				5E01ECAC2A01777A003AD471 /* LGVSQLiteDatabase.m in Sources */,
+				5E01ECAD2A01777A003AD471 /* LGVViewHierarchy.m in Sources */,
+				5E01ECA32A01776F003AD471 /* LGVFMDatabase.m in Sources */,
+				5E01ECA42A01776F003AD471 /* LGVFMDatabaseAdditions.m in Sources */,
+				5E01ECA52A01776F003AD471 /* LGVFMDatabasePool.m in Sources */,
+				5E01ECA62A01776F003AD471 /* LGVFMDatabaseQueue.m in Sources */,
+				5E01ECA72A01776F003AD471 /* LGVFMResultSet.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5E34DE2A2890D5B200FC06FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E34DEA2289221E700FC06FF /* LGVTextView.m in Sources */,
-				5E34DE7E289221E700FC06FF /* LGVSwitch.m in Sources */,
 				5E34DE87289221E700FC06FF /* LGVFMDatabase.m in Sources */,
 				5E34DEA3289221E700FC06FF /* LGVButton.m in Sources */,
-				5E34DE9E289221E700FC06FF /* LGVSlider.m in Sources */,
 				5E34DE82289221E700FC06FF /* LGVFMDatabasePool.m in Sources */,
-				5E34DEA1289221E700FC06FF /* LGVLabel.m in Sources */,
 				5E34DE8B289221E700FC06FF /* LGVFMDatabaseAdditions.m in Sources */,
 				5E34DE97289221E700FC06FF /* LGVViewHierarchy.m in Sources */,
-				5E34DEA0289221E700FC06FF /* LGVSegmentedControl.m in Sources */,
 				5E34DED728937ED100FC06FF /* LGVLoggingAttribute.m in Sources */,
-				5E34DE9A289221E700FC06FF /* LGVStepper.m in Sources */,
 				5E34DE88289221E700FC06FF /* LGVFMDatabaseQueue.m in Sources */,
 				5E34DE7C289221E700FC06FF /* LGVLoggingViewService.m in Sources */,
 				5E34DE9B289221E700FC06FF /* LGVSQLiteDatabase.m in Sources */,
 				5E34DE90289221E700FC06FF /* LGVRealTimeLogger.m in Sources */,
 				5E34DE81289221E700FC06FF /* LGVFMResultSet.m in Sources */,
-				5E34DE8E289221E700FC06FF /* LGVTextField.m in Sources */,
-				5E34DE8D289221E700FC06FF /* LGVView.m in Sources */,
 				5E34DE93289221E700FC06FF /* LGVLog.m in Sources */,
 				5E34DE332890D5B200FC06FF /* LoggingViewKit.docc in Sources */,
+				19E597FB5A536048051AEF25 /* LGVLabel.m in Sources */,
+				19E59DB4C6B7522E1621BFA5 /* LGVSegmentedControl.m in Sources */,
+				19E5989EA8552B62B53A9B99 /* LGVSlider.m in Sources */,
+				19E5953DC4DF6D982B85529B /* LGVStepper.m in Sources */,
+				19E5955BF1E185134794DFCA /* LGVSwitch.m in Sources */,
+				19E5973A1998FEF74B752BD7 /* LGVTextField.m in Sources */,
+				19E590C7AF5BEEF722F59447 /* LGVTextView.m in Sources */,
+				19E59AC65AC73D87D9535719 /* LGVView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +548,76 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5E01EC8C2A016616003AD471 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5EBK5DQGGP;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.hituzi.LoggingViewKit;
+				PRODUCT_MODULE_NAME = LoggingViewKit;
+				PRODUCT_NAME = LoggingViewKit;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		5E01EC8D2A016616003AD471 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5EBK5DQGGP;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.hituzi.LoggingViewKit;
+				PRODUCT_MODULE_NAME = LoggingViewKit;
+				PRODUCT_NAME = LoggingViewKit;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
 		5E34DE402890D5B200FC06FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -649,6 +833,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5E01EC8E2A016616003AD471 /* Build configuration list for PBXNativeTarget "LoggingViewKit-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E01EC8C2A016616003AD471 /* Debug */,
+				5E01EC8D2A016616003AD471 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5E34DE282890D5B200FC06FF /* Build configuration list for PBXProject "LoggingViewKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
