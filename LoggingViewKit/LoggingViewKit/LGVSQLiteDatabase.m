@@ -101,8 +101,6 @@
 }
 
 - (NSArray<LGVLog *> *) allLogs {
-    NSMutableArray *logs = [NSMutableArray new];
-
     NSString *sql = @"SELECT * FROM lgv_logs ORDER BY id;";
 
     if (![self.db open]) {
@@ -110,20 +108,7 @@
     }
 
     LGVFMResultSet *results = [self.db executeQuery:sql];
-
-    while ([results next]) {
-        LGVLog *log = [LGVLog logWithKey:[results stringForColumn:@"key"]
-                               createdAt:[results dateForColumn:@"created_at"]];
-        log.ID = [results longLongIntForColumn:@"id"];
-        log.eventType = [results stringForColumn:@"event_type"];
-        log.name = [results stringForColumn:@"name"];
-        log.clickX = [results doubleForColumn:@"click_x"];
-        log.clickY = [results doubleForColumn:@"click_y"];
-        log.absoluteClickX = [results doubleForColumn:@"absolute_click_x"];
-        log.absoluteClickY = [results doubleForColumn:@"absolute_click_y"];
-        log.info = [self deserialize:[results stringForColumn:@"info"]].mutableCopy;
-        [logs addObject:log];
-    }
+    NSArray *logs = [self parseResult:results];
 
     [self.db close];
 
@@ -142,29 +127,50 @@
     }
 
     LGVFMResultSet *results = [self.db executeQuery:sql withParameterDictionary:@{ @"key": key }];
-
-    LGVLog *log = nil;
-
-    if ([results next]) {
-        log = [LGVLog logWithKey:[results stringForColumn:@"key"]
-                       createdAt:[results dateForColumn:@"created_at"]];
-        log.ID = [results longLongIntForColumn:@"id"];
-        log.eventType = [results stringForColumn:@"event_type"];
-        log.name = [results stringForColumn:@"name"];
-        log.clickX = [results doubleForColumn:@"click_x"];
-        log.clickY = [results doubleForColumn:@"click_y"];
-        log.absoluteClickX = [results doubleForColumn:@"absolute_click_x"];
-        log.absoluteClickY = [results doubleForColumn:@"absolute_click_y"];
-        log.info = [self deserialize:[results stringForColumn:@"info"]].mutableCopy;
-    }
+    NSArray *logs = [self parseResult:results];
 
     [self.db close];
 
-    return log;
+    return logs.firstObject;
+}
+
+- (NSArray<LGVLog *> *) logsByEventType:(NSString *)eventType {
+    NSString *sql = [NSString stringWithFormat:@"SELECT * FROM lgv_logs WHERE event_type = '%@' ORDER BY id;", eventType];
+
+    if (![self.db open]) {
+        return @[];
+    }
+
+    LGVFMResultSet *results = [self.db executeQuery:sql];
+    NSArray *logs = [self parseResult:results];
+
+    [self.db close];
+
+    return logs;
 }
 
 - (void) deleteAllLogs {
     NSString *sql = @"DELETE FROM lgv_logs;";
+
+    if (![self.db open]) {
+        return;
+    }
+
+    [self.db beginTransaction];
+
+    if ([self.db executeUpdate:sql]) {
+        [self.db commit];
+        [self.db executeUpdate:@"VACUUM"];
+    }
+    else {
+        [self.db rollback];
+    }
+
+    [self.db close];
+}
+
+- (void) deleteLogsByEventType:(NSString *)eventType {
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM lgv_logs WHERE event_type = '%@';", eventType];
 
     if (![self.db open]) {
         return;
@@ -205,6 +211,26 @@
 
     [self.db executeUpdate:sql];
     [self.db close];
+}
+
+- (NSArray<LGVLog *> *) parseResult:(LGVFMResultSet *)results {
+    NSMutableArray *logs = [NSMutableArray new];
+
+    while ([results next]) {
+        LGVLog *log = [LGVLog logWithKey:[results stringForColumn:@"key"]
+                               createdAt:[results dateForColumn:@"created_at"]];
+        log.ID = [results longLongIntForColumn:@"id"];
+        log.eventType = [results stringForColumn:@"event_type"];
+        log.name = [results stringForColumn:@"name"];
+        log.clickX = [results doubleForColumn:@"click_x"];
+        log.clickY = [results doubleForColumn:@"click_y"];
+        log.absoluteClickX = [results doubleForColumn:@"absolute_click_x"];
+        log.absoluteClickY = [results doubleForColumn:@"absolute_click_y"];
+        log.info = [self deserialize:[results stringForColumn:@"info"]].mutableCopy;
+        [logs addObject:log];
+    }
+
+    return logs;
 }
 
 - (NSString *) serialize:(NSDictionary *)dict {

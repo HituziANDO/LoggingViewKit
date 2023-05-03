@@ -86,6 +86,7 @@
     [[LGVLoggingViewService sharedService] click:attr];
 
     NSLog(@"All Logs: %@", [[LGVLoggingViewService sharedService] allLogs]);
+    NSLog(@"Custom Event Logs: %@", [[LGVLoggingViewService sharedService] logsByEventType:@"viewDidLoad"]);
 }
 
 #pragma mark - LGVLoggingViewServiceDelegate

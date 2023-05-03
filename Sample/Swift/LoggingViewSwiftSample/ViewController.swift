@@ -78,6 +78,7 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
         LGVLoggingViewService.shared().click(attr)
 
         print("All Logs: \(LGVLoggingViewService.shared().allLogs())")
+        print("Custom Event Logs: \(LGVLoggingViewService.shared().logs(eventType: "viewDidLoad"))")
     }
 
     // MARK: - LGVLoggingViewServiceDelegate

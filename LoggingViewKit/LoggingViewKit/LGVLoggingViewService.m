@@ -84,9 +84,24 @@ static LGVLoggingViewService *_loggingViewService = nil;
     }
 }
 
+- (NSArray<LGVLog *> *) logsByEventType:(NSString *)eventType {
+    if ([self.defaultDatabase respondsToSelector:@selector(logsByEventType:)]) {
+        return [self.defaultDatabase logsByEventType:eventType];
+    }
+    else {
+        return @[];
+    }
+}
+
 - (void) deleteAllLogs {
     if ([self.defaultDatabase respondsToSelector:@selector(deleteAllLogs)]) {
         [self.defaultDatabase deleteAllLogs];
+    }
+}
+
+- (void) deleteLogsByEventType:(NSString *)eventType {
+    if ([self.defaultDatabase respondsToSelector:@selector(deleteLogsByEventType:)]) {
+        [self.defaultDatabase deleteLogsByEventType:eventType];
     }
 }
 
@@ -188,7 +203,7 @@ static LGVLoggingViewService *_loggingViewService = nil;
     }
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        LGVLog *log = [LGVLog logWithEventType:eventType.lowercaseString];
+        LGVLog *log = [LGVLog logWithEventType:eventType];
         log.name = attribute.name;
 
         if (appendingMoreInfoHandler) {

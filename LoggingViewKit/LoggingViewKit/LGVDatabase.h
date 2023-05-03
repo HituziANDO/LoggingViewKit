@@ -46,13 +46,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSArray<LGVLog *> *) allLogs;
 /**
- * Finds the log for given key. If not found it, this method returns nil.
+ * Finds the log by given key. If not found it, this method returns nil.
  */
 - (nullable LGVLog *) logByKey:(NSString *)key;
+/**
+ * Selects logs by given event type.
+ */
+- (NSArray<LGVLog *> *) logsByEventType:(NSString *)eventType;
 /**
  * Deletes all logs in the database.
  */
 - (void) deleteAllLogs;
+/**
+ * Deletes logs by given event type.
+ */
+- (void) deleteLogsByEventType:(NSString *)eventType;
 
 @end
 
