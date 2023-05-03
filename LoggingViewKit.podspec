@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.15'
   s.source       = { :git => "https://github.com/HituziANDO/LoggingViewKit.git", :tag => "#{s.version}" }
   s.source_files  = "LoggingViewKit/LoggingViewKit/**/*.{h,m}"
-  s.exclude_files = "LoggingViewKit/build/*", "LoggingViewKit/Framework/*", "LoggingViewKit/Output/*", "Sample/*"
+  s.ios.exclude_files = "Frameworks/*", "Sample/*"
+  s.osx.exclude_files = "Frameworks/*", "Sample/*", "LoggingViewKit/LoggingViewKit/iOS/*"
   s.requires_arc = true
 end
