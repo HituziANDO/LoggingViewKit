@@ -14,3 +14,10 @@
 # Strip unused args: unused args -> `_`
 --stripunusedargs closure-only
 
+# Wrap
+--maxwidth 100
+--wraparguments after-first
+--wrapparameters after-first
+--wrapcollections after-first
+
+--someAny false
