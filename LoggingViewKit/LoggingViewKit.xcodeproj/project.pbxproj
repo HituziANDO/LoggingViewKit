@@ -95,6 +95,8 @@
 		5E34DEA3289221E700FC06FF /* LGVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE78289221E700FC06FF /* LGVButton.m */; };
 		5E34DED628937ED100FC06FF /* LGVLoggingAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DED428937ED100FC06FF /* LGVLoggingAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E34DED728937ED100FC06FF /* LGVLoggingAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DED528937ED100FC06FF /* LGVLoggingAttribute.m */; };
+		5EAD161D2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD161C2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy */; };
+		5EAD161E2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD161C2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +159,7 @@
 		5E34DE78289221E700FC06FF /* LGVButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVButton.m; sourceTree = "<group>"; };
 		5E34DED428937ED100FC06FF /* LGVLoggingAttribute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVLoggingAttribute.h; sourceTree = "<group>"; };
 		5E34DED528937ED100FC06FF /* LGVLoggingAttribute.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVLoggingAttribute.m; sourceTree = "<group>"; };
+		5EAD161C2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +218,7 @@
 			children = (
 				5E34DE302890D5B200FC06FF /* LoggingViewKit */,
 				5E34DE3C2890D5B200FC06FF /* LoggingViewKitTests */,
+				5EAD161C2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy */,
 				5E34DE2F2890D5B200FC06FF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -442,6 +446,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EAD161E2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +454,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EAD161D2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
