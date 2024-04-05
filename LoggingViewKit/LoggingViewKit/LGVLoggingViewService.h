@@ -77,6 +77,10 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
 
 @interface LGVLoggingViewService : NSObject
 /**
+ * The version of this framework.
+ */
+@property (class, nonatomic, readonly) NSString *versionString;
+/**
  *
  */
 @property (nonatomic, weak, nullable) id <LGVLoggingViewServiceDelegate> delegate;
