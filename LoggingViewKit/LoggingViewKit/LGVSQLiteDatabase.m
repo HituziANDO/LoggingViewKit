@@ -38,10 +38,13 @@
 
 @implementation LGVSQLiteDatabase
 
+static NSString *const DefaultDatabaseName = @"logging_view_kit.db";
+static NSString *const TestDatabaseName = @"logging_view_kit_test.db";
+
 + (instancetype) defaultDatabase {
     NSString *docDir = NSSearchPathForDirectoriesInDomains(
         NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    NSString *path = [docDir stringByAppendingPathComponent:@"logging_view_kit.db"];
+    NSString *path = [docDir stringByAppendingPathComponent:DefaultDatabaseName];
 
     return [self databaseWithPath:path];
 }
@@ -53,6 +56,24 @@
     [database createTable];
 
     return database;
+}
+
++ (instancetype) testDatabase {
+    NSString *docDir = NSSearchPathForDirectoriesInDomains(
+        NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *path = [docDir stringByAppendingPathComponent:TestDatabaseName];
+
+    return [self databaseWithPath:path];
+}
+
++ (void) deleteTestDatabase {
+    NSString *docDir = NSSearchPathForDirectoriesInDomains(
+        NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *path = [docDir stringByAppendingPathComponent:TestDatabaseName];
+
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        [[NSFileManager defaultManager] removeItemAtPath:path error:NULL];
+    }
 }
 
 #pragma mark - LGVDatabase

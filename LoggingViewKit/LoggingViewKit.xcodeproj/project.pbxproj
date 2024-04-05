@@ -66,7 +66,6 @@
 		5E01ECAE2A0178D4003AD471 /* LoggingViewKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE322890D5B200FC06FF /* LoggingViewKit.docc */; };
 		5E34DE332890D5B200FC06FF /* LoggingViewKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE322890D5B200FC06FF /* LoggingViewKit.docc */; };
 		5E34DE392890D5B200FC06FF /* LoggingViewKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E34DE2E2890D5B200FC06FF /* LoggingViewKit.framework */; };
-		5E34DE3E2890D5B200FC06FF /* LoggingViewKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE3D2890D5B200FC06FF /* LoggingViewKitTests.m */; };
 		5E34DE3F2890D5B200FC06FF /* LoggingViewKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE312890D5B200FC06FF /* LoggingViewKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E34DE79289221E700FC06FF /* LGVLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE4D289221E600FC06FF /* LGVLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E34DE7B289221E700FC06FF /* LGVViewHierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DE4F289221E600FC06FF /* LGVViewHierarchy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -95,6 +94,7 @@
 		5E34DEA3289221E700FC06FF /* LGVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DE78289221E700FC06FF /* LGVButton.m */; };
 		5E34DED628937ED100FC06FF /* LGVLoggingAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E34DED428937ED100FC06FF /* LGVLoggingAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E34DED728937ED100FC06FF /* LGVLoggingAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DED528937ED100FC06FF /* LGVLoggingAttribute.m */; };
+		5E82BA9A2BBFBAAE00450476 /* LGVLoggingViewServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E82BA992BBFBAAE00450476 /* LGVLoggingViewServiceTests.m */; };
 		5EAD161D2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD161C2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy */; };
 		5EAD161E2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD161C2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
@@ -131,7 +131,6 @@
 		5E34DE312890D5B200FC06FF /* LoggingViewKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoggingViewKit.h; sourceTree = "<group>"; };
 		5E34DE322890D5B200FC06FF /* LoggingViewKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = LoggingViewKit.docc; sourceTree = "<group>"; };
 		5E34DE382890D5B200FC06FF /* LoggingViewKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoggingViewKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E34DE3D2890D5B200FC06FF /* LoggingViewKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoggingViewKitTests.m; sourceTree = "<group>"; };
 		5E34DE4D289221E600FC06FF /* LGVLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVLog.h; sourceTree = "<group>"; };
 		5E34DE4F289221E600FC06FF /* LGVViewHierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGVViewHierarchy.h; sourceTree = "<group>"; };
 		5E34DE50289221E600FC06FF /* LGVLoggingViewService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVLoggingViewService.m; sourceTree = "<group>"; };
@@ -159,6 +158,7 @@
 		5E34DE78289221E700FC06FF /* LGVButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGVButton.m; sourceTree = "<group>"; };
 		5E34DED428937ED100FC06FF /* LGVLoggingAttribute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVLoggingAttribute.h; sourceTree = "<group>"; };
 		5E34DED528937ED100FC06FF /* LGVLoggingAttribute.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVLoggingAttribute.m; sourceTree = "<group>"; };
+		5E82BA992BBFBAAE00450476 /* LGVLoggingViewServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVLoggingViewServiceTests.m; sourceTree = "<group>"; };
 		5EAD161C2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -261,7 +261,7 @@
 		5E34DE3C2890D5B200FC06FF /* LoggingViewKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				5E34DE3D2890D5B200FC06FF /* LoggingViewKitTests.m */,
+				5E82BA992BBFBAAE00450476 /* LGVLoggingViewServiceTests.m */,
 			);
 			path = LoggingViewKitTests;
 			sourceTree = "<group>";
@@ -405,6 +405,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1340;
+				ORGANIZATIONNAME = "Hituzi Ando";
 				TargetAttributes = {
 					5E01EC872A016616003AD471 = {
 						CreatedOnToolsVersion = 14.3;
@@ -539,7 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E34DE3E2890D5B200FC06FF /* LoggingViewKitTests.m in Sources */,
+				5E82BA9A2BBFBAAE00450476 /* LGVLoggingViewServiceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

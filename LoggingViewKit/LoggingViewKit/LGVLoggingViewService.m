@@ -106,6 +106,10 @@ static LGVLoggingViewService *_loggingViewService = nil;
 }
 
 - (void) click:(LGVLoggingAttribute *)attribute {
+    [self click:attribute completionHandler:nil];
+}
+
+- (void) click:(LGVLoggingAttribute *)attribute completionHandler:(void (^ _Nullable)(void))completionHandler {
     [self              addLog:@"click"
                     attribute:attribute
      appendingMoreInfoHandler:^(LGVLog *log, LGVLoggingAttribute *attribute) {
@@ -176,13 +180,21 @@ static LGVLoggingViewService *_loggingViewService = nil;
              }
          }
 #endif
-     }];
+     }
+            completionHandler:completionHandler];
 }
 
 - (void) customEvent:(NSString *)eventType attribute:(LGVLoggingAttribute *)attribute {
+    [self customEvent:eventType attribute:attribute completionHandler:nil];
+}
+
+- (void)  customEvent:(NSString *)eventType
+            attribute:(LGVLoggingAttribute *)attribute
+    completionHandler:(void (^ _Nullable)(void))completionHandler {
     [self              addLog:eventType
                     attribute:attribute
-     appendingMoreInfoHandler:nil];
+     appendingMoreInfoHandler:nil
+            completionHandler:completionHandler];
 }
 
 #pragma mark - private method
@@ -197,7 +209,8 @@ static LGVLoggingViewService *_loggingViewService = nil;
 
 - (void)              addLog:(NSString *)eventType
                    attribute:(LGVLoggingAttribute *)attribute
-    appendingMoreInfoHandler:(void (^)(LGVLog *, LGVLoggingAttribute *))appendingMoreInfoHandler {
+    appendingMoreInfoHandler:(void (^ _Nullable)(LGVLog *, LGVLoggingAttribute *))appendingMoreInfoHandler
+           completionHandler:(void (^ _Nullable)(void))completionHandler {
     if (!self.isRecording || !attribute.loggingEnabled) {
         return;
     }
@@ -245,6 +258,10 @@ static LGVLoggingViewService *_loggingViewService = nil;
                                    didSaveLog:savedLog
                                     attribute:attribute
                                         error:error];
+        }
+
+        if (completionHandler) {
+            completionHandler();
         }
     });
 }
