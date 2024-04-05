@@ -1,42 +1,40 @@
 //
-//  LGVFMDatabasePool.m
+//  LVKFMDatabasePool.m
 //  fmdb
 //
 //  Created by August Mueller on 6/22/11.
 //  Copyright 2011 Flying Meat Inc. All rights reserved.
 //
 
-#if LGVFMDB_SQLITE_STANDALONE
+#if LVKFMDB_SQLITE_STANDALONE
 #import <sqlite3/sqlite3.h>
 #else
-
 #import <sqlite3.h>
-
 #endif
 
-#import "LGVFMDatabase.h"
-#import "LGVFMDatabasePool.h"
+#import "LVKFMDatabase.h"
+#import "LVKFMDatabasePool.h"
 
-typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
-    LGVFMDBTransactionExclusive,
-    LGVFMDBTransactionDeferred,
-    LGVFMDBTransactionImmediate,
+typedef NS_ENUM(NSInteger, LVKFMDBTransaction) {
+    LVKFMDBTransactionExclusive,
+    LVKFMDBTransactionDeferred,
+    LVKFMDBTransactionImmediate,
 };
 
-@interface LGVFMDatabasePool () {
+@interface LVKFMDatabasePool () {
     dispatch_queue_t _lockQueue;
 
     NSMutableArray *_databaseInPool;
     NSMutableArray *_databaseOutPool;
 }
 
-- (void) pushDatabaseBackInPool:(LGVFMDatabase *)db;
-- (LGVFMDatabase *) db;
+- (void) pushDatabaseBackInPool:(LVKFMDatabase *)db;
+- (LVKFMDatabase *) db;
 
 @end
 
 
-@implementation LGVFMDatabasePool
+@implementation LVKFMDatabasePool
 @synthesize path = _path;
 @synthesize delegate = _delegate;
 @synthesize maximumNumberOfDatabasesToCreate = _maximumNumberOfDatabasesToCreate;
@@ -44,19 +42,19 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
 
 
 + (instancetype) databasePoolWithPath:(NSString *)aPath {
-    return LGVFMDBReturnAutoreleased([[self alloc] initWithPath:aPath]);
+    return LVKFMDBReturnAutoreleased([[self alloc] initWithPath:aPath]);
 }
 
 + (instancetype) databasePoolWithURL:(NSURL *)url {
-    return LGVFMDBReturnAutoreleased([[self alloc] initWithPath:url.path]);
+    return LVKFMDBReturnAutoreleased([[self alloc] initWithPath:url.path]);
 }
 
 + (instancetype) databasePoolWithPath:(NSString *)aPath flags:(int)openFlags {
-    return LGVFMDBReturnAutoreleased([[self alloc] initWithPath:aPath flags:openFlags]);
+    return LVKFMDBReturnAutoreleased([[self alloc] initWithPath:aPath flags:openFlags]);
 }
 
 + (instancetype) databasePoolWithURL:(NSURL *)url flags:(int)openFlags {
-    return LGVFMDBReturnAutoreleased([[self alloc] initWithPath:url.path flags:openFlags]);
+    return LVKFMDBReturnAutoreleased([[self alloc] initWithPath:url.path flags:openFlags]);
 }
 
 - (instancetype) initWithURL:(NSURL *)url flags:(int)openFlags vfs:(NSString *)vfsName {
@@ -69,9 +67,9 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
 
     if (self != nil) {
         _path = [aPath copy];
-        _lockQueue = dispatch_queue_create([[NSString stringWithFormat:@"fmdb.%@", self] UTF8String], NULL);
-        _databaseInPool = LGVFMDBReturnRetained([NSMutableArray array]);
-        _databaseOutPool = LGVFMDBReturnRetained([NSMutableArray array]);
+        _lockQueue = dispatch_queue_create([[NSString stringWithFormat:@"lvkfmdb.%@", self] UTF8String], NULL);
+        _databaseInPool = LVKFMDBReturnRetained([NSMutableArray array]);
+        _databaseOutPool = LVKFMDBReturnRetained([NSMutableArray array]);
         _openFlags = openFlags;
         _vfsName = [vfsName copy];
     }
@@ -101,19 +99,19 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
 }
 
 + (Class) databaseClass {
-    return [LGVFMDatabase class];
+    return [LVKFMDatabase class];
 }
 
 - (void) dealloc {
 
     _delegate = 0x00;
-    LGVFMDBRelease(_path);
-    LGVFMDBRelease(_databaseInPool);
-    LGVFMDBRelease(_databaseOutPool);
-    LGVFMDBRelease(_vfsName);
+    LVKFMDBRelease(_path);
+    LVKFMDBRelease(_databaseInPool);
+    LVKFMDBRelease(_databaseOutPool);
+    LVKFMDBRelease(_vfsName);
 
     if (_lockQueue) {
-        LGVFMDBDispatchQueueRelease(_lockQueue);
+        LVKFMDBDispatchQueueRelease(_lockQueue);
         _lockQueue = 0x00;
     }
 #if !__has_feature(objc_arc)
@@ -126,7 +124,7 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
     dispatch_sync(_lockQueue, aBlock);
 }
 
-- (void) pushDatabaseBackInPool:(LGVFMDatabase *)db {
+- (void) pushDatabaseBackInPool:(LVKFMDatabase *)db {
 
     if (!db) { // db can be null if we set an upper bound on the # of databases to create.
         return;
@@ -135,7 +133,7 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
     [self executeLocked:^() {
 
          if ([self->_databaseInPool containsObject:db]) {
-             [[NSException exceptionWithName:@"Database already in pool" reason:@"The LGVFMDatabase being put back into the pool is already present in the pool" userInfo:nil] raise];
+             [[NSException exceptionWithName:@"Database already in pool" reason:@"The LVKFMDatabase being put back into the pool is already present in the pool" userInfo:nil] raise];
          }
 
          [self->_databaseInPool addObject:db];
@@ -144,9 +142,9 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
      }];
 }
 
-- (LGVFMDatabase *) db {
+- (LVKFMDatabase *) db {
 
-    __block LGVFMDatabase *db;
+    __block LVKFMDatabase *db;
 
 
     [self executeLocked:^() {
@@ -243,29 +241,29 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
      }];
 }
 
-- (void) inDatabase:(__attribute__((noescape)) void (^)(LGVFMDatabase *db))block {
+- (void) inDatabase:(__attribute__((noescape)) void (^)(LVKFMDatabase *db))block {
 
-    LGVFMDatabase *db = [self db];
+    LVKFMDatabase *db = [self db];
 
     block(db);
 
     [self pushDatabaseBackInPool:db];
 }
 
-- (void) beginTransaction:(LGVFMDBTransaction)transaction withBlock:(void (^)(LGVFMDatabase *db, BOOL *rollback))block {
+- (void) beginTransaction:(LVKFMDBTransaction)transaction withBlock:(void (^)(LVKFMDatabase *db, BOOL *rollback))block {
 
     BOOL shouldRollback = NO;
 
-    LGVFMDatabase *db = [self db];
+    LVKFMDatabase *db = [self db];
 
     switch (transaction) {
-        case LGVFMDBTransactionExclusive:
+        case LVKFMDBTransactionExclusive:
             [db beginTransaction];
             break;
-        case LGVFMDBTransactionDeferred:
+        case LVKFMDBTransactionDeferred:
             [db beginDeferredTransaction];
             break;
-        case LGVFMDBTransactionImmediate:
+        case LVKFMDBTransactionImmediate:
             [db beginImmediateTransaction];
             break;
     }
@@ -283,23 +281,23 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
     [self pushDatabaseBackInPool:db];
 }
 
-- (void) inTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
-    [self beginTransaction:LGVFMDBTransactionExclusive withBlock:block];
+- (void) inTransaction:(__attribute__((noescape)) void (^)(LVKFMDatabase *db, BOOL *rollback))block {
+    [self beginTransaction:LVKFMDBTransactionExclusive withBlock:block];
 }
 
-- (void) inDeferredTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
-    [self beginTransaction:LGVFMDBTransactionDeferred withBlock:block];
+- (void) inDeferredTransaction:(__attribute__((noescape)) void (^)(LVKFMDatabase *db, BOOL *rollback))block {
+    [self beginTransaction:LVKFMDBTransactionDeferred withBlock:block];
 }
 
-- (void) inExclusiveTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
-    [self beginTransaction:LGVFMDBTransactionExclusive withBlock:block];
+- (void) inExclusiveTransaction:(__attribute__((noescape)) void (^)(LVKFMDatabase *db, BOOL *rollback))block {
+    [self beginTransaction:LVKFMDBTransactionExclusive withBlock:block];
 }
 
-- (void) inImmediateTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
-    [self beginTransaction:LGVFMDBTransactionImmediate withBlock:block];
+- (void) inImmediateTransaction:(__attribute__((noescape)) void (^)(LVKFMDatabase *db, BOOL *rollback))block {
+    [self beginTransaction:LVKFMDBTransactionImmediate withBlock:block];
 }
 
-- (NSError *) inSavePoint:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
+- (NSError *) inSavePoint:(__attribute__((noescape)) void (^)(LVKFMDatabase *db, BOOL *rollback))block {
 #if SQLITE_VERSION_NUMBER >= 3007000
     static unsigned long savePointIdx = 0;
 
@@ -307,7 +305,7 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
 
     BOOL shouldRollback = NO;
 
-    LGVFMDatabase *db = [self db];
+    LVKFMDatabase *db = [self db];
 
     NSError *err = 0x00;
 
@@ -328,11 +326,11 @@ typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
 
     return err;
 #else
-    NSString *errorMessage = NSLocalizedStringFromTable(@"Save point functions require SQLite 3.7", @"LGVFMDB", nil);
+    NSString *errorMessage = NSLocalizedStringFromTable(@"Save point functions require SQLite 3.7", @"LVKFMDB", nil);
     if (self.logsErrors) {
         NSLog(@"%@", errorMessage);
     }
-    return [NSError errorWithDomain:@"LGVFMDatabase" code:0 userInfo:@{ NSLocalizedDescriptionKey : errorMessage }];
+    return [NSError errorWithDomain:@"FMDatabase" code:0 userInfo:@{ NSLocalizedDescriptionKey : errorMessage }];
 #endif
 }
 

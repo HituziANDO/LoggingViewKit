@@ -1,55 +1,53 @@
 //
-//  LGVFMDatabaseQueue.m
+//  LVKFMDatabaseQueue.m
 //  fmdb
 //
 //  Created by August Mueller on 6/22/11.
 //  Copyright 2011 Flying Meat Inc. All rights reserved.
 //
 
-#import "LGVFMDatabase.h"
-#import "LGVFMDatabaseQueue.h"
+#import "LVKFMDatabase.h"
+#import "LVKFMDatabaseQueue.h"
 
-#if LGVFMDB_SQLITE_STANDALONE
+#if LVKFMDB_SQLITE_STANDALONE
 #import <sqlite3/sqlite3.h>
 #else
-
 #import <sqlite3.h>
-
 #endif
 
-typedef NS_ENUM(NSInteger, LGVFMDBTransaction) {
-    LGVFMDBTransactionExclusive,
-    LGVFMDBTransactionDeferred,
-    LGVFMDBTransactionImmediate,
+typedef NS_ENUM(NSInteger, LVKFMDBTransaction) {
+    LVKFMDBTransactionExclusive,
+    LVKFMDBTransactionDeferred,
+    LVKFMDBTransactionImmediate,
 };
 
 /*
  *
  * Note: we call [self retain]; before using dispatch_sync, just incase
- * LGVFMDatabaseQueue is released on another thread and we're in the middle of doing
+ * LVKFMDatabaseQueue is released on another thread and we're in the middle of doing
  * something in dispatch_sync
  *
  */
 
 /*
- * A key used to associate the LGVFMDatabaseQueue object with the dispatch_queue_t it uses.
+ * A key used to associate the LVKFMDatabaseQueue object with the dispatch_queue_t it uses.
  * This in turn is used for deadlock detection by seeing if inDatabase: is called on
  * the queue's dispatch queue, which should not happen and causes a deadlock.
  */
-static const void *const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey;
+static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey;
 
-@interface LGVFMDatabaseQueue () {
+@interface LVKFMDatabaseQueue () {
     dispatch_queue_t _queue;
-    LGVFMDatabase *_db;
+    LVKFMDatabase *_db;
 }
 @end
 
-@implementation LGVFMDatabaseQueue
+@implementation LVKFMDatabaseQueue
 
 + (instancetype) databaseQueueWithPath:(NSString *)aPath {
-    LGVFMDatabaseQueue *q = [[self alloc] initWithPath:aPath];
+    LVKFMDatabaseQueue *q = [[self alloc] initWithPath:aPath];
 
-    LGVFMDBAutorelease(q);
+    LVKFMDBAutorelease(q);
 
     return q;
 }
@@ -59,9 +57,9 @@ static const void *const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey;
 }
 
 + (instancetype) databaseQueueWithPath:(NSString *)aPath flags:(int)openFlags {
-    LGVFMDatabaseQueue *q = [[self alloc] initWithPath:aPath flags:openFlags];
+    LVKFMDatabaseQueue *q = [[self alloc] initWithPath:aPath flags:openFlags];
 
-    LGVFMDBAutorelease(q);
+    LVKFMDBAutorelease(q);
 
     return q;
 }
@@ -71,7 +69,7 @@ static const void *const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey;
 }
 
 + (Class) databaseClass {
-    return [LGVFMDatabase class];
+    return [LVKFMDatabase class];
 }
 
 - (instancetype) initWithURL:(NSURL *)url flags:(int)openFlags vfs:(NSString *)vfsName {
@@ -84,7 +82,7 @@ static const void *const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey;
     if (self != nil) {
 
         _db = [[[self class] databaseClass] databaseWithPath:aPath];
-        LGVFMDBRetain(_db);
+        LVKFMDBRetain(_db);
 
 #if SQLITE_VERSION_NUMBER >= 3005000
         BOOL success = [_db openWithFlags:openFlags vfs:vfsName];
@@ -93,13 +91,13 @@ static const void *const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey;
 #endif
         if (!success) {
             NSLog(@"Could not create database queue for path %@", aPath);
-            LGVFMDBRelease(self);
+            LVKFMDBRelease(self);
             return 0x00;
         }
 
-        _path = LGVFMDBReturnRetained(aPath);
+        _path = LVKFMDBReturnRetained(aPath);
 
-        _queue = dispatch_queue_create([[NSString stringWithFormat:@"fmdb.%@", self] UTF8String], NULL);
+        _queue = dispatch_queue_create([[NSString stringWithFormat:@"lvkfmdb.%@", self] UTF8String], NULL);
         dispatch_queue_set_specific(_queue, kDispatchQueueSpecificKey, (__bridge void *) self, NULL);
         _openFlags = openFlags;
         _vfsName = [vfsName copy];
@@ -130,12 +128,12 @@ static const void *const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey;
 }
 
 - (void) dealloc {
-    LGVFMDBRelease(_db);
-    LGVFMDBRelease(_path);
-    LGVFMDBRelease(_vfsName);
+    LVKFMDBRelease(_db);
+    LVKFMDBRelease(_path);
+    LVKFMDBRelease(_vfsName);
 
     if (_queue) {
-        LGVFMDBDispatchQueueRelease(_queue);
+        LVKFMDBDispatchQueueRelease(_queue);
         _queue = 0x00;
     }
 #if !__has_feature(objc_arc)
@@ -144,23 +142,23 @@ static const void *const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey;
 }
 
 - (void) close {
-    LGVFMDBRetain(self);
+    LVKFMDBRetain(self);
     dispatch_sync(_queue, ^() {
         [self->_db close];
-        LGVFMDBRelease(_db);
+        LVKFMDBRelease(_db);
         self->_db = 0x00;
     });
-    LGVFMDBRelease(self);
+    LVKFMDBRelease(self);
 }
 
 - (void) interrupt {
     [[self database] interrupt];
 }
 
-- (LGVFMDatabase *) database {
+- (LVKFMDatabase *) database {
     if (![_db isOpen]) {
         if (!_db) {
-            _db = LGVFMDBReturnRetained([[[self class] databaseClass] databaseWithPath:_path]);
+            _db = LVKFMDBReturnRetained([[[self class] databaseClass] databaseWithPath:_path]);
         }
 
 #if SQLITE_VERSION_NUMBER >= 3005000
@@ -169,8 +167,8 @@ static const void *const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey;
         BOOL success = [_db open];
 #endif
         if (!success) {
-            NSLog(@"LGVFMDatabaseQueue could not reopen database for path %@", _path);
-            LGVFMDBRelease(_db);
+            NSLog(@"LVKFMDatabaseQueue could not reopen database for path %@", _path);
+            LVKFMDBRelease(_db);
             _db = 0x00;
             return 0x00;
         }
@@ -179,53 +177,52 @@ static const void *const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey;
     return _db;
 }
 
-- (void) inDatabase:(__attribute__((noescape)) void (^)(LGVFMDatabase *db))block {
+- (void) inDatabase:(__attribute__((noescape)) void (^)(LVKFMDatabase *db))block {
 #ifndef NDEBUG
     /* Get the currently executing queue (which should probably be nil, but in theory could be another DB queue
      * and then check it against self to make sure we're not about to deadlock. */
-    LGVFMDatabaseQueue *currentSyncQueue = (__bridge id) dispatch_get_specific(kDispatchQueueSpecificKey);
+    LVKFMDatabaseQueue *currentSyncQueue = (__bridge id) dispatch_get_specific(kDispatchQueueSpecificKey);
     assert(currentSyncQueue != self && "inDatabase: was called reentrantly on the same queue, which would lead to a deadlock");
 #endif
 
-    LGVFMDBRetain(self);
+    LVKFMDBRetain(self);
 
     dispatch_sync(_queue, ^() {
 
-        LGVFMDatabase *db = [self database];
+        LVKFMDatabase *db = [self database];
 
         block(db);
 
         if ([db hasOpenResultSets]) {
-            NSLog(@"Warning: there is at least one open result set around after performing [LGVFMDatabaseQueue inDatabase:]");
+            NSLog(@"Warning: there is at least one open result set around after performing [LVKFMDatabaseQueue inDatabase:]");
 
 #if defined(DEBUG) && DEBUG
-            NSSet *openSetCopy = LGVFMDBReturnAutoreleased([[db valueForKey:@"_openResultSets"] copy]);
+            NSSet *openSetCopy = LVKFMDBReturnAutoreleased([[db valueForKey:@"_openResultSets"] copy]);
             for (NSValue *rsInWrappedInATastyValueMeal in openSetCopy) {
-                LGVFMResultSet *rs = (LGVFMResultSet *)
-                    [rsInWrappedInATastyValueMeal pointerValue];
+                LVKFMResultSet *rs = (LVKFMResultSet *) [rsInWrappedInATastyValueMeal pointerValue];
                 NSLog(@"query: '%@'", [rs query]);
             }
 #endif
         }
     });
 
-    LGVFMDBRelease(self);
+    LVKFMDBRelease(self);
 }
 
-- (void) beginTransaction:(LGVFMDBTransaction)transaction withBlock:(void (^)(LGVFMDatabase *db, BOOL *rollback))block {
-    LGVFMDBRetain(self);
+- (void) beginTransaction:(LVKFMDBTransaction)transaction withBlock:(void (^)(LVKFMDatabase *db, BOOL *rollback))block {
+    LVKFMDBRetain(self);
     dispatch_sync(_queue, ^() {
 
         BOOL shouldRollback = NO;
 
         switch (transaction) {
-            case LGVFMDBTransactionExclusive:
+            case LVKFMDBTransactionExclusive:
                 [[self database] beginTransaction];
                 break;
-            case LGVFMDBTransactionDeferred:
+            case LVKFMDBTransactionDeferred:
                 [[self database] beginDeferredTransaction];
                 break;
-            case LGVFMDBTransactionImmediate:
+            case LVKFMDBTransactionImmediate:
                 [[self database] beginImmediateTransaction];
                 break;
         }
@@ -240,30 +237,30 @@ static const void *const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey;
         }
     });
 
-    LGVFMDBRelease(self);
+    LVKFMDBRelease(self);
 }
 
-- (void) inTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
-    [self beginTransaction:LGVFMDBTransactionExclusive withBlock:block];
+- (void) inTransaction:(__attribute__((noescape)) void (^)(LVKFMDatabase *db, BOOL *rollback))block {
+    [self beginTransaction:LVKFMDBTransactionExclusive withBlock:block];
 }
 
-- (void) inDeferredTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
-    [self beginTransaction:LGVFMDBTransactionDeferred withBlock:block];
+- (void) inDeferredTransaction:(__attribute__((noescape)) void (^)(LVKFMDatabase *db, BOOL *rollback))block {
+    [self beginTransaction:LVKFMDBTransactionDeferred withBlock:block];
 }
 
-- (void) inExclusiveTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
-    [self beginTransaction:LGVFMDBTransactionExclusive withBlock:block];
+- (void) inExclusiveTransaction:(__attribute__((noescape)) void (^)(LVKFMDatabase *db, BOOL *rollback))block {
+    [self beginTransaction:LVKFMDBTransactionExclusive withBlock:block];
 }
 
-- (void) inImmediateTransaction:(__attribute__((noescape)) void (^)(LGVFMDatabase *_Nonnull, BOOL *_Nonnull))block {
-    [self beginTransaction:LGVFMDBTransactionImmediate withBlock:block];
+- (void) inImmediateTransaction:(__attribute__((noescape)) void (^)(LVKFMDatabase * _Nonnull, BOOL * _Nonnull))block {
+    [self beginTransaction:LVKFMDBTransactionImmediate withBlock:block];
 }
 
-- (NSError *) inSavePoint:(__attribute__((noescape)) void (^)(LGVFMDatabase *db, BOOL *rollback))block {
+- (NSError *) inSavePoint:(__attribute__((noescape)) void (^)(LVKFMDatabase *db, BOOL *rollback))block {
 #if SQLITE_VERSION_NUMBER >= 3007000
     static unsigned long savePointIdx = 0;
     __block NSError *err = 0x00;
-    LGVFMDBRetain(self);
+    LVKFMDBRetain(self);
     dispatch_sync(_queue, ^() {
 
         NSString *name = [NSString stringWithFormat:@"savePoint%ld", savePointIdx++];
@@ -282,38 +279,37 @@ static const void *const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey;
 
         }
     });
-    LGVFMDBRelease(self);
+    LVKFMDBRelease(self);
     return err;
 #else
-    NSString *errorMessage = NSLocalizedStringFromTable(@"Save point functions require SQLite 3.7", @"LGVFMDB", nil);
+    NSString *errorMessage = NSLocalizedStringFromTable(@"Save point functions require SQLite 3.7", @"LVKFMDB", nil);
     if (_db.logsErrors) {
         NSLog(@"%@", errorMessage);
     }
-    return [NSError errorWithDomain:@"LGVFMDatabase" code:0 userInfo:@{ NSLocalizedDescriptionKey : errorMessage }];
+    return [NSError errorWithDomain:@"FMDatabase" code:0 userInfo:@{ NSLocalizedDescriptionKey : errorMessage }];
 #endif
 }
 
-- (BOOL) checkpoint:(LGVFMDBCheckpointMode)mode error:(NSError *__autoreleasing *)error {
+- (BOOL) checkpoint:(LVKFMDBCheckpointMode)mode error:(NSError *__autoreleasing *)error
+{
     return [self checkpoint:mode name:nil logFrameCount:NULL checkpointCount:NULL error:error];
 }
 
-- (BOOL) checkpoint:(LGVFMDBCheckpointMode)mode name:(NSString *)name error:(NSError *__autoreleasing *)error {
+- (BOOL) checkpoint:(LVKFMDBCheckpointMode)mode name:(NSString *)name error:(NSError *__autoreleasing *)error
+{
     return [self checkpoint:mode name:name logFrameCount:NULL checkpointCount:NULL error:error];
 }
 
-- (BOOL) checkpoint:(LGVFMDBCheckpointMode)mode name:(NSString *)name logFrameCount:(int *_Nullable)logFrameCount checkpointCount:(int *_Nullable)checkpointCount error:(NSError *_Nullable *)error {
+- (BOOL) checkpoint:(LVKFMDBCheckpointMode)mode name:(NSString *)name logFrameCount:(int * _Nullable)logFrameCount checkpointCount:(int * _Nullable)checkpointCount error:(NSError *__autoreleasing _Nullable * _Nullable)error
+{
     __block BOOL result;
-    __block NSError *blockError;
 
-    LGVFMDBRetain(self);
+    LVKFMDBRetain(self);
     dispatch_sync(_queue, ^() {
-        result = [self.database checkpoint:mode name:name logFrameCount:NULL checkpointCount:NULL error:&blockError];
+        result = [self.database checkpoint:mode name:name logFrameCount:logFrameCount checkpointCount:checkpointCount error:error];
     });
-    LGVFMDBRelease(self);
+    LVKFMDBRelease(self);
 
-    if (error) {
-        *error = blockError;
-    }
     return result;
 }
 

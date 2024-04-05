@@ -14,19 +14,29 @@ NS_ASSUME_NONNULL_BEGIN
 #endif
 #endif
 
-@class LGVFMDatabase;
-@class LGVFMStatement;
+@class LVKFMDatabase;
+@class LVKFMStatement;
 
-/** Represents the results of executing a query on an `<LGVFMDatabase>`.
+/** Types for columns in a result set.
+ */
+typedef NS_ENUM(int, LVKSqliteValueType) {
+    LVKSqliteValueTypeInteger = 1,
+    LVKSqliteValueTypeFloat   = 2,
+    LVKSqliteValueTypeText    = 3,
+    LVKSqliteValueTypeBlob    = 4,
+    LVKSqliteValueTypeNull    = 5
+};
+
+/** Represents the results of executing a query on an @c LVKFMDatabase .
  *
- ### See also
- ###
- ###- `<LGVFMDatabase>`
+ * See also
+ *
+ * - @c LVKFMDatabase
  */
 
-@interface LGVFMResultSet : NSObject
+@interface LVKFMResultSet : NSObject
 
-@property (nonatomic, retain, nullable) LGVFMDatabase *parentDB;
+@property (nonatomic, retain, nullable) LVKFMDatabase *parentDB;
 
 ///-----------------
 /// @name Properties
@@ -40,24 +50,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readonly) NSMutableDictionary *columnNameToIndexMap;
 
-/** `LGVFMStatement` used by result set. */
+/** `LVKFMStatement` used by result set. */
 
-@property (atomic, retain, nullable) LGVFMStatement *statement;
+@property (atomic, retain, nullable) LVKFMStatement *statement;
 
 ///------------------------------------
 /// @name Creating and closing a result set
 ///------------------------------------
-
-/** Create result set from `<LGVFMStatement>`
- *
- * @param statement A `<LGVFMStatement>` to be performed
- *
- * @param aDB A `<LGVFMDatabase>` to be used
- *
- * @return A `LGVFMResultSet` on success; `nil` on failure
- */
-
-+ (instancetype) resultSetWithStatement :(LGVFMStatement *) statement usingParentDatabase :(LGVFMDatabase *) aDB;
 
 /** Close result set */
 
@@ -71,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * You must always invoke `next` or `nextWithError` before attempting to access the values returned in a query, even if you're only expecting one.
  *
- * @return `YES` if row successfully retrieved; `NO` if end of result set reached
+ * @return @c YES if row successfully retrieved; @c NO if end of result set reached
  *
  * @see hasAnotherRow
  */
@@ -89,15 +88,35 @@ NS_ASSUME_NONNULL_BEGIN
  * @see hasAnotherRow
  */
 
-- (BOOL) nextWithError :(NSError *_Nullable *) outErr;
+- (BOOL) nextWithError :(NSError * _Nullable __autoreleasing *) outErr;
+
+/** Perform SQL statement.
+ *
+ * @return 'YES' if successful; 'NO' if not.
+ *
+ * @see hasAnotherRow
+ */
+
+- (BOOL) step;
+
+/** Perform SQL statement.
+ *
+ * @param outErr A 'NSError' object to receive any error object (if any).
+ *
+ * @return 'YES' if successful; 'NO' if not.
+ *
+ * @see hasAnotherRow
+ */
+
+- (BOOL) stepWithError :(NSError * _Nullable __autoreleasing *) outErr;
 
 /** Did the last call to `<next>` succeed in retrieving another row?
  *
- * @return `YES` if the last call to `<next>` succeeded in retrieving another record; `NO` if not.
+ * @return 'YES' if there is another row; 'NO' if not.
  *
  * @see next
  *
- * @warning The `hasAnotherRow` method must follow a call to `<next>`. If the previous database interaction was something other than a call to `next`, then this method may return `NO`, whether there is another row of data or not.
+ * @warning The `hasAnotherRow` method must follow a call to `<next>`. If the previous database interaction was something other than a call to `next`, then this method may return @c NO, whether there is another row of data or not.
  */
 
 - (BOOL) hasAnotherRow;
@@ -115,7 +134,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Column index for column name
  *
- * @param columnName `NSString` value of the name of the column.
+ * @param columnName @c NSString  value of the name of the column.
  *
  * @return Zero-based index for column.
  */
@@ -126,16 +145,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param columnIdx Zero-based index for column.
  *
- * @return columnName `NSString` value of the name of the column.
+ * @return columnName @c NSString  value of the name of the column.
  */
 
-- (NSString *_Nullable) columnNameForIndex :(int) columnIdx;
+- (NSString * _Nullable) columnNameForIndex :(int) columnIdx;
 
 /** Result set integer value for column.
  *
- * @param columnName `NSString` value of the name of the column.
+ * @param columnName @c NSString  value of the name of the column.
  *
- * @return `int` value of the result set's column.
+ * @return @c int  value of the result set's column.
  */
 
 - (int) intForColumn :(NSString *) columnName;
@@ -144,16 +163,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param columnIdx Zero-based index for column.
  *
- * @return `int` value of the result set's column.
+ * @return @c int  value of the result set's column.
  */
 
 - (int) intForColumnIndex :(int) columnIdx;
 
-/** Result set `long` value for column.
+/** Result set @c long  value for column.
  *
- * @param columnName `NSString` value of the name of the column.
+ * @param columnName @c NSString  value of the name of the column.
  *
- * @return `long` value of the result set's column.
+ * @return @c long  value of the result set's column.
  */
 
 - (long) longForColumn :(NSString *) columnName;
@@ -162,14 +181,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param columnIdx Zero-based index for column.
  *
- * @return `long` value of the result set's column.
+ * @return @c long  value of the result set's column.
  */
 
 - (long) longForColumnIndex :(int) columnIdx;
 
 /** Result set `long long int` value for column.
  *
- * @param columnName `NSString` value of the name of the column.
+ * @param columnName @c NSString  value of the name of the column.
  *
  * @return `long long int` value of the result set's column.
  */
@@ -187,7 +206,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Result set `unsigned long long int` value for column.
  *
- * @param columnName `NSString` value of the name of the column.
+ * @param columnName @c NSString  value of the name of the column.
  *
  * @return `unsigned long long int` value of the result set's column.
  */
@@ -205,7 +224,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Result set `BOOL` value for column.
  *
- * @param columnName `NSString` value of the name of the column.
+ * @param columnName @c NSString  value of the name of the column.
  *
  * @return `BOOL` value of the result set's column.
  */
@@ -223,7 +242,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Result set `double` value for column.
  *
- * @param columnName `NSString` value of the name of the column.
+ * @param columnName @c NSString  value of the name of the column.
  *
  * @return `double` value of the result set's column.
  *
@@ -241,35 +260,35 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (double) doubleForColumnIndex :(int) columnIdx;
 
-/** Result set `NSString` value for column.
+/** Result set @c NSString  value for column.
  *
- * @param columnName `NSString` value of the name of the column.
+ * @param columnName @c NSString  value of the name of the column.
  *
  * @return String value of the result set's column.
  *
  */
 
-- (NSString *_Nullable) stringForColumn :(NSString *) columnName;
+- (NSString * _Nullable) stringForColumn :(NSString *) columnName;
 
-/** Result set `NSString` value for column.
+/** Result set @c NSString  value for column.
  *
  * @param columnIdx Zero-based index for column.
  *
  * @return String value of the result set's column.
  */
 
-- (NSString *_Nullable) stringForColumnIndex :(int) columnIdx;
+- (NSString * _Nullable) stringForColumnIndex :(int) columnIdx;
 
-/** Result set `NSDate` value for column.
+/** Result set @c NSDate  value for column.
  *
- * @param columnName `NSString` value of the name of the column.
+ * @param columnName @c NSString  value of the name of the column.
  *
  * @return Date value of the result set's column.
  */
 
-- (NSDate *_Nullable) dateForColumn :(NSString *) columnName;
+- (NSDate * _Nullable) dateForColumn :(NSString *) columnName;
 
-/** Result set `NSDate` value for column.
+/** Result set @c NSDate  value for column.
  *
  * @param columnIdx Zero-based index for column.
  *
@@ -277,39 +296,45 @@ NS_ASSUME_NONNULL_BEGIN
  *
  */
 
-- (NSDate *_Nullable) dateForColumnIndex :(int) columnIdx;
+- (NSDate * _Nullable) dateForColumnIndex :(int) columnIdx;
 
-/** Result set `NSData` value for column.
+/** Result set @c NSData  value for column.
  *
  * This is useful when storing binary data in table (such as image or the like).
  *
- * @param columnName `NSString` value of the name of the column.
+ * @param columnName @c NSString  value of the name of the column.
  *
  * @return Data value of the result set's column.
  *
  */
 
-- (NSData *_Nullable) dataForColumn :(NSString *) columnName;
+- (NSData * _Nullable) dataForColumn :(NSString *) columnName;
 
-/** Result set `NSData` value for column.
+/** Result set @c NSData  value for column.
  *
  * @param columnIdx Zero-based index for column.
+ *
+ * @warning For zero length BLOBs, this will return `nil`. Use `typeForColumn` to determine whether this was really a zero
+ *  length BLOB or `NULL`.
  *
  * @return Data value of the result set's column.
  */
 
-- (NSData *_Nullable) dataForColumnIndex :(int) columnIdx;
+- (NSData * _Nullable) dataForColumnIndex :(int) columnIdx;
 
 /** Result set `(const unsigned char *)` value for column.
  *
- * @param columnName `NSString` value of the name of the column.
+ * @param columnName @c NSString  value of the name of the column.
+ *
+ * @warning For zero length BLOBs, this will return `nil`. Use `typeForColumnIndex` to determine whether this was really a zero
+ * length BLOB or `NULL`.
  *
  * @return `(const unsigned char *)` value of the result set's column.
  */
 
-- (const unsigned char *_Nullable) UTF8StringForColumn :(NSString *) columnName;
+- (const unsigned char * _Nullable) UTF8StringForColumn :(NSString *) columnName;
 
-- (const unsigned char *_Nullable) UTF8StringForColumnName :(NSString *) columnName __deprecated_msg("Use UTF8StringForColumn instead");
+- (const unsigned char * _Nullable) UTF8StringForColumnName :(NSString *) columnName __deprecated_msg("Use UTF8StringForColumn instead");
 
 /** Result set `(const unsigned char *)` value for column.
  *
@@ -318,13 +343,13 @@ NS_ASSUME_NONNULL_BEGIN
  * @return `(const unsigned char *)` value of the result set's column.
  */
 
-- (const unsigned char *_Nullable) UTF8StringForColumnIndex :(int) columnIdx;
+- (const unsigned char * _Nullable) UTF8StringForColumnIndex :(int) columnIdx;
 
 /** Result set object for column.
  *
  * @param columnName Name of the column.
  *
- * @return Either `NSNumber`, `NSString`, `NSData`, or `NSNull`. If the column was `NULL`, this returns `[NSNull null]` object.
+ * @return Either @c NSNumber , @c NSString , @c NSData , or @c NSNull . If the column was @c NULL , this returns `[NSNull null]` object.
  *
  * @see objectForKeyedSubscript:
  */
@@ -333,11 +358,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (id _Nullable) objectForColumnName :(NSString *) columnName __deprecated_msg("Use objectForColumn instead");
 
+/** Column type by column name.
+ *
+ * @param columnName Name of the column.
+ *
+ * @return The `LVKSqliteValueType` of the value in this column.
+ */
+
+- (LVKSqliteValueType) typeForColumn :(NSString *) columnName;
+
+/** Column type by column index.
+ *
+ * @param columnIdx Index of the column.
+ *
+ * @return The `LVKSqliteValueType` of the value in this column.
+ */
+
+- (LVKSqliteValueType) typeForColumnIndex :(int) columnIdx;
+
+
 /** Result set object for column.
  *
  * @param columnIdx Zero-based index for column.
  *
- * @return Either `NSNumber`, `NSString`, `NSData`, or `NSNull`. If the column was `NULL`, this returns `[NSNull null]` object.
+ * @return Either @c NSNumber , @c NSString , @c NSData , or @c NSNull . If the column was @c NULL , this returns `[NSNull null]` object.
  *
  * @see objectAtIndexedSubscript:
  */
@@ -348,19 +392,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * This method allows the use of the "boxed" syntax supported in Modern Objective-C. For example, by defining this method, the following syntax is now supported:
  *
- *  id result = rs[@"employee_name"];
+ * @code
+ * id result = rs[@"employee_name"];
+ * @endcode
  *
  * This simplified syntax is equivalent to calling:
  *
- *  id result = [rs objectForKeyedSubscript:@"employee_name"];
+ * @code
+ * id result = [rs objectForKeyedSubscript:@"employee_name"];
+ * @endcode
  *
  * which is, it turns out, equivalent to calling:
  *
- *  id result = [rs objectForColumnName:@"employee_name"];
+ * @code
+ * id result = [rs objectForColumnName:@"employee_name"];
+ * @endcode
  *
- * @param columnName `NSString` value of the name of the column.
+ * @param columnName @c NSString  value of the name of the column.
  *
- * @return Either `NSNumber`, `NSString`, `NSData`, or `NSNull`. If the column was `NULL`, this returns `[NSNull null]` object.
+ * @return Either @c NSNumber , @c NSString , @c NSData , or @c NSNull . If the column was @c NULL , this returns `[NSNull null]` object.
  */
 
 - (id _Nullable) objectForKeyedSubscript :(NSString *) columnName;
@@ -369,26 +419,32 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * This method allows the use of the "boxed" syntax supported in Modern Objective-C. For example, by defining this method, the following syntax is now supported:
  *
- *  id result = rs[0];
+ * @code
+ * id result = rs[0];
+ * @endcode
  *
  * This simplified syntax is equivalent to calling:
  *
- *  id result = [rs objectForKeyedSubscript:0];
+ * @code
+ * id result = [rs objectForKeyedSubscript:0];
+ * @endcode
  *
  * which is, it turns out, equivalent to calling:
  *
- *  id result = [rs objectForColumnName:0];
+ * @code
+ * id result = [rs objectForColumnName:0];
+ * @endcode
  *
  * @param columnIdx Zero-based index for column.
  *
- * @return Either `NSNumber`, `NSString`, `NSData`, or `NSNull`. If the column was `NULL`, this returns `[NSNull null]` object.
+ * @return Either @c NSNumber , @c NSString , @c NSData , or @c NSNull . If the column was @c NULL , this returns `[NSNull null]` object.
  */
 
 - (id _Nullable) objectAtIndexedSubscript :(int) columnIdx;
 
-/** Result set `NSData` value for column.
+/** Result set @c NSData  value for column.
  *
- * @param columnName `NSString` value of the name of the column.
+ * @param columnName @c NSString  value of the name of the column.
  *
  * @return Data value of the result set's column.
  *
@@ -398,9 +454,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  */
 
-- (NSData *_Nullable) dataNoCopyForColumn :(NSString *) columnName NS_RETURNS_NOT_RETAINED;
+- (NSData * _Nullable) dataNoCopyForColumn :(NSString *) columnName NS_RETURNS_NOT_RETAINED;
 
-/** Result set `NSData` value for column.
+/** Result set @c NSData  value for column.
  *
  * @param columnIdx Zero-based index for column.
  *
@@ -412,22 +468,22 @@ NS_ASSUME_NONNULL_BEGIN
  *
  */
 
-- (NSData *_Nullable) dataNoCopyForColumnIndex :(int) columnIdx NS_RETURNS_NOT_RETAINED;
+- (NSData * _Nullable) dataNoCopyForColumnIndex :(int) columnIdx NS_RETURNS_NOT_RETAINED;
 
-/** Is the column `NULL`?
+/** Is the column @c NULL ?
  *
  * @param columnIdx Zero-based index for column.
  *
- * @return `YES` if column is `NULL`; `NO` if not `NULL`.
+ * @return @c YES if column is @c NULL ; @c NO if not @c NULL .
  */
 
 - (BOOL) columnIndexIsNull :(int) columnIdx;
 
-/** Is the column `NULL`?
+/** Is the column @c NULL ?
  *
- * @param columnName `NSString` value of the name of the column.
+ * @param columnName @c NSString  value of the name of the column.
  *
- * @return `YES` if column is `NULL`; `NO` if not `NULL`.
+ * @return @c YES if column is @c NULL ; @c NO if not @c NULL .
  */
 
 - (BOOL) columnIsNull :(NSString *) columnName;
@@ -447,7 +503,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @warning **Deprecated**: Please use `<resultDictionary>` instead.  Also, beware that `<resultDictionary>` is case sensitive!
  */
 
-- (NSDictionary *_Nullable) resultDict __deprecated_msg("Use resultDictionary instead");
+- (NSDictionary * _Nullable) resultDict __deprecated_msg("Use resultDictionary instead");
 
 ///-----------------------------
 /// @name Key value coding magic
@@ -461,6 +517,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) kvcMagic :(id) object;
 
+///-----------------------------
+/// @name Binding values
+///-----------------------------
+
+/// Bind array of values to prepared statement.
+///
+/// @param array Array of values to bind to SQL statement.
+
+- (BOOL) bindWithArray :(NSArray *) array;
+
+/// Bind dictionary of values to prepared statement.
+///
+/// @param dictionary Dictionary of values to bind to SQL statement.
+
+- (BOOL) bindWithDictionary :(NSDictionary *) dictionary;
 
 @end
 

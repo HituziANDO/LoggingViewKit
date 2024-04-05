@@ -1,37 +1,43 @@
-#import "LGVFMDatabase.h"
-#import "LGVFMResultSet.h"
+#import "LVKFMDatabase.h"
+#import "LVKFMResultSet.h"
 #import <unistd.h>
 
-#if LGVFMDB_SQLITE_STANDALONE
+#if LVKFMDB_SQLITE_STANDALONE
 #import <sqlite3/sqlite3.h>
 #else
-
 #import <sqlite3.h>
-
 #endif
 
-@interface LGVFMDatabase ()
-- (void) resultSetDidClose:(LGVFMResultSet *)resultSet;
+// MARK: - LVKFMDatabase Private Extension
+
+@interface LVKFMDatabase ()
+- (void) resultSetDidClose:(LVKFMResultSet *)resultSet;
+- (BOOL) bindStatement:(sqlite3_stmt *)pStmt WithArgumentsInArray:(NSArray *)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args;
 @end
 
-@interface LGVFMResultSet () {
+// MARK: - LVKFMResultSet Private Extension
+
+@interface LVKFMResultSet () {
     NSMutableDictionary *_columnNameToIndexMap;
 }
+@property (nonatomic) BOOL shouldAutoClose;
 @end
 
-@implementation LGVFMResultSet
+// MARK: - LVKFMResultSet
 
-+ (instancetype) resultSetWithStatement:(LGVFMStatement *)statement usingParentDatabase:(LGVFMDatabase *)aDB {
+@implementation LVKFMResultSet
 
-    LGVFMResultSet *rs = [[LGVFMResultSet alloc] init];
++ (instancetype) resultSetWithStatement:(LVKFMStatement *)statement usingParentDatabase:(LVKFMDatabase *)aDB shouldAutoClose:(BOOL)shouldAutoClose {
+    LVKFMResultSet *rs = [[LVKFMResultSet alloc] init];
 
     [rs setStatement:statement];
     [rs setParentDB:aDB];
+    [rs setShouldAutoClose:shouldAutoClose];
 
     NSParameterAssert(![statement inUse]);
     [statement setInUse:YES]; // weak reference
 
-    return LGVFMDBReturnAutoreleased(rs);
+    return LVKFMDBReturnAutoreleased(rs);
 }
 
 #if !__has_feature(objc_arc)
@@ -44,10 +50,10 @@
 - (void) dealloc {
     [self close];
 
-    LGVFMDBRelease(_query);
+    LVKFMDBRelease(_query);
     _query = nil;
 
-    LGVFMDBRelease(_columnNameToIndexMap);
+    LVKFMDBRelease(_columnNameToIndexMap);
     _columnNameToIndexMap = nil;
 
 #if !__has_feature(objc_arc)
@@ -57,7 +63,7 @@
 
 - (void) close {
     [_statement reset];
-    LGVFMDBRelease(_statement);
+    LVKFMDBRelease(_statement);
     _statement = nil;
 
     // we don't need this anymore... (i think)
@@ -119,7 +125,7 @@
             [dict setObject:objectValue forKey:columnName];
         }
 
-        return LGVFMDBReturnAutoreleased([dict copy]);
+        return LVKFMDBReturnAutoreleased([dict copy]);
     }
     else {
         NSLog(@"Warning: There seem to be no columns in this set.");
@@ -156,13 +162,27 @@
     return nil;
 }
 
-
 - (BOOL) next {
     return [self nextWithError:nil];
 }
 
-- (BOOL) nextWithError:(NSError **)outErr {
+- (BOOL) nextWithError:(NSError * _Nullable __autoreleasing *)outErr {
+    int rc = [self internalStepWithError:outErr];
 
+    return rc == SQLITE_ROW;
+}
+
+- (BOOL) step {
+    return [self stepWithError:nil];
+}
+
+- (BOOL) stepWithError:(NSError * _Nullable __autoreleasing *)outErr {
+    int rc = [self internalStepWithError:outErr];
+
+    return rc == SQLITE_DONE;
+}
+
+- (int) internalStepWithError:(NSError * _Nullable __autoreleasing *)outErr {
     int rc = sqlite3_step([_statement statement]);
 
     if (SQLITE_BUSY == rc || SQLITE_LOCKED == rc) {
@@ -192,7 +212,7 @@
                 // If 'next' or 'nextWithError' is called after the result set is closed,
                 // we need to return the appropriate error.
                 NSDictionary *errorMessage = [NSDictionary dictionaryWithObject:@"parentDB does not exist" forKey:NSLocalizedDescriptionKey];
-                *outErr = [NSError errorWithDomain:@"LGVFMDatabase" code:SQLITE_MISUSE userInfo:errorMessage];
+                *outErr = [NSError errorWithDomain:@"LVKFMDatabase" code:SQLITE_MISUSE userInfo:errorMessage];
             }
 
         }
@@ -205,12 +225,11 @@
         }
     }
 
-
-    if (rc != SQLITE_ROW) {
+    if (rc != SQLITE_ROW && _shouldAutoClose) {
         [self close];
     }
 
-    return rc == SQLITE_ROW;
+    return rc;
 }
 
 - (BOOL) hasAnotherRow {
@@ -416,6 +435,14 @@
     return [self objectForColumnIndex:[self columnIndexForName:columnName]];
 }
 
+- (LVKSqliteValueType) typeForColumn:(NSString *)columnName {
+    return sqlite3_column_type([_statement statement], [self columnIndexForName:columnName]);
+}
+
+- (LVKSqliteValueType) typeForColumnIndex:(int)columnIdx {
+    return sqlite3_column_type([_statement statement], columnIdx);
+}
+
 // returns autoreleased NSString containing the name of the column in the result set
 - (NSString *) columnNameForIndex:(int)columnIdx {
     return [NSString stringWithUTF8String:sqlite3_column_name([_statement statement], columnIdx)];
@@ -429,5 +456,19 @@
     return [self objectForColumn:columnName];
 }
 
+// MARK: Bind
+
+- (BOOL) bindWithArray:(NSArray *)array orDictionary:(NSDictionary *)dictionary orVAList:(va_list)args {
+    [_statement reset];
+    return [_parentDB bindStatement:_statement.statement WithArgumentsInArray:array orDictionary:dictionary orVAList:args];
+}
+
+- (BOOL) bindWithArray:(NSArray *)array {
+    return [self bindWithArray:array orDictionary:nil orVAList:nil];
+}
+
+- (BOOL) bindWithDictionary:(NSDictionary *)dictionary {
+    return [self bindWithArray:nil orDictionary:dictionary orVAList:nil];
+}
 
 @end

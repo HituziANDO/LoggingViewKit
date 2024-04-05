@@ -24,7 +24,7 @@
 //  SOFTWARE.
 //
 
-#import "LGVFMDB.h"
+#import "LVKFMDB.h"
 
 #import "LGVSQLiteDatabase.h"
 
@@ -32,7 +32,7 @@
 
 @interface LGVSQLiteDatabase ()
 
-@property (nonatomic) LGVFMDatabase *db;
+@property (nonatomic) LVKFMDatabase *db;
 
 @end
 
@@ -52,7 +52,7 @@ static NSString *const TestDatabaseName = @"logging_view_kit_test.db";
 + (instancetype) databaseWithPath:(NSString *)path {
     LGVSQLiteDatabase *database = [LGVSQLiteDatabase new];
 
-    database.db = [LGVFMDatabase databaseWithPath:path];
+    database.db = [LVKFMDatabase databaseWithPath:path];
     [database createTable];
 
     return database;
@@ -128,7 +128,7 @@ static NSString *const TestDatabaseName = @"logging_view_kit_test.db";
         return @[];
     }
 
-    LGVFMResultSet *results = [self.db executeQuery:sql];
+    LVKFMResultSet *results = [self.db executeQuery:sql];
     NSArray *logs = [self parseResult:results];
 
     [self.db close];
@@ -147,7 +147,7 @@ static NSString *const TestDatabaseName = @"logging_view_kit_test.db";
         return nil;
     }
 
-    LGVFMResultSet *results = [self.db executeQuery:sql withParameterDictionary:@{ @"key": key }];
+    LVKFMResultSet *results = [self.db executeQuery:sql withParameterDictionary:@{ @"key": key }];
     NSArray *logs = [self parseResult:results];
 
     [self.db close];
@@ -162,7 +162,7 @@ static NSString *const TestDatabaseName = @"logging_view_kit_test.db";
         return @[];
     }
 
-    LGVFMResultSet *results = [self.db executeQuery:sql];
+    LVKFMResultSet *results = [self.db executeQuery:sql];
     NSArray *logs = [self parseResult:results];
 
     [self.db close];
@@ -234,7 +234,7 @@ static NSString *const TestDatabaseName = @"logging_view_kit_test.db";
     [self.db close];
 }
 
-- (NSArray<LGVLog *> *) parseResult:(LGVFMResultSet *)results {
+- (NSArray<LGVLog *> *) parseResult:(LVKFMResultSet *)results {
     NSMutableArray *logs = [NSMutableArray new];
 
     while ([results next]) {

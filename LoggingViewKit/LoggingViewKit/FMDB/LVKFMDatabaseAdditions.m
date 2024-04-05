@@ -1,33 +1,31 @@
 //
-//  LGVFMDatabaseAdditions.m
+//  FMDatabaseAdditions.m
 //  fmdb
 //
 //  Created by August Mueller on 10/30/05.
 //  Copyright 2005 Flying Meat Inc.. All rights reserved.
 //
 
-#import "LGVFMDatabase.h"
-#import "LGVFMDatabaseAdditions.h"
+#import "LVKFMDatabase.h"
+#import "LVKFMDatabaseAdditions.h"
 #import "TargetConditionals.h"
 
-#if LGVFMDB_SQLITE_STANDALONE
+#if LVKFMDB_SQLITE_STANDALONE
 #import <sqlite3/sqlite3.h>
 #else
-
 #import <sqlite3.h>
-
 #endif
 
-@interface LGVFMDatabase (PrivateStuff)
-- (LGVFMResultSet *) executeQuery:(NSString *)sql withArgumentsInArray:(NSArray *_Nullable)arrayArgs orDictionary:(NSDictionary *_Nullable)dictionaryArgs orVAList:(va_list)args;
+@interface LVKFMDatabase (PrivateStuff)
+- (LVKFMResultSet * _Nullable) executeQuery:(NSString *)sql withArgumentsInArray:(NSArray * _Nullable)arrayArgs orDictionary:(NSDictionary * _Nullable)dictionaryArgs orVAList:(va_list)args shouldBind:(BOOL)shouldBind;
 @end
 
-@implementation LGVFMDatabase (LGVFMDatabaseAdditions)
+@implementation LVKFMDatabase (FMDatabaseAdditions)
 
 #define RETURN_RESULT_FOR_QUERY_WITH_SELECTOR(type, sel)             \
         va_list args;                                                        \
         va_start(args, query);                                               \
-        LGVFMResultSet *resultSet = [self executeQuery:query withArgumentsInArray:0x00 orDictionary:0x00 orVAList:args];   \
+        LVKFMResultSet *resultSet = [self executeQuery:query withArgumentsInArray:0x00 orDictionary:0x00 orVAList:args shouldBind:true];   \
         va_end(args);                                                        \
         if (![resultSet next]) { return (type) 0; }                           \
         type ret = [resultSet sel:0];                                        \
@@ -69,7 +67,7 @@
 
     tableName = [tableName lowercaseString];
 
-    LGVFMResultSet *rs = [self executeQuery:@"select [sql] from sqlite_master where [type] = 'table' and lower(name) = ?", tableName];
+    LVKFMResultSet *rs = [self executeQuery:@"select [sql] from sqlite_master where [type] = 'table' and lower(name) = ?", tableName];
 
     // if at least one next exists, table exists
     BOOL returnBool = [rs next];
@@ -84,10 +82,10 @@
  * get table with list of tables: result colums: type[STRING], name[STRING],tbl_name[STRING],rootpage[INTEGER],sql[STRING]
  * check if table exist in database  (patch from OZLB)
  */
-- (LGVFMResultSet *_Nullable) getSchema {
+- (LVKFMResultSet * _Nullable) getSchema {
 
     // result colums: type[STRING], name[STRING],tbl_name[STRING],rootpage[INTEGER],sql[STRING]
-    LGVFMResultSet *rs = [self executeQuery:@"SELECT type, name, tbl_name, rootpage, sql FROM (SELECT * FROM sqlite_master UNION ALL SELECT * FROM sqlite_temp_master) WHERE type != 'meta' AND name NOT LIKE 'sqlite_%' ORDER BY tbl_name, type DESC, name"];
+    LVKFMResultSet *rs = [self executeQuery:@"SELECT type, name, tbl_name, rootpage, sql FROM (SELECT * FROM sqlite_master UNION ALL SELECT * FROM sqlite_temp_master) WHERE type != 'meta' AND name NOT LIKE 'sqlite_%' ORDER BY tbl_name, type DESC, name"];
 
     return rs;
 }
@@ -95,10 +93,10 @@
 /*
  * get table schema: result colums: cid[INTEGER], name,type [STRING], notnull[INTEGER], dflt_value[],pk[INTEGER]
  */
-- (LGVFMResultSet *_Nullable) getTableSchema:(NSString *)tableName {
+- (LVKFMResultSet * _Nullable) getTableSchema:(NSString *)tableName {
 
     // result colums: cid[INTEGER], name,type [STRING], notnull[INTEGER], dflt_value[],pk[INTEGER]
-    LGVFMResultSet *rs = [self executeQuery:[NSString stringWithFormat:@"pragma table_info('%@')", tableName]];
+    LVKFMResultSet *rs = [self executeQuery:[NSString stringWithFormat:@"pragma table_info('%@')", tableName]];
 
     return rs;
 }
@@ -110,7 +108,7 @@
     tableName = [tableName lowercaseString];
     columnName = [columnName lowercaseString];
 
-    LGVFMResultSet *rs = [self getTableSchema:tableName];
+    LVKFMResultSet *rs = [self getTableSchema:tableName];
 
     // check if column is present in table schema
     while ([rs next]) {
@@ -120,18 +118,19 @@
         }
     }
 
-    // If this is not done LGVFMDatabase instance stays out of pool
+    // If this is not done LVKFMDatabase instance stays out of pool
     [rs close];
 
     return returnBool;
 }
 
 
+
 - (uint32_t) applicationID {
 #if SQLITE_VERSION_NUMBER >= 3007017
     uint32_t r = 0;
 
-    LGVFMResultSet *rs = [self executeQuery:@"pragma application_id"];
+    LVKFMResultSet *rs = [self executeQuery:@"pragma application_id"];
 
     if ([rs next]) {
         r = (uint32_t) [rs longLongIntForColumnIndex:0];
@@ -141,7 +140,7 @@
 
     return r;
 #else
-    NSString *errorMessage = NSLocalizedStringFromTable(@"Application ID functions require SQLite 3.7.17", @"LGVFMDB", nil);
+    NSString *errorMessage = NSLocalizedStringFromTable(@"Application ID functions require SQLite 3.7.17", @"LVKFMDB", nil);
     if (self.logsErrors) {
         NSLog(@"%@", errorMessage);
     }
@@ -152,11 +151,11 @@
 - (void) setApplicationID:(uint32_t)appID {
 #if SQLITE_VERSION_NUMBER >= 3007017
     NSString *query = [NSString stringWithFormat:@"pragma application_id=%d", appID];
-    LGVFMResultSet *rs = [self executeQuery:query];
+    LVKFMResultSet *rs = [self executeQuery:query];
     [rs next];
     [rs close];
 #else
-    NSString *errorMessage = NSLocalizedStringFromTable(@"Application ID functions require SQLite 3.7.17", @"LGVFMDB", nil);
+    NSString *errorMessage = NSLocalizedStringFromTable(@"Application ID functions require SQLite 3.7.17", @"LVKFMDB", nil);
     if (self.logsErrors) {
         NSLog(@"%@", errorMessage);
     }
@@ -177,7 +176,7 @@
 
     return s;
 #else
-    NSString *errorMessage = NSLocalizedStringFromTable(@"Application ID functions require SQLite 3.7.17", @"LGVFMDB", nil);
+    NSString *errorMessage = NSLocalizedStringFromTable(@"Application ID functions require SQLite 3.7.17", @"LVKFMDB", nil);
     if (self.logsErrors) {
         NSLog(@"%@", errorMessage);
     }
@@ -193,7 +192,7 @@
 
     [self setApplicationID:NSHFSTypeCodeFromFileType([NSString stringWithFormat:@"'%@'", s])];
 #else
-    NSString *errorMessage = NSLocalizedStringFromTable(@"Application ID functions require SQLite 3.7.17", @"LGVFMDB", nil);
+    NSString *errorMessage = NSLocalizedStringFromTable(@"Application ID functions require SQLite 3.7.17", @"LVKFMDB", nil);
     if (self.logsErrors) {
         NSLog(@"%@", errorMessage);
     }
@@ -205,7 +204,7 @@
 - (uint32_t) userVersion {
     uint32_t r = 0;
 
-    LGVFMResultSet *rs = [self executeQuery:@"pragma user_version"];
+    LVKFMResultSet *rs = [self executeQuery:@"pragma user_version"];
 
     if ([rs next]) {
         r = (uint32_t) [rs longLongIntForColumnIndex:0];
@@ -217,7 +216,7 @@
 
 - (void) setUserVersion:(uint32_t)version {
     NSString *query = [NSString stringWithFormat:@"pragma user_version = %d", version];
-    LGVFMResultSet *rs = [self executeQuery:query];
+    LVKFMResultSet *rs = [self executeQuery:query];
 
     [rs next];
     [rs close];
@@ -232,7 +231,7 @@
 
 #pragma clang diagnostic pop
 
-- (BOOL) validateSQL:(NSString *)sql error:(NSError **)error {
+- (BOOL) validateSQL:(NSString *)sql error:(NSError * _Nullable __autoreleasing *)error {
     sqlite3_stmt *pStmt = NULL;
     BOOL validationSucceeded = YES;
 
