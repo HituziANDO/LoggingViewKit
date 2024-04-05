@@ -121,15 +121,33 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  */
 - (void) deleteLogsByEventType:(NSString *) eventType NS_SWIFT_NAME(deleteLogs(eventType:));
 /**
- * Records a click event.
+ * Records a click event. To save the event is executed asynchronously.
+ *
+ * @param attribute An attribute of the target view.
  */
 - (void) click:(LGVLoggingAttribute *)attribute;
 /**
- * Records a custom event.
+ * Records a click event. To save the event is executed asynchronously.
+ *
+ * @param attribute An attribute of the target view.
+ * @param completionHandler A block to be executed when the click event is saved to the database.
+ */
+- (void) click:(LGVLoggingAttribute *)attribute completionHandler:(void (^ _Nullable)(void))completionHandler;
+/**
+ * Records a custom event. To save the event is executed asynchronously.
  *
  * @param eventType An event type. This value is used as a type of the log.
+ * @param attribute An attribute of the event.
  */
 - (void) customEvent:(NSString *)eventType attribute:(LGVLoggingAttribute *)attribute;
+/**
+ * Records a custom event. To save the event is executed asynchronously.
+ *
+ * @param eventType An event type. This value is used as a type of the log.
+ * @param attribute An attribute of the event.
+ * @param completionHandler A block to be executed when the custom event is saved to the database.
+ */
+- (void) customEvent:(NSString *)eventType attribute:(LGVLoggingAttribute *)attribute completionHandler:(void (^ _Nullable)(void))completionHandler;
 @end
 
 NS_ASSUME_NONNULL_END
