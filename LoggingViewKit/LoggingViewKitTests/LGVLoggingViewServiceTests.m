@@ -97,7 +97,7 @@
     XCTAssertEqual(1, [LGVLoggingViewService.sharedService counterWithName:@"TestCounter2"].count);
 }
 
-- (void) testReturn_Counter_as_nil_If_Service_Not_Started {
+- (void) testReturn_Counter_As_nil_If_Service_Not_Started {
     [LGVLoggingViewService.sharedService stopRecording];
 
     XCTAssertFalse(LGVLoggingViewService.sharedService.isRecording);
@@ -105,16 +105,16 @@
     XCTAssertNil([LGVLoggingViewService.sharedService counterWithName:@"TestCounter3"]);
 }
 
-- (void) testCount_Number_Of_Days_Used {
-    LVKCounterOfNumberOfDaysUsed *counter = [LGVLoggingViewService.sharedService counterOfNumberOfDaysUsed];
+- (void) testCan_Increase_Once_A_Day {
+    LVKCounter *counter = [LGVLoggingViewService.sharedService counterWithName:@"TestCounter"];
 
     XCTAssertEqual(0, counter.count);
 
-    XCTAssertTrue([counter increase]);
-    XCTAssertFalse([counter increase]);
+    XCTAssertTrue([counter increaseWithCondition:LVKIncrementConditionOnceADay]);
+    XCTAssertFalse([counter increaseWithCondition:LVKIncrementConditionOnceADay]);
 
     XCTAssertEqual(1, counter.count);
-    XCTAssertEqual(1, [LGVLoggingViewService.sharedService counterOfNumberOfDaysUsed].count);
+    XCTAssertEqual(1, [LGVLoggingViewService.sharedService counterWithName:@"TestCounter"].count);
 }
 
 @end

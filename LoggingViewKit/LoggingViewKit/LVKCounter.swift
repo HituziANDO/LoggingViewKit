@@ -65,16 +65,38 @@ public class LVKCounter: NSObject {
 public extension LVKCounter {
     /// Increases the count adding 1 value.
     ///
-    /// - Returns: true If succeeded, otherwise false.
+    /// - Returns: true If this counter increases the count, otherwise false.
     @discardableResult
     func increase() -> Bool {
-        // If the count is max, the counter stops because it crashes when added to the maximum
-        // value.
-        if count < Int64.max {
-            count = count + 1
-        }
+        increase(withCondition: .anyTime)
+    }
 
-        return save()
+    /// Increases the count adding 1 value if the condition is met.
+    ///
+    /// - Parameter condition: The condition to increase the count.
+    /// - Returns: true If this counter increases the count, otherwise false.
+    @discardableResult
+    func increase(withCondition condition: LVKIncrementCondition) -> Bool {
+        switch condition {
+            case .onceADay:
+                let df = localDateFormat("yyyyMMdd")
+                let day1 = Int(df.string(from: Date()))!
+                let day2: Int
+                if let updatedAt {
+                    day2 = Int(df.string(from: updatedAt))!
+                } else {
+                    day2 = 0
+                }
+                if day1 > day2 {
+                    addOne()
+                    return save()
+                } else {
+                    return false
+                }
+            default:
+                addOne()
+                return save()
+        }
     }
 
     /// Resets the counter to the initial value.
@@ -89,8 +111,24 @@ public extension LVKCounter {
 }
 
 private extension LVKCounter {
+    func addOne() {
+        // If the count is max, the counter stops because it crashes when added to the maximum
+        // value.
+        if count < Int64.max {
+            count = count + 1
+        }
+    }
+
     func save() -> Bool {
         updatedAt = Date()
         return db.save?(self) ?? false
+    }
+
+    func localDateFormat(_ format: String) -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .gregorian)
+        formatter.locale = .current
+        formatter.dateFormat = format
+        return formatter
     }
 }
