@@ -20,7 +20,7 @@ public class LVKCounter: NSObject {
     @objc
     public let createdAt: Date
     /// The date that the counter was updated at.
-    private var updatedAt: Date?
+    var updatedAt: Date?
     /// The date last updated.
     @objc
     public var lastUpdatedAt: Date {

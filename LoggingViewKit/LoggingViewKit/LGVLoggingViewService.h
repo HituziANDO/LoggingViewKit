@@ -38,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class LGVLoggingViewService;
 @class LGVRealTimeLogger;
 @class LVKCounter;
+@class LVKCounterOfNumberOfDaysUsed;
 
 @protocol LGVDatabase;
 
@@ -164,6 +165,12 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  * @return A counter object.
  */
 - (nullable LVKCounter *) counterWithName:(NSString *) name NS_SWIFT_NAME(counter(name:));
+/**
+ * Gets the counter to count up the number of days used app. If the service is not started, this method returns nil.
+ *
+ * @return A counter object.
+ */
+- (nullable LVKCounterOfNumberOfDaysUsed *) counterOfNumberOfDaysUsed NS_SWIFT_NAME(counterOfNumberOfDaysUsed());
 @end
 
 NS_ASSUME_NONNULL_END

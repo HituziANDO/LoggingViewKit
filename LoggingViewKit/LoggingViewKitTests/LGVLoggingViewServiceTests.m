@@ -105,4 +105,16 @@
     XCTAssertNil([LGVLoggingViewService.sharedService counterWithName:@"TestCounter3"]);
 }
 
+- (void) testCount_Number_Of_Days_Used {
+    LVKCounterOfNumberOfDaysUsed *counter = [LGVLoggingViewService.sharedService counterOfNumberOfDaysUsed];
+
+    XCTAssertEqual(0, counter.count);
+
+    XCTAssertTrue([counter increase]);
+    XCTAssertFalse([counter increase]);
+
+    XCTAssertEqual(1, counter.count);
+    XCTAssertEqual(1, [LGVLoggingViewService.sharedService counterOfNumberOfDaysUsed].count);
+}
+
 @end

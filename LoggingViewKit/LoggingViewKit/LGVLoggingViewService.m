@@ -222,6 +222,25 @@ static LGVLoggingViewService *_loggingViewService = nil;
     }
 }
 
+- (LVKCounterOfNumberOfDaysUsed *) counterOfNumberOfDaysUsed {
+    if (!self.isRecording) {
+        return nil;
+    }
+
+    LVKCounter *obj;
+
+    if ([self.defaultDatabase respondsToSelector:@selector(counterByName:)]) {
+        obj = [self.defaultDatabase counterByName:@"_NumberOfDaysUsed"];
+    }
+
+    if (obj) {
+        return [[LVKCounterOfNumberOfDaysUsed alloc] initWithCounter:obj];
+    }
+    else {
+        return [[LVKCounterOfNumberOfDaysUsed alloc] initWithCounter:[[LVKCounter alloc] initWithName:@"_NumberOfDaysUsed" database:self.defaultDatabase]];
+    }
+}
+
 #pragma mark - private method
 
 - (id <LGVDatabase>) defaultDatabase {
