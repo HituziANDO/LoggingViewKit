@@ -18,7 +18,7 @@
 
 
 - (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    NSLog(@"version: %@", LGVLoggingViewService.versionString);
 
     // Enable debug logging.
     LGVRealTimeLogger *logger = [LGVRealTimeLogger new];
