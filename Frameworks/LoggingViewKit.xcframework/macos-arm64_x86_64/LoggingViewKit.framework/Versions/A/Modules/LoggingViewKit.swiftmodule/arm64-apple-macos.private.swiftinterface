@@ -24,24 +24,19 @@ import _SwiftConcurrencyShims
   @objc @discardableResult
   dynamic public func increase() -> Swift.Bool
   @objc @discardableResult
-  dynamic public func reset(initialValue: Swift.Int64 = 0) -> Swift.Bool
-}
-@objc(LVKCounterOfNumberOfDaysUsed) public class LVKCounterOfNumberOfDaysUsed : ObjectiveC.NSObject {
-  @objc public init(counter: LoggingViewKit.LVKCounter)
-  @objc deinit
-}
-@objc extension LoggingViewKit.LVKCounterOfNumberOfDaysUsed {
-  @objc dynamic public var count: Swift.Int64 {
-    @objc get
-  }
-  @objc dynamic public var createdAt: Foundation.Date {
-    @objc get
-  }
-  @objc dynamic public var lastUpdatedAt: Foundation.Date {
-    @objc get
-  }
-  @objc @discardableResult
-  dynamic public func increase() -> Swift.Bool
+  dynamic public func increase(withCondition condition: LoggingViewKit.LVKIncrementCondition) -> Swift.Bool
   @objc @discardableResult
   dynamic public func reset(initialValue: Swift.Int64 = 0) -> Swift.Bool
 }
+@objc(LVKIncrementCondition) public enum LVKIncrementCondition : Swift.Int {
+  case anyTime
+  case onceADay
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension LoggingViewKit.LVKIncrementCondition : Swift.Equatable {}
+extension LoggingViewKit.LVKIncrementCondition : Swift.Hashable {}
+extension LoggingViewKit.LVKIncrementCondition : Swift.RawRepresentable {}

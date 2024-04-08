@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/LGVLoggingViewService.h</key>
 		<data>
-		B8oUzdk07RmGM5KHb7fy/YuJzGU=
+		1BvmM3LxoIKxIEhduUxFdmiPUIQ=
 		</data>
 		<key>Headers/LGVRealTimeLogger.h</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>Headers/LoggingViewKit-Swift.h</key>
 		<data>
-		dbWi7koeGlKtO082QRkJ8Qm32YU=
+		DPP4uPq0PM9Kb8dsMQ6TnJlCbbw=
 		</data>
 		<key>Headers/LoggingViewKit.h</key>
 		<data>
@@ -82,47 +82,47 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		qS/rCQRR1Ba+ZPFmrCj42ivyKmI=
+		6XV9hm1eVuRg9gu2tsWPuiC5FqI=
 		</data>
 		<key>Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		94Z9Gr2oADY4ZxZGFEODQPT5Xgs=
+		Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
 		</data>
 		<key>Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		/0YAuAHJ/7ae+Eu/ub1vK1iA1Pc=
+		X/ekr5aLoZgm5HHamMuunEmaVfg=
 		</data>
 		<key>Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		9IIPxk5XweFYrbD3iON37tF9GC0=
+		fWulVrn6MVJ9HdlVRpINUY/mAwI=
 		</data>
 		<key>Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		/0YAuAHJ/7ae+Eu/ub1vK1iA1Pc=
+		X/ekr5aLoZgm5HHamMuunEmaVfg=
 		</data>
 		<key>Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		O4xCW7n8JU+xHAcPBskC9xNsGkc=
+		DnCyYM2StuO5uRBFQofVXgPkQOY=
 		</data>
 		<key>Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		94Z9Gr2oADY4ZxZGFEODQPT5Xgs=
+		Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
 		</data>
 		<key>Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		rFi5Ekr42gHGsNTsdOTZ03gs2Z8=
+		mJhIRIN7ttQYTt6GOomCgBuXtjc=
 		</data>
 		<key>Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		UwKR8Nh2AU0YvT209cMZ5xpu6gE=
+		kXZnnKKZlnmCtGm0iJ6anOhu8wQ=
 		</data>
 		<key>Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		rFi5Ekr42gHGsNTsdOTZ03gs2Z8=
+		mJhIRIN7ttQYTt6GOomCgBuXtjc=
 		</data>
 		<key>Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		X6NuTfLWYR8vukKSfCxscvhEI8Q=
+		0Z0kK5GdZZmJZs2T2lIb4CpvE5w=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -181,7 +181,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			57SwZ53SeFnvdTj00cZf/6nJIYS0gZMCrAXvEq+ZV1g=
+			pEH0hgDNqnK4zN1pIWI1GFII5LgHpIdJVeI1w4UIya8=
 			</data>
 		</dict>
 		<key>Headers/LGVRealTimeLogger.h</key>
@@ -258,7 +258,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6xsgn2B2ADHohMJE+QnUPsyEtMvodmMilSvloK1gzmE=
+			j07Kqk9yL8o0Bnv8D+Oqi/31ePpKPct/ANtORFFDONo=
 			</data>
 		</dict>
 		<key>Headers/LoggingViewKit.h</key>
@@ -272,70 +272,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zlb2xR0Dy1+yDzOvOE/devIwYZ7H3lsi2xbMKk3u0BQ=
+			0V78DkPeqS5FC763tncMWlaZUrFCYGxke3wJUy+vc+I=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DhwbF/PTUFoZfii6OvKZd2HdM71y1rf9uHDDH3e5R5M=
+			26wb5Kq2E17jmWs4y+CGdMF4tx9+MhwfuAVv0Ldaj+Y=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rmCuHDi2HSKVQSG5IICPiiqTOhxVWTih9jQRtelxdVc=
+			R0454vlO06Spebv5N4nB3RsXV+aJ7gAyDOs6LaxzBCg=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DhwbF/PTUFoZfii6OvKZd2HdM71y1rf9uHDDH3e5R5M=
+			26wb5Kq2E17jmWs4y+CGdMF4tx9+MhwfuAVv0Ldaj+Y=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Lns12hZnwa/PWU+oQomxEt/U3ak2VByoYaFiSfJH5xQ=
+			OdH6gp1M6/49+e3IOo91KzXRQMZ0KG/FD+MWOG4JDuo=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zlb2xR0Dy1+yDzOvOE/devIwYZ7H3lsi2xbMKk3u0BQ=
+			0V78DkPeqS5FC763tncMWlaZUrFCYGxke3wJUy+vc+I=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1T4H13D2cejfw/z+Uf4WhkfKoWBqplfz55zxUiXWC0M=
+			w5Jl1pR41vCa1VmWeLHRerGhqOAN0zkvp0vC0fWF25w=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ED5YzwE2oRXEuAFyqsZxJfKVbZTZmCFmllv+T4o7NKA=
+			LjgjyX5mIxKwu0PUxVaaySYrFBn1CcmTgfD0Y9FjKeU=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			1T4H13D2cejfw/z+Uf4WhkfKoWBqplfz55zxUiXWC0M=
+			w5Jl1pR41vCa1VmWeLHRerGhqOAN0zkvp0vC0fWF25w=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RGSI4dJ2Nup8/iKFbbrWnvNi0dD7s6nrapAurrgNus0=
+			UDlSzry5qmLcohR6ywDnF4tThw32dRPVry9CN/eE3gA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

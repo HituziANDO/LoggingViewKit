@@ -367,6 +367,37 @@
           },
           {
             "kind": "Function",
+            "name": "increase",
+            "printedName": "increase(withCondition:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LVKIncrementCondition",
+                "printedName": "LoggingViewKit.LVKIncrementCondition",
+                "usr": "c:@M@LoggingViewKit@E@LVKIncrementCondition"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@LoggingViewKit@objc(cs)LVKCounter(im)increaseWithCondition:",
+            "mangledName": "$s14LoggingViewKit10LVKCounterC8increase13withConditionSbAA012LVKIncrementG0O_tF",
+            "moduleName": "LoggingViewKit",
+            "declAttributes": [
+              "Dynamic",
+              "DiscardableResult",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "reset",
             "printedName": "reset(initialValue:)",
             "children": [
@@ -475,86 +506,143 @@
       },
       {
         "kind": "TypeDecl",
-        "name": "LVKCounterOfNumberOfDaysUsed",
-        "printedName": "LVKCounterOfNumberOfDaysUsed",
+        "name": "LVKIncrementCondition",
+        "printedName": "LVKIncrementCondition",
         "children": [
           {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(counter:)",
+            "kind": "Var",
+            "name": "anyTime",
+            "printedName": "anyTime",
             "children": [
               {
-                "kind": "TypeNominal",
-                "name": "LVKCounterOfNumberOfDaysUsed",
-                "printedName": "LoggingViewKit.LVKCounterOfNumberOfDaysUsed",
-                "usr": "c:@M@LoggingViewKit@objc(cs)LVKCounterOfNumberOfDaysUsed"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "LVKCounter",
-                "printedName": "LoggingViewKit.LVKCounter",
-                "usr": "c:@M@LoggingViewKit@objc(cs)LVKCounter"
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(LoggingViewKit.LVKIncrementCondition.Type) -> LoggingViewKit.LVKIncrementCondition",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LVKIncrementCondition",
+                    "printedName": "LoggingViewKit.LVKIncrementCondition",
+                    "usr": "c:@M@LoggingViewKit@E@LVKIncrementCondition"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "LoggingViewKit.LVKIncrementCondition.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LVKIncrementCondition",
+                        "printedName": "LoggingViewKit.LVKIncrementCondition",
+                        "usr": "c:@M@LoggingViewKit@E@LVKIncrementCondition"
+                      }
+                    ]
+                  }
+                ]
               }
             ],
-            "declKind": "Constructor",
-            "usr": "c:@M@LoggingViewKit@objc(cs)LVKCounterOfNumberOfDaysUsed(im)initWithCounter:",
-            "mangledName": "$s14LoggingViewKit018LVKCounterOfNumberE8DaysUsedC7counterAcA0D0C_tcfc",
+            "declKind": "EnumElement",
+            "usr": "c:@M@LoggingViewKit@E@LVKIncrementCondition@LVKIncrementConditionAnyTime",
+            "mangledName": "$s14LoggingViewKit21LVKIncrementConditionO7anyTimeyA2CmF",
             "moduleName": "LoggingViewKit",
-            "objc_name": "initWithCounter:",
             "declAttributes": [
-              "AccessControl",
+              "RawDocComment",
               "ObjC"
             ],
-            "init_kind": "Designated"
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "onceADay",
+            "printedName": "onceADay",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(LoggingViewKit.LVKIncrementCondition.Type) -> LoggingViewKit.LVKIncrementCondition",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LVKIncrementCondition",
+                    "printedName": "LoggingViewKit.LVKIncrementCondition",
+                    "usr": "c:@M@LoggingViewKit@E@LVKIncrementCondition"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "LoggingViewKit.LVKIncrementCondition.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LVKIncrementCondition",
+                        "printedName": "LoggingViewKit.LVKIncrementCondition",
+                        "usr": "c:@M@LoggingViewKit@E@LVKIncrementCondition"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@LoggingViewKit@E@LVKIncrementCondition@LVKIncrementConditionOnceADay",
+            "mangledName": "$s14LoggingViewKit21LVKIncrementConditionO8onceADayyA2CmF",
+            "moduleName": "LoggingViewKit",
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
           },
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init()",
+            "printedName": "init(rawValue:)",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "LVKCounterOfNumberOfDaysUsed",
-                "printedName": "LoggingViewKit.LVKCounterOfNumberOfDaysUsed",
-                "usr": "c:@M@LoggingViewKit@objc(cs)LVKCounterOfNumberOfDaysUsed"
+                "name": "Optional",
+                "printedName": "LoggingViewKit.LVKIncrementCondition?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LVKIncrementCondition",
+                    "printedName": "LoggingViewKit.LVKIncrementCondition",
+                    "usr": "c:@M@LoggingViewKit@E@LVKIncrementCondition"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@LoggingViewKit@objc(cs)LVKCounterOfNumberOfDaysUsed(im)init",
-            "mangledName": "$s14LoggingViewKit018LVKCounterOfNumberE8DaysUsedCACycfc",
+            "usr": "s:14LoggingViewKit21LVKIncrementConditionO8rawValueACSgSi_tcfc",
+            "mangledName": "$s14LoggingViewKit21LVKIncrementConditionO8rawValueACSgSi_tcfc",
             "moduleName": "LoggingViewKit",
-            "overriding": true,
             "implicit": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
             "init_kind": "Designated"
           },
           {
             "kind": "Var",
-            "name": "count",
-            "printedName": "count",
+            "name": "rawValue",
+            "printedName": "rawValue",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Int64",
-                "printedName": "Swift.Int64",
-                "usr": "s:s5Int64V"
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
               }
             ],
             "declKind": "Var",
-            "usr": "c:@CM@LoggingViewKit@objc(cs)LVKCounterOfNumberOfDaysUsed(py)count",
-            "mangledName": "$s14LoggingViewKit018LVKCounterOfNumberE8DaysUsedC5counts5Int64Vvp",
+            "usr": "s:14LoggingViewKit21LVKIncrementConditionO8rawValueSivp",
+            "mangledName": "$s14LoggingViewKit21LVKIncrementConditionO8rawValueSivp",
             "moduleName": "LoggingViewKit",
-            "declAttributes": [
-              "Dynamic",
-              "RawDocComment",
-              "ObjC"
-            ],
-            "isFromExtension": true,
+            "implicit": true,
             "accessors": [
               {
                 "kind": "Accessor",
@@ -563,192 +651,31 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Int64",
-                    "printedName": "Swift.Int64",
-                    "usr": "s:s5Int64V"
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@CM@LoggingViewKit@objc(cs)LVKCounterOfNumberOfDaysUsed(im)count",
-                "mangledName": "$s14LoggingViewKit018LVKCounterOfNumberE8DaysUsedC5counts5Int64Vvg",
+                "usr": "s:14LoggingViewKit21LVKIncrementConditionO8rawValueSivg",
+                "mangledName": "$s14LoggingViewKit21LVKIncrementConditionO8rawValueSivg",
                 "moduleName": "LoggingViewKit",
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
+                "implicit": true,
                 "accessorKind": "get"
               }
             ]
-          },
-          {
-            "kind": "Var",
-            "name": "createdAt",
-            "printedName": "createdAt",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Date",
-                "printedName": "Foundation.Date",
-                "usr": "s:10Foundation4DateV"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@LoggingViewKit@objc(cs)LVKCounterOfNumberOfDaysUsed(py)createdAt",
-            "mangledName": "$s14LoggingViewKit018LVKCounterOfNumberE8DaysUsedC9createdAt10Foundation4DateVvp",
-            "moduleName": "LoggingViewKit",
-            "declAttributes": [
-              "Dynamic",
-              "RawDocComment",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Date",
-                    "printedName": "Foundation.Date",
-                    "usr": "s:10Foundation4DateV"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@LoggingViewKit@objc(cs)LVKCounterOfNumberOfDaysUsed(im)createdAt",
-                "mangledName": "$s14LoggingViewKit018LVKCounterOfNumberE8DaysUsedC9createdAt10Foundation4DateVvg",
-                "moduleName": "LoggingViewKit",
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "lastUpdatedAt",
-            "printedName": "lastUpdatedAt",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Date",
-                "printedName": "Foundation.Date",
-                "usr": "s:10Foundation4DateV"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@LoggingViewKit@objc(cs)LVKCounterOfNumberOfDaysUsed(py)lastUpdatedAt",
-            "mangledName": "$s14LoggingViewKit018LVKCounterOfNumberE8DaysUsedC13lastUpdatedAt10Foundation4DateVvp",
-            "moduleName": "LoggingViewKit",
-            "declAttributes": [
-              "Dynamic",
-              "RawDocComment",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Date",
-                    "printedName": "Foundation.Date",
-                    "usr": "s:10Foundation4DateV"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@LoggingViewKit@objc(cs)LVKCounterOfNumberOfDaysUsed(im)lastUpdatedAt",
-                "mangledName": "$s14LoggingViewKit018LVKCounterOfNumberE8DaysUsedC13lastUpdatedAt10Foundation4DateVvg",
-                "moduleName": "LoggingViewKit",
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Function",
-            "name": "increase",
-            "printedName": "increase()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@LoggingViewKit@objc(cs)LVKCounterOfNumberOfDaysUsed(im)increase",
-            "mangledName": "$s14LoggingViewKit018LVKCounterOfNumberE8DaysUsedC8increaseSbyF",
-            "moduleName": "LoggingViewKit",
-            "declAttributes": [
-              "Dynamic",
-              "DiscardableResult",
-              "RawDocComment",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "reset",
-            "printedName": "reset(initialValue:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int64",
-                "printedName": "Swift.Int64",
-                "hasDefaultArg": true,
-                "usr": "s:s5Int64V"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@LoggingViewKit@objc(cs)LVKCounterOfNumberOfDaysUsed(im)resetWithInitialValue:",
-            "mangledName": "$s14LoggingViewKit018LVKCounterOfNumberE8DaysUsedC5reset12initialValueSbs5Int64V_tF",
-            "moduleName": "LoggingViewKit",
-            "declAttributes": [
-              "Dynamic",
-              "DiscardableResult",
-              "RawDocComment",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
           }
         ],
-        "declKind": "Class",
-        "usr": "c:@M@LoggingViewKit@objc(cs)LVKCounterOfNumberOfDaysUsed",
-        "mangledName": "$s14LoggingViewKit018LVKCounterOfNumberE8DaysUsedC",
+        "declKind": "Enum",
+        "usr": "c:@M@LoggingViewKit@E@LVKIncrementCondition",
+        "mangledName": "$s14LoggingViewKit21LVKIncrementConditionO",
         "moduleName": "LoggingViewKit",
-        "objc_name": "LVKCounterOfNumberOfDaysUsed",
+        "objc_name": "LVKIncrementCondition",
         "declAttributes": [
           "AccessControl",
-          "ObjC",
-          "RawDocComment"
+          "ObjC"
         ],
-        "superclassUsr": "c:objc(cs)NSObject",
-        "superclassNames": [
-          "ObjectiveC.NSObject"
-        ],
+        "enumRawTypeName": "Int",
         "conformances": [
           {
             "kind": "Conformance",
@@ -766,38 +693,25 @@
           },
           {
             "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
           }
         ]
       }
@@ -815,23 +729,23 @@
     {
       "filePath": "\/Users\/masakiando\/Dropbox\/dev\/repo\/libs\/LoggingViewKit\/LoggingViewKit\/LoggingViewKit\/LVKCounter.swift",
       "kind": "IntegerLiteral",
-      "offset": 2327,
+      "offset": 3133,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/masakiando\/Dropbox\/dev\/repo\/libs\/LoggingViewKit\/LoggingViewKit\/LoggingViewKit\/LVKCounterOfNumberOfDaysUsed.swift",
-      "kind": "StringLiteral",
-      "offset": 291,
-      "length": 28,
-      "value": "\"LoggingViewKit.LVKCounterOfNumberOfDaysUsed\""
-    },
-    {
-      "filePath": "\/Users\/masakiando\/Dropbox\/dev\/repo\/libs\/LoggingViewKit\/LoggingViewKit\/LoggingViewKit\/LVKCounterOfNumberOfDaysUsed.swift",
+      "filePath": "\/Users\/masakiando\/Dropbox\/dev\/repo\/libs\/LoggingViewKit\/LoggingViewKit\/LoggingViewKit\/LVKIncrementCondition.swift",
       "kind": "IntegerLiteral",
-      "offset": 1731,
-      "length": 1,
-      "value": "0"
+      "offset": 465,
+      "length": 8,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/masakiando\/Dropbox\/dev\/repo\/libs\/LoggingViewKit\/LoggingViewKit\/LoggingViewKit\/LVKIncrementCondition.swift",
+      "kind": "IntegerLiteral",
+      "offset": 465,
+      "length": 8,
+      "value": "1"
     }
   ]
 }

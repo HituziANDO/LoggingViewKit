@@ -335,45 +335,21 @@ SWIFT_CLASS_NAMED("LVKCounter")
 @end
 
 
+enum LVKIncrementCondition : NSInteger;
 
 @interface LVKCounter (SWIFT_EXTENSION (LoggingViewKit))
 /// Increases the count adding 1 value.
 ///
 /// returns:
-/// true If succeeded, otherwise false.
+/// true If this counter increases the count, otherwise false.
 - (BOOL) increase;
-/// Resets the counter to the initial value.
-/// \param initialValue The initial value. Default is zero.
+/// Increases the count adding 1 value if the condition is met.
+/// \param condition The condition to increase the count.
 ///
-///
-/// returns:
-/// true If succeeded, otherwise false.
-- (BOOL) resetWithInitialValue:(int64_t)initialValue;
-@end
-
-
-/// The counter to count up the number of days used app.
-SWIFT_CLASS_NAMED("LVKCounterOfNumberOfDaysUsed")
-@interface LVKCounterOfNumberOfDaysUsed : NSObject
-- (nonnull instancetype) initWithCounter:(LVKCounter * _Nonnull)counter OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype) init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype) new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-
-@interface LVKCounterOfNumberOfDaysUsed (SWIFT_EXTENSION (LoggingViewKit))
-/// The value of the counter.
-@property (nonatomic, readonly) int64_t count;
-/// The date that is created to use the counter.
-@property (nonatomic, readonly, copy) NSDate * _Nonnull createdAt;
-/// The date that the counter was updated at.
-@property (nonatomic, readonly, copy) NSDate * _Nonnull lastUpdatedAt;
-/// Increases the count adding 1 value if the day is different from the last updated day.
 ///
 /// returns:
 /// true If this counter increases the count, otherwise false.
-- (BOOL) increase;
+- (BOOL) increaseWithCondition:(enum LVKIncrementCondition)condition;
 /// Resets the counter to the initial value.
 /// \param initialValue The initial value. Default is zero.
 ///
@@ -382,6 +358,14 @@ SWIFT_CLASS_NAMED("LVKCounterOfNumberOfDaysUsed")
 /// true If succeeded, otherwise false.
 - (BOOL) resetWithInitialValue:(int64_t)initialValue;
 @end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, LVKIncrementCondition, "LVKIncrementCondition", open) {
+/// Can be incremented at any time.
+    LVKIncrementConditionAnyTime = 0,
+/// Can be incremented once a day. If the execution day of the counter is greater than the last
+/// updated day, the counter can be increased.
+    LVKIncrementConditionOnceADay = 1,
+};
 
 #endif
 #if __has_attribute(external_source_symbol)
@@ -728,45 +712,21 @@ SWIFT_CLASS_NAMED("LVKCounter")
 @end
 
 
+enum LVKIncrementCondition : NSInteger;
 
 @interface LVKCounter (SWIFT_EXTENSION (LoggingViewKit))
 /// Increases the count adding 1 value.
 ///
 /// returns:
-/// true If succeeded, otherwise false.
+/// true If this counter increases the count, otherwise false.
 - (BOOL) increase;
-/// Resets the counter to the initial value.
-/// \param initialValue The initial value. Default is zero.
+/// Increases the count adding 1 value if the condition is met.
+/// \param condition The condition to increase the count.
 ///
-///
-/// returns:
-/// true If succeeded, otherwise false.
-- (BOOL) resetWithInitialValue:(int64_t)initialValue;
-@end
-
-
-/// The counter to count up the number of days used app.
-SWIFT_CLASS_NAMED("LVKCounterOfNumberOfDaysUsed")
-@interface LVKCounterOfNumberOfDaysUsed : NSObject
-- (nonnull instancetype) initWithCounter:(LVKCounter * _Nonnull)counter OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype) init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype) new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-
-@interface LVKCounterOfNumberOfDaysUsed (SWIFT_EXTENSION (LoggingViewKit))
-/// The value of the counter.
-@property (nonatomic, readonly) int64_t count;
-/// The date that is created to use the counter.
-@property (nonatomic, readonly, copy) NSDate * _Nonnull createdAt;
-/// The date that the counter was updated at.
-@property (nonatomic, readonly, copy) NSDate * _Nonnull lastUpdatedAt;
-/// Increases the count adding 1 value if the day is different from the last updated day.
 ///
 /// returns:
 /// true If this counter increases the count, otherwise false.
-- (BOOL) increase;
+- (BOOL) increaseWithCondition:(enum LVKIncrementCondition)condition;
 /// Resets the counter to the initial value.
 /// \param initialValue The initial value. Default is zero.
 ///
@@ -775,6 +735,14 @@ SWIFT_CLASS_NAMED("LVKCounterOfNumberOfDaysUsed")
 /// true If succeeded, otherwise false.
 - (BOOL) resetWithInitialValue:(int64_t)initialValue;
 @end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, LVKIncrementCondition, "LVKIncrementCondition", open) {
+/// Can be incremented at any time.
+    LVKIncrementConditionAnyTime = 0,
+/// Can be incremented once a day. If the execution day of the counter is greater than the last
+/// updated day, the counter can be increased.
+    LVKIncrementConditionOnceADay = 1,
+};
 
 #endif
 #if __has_attribute(external_source_symbol)
