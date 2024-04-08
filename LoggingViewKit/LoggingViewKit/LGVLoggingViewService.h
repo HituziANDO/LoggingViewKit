@@ -93,6 +93,10 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  * If you set the logger object, LoggingViewService outputs a log.
  */
 @property (nonatomic, nullable) LGVRealTimeLogger *logger;
+/**
+ * Tells whether the service is started.
+ */
+@property (nonatomic, readonly) BOOL isRecording;
 
 /**
  * Returns the singleton instance.
@@ -102,11 +106,11 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
 + (instancetype) sharedService;
 
 /**
- * Starts recording logs.
+ * Starts the service.
  */
 - (void) startRecording;
 /**
- * Stops recording logs.
+ * Stops the service.
  */
 - (void) stopRecording;
 /**
@@ -154,12 +158,12 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  */
 - (void) customEvent:(NSString *)eventType attribute:(LGVLoggingAttribute *)attribute completionHandler:(void (^ _Nullable)(void))completionHandler;
 /**
- * Gets the counter of given name.
+ * Gets the counter of given name. If the service is not started, this method returns nil.
  *
  * @param name A name of the counter.
  * @return A counter object.
  */
-- (LVKCounter *) counterWithName:(NSString *) name NS_SWIFT_NAME(counter(name:));
+- (nullable LVKCounter *) counterWithName:(NSString *) name NS_SWIFT_NAME(counter(name:));
 @end
 
 NS_ASSUME_NONNULL_END

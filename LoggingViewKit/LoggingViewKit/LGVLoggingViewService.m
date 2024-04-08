@@ -204,6 +204,10 @@ static LGVLoggingViewService *_loggingViewService = nil;
 }
 
 - (LVKCounter *) counterWithName:(NSString *)name {
+    if (!self.isRecording) {
+        return nil;
+    }
+
     LVKCounter *obj;
 
     if ([self.defaultDatabase respondsToSelector:@selector(counterByName:)]) {

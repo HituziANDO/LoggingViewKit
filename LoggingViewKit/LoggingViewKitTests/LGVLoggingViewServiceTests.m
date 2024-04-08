@@ -96,4 +96,12 @@
     XCTAssertEqual(1, [LGVLoggingViewService.sharedService counterWithName:@"TestCounter2"].count);
 }
 
+- (void) testReturn_Counter_as_nil_If_Service_Not_Started {
+    [LGVLoggingViewService.sharedService stopRecording];
+
+    XCTAssertFalse(LGVLoggingViewService.sharedService.isRecording);
+
+    XCTAssertNil([LGVLoggingViewService.sharedService counterWithName:@"TestCounter3"]);
+}
+
 @end
