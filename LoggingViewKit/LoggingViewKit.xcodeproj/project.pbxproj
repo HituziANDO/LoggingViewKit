@@ -97,8 +97,8 @@
 		5E82BABB2BBFF1FF00450476 /* LVKFMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E82BAA52BBFF1FF00450476 /* LVKFMDatabaseQueue.h */; };
 		5E82BABD2BC3806B00450476 /* LVKCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E82BABC2BC3806B00450476 /* LVKCounter.swift */; };
 		5E82BABE2BC3806B00450476 /* LVKCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E82BABC2BC3806B00450476 /* LVKCounter.swift */; };
-		5E82BAC42BC3DF9D00450476 /* LVKCounterOfNumberOfDaysUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E82BAC32BC3DF9D00450476 /* LVKCounterOfNumberOfDaysUsed.swift */; };
-		5E82BAC52BC3DF9D00450476 /* LVKCounterOfNumberOfDaysUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E82BAC32BC3DF9D00450476 /* LVKCounterOfNumberOfDaysUsed.swift */; };
+		5E82BAC72BC41F8300450476 /* LVKIncrementCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E82BAC62BC41F8300450476 /* LVKIncrementCondition.swift */; };
+		5E82BAC82BC41F8300450476 /* LVKIncrementCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E82BAC62BC41F8300450476 /* LVKIncrementCondition.swift */; };
 		5EAD161D2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD161C2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy */; };
 		5EAD161E2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD161C2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
@@ -164,7 +164,7 @@
 		5E82BAA42BBFF1FF00450476 /* LVKFMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVKFMDatabase.m; sourceTree = "<group>"; };
 		5E82BAA52BBFF1FF00450476 /* LVKFMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVKFMDatabaseQueue.h; sourceTree = "<group>"; };
 		5E82BABC2BC3806B00450476 /* LVKCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVKCounter.swift; sourceTree = "<group>"; };
-		5E82BAC32BC3DF9D00450476 /* LVKCounterOfNumberOfDaysUsed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVKCounterOfNumberOfDaysUsed.swift; sourceTree = "<group>"; };
+		5E82BAC62BC41F8300450476 /* LVKIncrementCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVKIncrementCondition.swift; sourceTree = "<group>"; };
 		5EAD161C2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -261,7 +261,7 @@
 				5E34DE322890D5B200FC06FF /* LoggingViewKit.docc */,
 				5E34DE312890D5B200FC06FF /* LoggingViewKit.h */,
 				5E82BABC2BC3806B00450476 /* LVKCounter.swift */,
-				5E82BAC32BC3DF9D00450476 /* LVKCounterOfNumberOfDaysUsed.swift */,
+				5E82BAC62BC41F8300450476 /* LVKIncrementCondition.swift */,
 			);
 			path = LoggingViewKit;
 			sourceTree = "<group>";
@@ -509,13 +509,13 @@
 				5E01ECA92A01777A003AD471 /* LGVLoggingAttribute.m in Sources */,
 				5E82BAB92BBFF1FF00450476 /* LVKFMDatabase.m in Sources */,
 				5E01ECAA2A01777A003AD471 /* LGVLoggingViewService.m in Sources */,
+				5E82BAC82BC41F8300450476 /* LVKIncrementCondition.swift in Sources */,
 				5E01ECAB2A01777A003AD471 /* LGVRealTimeLogger.m in Sources */,
 				5E82BAB52BBFF1FF00450476 /* LVKFMDatabasePool.m in Sources */,
 				5E82BAB32BBFF1FF00450476 /* LVKFMDatabaseQueue.m in Sources */,
 				5E82BAAF2BBFF1FF00450476 /* LVKFMDatabaseAdditions.m in Sources */,
 				5E01ECAC2A01777A003AD471 /* LGVSQLiteDatabase.m in Sources */,
 				5E82BAA92BBFF1FF00450476 /* LVKFMResultSet.m in Sources */,
-				5E82BAC52BC3DF9D00450476 /* LVKCounterOfNumberOfDaysUsed.swift in Sources */,
 				5E01ECAD2A01777A003AD471 /* LGVViewHierarchy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -539,10 +539,10 @@
 				19E597FB5A536048051AEF25 /* LGVLabel.m in Sources */,
 				19E59DB4C6B7522E1621BFA5 /* LGVSegmentedControl.m in Sources */,
 				19E5989EA8552B62B53A9B99 /* LGVSlider.m in Sources */,
+				5E82BAC72BC41F8300450476 /* LVKIncrementCondition.swift in Sources */,
 				19E5953DC4DF6D982B85529B /* LGVStepper.m in Sources */,
 				19E5955BF1E185134794DFCA /* LGVSwitch.m in Sources */,
 				5E82BAA82BBFF1FF00450476 /* LVKFMResultSet.m in Sources */,
-				5E82BAC42BC3DF9D00450476 /* LVKCounterOfNumberOfDaysUsed.swift in Sources */,
 				19E5973A1998FEF74B752BD7 /* LGVTextField.m in Sources */,
 				5E82BAB42BBFF1FF00450476 /* LVKFMDatabasePool.m in Sources */,
 				19E590C7AF5BEEF722F59447 /* LGVTextView.m in Sources */,
