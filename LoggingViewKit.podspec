@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "LoggingViewKit"
-  s.version               = "6.0.0"
+  s.version               = "6.0.1"
   s.summary               = "LoggingViewKit is simple view logging library."
   s.description           = <<-DESC
   LoggingViewKit is a library tracking a user operation.
