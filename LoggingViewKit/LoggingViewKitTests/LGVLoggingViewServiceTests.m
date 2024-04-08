@@ -79,6 +79,7 @@
     XCTAssertTrue([counter increase]);
 
     XCTAssertEqual(3, counter.count);
+    XCTAssertEqual(3, [LGVLoggingViewService.sharedService counterWithName:@"TestCounter1"].count);
     XCTAssertEqualObjects(@"TestCounter1", counter.name);
 }
 

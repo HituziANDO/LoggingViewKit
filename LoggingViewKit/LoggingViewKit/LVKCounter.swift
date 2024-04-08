@@ -35,12 +35,8 @@ public class LVKCounter: NSObject {
     ///   - name: The name of the counter.
     ///   - db: The database.
     @objc
-    public init(name: String, database db: LGVDatabase) {
-        self.name = name
-        count = 0
-        createdAt = Date()
-        updatedAt = nil
-        self.db = db
+    public convenience init(name: String, database db: LGVDatabase) {
+        self.init(name: name, count: 0, createdAt: Date(), updatedAt: nil, database: db)
     }
 
     /// Initializes using arguments.
@@ -60,31 +56,41 @@ public class LVKCounter: NSObject {
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.db = db
-    }
 
+        super.init()
+    }
+}
+
+@objc
+public extension LVKCounter {
     /// Increases the count adding 1 value.
     ///
     /// - Returns: true If succeeded, otherwise false.
-    @objc
     @discardableResult
-    public func increase() -> Bool {
+    func increase() -> Bool {
         // If the count is max, the counter stops because it crashes when added to the maximum
         // value.
         if count < Int64.max {
             count = count + 1
         }
 
-        return db.save?(self) ?? false
+        return save()
     }
 
     /// Resets the counter to the initial value.
     ///
     /// - Parameter initialValue: The initial value. Default is zero.
     /// - Returns: true If succeeded, otherwise false.
-    @objc
     @discardableResult
-    public func reset(initialValue: Int64 = 0) -> Bool {
+    func reset(initialValue: Int64 = 0) -> Bool {
         count = initialValue
+        return save()
+    }
+}
+
+private extension LVKCounter {
+    func save() -> Bool {
+        updatedAt = Date()
         return db.save?(self) ?? false
     }
 }
