@@ -44,7 +44,17 @@ NS_ASSUME_NONNULL_BEGIN
  * @return New instance
  */
 + (instancetype) databaseWithPath:(NSString *)path;
-
+/**
+ * Creates an instance that has a test database file path.
+ * This database should be used for testing.
+ *
+ * @return New instance
+ */
++ (instancetype) testDatabase;
+/**
+ * Deletes the test database. This method deletes the SQLite database file for testing.
+ */
++ (void) deleteTestDatabase;
 @end
 
 NS_ASSUME_NONNULL_END

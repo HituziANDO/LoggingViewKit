@@ -29,14 +29,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class LGVLog;
+@class LVKCounter;
 
 @protocol LGVDatabase <NSObject>
 @required
 /**
  * Adds given log to the database.
  *
- * @param log Saving log
- * @return YES if success, otherwise NO
+ * @param log Saving log.
+ * @return YES if success, otherwise NO.
  */
 - (BOOL) addLog:(LGVLog *)log;
 
@@ -61,7 +62,26 @@ NS_ASSUME_NONNULL_BEGIN
  * Deletes logs by given event type.
  */
 - (void) deleteLogsByEventType:(NSString *)eventType;
-
+/**
+ * Reads the counter by given name. If not found it, this method returns nil.
+ *
+ * @param name The name of the counter.
+ * @return A counter.
+ */
+- (nullable LVKCounter *) counterByName:(NSString *)name;
+/**
+ * Saves given counter to the database. If the counter is not added, this method adds it. Otherwise, this method updates it.
+ *
+ * @param counter Saving counter.
+ * @return YES if success, otherwise NO.
+ */
+- (BOOL) saveCounter:(LVKCounter *)counter;
+/**
+ * Deletes the counter by given name.
+ *
+ * @param name The name of the counter.
+ */
+- (void) deleteCounterByName:(NSString *)name;
 @end
 
 NS_ASSUME_NONNULL_END

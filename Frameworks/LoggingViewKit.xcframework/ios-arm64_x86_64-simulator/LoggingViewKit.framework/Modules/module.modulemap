@@ -4,3 +4,8 @@ framework module LoggingViewKit {
 
   module * { export * }
 }
+
+module LoggingViewKit.Swift {
+  header "LoggingViewKit-Swift.h"
+  requires objc
+}
