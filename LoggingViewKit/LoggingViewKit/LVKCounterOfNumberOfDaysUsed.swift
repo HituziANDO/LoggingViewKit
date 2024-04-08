@@ -28,6 +28,16 @@ public extension LVKCounterOfNumberOfDaysUsed {
         counter.count
     }
 
+    /// The date that is created to use the counter.
+    var createdAt: Date {
+        counter.createdAt
+    }
+
+    /// The date that the counter was updated at.
+    var lastUpdatedAt: Date {
+        counter.lastUpdatedAt
+    }
+
     /// Increases the count adding 1 value if the day is different from the last updated day.
     ///
     /// - Returns: true If this counter increases the count, otherwise false.
