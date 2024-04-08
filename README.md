@@ -10,12 +10,12 @@ LoggingViewKit is a framework records a user's click operation.
 
 ## Include in Your Project
 
-### Carthage
+### Swift Package Manager
 
-LoggingViewKit is available through [Carthage](https://github.com/Carthage/Carthage). To install it, simply add the following line to your Cartfile:
+LoggingViewKit is available through Swift Package Manager. To install it using Xcode, specify the git URL for LoggingViewKit.
 
 ```
-github "HituziANDO/LoggingViewKit"
+https://github.com/HituziANDO/LoggingViewKit
 ```
 
 ### CocoaPods
@@ -27,26 +27,18 @@ it, simply add the following line to your Podfile:
 pod "LoggingViewKit"
 ```
 
-### Swift Package Manager
+### Carthage
 
-LoggingViewKit is available through Swift Package Manager. To install it using Xcode, specify the git URL for LoggingViewKit.
+LoggingViewKit is available through [Carthage](https://github.com/Carthage/Carthage). To install it, simply add the following line to your Cartfile:
 
 ```
-https://github.com/HituziANDO/LoggingViewKit
+github "HituziANDO/LoggingViewKit"
 ```
 
 ## Import framework
 
-**Swift**
-
 ```swift
 import LoggingViewKit
-```
-
-**Objective-C**
-
-```objc
-#import <LoggingViewKit/LoggingViewKit.h>
 ```
 
 ## Usage
@@ -54,8 +46,6 @@ import LoggingViewKit
 1. Programmatically write click event
 	
 	In following code, `buttonPressed` method is set to the action method of UIButton.
-	
-	**Swift**
 	
 	```swift
 	@objc func buttonPressed(_ sender: Any) {
@@ -67,74 +57,29 @@ import LoggingViewKit
        LGVLoggingViewService.shared().click(attr)
    }
 	```
-	
-	**Objective-C**
-	
-	```objc
-	- (void)buttonPressed:(id)sender {
-       // Records a click event.
-       LGVLoggingAttribute *attr = [LGVLoggingAttribute attributeWithView:sender
-                                                                     name:@"SampleButton"
-                                                           loggingEnabled:YES];
-       attr.info = @{ @"more-info": @"test" };
-       [[LGVLoggingViewService sharedService] click:attr];
-   }
-	```
 
 1. Start recording
-	
-	**Swift**
-	
+
 	```swift	
 	LGVLoggingViewService.shared().startRecording()
 	```
-	
-	**Objective-C**
-	
-	```objc	
-	[[LGVLoggingViewService sharedService] startRecording];
-	```	
 
 1. Stop recording
-	
-	**Swift**
-	
+
 	```swift
 	LGVLoggingViewService.shared().stopRecording()
 	```
-	
-	**Objective-C**
-	
-	```objc
-	[[LGVLoggingViewService sharedService] stopRecording];
-	```
 
 1. Read all logs
-	
-	**Swift**
-	
+
 	```swift
 	let logs = LGVLoggingViewService.shared().allLogs()
 	```
-	
-	**Objective-C**
-	
-	```objc
-	NSArray<LGVLog *> *logs = [[LGVLoggingViewService sharedService] allLogs];
-	```
 
 1. Delete all logs
-	
-	**Swift**
-	
+
 	```swift
 	LGVLoggingViewService.shared().deleteAllLogs()
-	```
-	
-	**Objective-C**
-	
-	```objc
-	[[LGVLoggingViewService sharedService] deleteAllLogs];
 	```
 
 More info, see my [sample project](https://github.com/HituziANDO/LoggingViewKit/tree/master/Sample).
@@ -230,8 +175,6 @@ UIView
 
 ### Usage
 
-**Swift**
-
 ```swift
 override func viewDidLoad() {
     super.viewDidLoad()
@@ -249,18 +192,3 @@ override func viewDidLoad() {
 
 1. Open Build Settings > Swift Compiler - Custom Flags > Other Swift Flags section
 1. Add `-DDEBUG` flag to Debug row
-
-**Objective-C**
-
-```objc
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-#ifdef DEBUG
-    // Dumps the hierarchy of the root view.
-    [LGVViewHierarchy dump:self.view];
-#endif
-}
-```
-
-**[NOTE]** Recommend that you enclose with `#ifdef DEBUG ~ #endif`. Then LoggingViewKit dumps logs only in Debug build.
