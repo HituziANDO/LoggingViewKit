@@ -32,6 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Start recording.
         LGVLoggingViewService.shared().startRecording()
 
+        /// Counts the number of times the app is launched.
+        LGVLoggingViewService.shared().counter(name: "NumberOfLaunching")?.increase()
+        print("Number of launching: \(LGVLoggingViewService.shared().counter(name: "NumberOfLaunching")!.count)")
+
         return true
     }
 
