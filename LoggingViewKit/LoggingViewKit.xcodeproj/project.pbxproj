@@ -95,6 +95,8 @@
 		5E82BAB92BBFF1FF00450476 /* LVKFMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E82BAA42BBFF1FF00450476 /* LVKFMDatabase.m */; };
 		5E82BABA2BBFF1FF00450476 /* LVKFMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E82BAA52BBFF1FF00450476 /* LVKFMDatabaseQueue.h */; };
 		5E82BABB2BBFF1FF00450476 /* LVKFMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E82BAA52BBFF1FF00450476 /* LVKFMDatabaseQueue.h */; };
+		5E82BABD2BC3806B00450476 /* LVKCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E82BABC2BC3806B00450476 /* LVKCounter.swift */; };
+		5E82BABE2BC3806B00450476 /* LVKCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E82BABC2BC3806B00450476 /* LVKCounter.swift */; };
 		5EAD161D2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD161C2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy */; };
 		5EAD161E2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5EAD161C2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
@@ -159,6 +161,7 @@
 		5E82BAA32BBFF1FF00450476 /* LVKFMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVKFMResultSet.h; sourceTree = "<group>"; };
 		5E82BAA42BBFF1FF00450476 /* LVKFMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVKFMDatabase.m; sourceTree = "<group>"; };
 		5E82BAA52BBFF1FF00450476 /* LVKFMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVKFMDatabaseQueue.h; sourceTree = "<group>"; };
+		5E82BABC2BC3806B00450476 /* LVKCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVKCounter.swift; sourceTree = "<group>"; };
 		5EAD161C2BBE42CE00BBCD29 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -254,6 +257,7 @@
 				5E34DE6C289221E700FC06FF /* LGVViewHierarchy.m */,
 				5E34DE322890D5B200FC06FF /* LoggingViewKit.docc */,
 				5E34DE312890D5B200FC06FF /* LoggingViewKit.h */,
+				5E82BABC2BC3806B00450476 /* LVKCounter.swift */,
 			);
 			path = LoggingViewKit;
 			sourceTree = "<group>";
@@ -409,9 +413,11 @@
 				TargetAttributes = {
 					5E01EC872A016616003AD471 = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1530;
 					};
 					5E34DE2D2890D5B200FC06FF = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1530;
 					};
 					5E34DE372890D5B200FC06FF = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -494,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E01ECAE2A0178D4003AD471 /* LoggingViewKit.docc in Sources */,
+				5E82BABE2BC3806B00450476 /* LVKCounter.swift in Sources */,
 				5E01ECA82A01777A003AD471 /* LGVLog.m in Sources */,
 				5E01ECA92A01777A003AD471 /* LGVLoggingAttribute.m in Sources */,
 				5E82BAB92BBFF1FF00450476 /* LVKFMDatabase.m in Sources */,
@@ -514,6 +521,7 @@
 			files = (
 				5E34DEA3289221E700FC06FF /* LGVButton.m in Sources */,
 				5E34DE97289221E700FC06FF /* LGVViewHierarchy.m in Sources */,
+				5E82BABD2BC3806B00450476 /* LVKCounter.swift in Sources */,
 				5E34DED728937ED100FC06FF /* LGVLoggingAttribute.m in Sources */,
 				5E82BAB82BBFF1FF00450476 /* LVKFMDatabase.m in Sources */,
 				5E34DE7C289221E700FC06FF /* LGVLoggingViewService.m in Sources */,
@@ -559,6 +567,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -587,6 +596,8 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -594,6 +605,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -622,6 +634,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -746,6 +759,7 @@
 		5E34DE432890D5B200FC06FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -765,6 +779,8 @@
 				PRODUCT_NAME = LoggingViewKit;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -772,6 +788,7 @@
 		5E34DE442890D5B200FC06FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -791,6 +808,7 @@
 				PRODUCT_NAME = LoggingViewKit;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -798,6 +816,7 @@
 		5E34DE462890D5B200FC06FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -812,6 +831,7 @@
 		5E34DE472890D5B200FC06FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

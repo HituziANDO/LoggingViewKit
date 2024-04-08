@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 
+#import <LoggingViewKit/LoggingViewKit-Swift.h>
 #import <LoggingViewKit/LoggingViewKit.h>
 
 @interface LGVLoggingViewServiceTests : XCTestCase
@@ -66,6 +67,33 @@
      }];
 
     [self waitForExpectations:@[exp] timeout:1];
+}
+
+- (void) testIncrement_Counter {
+    LVKCounter *counter = [LGVLoggingViewService.sharedService counterWithName:@"TestCounter1"];
+
+    XCTAssertEqual(0, counter.count);
+
+    XCTAssertTrue([counter increase]);
+    XCTAssertTrue([counter increase]);
+    XCTAssertTrue([counter increase]);
+
+    XCTAssertEqual(3, counter.count);
+    XCTAssertEqualObjects(@"TestCounter1", counter.name);
+}
+
+- (void) testReset_Counter {
+    LVKCounter *counter = [LGVLoggingViewService.sharedService counterWithName:@"TestCounter2"];
+
+    [counter increase];
+    [counter increase];
+    [counter increase];
+    XCTAssertEqual(3, counter.count);
+
+    XCTAssertTrue([counter resetWithInitialValue:1]);
+
+    XCTAssertEqual(1, counter.count);
+    XCTAssertEqual(1, [LGVLoggingViewService.sharedService counterWithName:@"TestCounter2"].count);
 }
 
 @end

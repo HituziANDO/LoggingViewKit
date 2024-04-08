@@ -37,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class LGVLoggingAttribute;
 @class LGVLoggingViewService;
 @class LGVRealTimeLogger;
+@class LVKCounter;
 
 @protocol LGVDatabase;
 
@@ -152,6 +153,13 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  * @param completionHandler A block to be executed when the custom event is saved to the database.
  */
 - (void) customEvent:(NSString *)eventType attribute:(LGVLoggingAttribute *)attribute completionHandler:(void (^ _Nullable)(void))completionHandler;
+/**
+ * Gets the counter of given name.
+ *
+ * @param name A name of the counter.
+ * @return A counter object.
+ */
+- (LVKCounter *) counterWithName:(NSString *) name NS_SWIFT_NAME(counter(name:));
 @end
 
 NS_ASSUME_NONNULL_END

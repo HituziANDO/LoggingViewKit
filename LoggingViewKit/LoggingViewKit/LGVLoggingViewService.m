@@ -24,6 +24,8 @@
 //  SOFTWARE.
 //
 
+#import <LoggingViewKit/LoggingViewKit-Swift.h>
+
 #import "LGVLoggingViewService.h"
 
 #import "LGVDatabase.h"
@@ -199,6 +201,21 @@ static LGVLoggingViewService *_loggingViewService = nil;
                     attribute:attribute
      appendingMoreInfoHandler:nil
             completionHandler:completionHandler];
+}
+
+- (LVKCounter *) counterWithName:(NSString *)name {
+    LVKCounter *obj;
+
+    if ([self.defaultDatabase respondsToSelector:@selector(counterByName:)]) {
+        obj = [self.defaultDatabase counterByName:name];
+    }
+
+    if (obj) {
+        return obj;
+    }
+    else {
+        return [[LVKCounter alloc] initWithName:name database:self.defaultDatabase];
+    }
 }
 
 #pragma mark - private method
