@@ -37,6 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 @class LGVLoggingAttribute;
 @class LGVLoggingViewService;
 @class LGVRealTimeLogger;
+@class LVKCounter;
+@class LVKCounterOfNumberOfDaysUsed;
 
 @protocol LGVDatabase;
 
@@ -92,6 +94,10 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  * If you set the logger object, LoggingViewService outputs a log.
  */
 @property (nonatomic, nullable) LGVRealTimeLogger *logger;
+/**
+ * Tells whether the service is started.
+ */
+@property (nonatomic, readonly) BOOL isRecording;
 
 /**
  * Returns the singleton instance.
@@ -101,11 +107,11 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
 + (instancetype) sharedService;
 
 /**
- * Starts recording logs.
+ * Starts the service.
  */
 - (void) startRecording;
 /**
- * Stops recording logs.
+ * Stops the service.
  */
 - (void) stopRecording;
 /**
@@ -152,6 +158,19 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  * @param completionHandler A block to be executed when the custom event is saved to the database.
  */
 - (void) customEvent:(NSString *)eventType attribute:(LGVLoggingAttribute *)attribute completionHandler:(void (^ _Nullable)(void))completionHandler;
+/**
+ * Gets the counter of given name. If the service is not started, this method returns nil.
+ *
+ * @param name A name of the counter.
+ * @return A counter object.
+ */
+- (nullable LVKCounter *) counterWithName:(NSString *) name NS_SWIFT_NAME(counter(name:));
+/**
+ * Gets the counter to count up the number of days used app. If the service is not started, this method returns nil.
+ *
+ * @return A counter object.
+ */
+- (nullable LVKCounterOfNumberOfDaysUsed *) counterOfNumberOfDaysUsed NS_SWIFT_NAME(counterOfNumberOfDaysUsed());
 @end
 
 NS_ASSUME_NONNULL_END

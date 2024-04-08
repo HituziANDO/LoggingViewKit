@@ -24,6 +24,8 @@
 //  SOFTWARE.
 //
 
+#import <LoggingViewKit/LoggingViewKit-Swift.h>
+
 #import "LVKFMDB.h"
 
 #import "LGVSQLiteDatabase.h"
@@ -171,28 +173,127 @@ static NSString *const TestDatabaseName = @"logging_view_kit_test.db";
 }
 
 - (void) deleteAllLogs {
-    NSString *sql = @"DELETE FROM lgv_logs;";
-
-    if (![self.db open]) {
-        return;
-    }
-
-    [self.db beginTransaction];
-
-    if ([self.db executeUpdate:sql]) {
-        [self.db commit];
-        [self.db executeUpdate:@"VACUUM"];
-    }
-    else {
-        [self.db rollback];
-    }
-
-    [self.db close];
+    [self deleteWithSQL:@"DELETE FROM lgv_logs;"];
 }
 
 - (void) deleteLogsByEventType:(NSString *)eventType {
     NSString *sql = [NSString stringWithFormat:@"DELETE FROM lgv_logs WHERE event_type = '%@';", eventType];
 
+    [self deleteWithSQL:sql];
+}
+
+- (LVKCounter *) counterByName:(NSString *)name {
+    NSString *sql = @"SELECT * FROM counters WHERE name=:name;";
+
+    if (![self.db open]) {
+        return nil;
+    }
+
+    LVKFMResultSet *results = [self.db executeQuery:sql withParameterDictionary:@{ @"name": name }];
+    LVKCounter *counter;
+
+    while ([results next]) {
+        counter = [[LVKCounter alloc] initWithName:[results stringForColumn:@"name"]
+                                             count:[[results stringForColumn:@"count"] longLongValue]
+                                         createdAt:[results dateForColumn:@"created_at"]
+                                         updatedAt:[results dateForColumn:@"updated_at"]
+                                          database:self];
+        break;
+    }
+
+    [self.db close];
+
+    return counter;
+}
+
+- (BOOL) saveCounter:(LVKCounter *)counter {
+    LVKCounter *savedCounter = [self counterByName:counter.name];
+
+    if (![self.db open]) {
+        return NO;
+    }
+
+    [self.db beginTransaction];
+
+    BOOL success;
+    if (savedCounter) {
+        // Update
+        success = [self.db executeUpdate:@"UPDATE counters SET "
+                   "count = ?, "
+                   "created_at = ?, "
+                   "updated_at = ? "
+                   "WHERE name = ?;" withArgumentsInArray:@[
+                       [NSString stringWithFormat:@"%lld", counter.count],
+                       counter.createdAt,
+                       counter.lastUpdatedAt,
+                       counter.name
+        ]];
+    }
+    else {
+        // Insert
+        success = [self.db executeUpdate:@"INSERT INTO counters "
+                   "(name, "
+                   "count, "
+                   "created_at, "
+                   "updated_at) "
+                   "VALUES (?, ?, ?, ?);" withArgumentsInArray:@[
+                       counter.name,
+                       [NSString stringWithFormat:@"%lld", counter.count],
+                       counter.createdAt,
+                       counter.lastUpdatedAt
+        ]];
+    }
+
+
+    if (success) {
+        [self.db commit];
+    }
+    else {
+        [self.db rollback];
+    }
+
+    [self.db close];
+
+    return success;
+}
+
+- (void) deleteCounterByName:(NSString *)name {
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM counters WHERE name = '%@';", name];
+
+    [self deleteWithSQL:sql];
+}
+
+#pragma mark - private method
+
+- (void) createTable {
+    if (![self.db open]) {
+        return;
+    }
+
+    [self.db executeUpdate:@"CREATE TABLE IF NOT EXISTS lgv_logs ("
+     "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+     "key TEXT NOT NULL, "
+     "event_type TEXT NOT NULL, "
+     "name TEXT, "
+     "click_x REAL, "
+     "click_y REAL, "
+     "absolute_click_x REAL, "
+     "absolute_click_y REAL, "
+     "info TEXT, "
+     "created_at DATETIME NOT NULL"
+     ");"];
+
+    [self.db executeUpdate:@"CREATE TABLE IF NOT EXISTS counters ("
+     "name TEXT PRIMARY KEY, "
+     "count TEXT NOT NULL, "
+     "created_at DATETIME NOT NULL, "
+     "updated_at DATETIME NOT NULL"
+     ");"];
+
+    [self.db close];
+}
+
+- (void) deleteWithSQL:(NSString *)sql {
     if (![self.db open]) {
         return;
     }
@@ -207,30 +308,6 @@ static NSString *const TestDatabaseName = @"logging_view_kit_test.db";
         [self.db rollback];
     }
 
-    [self.db close];
-}
-
-#pragma mark - private method
-
-- (void) createTable {
-    NSString *sql = @"CREATE TABLE IF NOT EXISTS lgv_logs ("
-        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-        "key TEXT NOT NULL, "
-        "event_type TEXT NOT NULL, "
-        "name TEXT, "
-        "click_x REAL, "
-        "click_y REAL, "
-        "absolute_click_x REAL, "
-        "absolute_click_y REAL, "
-        "info TEXT, "
-        "created_at DATETIME NOT NULL"
-        ");";
-
-    if (![self.db open]) {
-        return;
-    }
-
-    [self.db executeUpdate:sql];
     [self.db close];
 }
 

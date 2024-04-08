@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 
+#import <LoggingViewKit/LoggingViewKit-Swift.h>
 #import <LoggingViewKit/LoggingViewKit.h>
 
 @interface LGVLoggingViewServiceTests : XCTestCase
@@ -66,6 +67,54 @@
      }];
 
     [self waitForExpectations:@[exp] timeout:1];
+}
+
+- (void) testIncrement_Counter {
+    LVKCounter *counter = [LGVLoggingViewService.sharedService counterWithName:@"TestCounter1"];
+
+    XCTAssertEqual(0, counter.count);
+
+    XCTAssertTrue([counter increase]);
+    XCTAssertTrue([counter increase]);
+    XCTAssertTrue([counter increase]);
+
+    XCTAssertEqual(3, counter.count);
+    XCTAssertEqual(3, [LGVLoggingViewService.sharedService counterWithName:@"TestCounter1"].count);
+    XCTAssertEqualObjects(@"TestCounter1", counter.name);
+}
+
+- (void) testReset_Counter {
+    LVKCounter *counter = [LGVLoggingViewService.sharedService counterWithName:@"TestCounter2"];
+
+    [counter increase];
+    [counter increase];
+    [counter increase];
+    XCTAssertEqual(3, counter.count);
+
+    XCTAssertTrue([counter resetWithInitialValue:1]);
+
+    XCTAssertEqual(1, counter.count);
+    XCTAssertEqual(1, [LGVLoggingViewService.sharedService counterWithName:@"TestCounter2"].count);
+}
+
+- (void) testReturn_Counter_as_nil_If_Service_Not_Started {
+    [LGVLoggingViewService.sharedService stopRecording];
+
+    XCTAssertFalse(LGVLoggingViewService.sharedService.isRecording);
+
+    XCTAssertNil([LGVLoggingViewService.sharedService counterWithName:@"TestCounter3"]);
+}
+
+- (void) testCount_Number_Of_Days_Used {
+    LVKCounterOfNumberOfDaysUsed *counter = [LGVLoggingViewService.sharedService counterOfNumberOfDaysUsed];
+
+    XCTAssertEqual(0, counter.count);
+
+    XCTAssertTrue([counter increase]);
+    XCTAssertFalse([counter increase]);
+
+    XCTAssertEqual(1, counter.count);
+    XCTAssertEqual(1, [LGVLoggingViewService.sharedService counterOfNumberOfDaysUsed].count);
 }
 
 @end
