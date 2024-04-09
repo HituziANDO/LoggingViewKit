@@ -58,7 +58,7 @@ NSString *const LGVErrorDomain = @"jp.hituzi.LGVErrorDomain";
 static LGVLoggingViewService *_loggingViewService = nil;
 
 + (NSString *) versionString {
-    return @"6.0.1-fmdb2.7.10";
+    return @"6.0.2-fmdb2.7.10";
 }
 
 + (instancetype) sharedService {
