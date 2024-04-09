@@ -59,6 +59,10 @@ public class LVKCounter: NSObject {
 
         super.init()
     }
+
+    override public var description: String {
+        "LVKCounter(name: \(name), count: \(count), createdAt: \(createdAt), updatedAt: \(lastUpdatedAt))"
+    }
 }
 
 @objc
@@ -99,12 +103,20 @@ public extension LVKCounter {
         }
     }
 
+    /// Resets the counter to zero.
+    ///
+    /// - Returns: true If succeeded, otherwise false.
+    @discardableResult
+    func reset() -> Bool {
+        reset(initialValue: 0)
+    }
+
     /// Resets the counter to the initial value.
     ///
     /// - Parameter initialValue: The initial value. Default is zero.
     /// - Returns: true If succeeded, otherwise false.
     @discardableResult
-    func reset(initialValue: Int64 = 0) -> Bool {
+    func reset(initialValue: Int64) -> Bool {
         count = initialValue
         return save()
     }
