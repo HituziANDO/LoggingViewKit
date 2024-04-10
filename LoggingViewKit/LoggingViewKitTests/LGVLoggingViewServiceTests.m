@@ -117,4 +117,33 @@
     XCTAssertEqual(1, [LGVLoggingViewService.sharedService counterWithName:@"TestCounter"].count);
 }
 
+- (void) testGet_All_Counters {
+    LVKCounter *counter1 = [LGVLoggingViewService.sharedService counterWithName:@"TestCounter1"];
+    LVKCounter *counter2 = [LGVLoggingViewService.sharedService counterWithName:@"TestCounter2"];
+
+    [counter1 increase];
+    [counter1 increase];
+    [counter2 increase];
+
+    NSArray<LVKCounter *> *counters = [LGVLoggingViewService.sharedService allCounters];
+    XCTAssertEqual(2, counters.count);
+    XCTAssertEqual(2, counters.firstObject.count);
+    XCTAssertEqual(1, counters.lastObject.count);
+}
+
+- (void) testReturn_Empty_Array_Of_Counters_If_Service_Not_Started {
+    LVKCounter *counter1 = [LGVLoggingViewService.sharedService counterWithName:@"TestCounter1"];
+    LVKCounter *counter2 = [LGVLoggingViewService.sharedService counterWithName:@"TestCounter2"];
+
+    [counter1 increase];
+    [counter2 increase];
+
+    XCTAssertEqual(2, [LGVLoggingViewService.sharedService allCounters].count);
+
+    [LGVLoggingViewService.sharedService stopRecording];
+
+    XCTAssertFalse(LGVLoggingViewService.sharedService.isRecording);
+    XCTAssertEqual(0, [LGVLoggingViewService.sharedService allCounters].count);
+}
+
 @end

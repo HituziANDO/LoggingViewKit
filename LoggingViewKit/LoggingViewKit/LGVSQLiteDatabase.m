@@ -182,6 +182,30 @@ static NSString *const TestDatabaseName = @"logging_view_kit_test.db";
     [self deleteWithSQL:sql];
 }
 
+- (NSArray<LVKCounter *> *) allCounters {
+    NSString *sql = @"SELECT * FROM counters ORDER BY name;";
+
+    if (![self.db open]) {
+        return @[];
+    }
+
+    LVKFMResultSet *results = [self.db executeQuery:sql];
+    NSMutableArray<LVKCounter *> *counters = [NSMutableArray new];
+
+    while ([results next]) {
+        LVKCounter *counter = [[LVKCounter alloc] initWithName:[results stringForColumn:@"name"]
+                                                         count:[[results stringForColumn:@"count"] longLongValue]
+                                                     createdAt:[results dateForColumn:@"created_at"]
+                                                     updatedAt:[results dateForColumn:@"updated_at"]
+                                                      database:self];
+        [counters addObject:counter];
+    }
+
+    [self.db close];
+
+    return counters;
+}
+
 - (LVKCounter *) counterByName:(NSString *)name {
     NSString *sql = @"SELECT * FROM counters WHERE name=:name;";
 

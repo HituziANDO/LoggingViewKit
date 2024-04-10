@@ -158,6 +158,12 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  */
 - (void) customEvent:(NSString *)eventType attribute:(LGVLoggingAttribute *)attribute completionHandler:(void (^ _Nullable)(void))completionHandler;
 /**
+ * Gets all counters in the database.
+ *
+ * @return All counters. If the service is not started, this method returns an empty array.
+ */
+- (NSArray<LVKCounter *> *) allCounters;
+/**
  * Gets the counter of given name. If the service is not started, this method returns nil.
  *
  * @param name A name of the counter.
