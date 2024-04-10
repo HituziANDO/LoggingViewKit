@@ -203,6 +203,19 @@ static LGVLoggingViewService *_loggingViewService = nil;
             completionHandler:completionHandler];
 }
 
+- (NSArray<LVKCounter *> *) allCounters {
+    if (!self.isRecording) {
+        return @[];
+    }
+
+    if ([self.defaultDatabase respondsToSelector:@selector(allCounters)]) {
+        return [self.defaultDatabase allCounters];
+    }
+    else {
+        return @[];
+    }
+}
+
 - (LVKCounter *) counterWithName:(NSString *)name {
     if (!self.isRecording) {
         return nil;
