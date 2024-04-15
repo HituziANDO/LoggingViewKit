@@ -71,6 +71,13 @@ static LGVLoggingViewService *_loggingViewService = nil;
     return _loggingViewService;
 }
 
+- (instancetype) init {
+    if (self = [super init]) {
+        _database = [LGVSQLiteDatabase defaultDatabase];
+    }
+    return self;
+}
+
 #pragma mark - public method
 
 - (void) startRecording {
@@ -82,8 +89,8 @@ static LGVLoggingViewService *_loggingViewService = nil;
 }
 
 - (NSArray<LGVLog *> *) allLogs {
-    if ([self.defaultDatabase respondsToSelector:@selector(allLogs)]) {
-        return [self.defaultDatabase allLogs];
+    if ([self.database respondsToSelector:@selector(allLogs)]) {
+        return [self.database allLogs];
     }
     else {
         return @[];
@@ -91,8 +98,8 @@ static LGVLoggingViewService *_loggingViewService = nil;
 }
 
 - (NSArray<LGVLog *> *) logsByEventType:(NSString *)eventType {
-    if ([self.defaultDatabase respondsToSelector:@selector(logsByEventType:)]) {
-        return [self.defaultDatabase logsByEventType:eventType];
+    if ([self.database respondsToSelector:@selector(logsByEventType:)]) {
+        return [self.database logsByEventType:eventType];
     }
     else {
         return @[];
@@ -100,14 +107,14 @@ static LGVLoggingViewService *_loggingViewService = nil;
 }
 
 - (void) deleteAllLogs {
-    if ([self.defaultDatabase respondsToSelector:@selector(deleteAllLogs)]) {
-        [self.defaultDatabase deleteAllLogs];
+    if ([self.database respondsToSelector:@selector(deleteAllLogs)]) {
+        [self.database deleteAllLogs];
     }
 }
 
 - (void) deleteLogsByEventType:(NSString *)eventType {
-    if ([self.defaultDatabase respondsToSelector:@selector(deleteLogsByEventType:)]) {
-        [self.defaultDatabase deleteLogsByEventType:eventType];
+    if ([self.database respondsToSelector:@selector(deleteLogsByEventType:)]) {
+        [self.database deleteLogsByEventType:eventType];
     }
 }
 
@@ -208,8 +215,8 @@ static LGVLoggingViewService *_loggingViewService = nil;
         return @[];
     }
 
-    if ([self.defaultDatabase respondsToSelector:@selector(allCounters)]) {
-        return [self.defaultDatabase allCounters];
+    if ([self.database respondsToSelector:@selector(allCounters)]) {
+        return [self.database allCounters];
     }
     else {
         return @[];
@@ -223,27 +230,19 @@ static LGVLoggingViewService *_loggingViewService = nil;
 
     LVKCounter *obj;
 
-    if ([self.defaultDatabase respondsToSelector:@selector(counterByName:)]) {
-        obj = [self.defaultDatabase counterByName:name];
+    if ([self.database respondsToSelector:@selector(counterByName:)]) {
+        obj = [self.database counterByName:name];
     }
 
     if (obj) {
         return obj;
     }
     else {
-        return [[LVKCounter alloc] initWithName:name database:self.defaultDatabase];
+        return [[LVKCounter alloc] initWithName:name database:self.database];
     }
 }
 
 #pragma mark - private method
-
-- (id <LGVDatabase>) defaultDatabase {
-    if (!self.database) {
-        self.database = [LGVSQLiteDatabase defaultDatabase];
-    }
-
-    return self.database;
-}
 
 - (void)              addLog:(NSString *)eventType
                    attribute:(LGVLoggingAttribute *)attribute
@@ -272,15 +271,15 @@ static LGVLoggingViewService *_loggingViewService = nil;
 
         LGVError *error = nil;
 
-        if (![self.defaultDatabase addLog:log]) {
+        if (![self.database addLog:log]) {
             error = [LGVError errorWithMessage:@"Failed to add a log into the database"];
         }
 
         LGVLog *savedLog = log;
 
         // Recreates the object with last inserted ID like the SQLite.
-        if ([self.defaultDatabase respondsToSelector:@selector(logByKey:)]) {
-            savedLog = [self.defaultDatabase logByKey:log.key];
+        if ([self.database respondsToSelector:@selector(logByKey:)]) {
+            savedLog = [self.database logByKey:log.key];
         }
 
         if (error) {

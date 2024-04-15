@@ -86,9 +86,9 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  */
 @property (nonatomic, weak, nullable) id <LGVLoggingViewServiceDelegate> delegate;
 /**
- * The service saves logs to given database.
+ * The service saves the event logs to given database.
  */
-@property (nonatomic, nullable) id <LGVDatabase> database;
+@property (nonatomic) id <LGVDatabase> database;
 /**
  * If you set the logger object, LoggingViewService outputs a log.
  */
@@ -104,6 +104,9 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  * @return The singleton instance.
  */
 + (instancetype) sharedService;
+
++ (instancetype) new NS_UNAVAILABLE;
+- (instancetype) init NS_UNAVAILABLE;
 
 /**
  * Starts the service.
