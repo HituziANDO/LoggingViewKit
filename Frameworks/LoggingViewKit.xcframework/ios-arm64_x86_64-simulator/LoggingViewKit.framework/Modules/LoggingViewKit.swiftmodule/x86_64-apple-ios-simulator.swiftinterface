@@ -18,6 +18,9 @@ import _SwiftConcurrencyShims
   }
   @objc convenience public init(name: Swift.String, database db: any LoggingViewKit.LGVDatabase)
   @objc public init(name: Swift.String, count: Swift.Int64, createdAt: Foundation.Date, updatedAt: Foundation.Date?, database db: any LoggingViewKit.LGVDatabase)
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
   @objc deinit
 }
 @objc extension LoggingViewKit.LVKCounter {
@@ -26,7 +29,9 @@ import _SwiftConcurrencyShims
   @objc @discardableResult
   dynamic public func increase(withCondition condition: LoggingViewKit.LVKIncrementCondition) -> Swift.Bool
   @objc @discardableResult
-  dynamic public func reset(initialValue: Swift.Int64 = 0) -> Swift.Bool
+  dynamic public func reset() -> Swift.Bool
+  @objc @discardableResult
+  dynamic public func reset(initialValue: Swift.Int64) -> Swift.Bool
 }
 @objc(LVKIncrementCondition) public enum LVKIncrementCondition : Swift.Int {
   case anyTime

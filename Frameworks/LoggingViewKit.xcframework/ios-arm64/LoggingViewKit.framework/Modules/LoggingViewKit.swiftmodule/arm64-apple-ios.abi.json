@@ -315,6 +315,57 @@
             "init_kind": "Designated"
           },
           {
+            "kind": "Var",
+            "name": "description",
+            "printedName": "description",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@LoggingViewKit@objc(cs)LVKCounter(py)description",
+            "mangledName": "$s14LoggingViewKit10LVKCounterC11descriptionSSvp",
+            "moduleName": "LoggingViewKit",
+            "overriding": true,
+            "objc_name": "description",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl",
+              "Override"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@LoggingViewKit@objc(cs)LVKCounter(im)description",
+                "mangledName": "$s14LoggingViewKit10LVKCounterC11descriptionSSvg",
+                "moduleName": "LoggingViewKit",
+                "overriding": true,
+                "objc_name": "description",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -399,6 +450,31 @@
           {
             "kind": "Function",
             "name": "reset",
+            "printedName": "reset()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@LoggingViewKit@objc(cs)LVKCounter(im)reset",
+            "mangledName": "$s14LoggingViewKit10LVKCounterC5resetSbyF",
+            "moduleName": "LoggingViewKit",
+            "declAttributes": [
+              "Dynamic",
+              "DiscardableResult",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reset",
             "printedName": "reset(initialValue:)",
             "children": [
               {
@@ -411,7 +487,6 @@
                 "kind": "TypeNominal",
                 "name": "Int64",
                 "printedName": "Swift.Int64",
-                "hasDefaultArg": true,
                 "usr": "s:s5Int64V"
               }
             ],
@@ -725,13 +800,6 @@
       "offset": 198,
       "length": 10,
       "value": "\"LoggingViewKit.LVKCounter\""
-    },
-    {
-      "filePath": "\/Users\/masakiando\/Dropbox\/dev\/repo\/libs\/LoggingViewKit\/LoggingViewKit\/LoggingViewKit\/LVKCounter.swift",
-      "kind": "IntegerLiteral",
-      "offset": 3133,
-      "length": 1,
-      "value": "0"
     },
     {
       "filePath": "\/Users\/masakiando\/Dropbox\/dev\/repo\/libs\/LoggingViewKit\/LoggingViewKit\/LoggingViewKit\/LVKIncrementCondition.swift",

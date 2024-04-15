@@ -330,6 +330,7 @@ SWIFT_CLASS_NAMED("LVKCounter")
 /// \param db The database.
 ///
 - (nonnull instancetype) initWithName:(NSString * _Nonnull)name count:(int64_t)count createdAt:(NSDate * _Nonnull)createdAt updatedAt:(NSDate * _Nullable)updatedAt database:(id <LGVDatabase> _Nonnull)db OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype) init SWIFT_UNAVAILABLE;
 + (nonnull instancetype) new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -350,6 +351,11 @@ enum LVKIncrementCondition : NSInteger;
 /// returns:
 /// true If this counter increases the count, otherwise false.
 - (BOOL) increaseWithCondition:(enum LVKIncrementCondition)condition;
+/// Resets the counter to zero.
+///
+/// returns:
+/// true If succeeded, otherwise false.
+- (BOOL) reset;
 /// Resets the counter to the initial value.
 /// \param initialValue The initial value. Default is zero.
 ///
@@ -707,6 +713,7 @@ SWIFT_CLASS_NAMED("LVKCounter")
 /// \param db The database.
 ///
 - (nonnull instancetype) initWithName:(NSString * _Nonnull)name count:(int64_t)count createdAt:(NSDate * _Nonnull)createdAt updatedAt:(NSDate * _Nullable)updatedAt database:(id <LGVDatabase> _Nonnull)db OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype) init SWIFT_UNAVAILABLE;
 + (nonnull instancetype) new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -727,6 +734,11 @@ enum LVKIncrementCondition : NSInteger;
 /// returns:
 /// true If this counter increases the count, otherwise false.
 - (BOOL) increaseWithCondition:(enum LVKIncrementCondition)condition;
+/// Resets the counter to zero.
+///
+/// returns:
+/// true If succeeded, otherwise false.
+- (BOOL) reset;
 /// Resets the counter to the initial value.
 /// \param initialValue The initial value. Default is zero.
 ///

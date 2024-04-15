@@ -63,6 +63,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void) deleteLogsByEventType:(NSString *)eventType;
 /**
+ * Reads all counters in the database.
+ *
+ * @return All counters.
+ */
+- (NSArray<LVKCounter *> *) allCounters;
+/**
  * Reads the counter by given name. If not found it, this method returns nil.
  *
  * @param name The name of the counter.

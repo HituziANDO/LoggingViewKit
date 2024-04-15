@@ -86,9 +86,9 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  */
 @property (nonatomic, weak, nullable) id <LGVLoggingViewServiceDelegate> delegate;
 /**
- * The service saves logs to given database.
+ * The service saves the event logs to given database.
  */
-@property (nonatomic, nullable) id <LGVDatabase> database;
+@property (nonatomic) id <LGVDatabase> database;
 /**
  * If you set the logger object, LoggingViewService outputs a log.
  */
@@ -104,6 +104,9 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  * @return The singleton instance.
  */
 + (instancetype) sharedService;
+
++ (instancetype) new NS_UNAVAILABLE;
+- (instancetype) init NS_UNAVAILABLE;
 
 /**
  * Starts the service.
@@ -157,6 +160,12 @@ FOUNDATION_EXTERN NSString *const LGVErrorDomain;
  * @param completionHandler A block to be executed when the custom event is saved to the database.
  */
 - (void) customEvent:(NSString *)eventType attribute:(LGVLoggingAttribute *)attribute completionHandler:(void (^ _Nullable)(void))completionHandler;
+/**
+ * Gets all counters in the database.
+ *
+ * @return All counters. If the service is not started, this method returns an empty array.
+ */
+- (NSArray<LVKCounter *> *) allCounters;
 /**
  * Gets the counter of given name. If the service is not started, this method returns nil.
  *

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		JUQ2dR3X2x5KiuaFC8Beah4bvcY=
+		LIPJWzq3OsVinUQuSUTs+L4FxX4=
 		</data>
 		<key>Resources/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -19,7 +19,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vVdRKunIc0aC7GQf2Ef+bS+wqdhTkgMNzkf0HJO+j/k=
+			05KsCJopzwxOph0nEB03X9JQyLLtWOKcE6aZzSRwDhw=
 			</data>
 		</dict>
 		<key>Headers/LGVLog.h</key>
@@ -47,7 +47,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pEH0hgDNqnK4zN1pIWI1GFII5LgHpIdJVeI1w4UIya8=
+			AqcTsrfexk1yu/1zTpECQ65xalIS16oRCwbN2pZ/Smc=
 			</data>
 		</dict>
 		<key>Headers/LGVRealTimeLogger.h</key>
@@ -75,7 +75,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			j07Kqk9yL8o0Bnv8D+Oqi/31ePpKPct/ANtORFFDONo=
+			uBb0gj5VsxZgf6Mz0+Zh7vuCe0QV51/Ac1zQw3r4v2Y=
 			</data>
 		</dict>
 		<key>Headers/LoggingViewKit.h</key>
@@ -89,70 +89,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0V78DkPeqS5FC763tncMWlaZUrFCYGxke3wJUy+vc+I=
+			FCCqS3JKMMWm8N5CAMs5AnH+0KO3VoWJhwCaPM43qF8=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/arm64-apple-macos.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hl/49Pti7Xr5QA8aj44BUjoWTrAJm/KWEsbAWjruOKQ=
+			J+go8qGYgdMgNqr9XMJCEmpkYZCK6vsUGhBnRnn30Hs=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/arm64-apple-macos.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			kh4d62gWwqHVv4I7vMgh3pcssZ+JLBcAObLLsbi8WYI=
+			QnKIdw80nSK/cIm+fd7zrlpb6gne6APDOwIwOdc/9t4=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/arm64-apple-macos.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hl/49Pti7Xr5QA8aj44BUjoWTrAJm/KWEsbAWjruOKQ=
+			J+go8qGYgdMgNqr9XMJCEmpkYZCK6vsUGhBnRnn30Hs=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/arm64-apple-macos.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BmjWizgR/+C9DV4h9yVu71+51hfs0BxOvFpBdXsUlDI=
+			8yJ6Op8JepgQZUr3O2+tFy1+myyv0YdROvOsWNCiH/E=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/x86_64-apple-macos.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0V78DkPeqS5FC763tncMWlaZUrFCYGxke3wJUy+vc+I=
+			FCCqS3JKMMWm8N5CAMs5AnH+0KO3VoWJhwCaPM43qF8=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/x86_64-apple-macos.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5+uXVzCiZE6wguE7A8RJSH6fUh6R+j8ZLviyiRXNp0M=
+			36sjZmv2HmosBr8gYZEtiFeUgZ81QtuexvIDYfvyRCU=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/x86_64-apple-macos.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6L+jMF4A8S22Y5OIdGP0g3UXBE9JVqrbiFi6LVvyHmg=
+			Qpq3eOjkZ/nzRGleF/8lmeg0CDOs05c2rXuf+Yff3Ng=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/x86_64-apple-macos.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5+uXVzCiZE6wguE7A8RJSH6fUh6R+j8ZLviyiRXNp0M=
+			36sjZmv2HmosBr8gYZEtiFeUgZ81QtuexvIDYfvyRCU=
 			</data>
 		</dict>
 		<key>Modules/LoggingViewKit.swiftmodule/x86_64-apple-macos.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Naxd9FsS7YcIzwa78y7P3Q5bCCufFJlSyyI/nfYiP4I=
+			zGPlohJmvAlJxXjxPNSr91VGlNVyIc3YMDOOUHy3aPw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -166,7 +166,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KVaEUElraWRPiPS4CUKFYEGO9RlNZEMBcH12zQXOupM=
+			xRNZ2EJJaNni9knNoSAMQaEC+hUm7rUkPbyWvzv5aFs=
 			</data>
 		</dict>
 		<key>Resources/PrivacyInfo.xcprivacy</key>

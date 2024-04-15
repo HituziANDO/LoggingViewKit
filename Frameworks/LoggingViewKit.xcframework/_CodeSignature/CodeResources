@@ -10,7 +10,7 @@
 		</data>
 		<key>ios-arm64/LoggingViewKit.framework/Headers/LGVDatabase.h</key>
 		<data>
-		YB+hicaG5Bfi3CCeYbapuiKJI2A=
+		jc0y5r9J01kjOILxrA4qEEPQccs=
 		</data>
 		<key>ios-arm64/LoggingViewKit.framework/Headers/LGVLabel.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>ios-arm64/LoggingViewKit.framework/Headers/LGVLoggingViewService.h</key>
 		<data>
-		1BvmM3LxoIKxIEhduUxFdmiPUIQ=
+		POtcw/GihyQYOOrUuaTtFOIb1Dw=
 		</data>
 		<key>ios-arm64/LoggingViewKit.framework/Headers/LGVRealTimeLogger.h</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>ios-arm64/LoggingViewKit.framework/Headers/LoggingViewKit-Swift.h</key>
 		<data>
-		mSDfrhDS4ZYpA5R1sJvp6E5OdV8=
+		q97P4SRFPWWACRrBgIIy2aAqDTk=
 		</data>
 		<key>ios-arm64/LoggingViewKit.framework/Headers/LoggingViewKit.h</key>
 		<data>
@@ -82,27 +82,27 @@
 		</data>
 		<key>ios-arm64/LoggingViewKit.framework/Info.plist</key>
 		<data>
-		ZKoIs7BIGCJDyjMlp5jIOT2bBtk=
+		0yaQBwCAx92CC2BvdFG8qX43MSg=
 		</data>
 		<key>ios-arm64/LoggingViewKit.framework/LoggingViewKit</key>
 		<data>
-		kEAi/CClNtmgE0H3UrWjtqkNIL8=
+		aCaEDFhRLg3nOXUdYd/3jJursHI=
 		</data>
 		<key>ios-arm64/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
+		j1kgteiX3n46ii5ktGINP5AIfFM=
 		</data>
 		<key>ios-arm64/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		v4wj1lmaBzddJfRBfl1/3kqcpA4=
+		5kJzdY5BBvOfMsNmGK6FoQdwOtg=
 		</data>
 		<key>ios-arm64/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		2SUD7ELteHfGt39CByyZnp6bd8M=
+		rDblSjJCQtMmAnQp/bOIp1+9cD4=
 		</data>
 		<key>ios-arm64/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		v4wj1lmaBzddJfRBfl1/3kqcpA4=
+		5kJzdY5BBvOfMsNmGK6FoQdwOtg=
 		</data>
 		<key>ios-arm64/LoggingViewKit.framework/Modules/module.modulemap</key>
 		<data>
@@ -118,7 +118,7 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Headers/LGVDatabase.h</key>
 		<data>
-		YB+hicaG5Bfi3CCeYbapuiKJI2A=
+		jc0y5r9J01kjOILxrA4qEEPQccs=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Headers/LGVLabel.h</key>
 		<data>
@@ -138,7 +138,7 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Headers/LGVLoggingViewService.h</key>
 		<data>
-		1BvmM3LxoIKxIEhduUxFdmiPUIQ=
+		POtcw/GihyQYOOrUuaTtFOIb1Dw=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Headers/LGVRealTimeLogger.h</key>
 		<data>
@@ -182,7 +182,7 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Headers/LoggingViewKit-Swift.h</key>
 		<data>
-		DPP4uPq0PM9Kb8dsMQ6TnJlCbbw=
+		IBh/s6mN+6iFO7bg0vkBnnOMI/w=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Headers/LoggingViewKit.h</key>
 		<data>
@@ -190,39 +190,39 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/LoggingViewKit</key>
 		<data>
-		Hqp6KtH2hrq649eemwLCpzIS49Y=
+		5HJR+tN8FbdGsnD7H7Kd+TcIbW8=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-macabi.abi.json</key>
 		<data>
-		Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
+		j1kgteiX3n46ii5ktGINP5AIfFM=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-macabi.private.swiftinterface</key>
 		<data>
-		NdnR6stNufdYitnaGqRJrRnssI4=
+		IwhM1zhVeNLGjJbI5sdIlmzeQ50=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
 		<data>
-		R/ADRGSdyFk0/xUAHYNdlk0jreI=
+		6NlGyBNi3o/AAbLbQYA22EBHK8Q=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<data>
-		NdnR6stNufdYitnaGqRJrRnssI4=
+		IwhM1zhVeNLGjJbI5sdIlmzeQ50=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-macabi.abi.json</key>
 		<data>
-		Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
+		j1kgteiX3n46ii5ktGINP5AIfFM=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-macabi.private.swiftinterface</key>
 		<data>
-		5OwYJ9WO0q4/LT6YnTDwbNQt03g=
+		W0ycfLM2kgb2KENOcU35v3cNWUw=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
 		<data>
-		Vre9Il/mjMjdHKmhIjLjzq/7RTo=
+		TbKZjKORgoGTC+jCROBtbPu/mzs=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-macabi.swiftinterface</key>
 		<data>
-		5OwYJ9WO0q4/LT6YnTDwbNQt03g=
+		W0ycfLM2kgb2KENOcU35v3cNWUw=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/module.modulemap</key>
 		<data>
@@ -230,7 +230,7 @@
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Resources/Info.plist</key>
 		<data>
-		p0k3SrWt/IIblMehlZ4w3eTgKto=
+		9E6L0fIEQ7RkPaq+RI1+2LagEGI=
 		</data>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Resources/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -242,7 +242,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Headers/LGVDatabase.h</key>
 		<data>
-		YB+hicaG5Bfi3CCeYbapuiKJI2A=
+		jc0y5r9J01kjOILxrA4qEEPQccs=
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Headers/LGVLabel.h</key>
 		<data>
@@ -262,7 +262,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Headers/LGVLoggingViewService.h</key>
 		<data>
-		1BvmM3LxoIKxIEhduUxFdmiPUIQ=
+		POtcw/GihyQYOOrUuaTtFOIb1Dw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Headers/LGVRealTimeLogger.h</key>
 		<data>
@@ -306,7 +306,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Headers/LoggingViewKit-Swift.h</key>
 		<data>
-		DPP4uPq0PM9Kb8dsMQ6TnJlCbbw=
+		IBh/s6mN+6iFO7bg0vkBnnOMI/w=
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Headers/LoggingViewKit.h</key>
 		<data>
@@ -314,43 +314,43 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Info.plist</key>
 		<data>
-		zCon5df7AMrILIpjdK8CwVfHqQw=
+		G+pnzKNTQ38CxUTkBb0vzohhvSE=
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/LoggingViewKit</key>
 		<data>
-		qWxzxNhSRbhfAA+1miKQt+7M+HM=
+		wEBy2mhXUYjPODrslpDDwqWEhPE=
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
+		j1kgteiX3n46ii5ktGINP5AIfFM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		X/ekr5aLoZgm5HHamMuunEmaVfg=
+		Vd7LV/nBtIScLjFYAW5QnjDGf1w=
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		fWulVrn6MVJ9HdlVRpINUY/mAwI=
+		ZJAcInv/QHA0ffu99h9qhWxWV7Q=
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		X/ekr5aLoZgm5HHamMuunEmaVfg=
+		Vd7LV/nBtIScLjFYAW5QnjDGf1w=
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
+		j1kgteiX3n46ii5ktGINP5AIfFM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		mJhIRIN7ttQYTt6GOomCgBuXtjc=
+		Dzjohv6TnoORgsT/QeYtFLOY3mI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		kXZnnKKZlnmCtGm0iJ6anOhu8wQ=
+		G8L1pxtJ0GpmQqeBFellazRP3DI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		mJhIRIN7ttQYTt6GOomCgBuXtjc=
+		Dzjohv6TnoORgsT/QeYtFLOY3mI=
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/module.modulemap</key>
 		<data>
@@ -362,11 +362,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/_CodeSignature/CodeResources</key>
 		<data>
-		wlU2dfGDe5UP6g+D5xrm6T+9/nE=
+		WN8IZZ979OOfG4WporWRbrQJNhY=
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Headers/LGVDatabase.h</key>
 		<data>
-		YB+hicaG5Bfi3CCeYbapuiKJI2A=
+		jc0y5r9J01kjOILxrA4qEEPQccs=
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Headers/LGVLog.h</key>
 		<data>
@@ -382,7 +382,7 @@
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Headers/LGVLoggingViewService.h</key>
 		<data>
-		1BvmM3LxoIKxIEhduUxFdmiPUIQ=
+		POtcw/GihyQYOOrUuaTtFOIb1Dw=
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Headers/LGVRealTimeLogger.h</key>
 		<data>
@@ -398,7 +398,7 @@
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Headers/LoggingViewKit-Swift.h</key>
 		<data>
-		DPP4uPq0PM9Kb8dsMQ6TnJlCbbw=
+		IBh/s6mN+6iFO7bg0vkBnnOMI/w=
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Headers/LoggingViewKit.h</key>
 		<data>
@@ -406,39 +406,39 @@
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/LoggingViewKit</key>
 		<data>
-		4VsaHZHNpWCDtqZc9Vul5qgCvdI=
+		XD5fG4enxkFa1OjGT/QoTZlrffw=
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-macos.abi.json</key>
 		<data>
-		Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
+		j1kgteiX3n46ii5ktGINP5AIfFM=
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-macos.private.swiftinterface</key>
 		<data>
-		3H64M8cOl7xfD/64NPKg+XhGmvw=
+		TgdrHmipvvsCvHaKvN16thLzmKs=
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-macos.swiftdoc</key>
 		<data>
-		5BCqyjc/lwvB9UgQf64QLqfHXFA=
+		WSKUI+UeLIhKNZwIgM8mqVrkIRA=
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-macos.swiftinterface</key>
 		<data>
-		3H64M8cOl7xfD/64NPKg+XhGmvw=
+		TgdrHmipvvsCvHaKvN16thLzmKs=
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-macos.abi.json</key>
 		<data>
-		Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
+		j1kgteiX3n46ii5ktGINP5AIfFM=
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-macos.private.swiftinterface</key>
 		<data>
-		zEc3ox86DM8pp5hnK0owVGm9izc=
+		W6LIuG/0ZWkDhWZWqAbNOpQpJy0=
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-macos.swiftdoc</key>
 		<data>
-		d7TSHaD+2ui+Mxh0VJmjB8IPz98=
+		JgF81YIU+gX118bg3zw9J8XnJxE=
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-macos.swiftinterface</key>
 		<data>
-		zEc3ox86DM8pp5hnK0owVGm9izc=
+		W6LIuG/0ZWkDhWZWqAbNOpQpJy0=
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/module.modulemap</key>
 		<data>
@@ -446,7 +446,7 @@
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Resources/Info.plist</key>
 		<data>
-		JUQ2dR3X2x5KiuaFC8Beah4bvcY=
+		LIPJWzq3OsVinUQuSUTs+L4FxX4=
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Resources/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -454,7 +454,7 @@
 		</data>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/_CodeSignature/CodeResources</key>
 		<data>
-		Xe/7nTaz6P1m/Tf6B14X960mah0=
+		uJorlHV2mWd2F9n1ABWMUYY1XeU=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -474,11 +474,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YB+hicaG5Bfi3CCeYbapuiKJI2A=
+			jc0y5r9J01kjOILxrA4qEEPQccs=
 			</data>
 			<key>hash2</key>
 			<data>
-			vVdRKunIc0aC7GQf2Ef+bS+wqdhTkgMNzkf0HJO+j/k=
+			05KsCJopzwxOph0nEB03X9JQyLLtWOKcE6aZzSRwDhw=
 			</data>
 		</dict>
 		<key>ios-arm64/LoggingViewKit.framework/Headers/LGVLabel.h</key>
@@ -529,11 +529,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1BvmM3LxoIKxIEhduUxFdmiPUIQ=
+			POtcw/GihyQYOOrUuaTtFOIb1Dw=
 			</data>
 			<key>hash2</key>
 			<data>
-			pEH0hgDNqnK4zN1pIWI1GFII5LgHpIdJVeI1w4UIya8=
+			AqcTsrfexk1yu/1zTpECQ65xalIS16oRCwbN2pZ/Smc=
 			</data>
 		</dict>
 		<key>ios-arm64/LoggingViewKit.framework/Headers/LGVRealTimeLogger.h</key>
@@ -650,11 +650,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mSDfrhDS4ZYpA5R1sJvp6E5OdV8=
+			q97P4SRFPWWACRrBgIIy2aAqDTk=
 			</data>
 			<key>hash2</key>
 			<data>
-			VM6T99E7j5G9emwwpgLhZR/TZF/zkgkK01lVbToEG9c=
+			Q5AoS/GQb7B6/XpNrBasxhgKlpHkQfLBuZXXCErVsGY=
 			</data>
 		</dict>
 		<key>ios-arm64/LoggingViewKit.framework/Headers/LoggingViewKit.h</key>
@@ -672,66 +672,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZKoIs7BIGCJDyjMlp5jIOT2bBtk=
+			0yaQBwCAx92CC2BvdFG8qX43MSg=
 			</data>
 			<key>hash2</key>
 			<data>
-			SllPJ1xhgpwpC+YMSqyGWcCLWCQbVktWov5tSN6z67c=
+			cp/wr9rThRpSaUhBkYvCWtbopGNZcaLYnnnVqomSvM0=
 			</data>
 		</dict>
 		<key>ios-arm64/LoggingViewKit.framework/LoggingViewKit</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kEAi/CClNtmgE0H3UrWjtqkNIL8=
+			aCaEDFhRLg3nOXUdYd/3jJursHI=
 			</data>
 			<key>hash2</key>
 			<data>
-			S+t+8IQr2ykL4TixyKDxXg+NrjMoSJNI1TOWVGGCbm8=
+			r03wQI+nquwwdjL9bxRCSv7zKwN0e0tXHUqftw6z8WQ=
 			</data>
 		</dict>
 		<key>ios-arm64/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
+			j1kgteiX3n46ii5ktGINP5AIfFM=
 			</data>
 			<key>hash2</key>
 			<data>
-			0V78DkPeqS5FC763tncMWlaZUrFCYGxke3wJUy+vc+I=
+			FCCqS3JKMMWm8N5CAMs5AnH+0KO3VoWJhwCaPM43qF8=
 			</data>
 		</dict>
 		<key>ios-arm64/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			v4wj1lmaBzddJfRBfl1/3kqcpA4=
+			5kJzdY5BBvOfMsNmGK6FoQdwOtg=
 			</data>
 			<key>hash2</key>
 			<data>
-			W62DOUWGm15JdLWQcTskNL3+rQelgDYXBL3KbGswd4U=
+			c271H8fZnphwr5JeJ5bWyoIHDCu4eW/KYQnr6IpRAK8=
 			</data>
 		</dict>
 		<key>ios-arm64/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2SUD7ELteHfGt39CByyZnp6bd8M=
+			rDblSjJCQtMmAnQp/bOIp1+9cD4=
 			</data>
 			<key>hash2</key>
 			<data>
-			bKuzYrFQLmSxu+2wBFkBDCDmqEd7JRs5nHD4cNggASA=
+			mhn+l+QoCGffSot7G1MbB1I8UOG/bCy6fuELmkA2n2E=
 			</data>
 		</dict>
 		<key>ios-arm64/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			v4wj1lmaBzddJfRBfl1/3kqcpA4=
+			5kJzdY5BBvOfMsNmGK6FoQdwOtg=
 			</data>
 			<key>hash2</key>
 			<data>
-			W62DOUWGm15JdLWQcTskNL3+rQelgDYXBL3KbGswd4U=
+			c271H8fZnphwr5JeJ5bWyoIHDCu4eW/KYQnr6IpRAK8=
 			</data>
 		</dict>
 		<key>ios-arm64/LoggingViewKit.framework/Modules/module.modulemap</key>
@@ -791,11 +791,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YB+hicaG5Bfi3CCeYbapuiKJI2A=
+			jc0y5r9J01kjOILxrA4qEEPQccs=
 			</data>
 			<key>hash2</key>
 			<data>
-			vVdRKunIc0aC7GQf2Ef+bS+wqdhTkgMNzkf0HJO+j/k=
+			05KsCJopzwxOph0nEB03X9JQyLLtWOKcE6aZzSRwDhw=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Headers/LGVLabel.h</key>
@@ -846,11 +846,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1BvmM3LxoIKxIEhduUxFdmiPUIQ=
+			POtcw/GihyQYOOrUuaTtFOIb1Dw=
 			</data>
 			<key>hash2</key>
 			<data>
-			pEH0hgDNqnK4zN1pIWI1GFII5LgHpIdJVeI1w4UIya8=
+			AqcTsrfexk1yu/1zTpECQ65xalIS16oRCwbN2pZ/Smc=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Headers/LGVRealTimeLogger.h</key>
@@ -967,11 +967,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DPP4uPq0PM9Kb8dsMQ6TnJlCbbw=
+			IBh/s6mN+6iFO7bg0vkBnnOMI/w=
 			</data>
 			<key>hash2</key>
 			<data>
-			j07Kqk9yL8o0Bnv8D+Oqi/31ePpKPct/ANtORFFDONo=
+			uBb0gj5VsxZgf6Mz0+Zh7vuCe0QV51/Ac1zQw3r4v2Y=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Headers/LoggingViewKit.h</key>
@@ -989,99 +989,99 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Hqp6KtH2hrq649eemwLCpzIS49Y=
+			5HJR+tN8FbdGsnD7H7Kd+TcIbW8=
 			</data>
 			<key>hash2</key>
 			<data>
-			VIrOjG1fbC/CR/4SHR4ox+WcVVl4SxHTX8zgfs5hVc0=
+			5v9K/bHeoMz7h6GKOplMM7UyLITLTCzw6mn/ETzB4JM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-macabi.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
+			j1kgteiX3n46ii5ktGINP5AIfFM=
 			</data>
 			<key>hash2</key>
 			<data>
-			0V78DkPeqS5FC763tncMWlaZUrFCYGxke3wJUy+vc+I=
+			FCCqS3JKMMWm8N5CAMs5AnH+0KO3VoWJhwCaPM43qF8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-macabi.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NdnR6stNufdYitnaGqRJrRnssI4=
+			IwhM1zhVeNLGjJbI5sdIlmzeQ50=
 			</data>
 			<key>hash2</key>
 			<data>
-			RWHKKneV6MzpmiLPQHfp3twXuQMdLSxuiaNpgDV5vw8=
+			vzTInRapZynB+BDi4nhO/idClbjNsFf/wAkbAVlwCZY=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			R/ADRGSdyFk0/xUAHYNdlk0jreI=
+			6NlGyBNi3o/AAbLbQYA22EBHK8Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			UcHtsnXVIrUzGOETasMf9GTzl9s1k8zUWwxAyWirDcc=
+			uZWPFrm+3WZqpAiEdLDKVK00p14B8AZHyRE2J27PiUM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NdnR6stNufdYitnaGqRJrRnssI4=
+			IwhM1zhVeNLGjJbI5sdIlmzeQ50=
 			</data>
 			<key>hash2</key>
 			<data>
-			RWHKKneV6MzpmiLPQHfp3twXuQMdLSxuiaNpgDV5vw8=
+			vzTInRapZynB+BDi4nhO/idClbjNsFf/wAkbAVlwCZY=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-macabi.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
+			j1kgteiX3n46ii5ktGINP5AIfFM=
 			</data>
 			<key>hash2</key>
 			<data>
-			0V78DkPeqS5FC763tncMWlaZUrFCYGxke3wJUy+vc+I=
+			FCCqS3JKMMWm8N5CAMs5AnH+0KO3VoWJhwCaPM43qF8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-macabi.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5OwYJ9WO0q4/LT6YnTDwbNQt03g=
+			W0ycfLM2kgb2KENOcU35v3cNWUw=
 			</data>
 			<key>hash2</key>
 			<data>
-			pmg5brEU02wxu3qyW34zhEgiep+yCCAmEOs0fgo7BmI=
+			Ojp82tz/JPa7OCtF71/w26bHQ+xpt9YLusEVUfCvr4o=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-macabi.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Vre9Il/mjMjdHKmhIjLjzq/7RTo=
+			TbKZjKORgoGTC+jCROBtbPu/mzs=
 			</data>
 			<key>hash2</key>
 			<data>
-			uzZQVXAyhNejX04xXiYIXWCpzR2571e7lyDgVUB25UI=
+			C2e8m0/kXqsn1C8Tfq26+aA5teG5riuLtOQTQOV5SRs=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-macabi.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5OwYJ9WO0q4/LT6YnTDwbNQt03g=
+			W0ycfLM2kgb2KENOcU35v3cNWUw=
 			</data>
 			<key>hash2</key>
 			<data>
-			pmg5brEU02wxu3qyW34zhEgiep+yCCAmEOs0fgo7BmI=
+			Ojp82tz/JPa7OCtF71/w26bHQ+xpt9YLusEVUfCvr4o=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Modules/module.modulemap</key>
@@ -1099,11 +1099,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			p0k3SrWt/IIblMehlZ4w3eTgKto=
+			9E6L0fIEQ7RkPaq+RI1+2LagEGI=
 			</data>
 			<key>hash2</key>
 			<data>
-			PFD9MZp2TLhYg9dsud98ae4yoT/BLJu66c/3JWGi5RE=
+			tMaAdLrro9qGnvWa7f75YsfYivTTFhD5qGJLJDWJwoE=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-maccatalyst/LoggingViewKit.framework/Versions/A/Resources/PrivacyInfo.xcprivacy</key>
@@ -1137,11 +1137,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YB+hicaG5Bfi3CCeYbapuiKJI2A=
+			jc0y5r9J01kjOILxrA4qEEPQccs=
 			</data>
 			<key>hash2</key>
 			<data>
-			vVdRKunIc0aC7GQf2Ef+bS+wqdhTkgMNzkf0HJO+j/k=
+			05KsCJopzwxOph0nEB03X9JQyLLtWOKcE6aZzSRwDhw=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Headers/LGVLabel.h</key>
@@ -1192,11 +1192,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1BvmM3LxoIKxIEhduUxFdmiPUIQ=
+			POtcw/GihyQYOOrUuaTtFOIb1Dw=
 			</data>
 			<key>hash2</key>
 			<data>
-			pEH0hgDNqnK4zN1pIWI1GFII5LgHpIdJVeI1w4UIya8=
+			AqcTsrfexk1yu/1zTpECQ65xalIS16oRCwbN2pZ/Smc=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Headers/LGVRealTimeLogger.h</key>
@@ -1313,11 +1313,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DPP4uPq0PM9Kb8dsMQ6TnJlCbbw=
+			IBh/s6mN+6iFO7bg0vkBnnOMI/w=
 			</data>
 			<key>hash2</key>
 			<data>
-			j07Kqk9yL8o0Bnv8D+Oqi/31ePpKPct/ANtORFFDONo=
+			uBb0gj5VsxZgf6Mz0+Zh7vuCe0QV51/Ac1zQw3r4v2Y=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Headers/LoggingViewKit.h</key>
@@ -1335,110 +1335,110 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zCon5df7AMrILIpjdK8CwVfHqQw=
+			G+pnzKNTQ38CxUTkBb0vzohhvSE=
 			</data>
 			<key>hash2</key>
 			<data>
-			7HrKljq+iVFf1MbUx3VGa6g7vDJ9HAyI2zyPDY7Qriw=
+			Sr4pCEr1eO5rXJPBqHjKb9K1G9SLo3pJcqXPXDsnhjA=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/LoggingViewKit</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qWxzxNhSRbhfAA+1miKQt+7M+HM=
+			wEBy2mhXUYjPODrslpDDwqWEhPE=
 			</data>
 			<key>hash2</key>
 			<data>
-			/M6x2nWMn+W53c00lBrO58Vt3o3BbnAXpAl+tnhRgUk=
+			rF3psgUUjn0F/qByPoGP/e5Kl0ey0Qsf+Lzvd5ikfmU=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
+			j1kgteiX3n46ii5ktGINP5AIfFM=
 			</data>
 			<key>hash2</key>
 			<data>
-			0V78DkPeqS5FC763tncMWlaZUrFCYGxke3wJUy+vc+I=
+			FCCqS3JKMMWm8N5CAMs5AnH+0KO3VoWJhwCaPM43qF8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			X/ekr5aLoZgm5HHamMuunEmaVfg=
+			Vd7LV/nBtIScLjFYAW5QnjDGf1w=
 			</data>
 			<key>hash2</key>
 			<data>
-			26wb5Kq2E17jmWs4y+CGdMF4tx9+MhwfuAVv0Ldaj+Y=
+			iq53eD3UEvX+LCKi1oGMp10Rtspg75MuyPFh2OeDoG0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fWulVrn6MVJ9HdlVRpINUY/mAwI=
+			ZJAcInv/QHA0ffu99h9qhWxWV7Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			R0454vlO06Spebv5N4nB3RsXV+aJ7gAyDOs6LaxzBCg=
+			Z7QkMRTJ+jjg+Vdr5GcqFrJwiwNKSTwFD2qFBgocaRY=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			X/ekr5aLoZgm5HHamMuunEmaVfg=
+			Vd7LV/nBtIScLjFYAW5QnjDGf1w=
 			</data>
 			<key>hash2</key>
 			<data>
-			26wb5Kq2E17jmWs4y+CGdMF4tx9+MhwfuAVv0Ldaj+Y=
+			iq53eD3UEvX+LCKi1oGMp10Rtspg75MuyPFh2OeDoG0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
+			j1kgteiX3n46ii5ktGINP5AIfFM=
 			</data>
 			<key>hash2</key>
 			<data>
-			0V78DkPeqS5FC763tncMWlaZUrFCYGxke3wJUy+vc+I=
+			FCCqS3JKMMWm8N5CAMs5AnH+0KO3VoWJhwCaPM43qF8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			mJhIRIN7ttQYTt6GOomCgBuXtjc=
+			Dzjohv6TnoORgsT/QeYtFLOY3mI=
 			</data>
 			<key>hash2</key>
 			<data>
-			w5Jl1pR41vCa1VmWeLHRerGhqOAN0zkvp0vC0fWF25w=
+			BcBcX8pDeGh1fWH10nwesm5VzPpuoeBf0pEzJ6cSMls=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kXZnnKKZlnmCtGm0iJ6anOhu8wQ=
+			G8L1pxtJ0GpmQqeBFellazRP3DI=
 			</data>
 			<key>hash2</key>
 			<data>
-			LjgjyX5mIxKwu0PUxVaaySYrFBn1CcmTgfD0Y9FjKeU=
+			bwT1TUfc+ThuFOafjm9Tc1ErrQ3GGlGZuJuq5ls0uD0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/LoggingViewKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			mJhIRIN7ttQYTt6GOomCgBuXtjc=
+			Dzjohv6TnoORgsT/QeYtFLOY3mI=
 			</data>
 			<key>hash2</key>
 			<data>
-			w5Jl1pR41vCa1VmWeLHRerGhqOAN0zkvp0vC0fWF25w=
+			BcBcX8pDeGh1fWH10nwesm5VzPpuoeBf0pEzJ6cSMls=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/LoggingViewKit.framework/Modules/module.modulemap</key>
@@ -1467,11 +1467,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wlU2dfGDe5UP6g+D5xrm6T+9/nE=
+			WN8IZZ979OOfG4WporWRbrQJNhY=
 			</data>
 			<key>hash2</key>
 			<data>
-			iiOSsUpss+zqXHcE13R1zYewvQ1SbFPfZpNzj9FyYYE=
+			zlUr+XonfIXpEXHNCUZp5ZZFPiooebSCxzAHOGPDUlU=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Headers</key>
@@ -1498,11 +1498,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YB+hicaG5Bfi3CCeYbapuiKJI2A=
+			jc0y5r9J01kjOILxrA4qEEPQccs=
 			</data>
 			<key>hash2</key>
 			<data>
-			vVdRKunIc0aC7GQf2Ef+bS+wqdhTkgMNzkf0HJO+j/k=
+			05KsCJopzwxOph0nEB03X9JQyLLtWOKcE6aZzSRwDhw=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Headers/LGVLog.h</key>
@@ -1542,11 +1542,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1BvmM3LxoIKxIEhduUxFdmiPUIQ=
+			POtcw/GihyQYOOrUuaTtFOIb1Dw=
 			</data>
 			<key>hash2</key>
 			<data>
-			pEH0hgDNqnK4zN1pIWI1GFII5LgHpIdJVeI1w4UIya8=
+			AqcTsrfexk1yu/1zTpECQ65xalIS16oRCwbN2pZ/Smc=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Headers/LGVRealTimeLogger.h</key>
@@ -1586,11 +1586,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DPP4uPq0PM9Kb8dsMQ6TnJlCbbw=
+			IBh/s6mN+6iFO7bg0vkBnnOMI/w=
 			</data>
 			<key>hash2</key>
 			<data>
-			j07Kqk9yL8o0Bnv8D+Oqi/31ePpKPct/ANtORFFDONo=
+			uBb0gj5VsxZgf6Mz0+Zh7vuCe0QV51/Ac1zQw3r4v2Y=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Headers/LoggingViewKit.h</key>
@@ -1608,99 +1608,99 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4VsaHZHNpWCDtqZc9Vul5qgCvdI=
+			XD5fG4enxkFa1OjGT/QoTZlrffw=
 			</data>
 			<key>hash2</key>
 			<data>
-			se7FMRil+9DqprAiT8ksp1oHzVBRrGwg8pPstVvZFMk=
+			iNxnW6p/DS1VssHIclzd/XDNMrBRwdmQd1qB+Hpqwxg=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-macos.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
+			j1kgteiX3n46ii5ktGINP5AIfFM=
 			</data>
 			<key>hash2</key>
 			<data>
-			0V78DkPeqS5FC763tncMWlaZUrFCYGxke3wJUy+vc+I=
+			FCCqS3JKMMWm8N5CAMs5AnH+0KO3VoWJhwCaPM43qF8=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-macos.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3H64M8cOl7xfD/64NPKg+XhGmvw=
+			TgdrHmipvvsCvHaKvN16thLzmKs=
 			</data>
 			<key>hash2</key>
 			<data>
-			hl/49Pti7Xr5QA8aj44BUjoWTrAJm/KWEsbAWjruOKQ=
+			J+go8qGYgdMgNqr9XMJCEmpkYZCK6vsUGhBnRnn30Hs=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-macos.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5BCqyjc/lwvB9UgQf64QLqfHXFA=
+			WSKUI+UeLIhKNZwIgM8mqVrkIRA=
 			</data>
 			<key>hash2</key>
 			<data>
-			kh4d62gWwqHVv4I7vMgh3pcssZ+JLBcAObLLsbi8WYI=
+			QnKIdw80nSK/cIm+fd7zrlpb6gne6APDOwIwOdc/9t4=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/arm64-apple-macos.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3H64M8cOl7xfD/64NPKg+XhGmvw=
+			TgdrHmipvvsCvHaKvN16thLzmKs=
 			</data>
 			<key>hash2</key>
 			<data>
-			hl/49Pti7Xr5QA8aj44BUjoWTrAJm/KWEsbAWjruOKQ=
+			J+go8qGYgdMgNqr9XMJCEmpkYZCK6vsUGhBnRnn30Hs=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-macos.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Gg4KH+aJBII2WYoqS8Nvm/3egTQ=
+			j1kgteiX3n46ii5ktGINP5AIfFM=
 			</data>
 			<key>hash2</key>
 			<data>
-			0V78DkPeqS5FC763tncMWlaZUrFCYGxke3wJUy+vc+I=
+			FCCqS3JKMMWm8N5CAMs5AnH+0KO3VoWJhwCaPM43qF8=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-macos.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zEc3ox86DM8pp5hnK0owVGm9izc=
+			W6LIuG/0ZWkDhWZWqAbNOpQpJy0=
 			</data>
 			<key>hash2</key>
 			<data>
-			5+uXVzCiZE6wguE7A8RJSH6fUh6R+j8ZLviyiRXNp0M=
+			36sjZmv2HmosBr8gYZEtiFeUgZ81QtuexvIDYfvyRCU=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-macos.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			d7TSHaD+2ui+Mxh0VJmjB8IPz98=
+			JgF81YIU+gX118bg3zw9J8XnJxE=
 			</data>
 			<key>hash2</key>
 			<data>
-			6L+jMF4A8S22Y5OIdGP0g3UXBE9JVqrbiFi6LVvyHmg=
+			Qpq3eOjkZ/nzRGleF/8lmeg0CDOs05c2rXuf+Yff3Ng=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/LoggingViewKit.swiftmodule/x86_64-apple-macos.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zEc3ox86DM8pp5hnK0owVGm9izc=
+			W6LIuG/0ZWkDhWZWqAbNOpQpJy0=
 			</data>
 			<key>hash2</key>
 			<data>
-			5+uXVzCiZE6wguE7A8RJSH6fUh6R+j8ZLviyiRXNp0M=
+			36sjZmv2HmosBr8gYZEtiFeUgZ81QtuexvIDYfvyRCU=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Modules/module.modulemap</key>
@@ -1718,11 +1718,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JUQ2dR3X2x5KiuaFC8Beah4bvcY=
+			LIPJWzq3OsVinUQuSUTs+L4FxX4=
 			</data>
 			<key>hash2</key>
 			<data>
-			KVaEUElraWRPiPS4CUKFYEGO9RlNZEMBcH12zQXOupM=
+			xRNZ2EJJaNni9knNoSAMQaEC+hUm7rUkPbyWvzv5aFs=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/A/Resources/PrivacyInfo.xcprivacy</key>
@@ -1740,11 +1740,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Xe/7nTaz6P1m/Tf6B14X960mah0=
+			uJorlHV2mWd2F9n1ABWMUYY1XeU=
 			</data>
 			<key>hash2</key>
 			<data>
-			sv5Q0ZIUksp7HjLbGOdxRcgQelOZZwai9UY2bcvRBz8=
+			IHUCw/MjTknffmBz/hZGebJOM8H3kfYz0yECu6HYVhk=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/LoggingViewKit.framework/Versions/Current</key>
