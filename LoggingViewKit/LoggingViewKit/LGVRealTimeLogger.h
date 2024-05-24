@@ -123,17 +123,30 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
  */
 @property (nonatomic) LGVLogLevel logLevel;
 /**
- * A serializer. Default is JSON serializer.
+ * A serializer. Default is the StringSerializer.
  */
 @property (nonatomic) id <LGVSerializer> serializer;
+/**
+ * An identifier of the logger.
+ */
+@property (nonatomic, copy, readonly) NSString *identifier;
 
 /**
- * Returns the singleton instance.
+ * Returns a shared instance.
  *
- * @return The singleton instance.
+ * @return A shared instance.
  */
 + (instancetype) sharedLogger;
 
++ (instancetype) new NS_UNAVAILABLE;
+- (instancetype) init NS_UNAVAILABLE;
+
+/**
+ * Initializes a new instance.
+ *
+ * @param identifier An identifier of the logger.
+ */
+- (instancetype) initWithIdentifier:(NSString *)identifier NS_DESIGNATED_INITIALIZER;
 /**
  * Adds a destination outputting logs to the logger.
  *
@@ -147,7 +160,7 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
  * @param logLevel The log level.
  * @param format A message using a format.
  */
-- (void) logWithLevel:(LGVLogLevel)logLevel format:(nullable NSString *)format, ...;
+- (void) logWithLevel:(LGVLogLevel)logLevel format:(nullable NSString *)format, ... DEPRECATED_MSG_ATTRIBUTE("Use `logWithLevel:function:line:format:` instead.");
 /**
  * Adds a log.
  *
@@ -160,6 +173,18 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
              function:(const char *)function
                  line:(NSUInteger)line
                format:(nullable NSString *)format, ...;
+/**
+ * Adds a log.
+ *
+ * @param logLevel The log level.
+ * @param function Set `__FUNCTION__`.
+ * @param line Set `__LINE__`.
+ * @param message A message.
+ */
+- (void) logWithLevel:(LGVLogLevel)logLevel
+             function:(const char *)function
+                 line:(NSUInteger)line
+              message:(nullable NSString *)message;
 
 @end
 
