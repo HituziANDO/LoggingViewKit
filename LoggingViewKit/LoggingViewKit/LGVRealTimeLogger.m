@@ -186,7 +186,7 @@ NSString * LGVLogLevelToString(LGVLogLevel logLevel) {
 - (instancetype) initWithIdentifier:(NSString *)identifier {
     if (self = [super init]) {
         _identifier = identifier;
-        _logLevel = LGVLogLevelDebug;
+        _logLevel = LGVLogLevelOff;
         _serializer = [LGVStringSerializer new];
         _destinations = [NSMutableArray new];
     }

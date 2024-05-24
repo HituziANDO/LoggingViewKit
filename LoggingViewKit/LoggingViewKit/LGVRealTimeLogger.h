@@ -119,7 +119,7 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
 
 @interface LGVRealTimeLogger : NSObject
 /**
- * Log level.  Default level is "Off".
+ * Log level. Default level is off.
  */
 @property (nonatomic) LGVLogLevel logLevel;
 /**
@@ -148,9 +148,9 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
  */
 - (instancetype) initWithIdentifier:(NSString *)identifier NS_DESIGNATED_INITIALIZER;
 /**
- * Adds a destination outputting logs to the logger.
+ * Adds a destination to output logs to the logger.
  *
- * @param destination A destination outputting logs.
+ * @param destination A destination to output logs.
  * @return The receiver.
  */
 - (instancetype) addDestination:(id <LGVDestination>)destination;

@@ -28,7 +28,7 @@ public class LVKLoggerSwift {
 }
 
 public extension LVKLoggerSwift {
-    /// Log level.  Default level is off.
+    /// Log level. Default level is off.
     var logLevel: LGVLogLevel {
         get {
             logger.logLevel
