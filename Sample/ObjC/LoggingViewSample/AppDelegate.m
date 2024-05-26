@@ -21,7 +21,7 @@
     NSLog(@"version: %@", LGVLoggingViewService.versionString);
 
     // Enable debug logging.
-    LGVRealTimeLogger *logger = [LGVRealTimeLogger new];
+    LGVRealTimeLogger *logger = [LGVRealTimeLogger sharedLogger];
 
     [logger addDestination:[LGVXcodeConsoleDestination destination]];
     NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;

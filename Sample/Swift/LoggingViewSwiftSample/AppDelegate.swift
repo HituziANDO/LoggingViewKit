@@ -6,8 +6,24 @@
 //  Copyright © 2018年 Hituzi Ando. All rights reserved.
 //
 
-import LoggingViewKit
 import UIKit
+
+import LoggingViewKit
+
+let fileDestination: LGVFileDestination = {
+    let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        .first!
+    return LGVFileDestination(file: "debug.log", inDirectory: docDir)
+}()
+
+let log: LVKLoggerSwift = {
+    let log = LVKLoggerSwift(identifier: "Sample")
+    #if DEBUG
+    log.add(destination: fileDestination)
+    log.logLevel = .debug
+    #endif
+    return log
+}()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,16 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication
                          .LaunchOptionsKey: Any]?) -> Bool
     {
-        print("version: \(LGVLoggingViewService.versionString)")
+        log.debug("version: \(LGVLoggingViewService.versionString)")
 
         // Enable debug logging.
-        let logger = LGVRealTimeLogger()
+        let logger = LGVRealTimeLogger.shared()
         logger.add(LGVXcodeConsoleDestination())
-        if let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask,
-                                                            true).first
-        {
-            logger.add(LGVFileDestination(file: "debug.log", inDirectory: docDir))
-        }
         LGVLoggingViewService.shared().logger = logger
 
         // Start recording.
@@ -34,7 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         /// Counts the number of times the app is launched.
         LGVLoggingViewService.shared().counter(name: "NumberOfLaunching")?.increase()
-        print("Number of launching: \(LGVLoggingViewService.shared().counter(name: "NumberOfLaunching")!.count)")
+        log
+            .debug("Number of launching: \(LGVLoggingViewService.shared().counter(name: "NumberOfLaunching")!.count)")
 
         return true
     }
