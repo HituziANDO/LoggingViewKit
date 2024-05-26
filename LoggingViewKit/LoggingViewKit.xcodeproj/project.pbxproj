@@ -74,6 +74,7 @@
 		5E34DED728937ED100FC06FF /* LGVLoggingAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E34DED528937ED100FC06FF /* LGVLoggingAttribute.m */; };
 		5E5A50A02C00D10D00782676 /* LVKLoggerSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A509F2C00D10D00782676 /* LVKLoggerSwift.swift */; };
 		5E5A50A12C00D10D00782676 /* LVKLoggerSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A509F2C00D10D00782676 /* LVKLoggerSwift.swift */; };
+		5E5A50A62C035F6900782676 /* LVKLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5A50A52C035F6900782676 /* LVKLogViewController.swift */; };
 		5E82BA9A2BBFBAAE00450476 /* LGVLoggingViewServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E82BA992BBFBAAE00450476 /* LGVLoggingViewServiceTests.m */; };
 		5E82BAA62BBFF1FF00450476 /* LVKFMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E82BA9B2BBFF1FF00450476 /* LVKFMDatabaseAdditions.h */; };
 		5E82BAA72BBFF1FF00450476 /* LVKFMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E82BA9B2BBFF1FF00450476 /* LVKFMDatabaseAdditions.h */; };
@@ -154,6 +155,7 @@
 		5E34DED428937ED100FC06FF /* LGVLoggingAttribute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGVLoggingAttribute.h; sourceTree = "<group>"; };
 		5E34DED528937ED100FC06FF /* LGVLoggingAttribute.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVLoggingAttribute.m; sourceTree = "<group>"; };
 		5E5A509F2C00D10D00782676 /* LVKLoggerSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVKLoggerSwift.swift; sourceTree = "<group>"; };
+		5E5A50A52C035F6900782676 /* LVKLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LVKLogViewController.swift; sourceTree = "<group>"; };
 		5E82BA992BBFBAAE00450476 /* LGVLoggingViewServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGVLoggingViewServiceTests.m; sourceTree = "<group>"; };
 		5E82BA9B2BBFF1FF00450476 /* LVKFMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVKFMDatabaseAdditions.h; sourceTree = "<group>"; };
 		5E82BA9C2BBFF1FF00450476 /* LVKFMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVKFMResultSet.m; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				5E82BABC2BC3806B00450476 /* LVKCounter.swift */,
 				5E82BAC62BC41F8300450476 /* LVKIncrementCondition.swift */,
 				5E5A509F2C00D10D00782676 /* LVKLoggerSwift.swift */,
+				5E5A50A52C035F6900782676 /* LVKLogViewController.swift */,
 			);
 			path = LoggingViewKit;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 			files = (
 				5E34DEA3289221E700FC06FF /* LGVButton.m in Sources */,
 				5E34DE97289221E700FC06FF /* LGVViewHierarchy.m in Sources */,
+				5E5A50A62C035F6900782676 /* LVKLogViewController.swift in Sources */,
 				5E82BABD2BC3806B00450476 /* LVKCounter.swift in Sources */,
 				5E34DED728937ED100FC06FF /* LGVLoggingAttribute.m in Sources */,
 				5E82BAB82BBFF1FF00450476 /* LVKFMDatabase.m in Sources */,

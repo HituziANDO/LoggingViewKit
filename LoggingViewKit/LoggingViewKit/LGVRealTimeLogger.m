@@ -89,6 +89,28 @@ NSString * LGVLogLevelToString(LGVLogLevel logLevel) {
     return destination;
 }
 
+- (BOOL) deleteAllLogsWithError:(NSError **)outError {
+    if ([[NSFileManager defaultManager] fileExistsAtPath:self.filePath]) {
+        if ([[NSFileManager defaultManager] removeItemAtPath:self.filePath error:outError]) {
+            return YES;
+        }
+        else {
+            return NO;
+        }
+    }
+    else {
+        NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain
+                                             code:NSFileNoSuchFileError
+                                         userInfo:nil];
+
+        if (outError) {
+            *outError = error;
+        }
+
+        return NO;
+    }
+}
+
 #pragma mark - LGVDestination
 
 - (void) write:(NSString *)log logLevel:(LGVLogLevel)logLevel {

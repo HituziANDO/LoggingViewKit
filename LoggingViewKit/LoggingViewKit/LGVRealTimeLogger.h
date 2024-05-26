@@ -96,6 +96,14 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
  */
 + (instancetype) destinationWithFilePath:(NSString *)filePath;
 
+/**
+ * Deletes all logs in the file.
+ *
+ * @param outError An error object to receive an error.
+ * @return `YES` if the logs are deleted successfully, otherwise `NO`.
+ */
+- (BOOL) deleteAllLogsWithError:(NSError *_Nullable *_Nullable)outError;
+
 @end
 
 @protocol LGVSerializer <NSObject>
