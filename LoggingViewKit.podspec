@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "LoggingViewKit"
-  s.version               = "6.0.5"
+  s.version               = "6.1.0"
   s.summary               = "LoggingViewKit is a framework for logging and debugging."
   s.description           = <<-DESC
   LoggingViewKit is a framework that can record user click events, etc. All records are stored in a local database and the framework does not send any data externally.
@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
   s.source                = { :http => "https://github.com/HituziANDO/LoggingViewKit/raw/#{s.version}/Frameworks/LoggingViewKit.xcframework.zip" }
   s.vendored_frameworks   = "LoggingViewKit.xcframework"
   s.requires_arc          = true
-  s.swift_versions        = '5.0'
+  s.swift_versions        = ['5.0']
 end
