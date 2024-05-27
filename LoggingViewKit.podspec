@@ -10,8 +10,12 @@ Pod::Spec.new do |s|
   s.author                = "Hituzi Ando"
   s.ios.deployment_target = '13.0'
   s.osx.deployment_target = '10.15'
-  s.source                = { :http => "https://github.com/HituziANDO/LoggingViewKit/raw/#{s.version}/Frameworks/LoggingViewKit.xcframework.zip" }
-  s.vendored_frameworks   = "LoggingViewKit.xcframework"
+  s.source                = { :git => "https://github.com/HituziANDO/LoggingViewKit.git", :tag => "#{s.version}" }
+  s.source_files          = "LoggingViewKit/LoggingViewKit/**/*.{h,m,swift}"
+  s.ios.exclude_files     = "Frameworks/*", "Sample/*"
+  s.osx.exclude_files     = "Frameworks/*", "Sample/*", "LoggingViewKit/LoggingViewKit/iOS/*", "LoggingViewKit/LoggingViewKit/LVKLogViewController.swift"
+  s.resource_bundles      = {"LoggingViewKit" => ["LoggingViewKit/PrivacyInfo.xcprivacy"]}
   s.requires_arc          = true
   s.swift_versions        = ['5.0']
+  s.ios.framework         = 'UIKit'
 end
