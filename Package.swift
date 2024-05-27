@@ -18,5 +18,4 @@ let package = Package(name: "LoggingViewKit",
                           // Targets can depend on other targets in this package, and on products in
                           // packages this package depends on.
                           .binaryTarget(name: "LoggingViewKit",
-                                        url: "https://github.com/HituziANDO/LoggingViewKit/raw/6.1.2/Frameworks/LoggingViewKit.xcframework.zip",
-                                        checksum: "272b5ef53a85a148dc98bb86190524c040bb07cb47dec84ccc2537e800d9a512")])
+                                        path: "Frameworks/LoggingViewKit.xcframework")])
