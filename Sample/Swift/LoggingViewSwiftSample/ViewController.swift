@@ -65,8 +65,10 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
 
     @objc func testButtonPressed(_ sender: LGVButton) {
         if let loggingName = sender.loggingName {
-            print("\(loggingName) Pressed")
+            log.debug("\(loggingName) Pressed")
         }
+
+        LVKLogViewController.show(from: self, sourceFile: fileDestination)
     }
 
     @objc func getLogButtonPressed(_ sender: Any) {
@@ -77,8 +79,9 @@ class ViewController: UIViewController, LGVLoggingViewServiceDelegate {
         attr.info = ["more-info": "test"]
         LGVLoggingViewService.shared().click(attr)
 
-        print("All Logs: \(LGVLoggingViewService.shared().allLogs())")
-        print("Custom Event Logs: \(LGVLoggingViewService.shared().logs(eventType: "viewDidLoad"))")
+        log.debug("All Logs: \(LGVLoggingViewService.shared().allLogs())")
+        log
+            .debug("Custom Event Logs: \(LGVLoggingViewService.shared().logs(eventType: "viewDidLoad"))")
     }
 
     // MARK: - LGVLoggingViewServiceDelegate

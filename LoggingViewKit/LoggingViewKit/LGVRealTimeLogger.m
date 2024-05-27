@@ -55,16 +55,11 @@ NSString * LGVLogLevelToString(LGVLogLevel logLevel) {
 
 @end
 
-@interface LGVFileDestination ()
-
-@property (nonatomic, copy) NSString *filePath;
-
-@end
-
 @implementation LGVFileDestination
 
 + (instancetype) destinationWithFile:(NSString *)fileName
-                         inDirectory:(NSString *)directory {
+                         inDirectory:(NSString *)directory
+                               error:(NSError **)outError {
     if (![[NSFileManager defaultManager] fileExistsAtPath:directory]) {
         if (![[NSFileManager defaultManager] createDirectoryAtPath:directory
                                        withIntermediateDirectories:YES
@@ -72,21 +67,58 @@ NSString * LGVLogLevelToString(LGVLogLevel logLevel) {
                                                              error:nil]) {
             NSString *reason = [NSString stringWithFormat:@"Failed to create a directory at %@",
                                 directory];
-            @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                           reason:reason
-                                         userInfo:nil];
+            NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain
+                                                 code:NSFileWriteUnknownError
+                                             userInfo:@{ NSLocalizedFailureReasonErrorKey: reason }];
+
+            if (outError) {
+                *outError = error;
+            }
+
+            return nil;
         }
     }
 
-    return [self destinationWithFilePath:[directory stringByAppendingPathComponent:fileName]];
+    NSString *filePath = [directory stringByAppendingPathComponent:fileName];
+
+    return [[LGVFileDestination alloc] initWithFilePath:filePath];
 }
 
-+ (instancetype) destinationWithFilePath:(NSString *)filePath {
-    LGVFileDestination *destination = [LGVFileDestination new];
++ (instancetype) destinationWithFilePath:(NSString *)filePath error:(NSError **)outError {
+    NSURL *url = [NSURL fileURLWithPath:filePath];
+    NSString *dir = url.URLByDeletingLastPathComponent.absoluteString;
+    NSString *file = url.lastPathComponent;
 
-    destination.filePath = filePath;
+    return [self destinationWithFile:file inDirectory:dir error:outError];
+}
 
-    return destination;
+- (instancetype) initWithFilePath:(NSString *)filePath {
+    if (self = [super init]) {
+        _filePath = filePath;
+    }
+    return self;
+}
+
+- (BOOL) deleteAllLogsWithError:(NSError **)outError {
+    if ([[NSFileManager defaultManager] fileExistsAtPath:self.filePath]) {
+        if ([[NSFileManager defaultManager] removeItemAtPath:self.filePath error:outError]) {
+            return YES;
+        }
+        else {
+            return NO;
+        }
+    }
+    else {
+        NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain
+                                             code:NSFileNoSuchFileError
+                                         userInfo:nil];
+
+        if (outError) {
+            *outError = error;
+        }
+
+        return NO;
+    }
 }
 
 #pragma mark - LGVDestination
@@ -123,6 +155,10 @@ NSString * LGVLogLevelToString(LGVLogLevel logLevel) {
     if (dictionary[@"timestamp"]) {
         [messages addObject:dictionary[@"timestamp"]];
     }
+    if (dictionary[@"identifier"]) {
+        NSString *str = [NSString stringWithFormat:@"[%@]", dictionary[@"identifier"]];
+        [messages addObject:str];
+    }
     if (dictionary[@"logLevel"]) {
         NSString *str = [NSString stringWithFormat:@"[%@]", dictionary[@"logLevel"]];
         [messages addObject:str];
@@ -132,13 +168,12 @@ NSString * LGVLogLevelToString(LGVLogLevel logLevel) {
                          dictionary[@"method"], dictionary[@"line"]];
         [messages addObject:str];
     }
-    if (dictionary[@"isMainThread"]) {
-        NSString *str = [NSString stringWithFormat:@"mainThread:%d",
-                         [dictionary[@"isMainThread"] boolValue]];
+    if (dictionary[@"thread"]) {
+        NSString *str = [NSString stringWithFormat:@"[%@]", dictionary[@"thread"]];
         [messages addObject:str];
     }
     if (dictionary[@"message"]) {
-        [messages addObject:dictionary[@"message"]];
+        [messages addObject:[NSString stringWithFormat:@"\n%@", dictionary[@"message"]]];
     }
 
     return [messages componentsJoinedByString:@" "];
@@ -174,15 +209,16 @@ NSString * LGVLogLevelToString(LGVLogLevel logLevel) {
     static dispatch_once_t onceToken;
 
     dispatch_once(&onceToken, ^{
-        logger = [LGVRealTimeLogger new];
+        logger = [[LGVRealTimeLogger alloc] initWithIdentifier:@"LoggingViewKit"];
     });
 
     return logger;
 }
 
-- (instancetype) init {
+- (instancetype) initWithIdentifier:(NSString *)identifier {
     if (self = [super init]) {
-        _logLevel = LGVLogLevelDebug;
+        _identifier = identifier;
+        _logLevel = LGVLogLevelOff;
         _serializer = [LGVStringSerializer new];
         _destinations = [NSMutableArray new];
     }
@@ -214,8 +250,9 @@ NSString * LGVLogLevelToString(LGVLogLevel logLevel) {
     }
 
     NSString *log = [self.serializer serialize:@{
+                         @"identifier": self.identifier,
                          @"logLevel": LGVLogLevelToString(logLevel),
-                         @"timestamp": [NSDate date].description,
+                         @"timestamp": [[self dateFormatter] stringFromDate:[NSDate date]],
                          @"message": message ?: @"",
                      }];
 
@@ -228,11 +265,8 @@ NSString * LGVLogLevelToString(LGVLogLevel logLevel) {
              function:(const char *)function
                  line:(NSUInteger)line
                format:(nullable NSString *)format, ... {
-    if (self.logLevel == LGVLogLevelOff || self.logLevel > logLevel) {
-        return;
-    }
-
     NSString *message;
+
     if (format) {
         va_list args;
         va_start(args, format);
@@ -240,18 +274,50 @@ NSString * LGVLogLevelToString(LGVLogLevel logLevel) {
         va_end(args);
     }
 
+    [self logWithLevel:logLevel function:function line:line message:message];
+}
+
+- (void) logWithLevel:(LGVLogLevel)logLevel
+             function:(const char *)function
+                 line:(NSUInteger)line
+              message:(NSString *)message {
+    if (self.logLevel == LGVLogLevelOff || self.logLevel > logLevel) {
+        return;
+    }
+
+    NSString *threadName;
+    if (NSThread.currentThread.isMainThread) {
+        threadName = @"main";
+    }
+    else {
+        threadName = NSThread.currentThread.name ?: @"";
+    }
+
     NSString *log = [self.serializer serialize:@{
+                         @"identifier": self.identifier,
                          @"logLevel": LGVLogLevelToString(logLevel),
                          @"method": [NSString stringWithCString:function encoding:NSUTF8StringEncoding],
                          @"line": @(line),
-                         @"isMainThread": @([NSThread currentThread].isMainThread),
-                         @"timestamp": [NSDate date].description,
+                         @"thread": threadName,
+                         @"timestamp": [[self dateFormatter] stringFromDate:[NSDate date]],
                          @"message": message ?: @"",
                      }];
 
     for (id <LGVDestination> dest in self.destinations) {
         [dest write:log logLevel:logLevel];
     }
+}
+
+#pragma mark - private method
+
+- (NSDateFormatter *) dateFormatter {
+    NSDateFormatter *formatter = [NSDateFormatter new];
+
+    formatter.locale = NSLocale.currentLocale;
+    formatter.calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+    formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss.SSS";
+
+    return formatter;
 }
 
 @end

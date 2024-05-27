@@ -284,10 +284,15 @@ static LGVLoggingViewService *_loggingViewService = nil;
 
         if (error) {
             [self.logger logWithLevel:LGVLogLevelDebug
+                             function:__FUNCTION__
+                                 line:__LINE__
                                format:@"%@ %@", error.description, error.localizedFailureReason];
         }
         else {
-            [self.logger logWithLevel:LGVLogLevelDebug format:@"%@", savedLog];
+            [self.logger logWithLevel:LGVLogLevelDebug
+                             function:__FUNCTION__
+                                 line:__LINE__
+                               format:@"%@", savedLog];
         }
 
         if ([self.delegate respondsToSelector:@selector(loggingViewService:didSaveLog:attribute:error:)]) {

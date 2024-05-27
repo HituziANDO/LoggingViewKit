@@ -79,22 +79,33 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
 @property (nonatomic, copy, readonly) NSString *filePath;
 
 /**
- * Creates new instance that it outputs a log to given file.
+ * Creates new instance that it outputs logs to given file.
  *
- * @param fileName A file name. The file is put in given directory.
- * @param directory A directory path. If the directory doesn't exist,
- * it is created by the receiver.
- * @return A destination.
+ * @param fileName A log file name. The file is put in given directory.
+ * @param directory A directory path. If the directory doesn't exist, it is created when this method is called.
+ * @param outError An error object to receive an error if it occurred.
+ * @return A destination if it is created successfully, otherwise `nil`.
  */
-+ (instancetype) destinationWithFile:(NSString *)fileName
-                         inDirectory:(NSString *)directory;
++ (nullable instancetype) destinationWithFile:(NSString *)fileName
+                                  inDirectory:(NSString *)directory
+                                        error:(NSError *_Nullable *_Nullable)outError;
 /**
  * Creates new instance that it outputs a log to given file.
  *
- * @param filePath A file path.
- * @return A destination.
+ * @param filePath A log file path. If the directory including the log file doesn't exist, it is created when this method is called.
+ * @param outError An error object to receive an error if it occurred.
+ * @return A destination if it is created successfully, otherwise `nil`.
  */
-+ (instancetype) destinationWithFilePath:(NSString *)filePath;
++ (nullable instancetype) destinationWithFilePath:(NSString *)filePath
+                                            error:(NSError *_Nullable *_Nullable)outError;
+
+/**
+ * Deletes all logs in the file. If the log file is not existed or this method failed to delete, it throws an error.
+ *
+ * @param outError An error object to receive an error if it occurred.
+ * @return `YES` if the logs are deleted successfully, otherwise `NO`.
+ */
+- (BOOL) deleteAllLogsWithError:(NSError *_Nullable *_Nullable)outError;
 
 @end
 
@@ -119,25 +130,38 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
 
 @interface LGVRealTimeLogger : NSObject
 /**
- * Log level.  Default level is "Off".
+ * Log level. Default level is off.
  */
 @property (nonatomic) LGVLogLevel logLevel;
 /**
- * A serializer. Default is JSON serializer.
+ * A serializer. Default is the StringSerializer.
  */
 @property (nonatomic) id <LGVSerializer> serializer;
+/**
+ * An identifier of the logger.
+ */
+@property (nonatomic, copy, readonly) NSString *identifier;
 
 /**
- * Returns the singleton instance.
+ * Returns a shared instance.
  *
- * @return The singleton instance.
+ * @return A shared instance.
  */
 + (instancetype) sharedLogger;
 
++ (instancetype) new NS_UNAVAILABLE;
+- (instancetype) init NS_UNAVAILABLE;
+
 /**
- * Adds a destination outputting logs to the logger.
+ * Initializes a new instance.
  *
- * @param destination A destination outputting logs.
+ * @param identifier An identifier of the logger.
+ */
+- (instancetype) initWithIdentifier:(NSString *)identifier NS_DESIGNATED_INITIALIZER;
+/**
+ * Adds a destination to output logs to the logger.
+ *
+ * @param destination A destination to output logs.
  * @return The receiver.
  */
 - (instancetype) addDestination:(id <LGVDestination>)destination;
@@ -147,7 +171,7 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
  * @param logLevel The log level.
  * @param format A message using a format.
  */
-- (void) logWithLevel:(LGVLogLevel)logLevel format:(nullable NSString *)format, ...;
+- (void) logWithLevel:(LGVLogLevel)logLevel format:(nullable NSString *)format, ... DEPRECATED_MSG_ATTRIBUTE("Use `logWithLevel:function:line:format:` instead.");
 /**
  * Adds a log.
  *
@@ -160,6 +184,18 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
              function:(const char *)function
                  line:(NSUInteger)line
                format:(nullable NSString *)format, ...;
+/**
+ * Adds a log.
+ *
+ * @param logLevel The log level.
+ * @param function Set `__FUNCTION__`.
+ * @param line Set `__LINE__`.
+ * @param message A message.
+ */
+- (void) logWithLevel:(LGVLogLevel)logLevel
+             function:(const char *)function
+                 line:(NSUInteger)line
+              message:(nullable NSString *)message;
 
 @end
 
