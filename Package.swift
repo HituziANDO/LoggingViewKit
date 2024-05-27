@@ -18,4 +18,4 @@ let package = Package(name: "LoggingViewKit",
                           // Targets can depend on other targets in this package, and on products in
                           // packages this package depends on.
                           .binaryTarget(name: "LoggingViewKit",
-                                        path: "Frameworks/LoggingViewKit.xcframework")])
+                                        path: "./Frameworks/LoggingViewKit.xcframework")])
