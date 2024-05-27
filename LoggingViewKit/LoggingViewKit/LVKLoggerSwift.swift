@@ -58,8 +58,54 @@ public extension LVKLoggerSwift {
         return self
     }
 
+    /// Print detailed information about the application and the device for debug level.
+    func logAppDetails() {
+        let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? ""
+        let appVersion = Bundle.main
+            .object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+        let appBuild = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""
+        let osVersion = ProcessInfo.processInfo.operatingSystemVersion
+        let osVersionString =
+            "\(osVersion.majorVersion).\(osVersion.minorVersion).\(osVersion.patchVersion)"
+        let deviceLanguage = Locale.preferredLanguages.first ?? ""
+        let deviceTimeZone = TimeZone.current.identifier
+        let deviceLocale = Locale.current.identifier
+        #if os(iOS)
+        let deviceModel = UIDevice.current.model
+        let deviceName = UIDevice.current.name
+        let deviceSystemName = UIDevice.current.systemName
+        let deviceSystemVersion = UIDevice.current.systemVersion
+        let deviceScreenSize =
+            "\(UIScreen.main.bounds.size.width)x\(UIScreen.main.bounds.size.height)"
+        let deviceScreenScale = UIScreen.main.scale
+        let deviceSummary = """
+        Device Model: \(deviceModel)
+        Device Name: \(deviceName)
+        Device System Name: \(deviceSystemName)
+        Device System Version: \(deviceSystemVersion)
+        Device Screen Size: \(deviceScreenSize)
+        Device Screen Scale: \(deviceScreenScale)
+        """
+        #endif
+
+        debug("""
+        App Name: \(appName)
+        App Version: \(appVersion) (\(appBuild))
+        OS Version: \(osVersionString)
+        Device Language: \(deviceLanguage)
+        Device Time Zone: \(deviceTimeZone)
+        Device Locale: \(deviceLocale)
+        """ + {
+            #if os(iOS)
+            return "\n\(deviceSummary)"
+            #else
+            return ""
+            #endif
+        }())
+    }
+
     /// Outputs a debug log.
-    func debug(_ message: Any?, file: String = #file, function: String = #function,
+    func debug(_ message: Any? = nil, file: String = #file, function: String = #function,
                line: Int = #line)
     {
         logger.log(with: .debug,
@@ -69,7 +115,7 @@ public extension LVKLoggerSwift {
     }
 
     /// Outputs an info log.
-    func info(_ message: Any?, file: String = #file, function: String = #function,
+    func info(_ message: Any? = nil, file: String = #file, function: String = #function,
               line: Int = #line)
     {
         logger.log(with: .info,
@@ -79,7 +125,7 @@ public extension LVKLoggerSwift {
     }
 
     /// Outputs a warning log.
-    func warning(_ message: Any?, file: String = #file, function: String = #function,
+    func warning(_ message: Any? = nil, file: String = #file, function: String = #function,
                  line: Int = #line)
     {
         logger.log(with: .warning,
@@ -89,7 +135,7 @@ public extension LVKLoggerSwift {
     }
 
     /// Outputs an error log.
-    func error(_ message: Any?, file: String = #file, function: String = #function,
+    func error(_ message: Any? = nil, file: String = #file, function: String = #function,
                line: Int = #line)
     {
         logger.log(with: .error,
