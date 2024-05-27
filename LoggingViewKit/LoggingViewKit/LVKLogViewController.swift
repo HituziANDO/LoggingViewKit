@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// The log viewer.
 @objc(LVKLogViewController)
 public class LVKLogViewController: UIViewController {
     private lazy var titleView: UILabel = {
