@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication
                          .LaunchOptionsKey: Any]?) -> Bool
     {
+        log.logAppDetails()
         log.debug("version: \(LGVLoggingViewService.versionString)")
 
         // Enable debug logging.

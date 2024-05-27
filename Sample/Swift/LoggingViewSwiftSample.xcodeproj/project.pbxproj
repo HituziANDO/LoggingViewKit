@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,7 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5E34DED0289368FB00FC06FF /* LoggingViewKit.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:5EBK5DQGGP:Masaki Ando"; lastKnownFileType = wrapper.xcframework; name = LoggingViewKit.xcframework; path = ../../../Frameworks/LoggingViewKit.xcframework; sourceTree = "<group>"; };
+		5E34DED0289368FB00FC06FF /* LoggingViewKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LoggingViewKit.xcframework; path = ../../../Frameworks/LoggingViewKit.xcframework; sourceTree = "<group>"; };
 		5E3DD59021C54192004A7BF2 /* LoggingViewSwiftSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoggingViewSwiftSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3DD59321C54192004A7BF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E3DD59521C54193004A7BF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };

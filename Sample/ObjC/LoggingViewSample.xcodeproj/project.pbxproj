@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,8 +15,7 @@
 		5E2B1FF421C06C2800661170 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2B1FF321C06C2800661170 /* main.m */; };
 		5E2B1FFE21C06C2800661170 /* LoggingViewSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2B1FFD21C06C2800661170 /* LoggingViewSampleTests.m */; };
 		5E2B200921C06C2800661170 /* LoggingViewSampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2B200821C06C2800661170 /* LoggingViewSampleUITests.m */; };
-		5E34DECE2893689C00FC06FF /* LoggingViewKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E34DECC2893686200FC06FF /* LoggingViewKit.xcframework */; };
-		5E34DECF2893689C00FC06FF /* LoggingViewKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5E34DECC2893686200FC06FF /* LoggingViewKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5ED3E1F42C046FA20063CA05 /* LoggingViewKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ED3E1F32C046FA20063CA05 /* LoggingViewKit.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +42,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5E34DECF2893689C00FC06FF /* LoggingViewKit.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,8 +65,8 @@
 		5E2B200421C06C2800661170 /* LoggingViewSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoggingViewSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E2B200821C06C2800661170 /* LoggingViewSampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoggingViewSampleUITests.m; sourceTree = "<group>"; };
 		5E2B200A21C06C2800661170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5E34DECC2893686200FC06FF /* LoggingViewKit.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:5EBK5DQGGP:Masaki Ando"; lastKnownFileType = wrapper.xcframework; name = LoggingViewKit.xcframework; path = ../../../Frameworks/LoggingViewKit.xcframework; sourceTree = "<group>"; };
 		5E3DD56D21C1C358004A7BF2 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		5ED3E1F32C046FA20063CA05 /* LoggingViewKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = LoggingViewKit.xcframework; path = ../../../Frameworks/LoggingViewKit.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E34DECE2893689C00FC06FF /* LoggingViewKit.xcframework in Frameworks */,
+				5ED3E1F42C046FA20063CA05 /* LoggingViewKit.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +154,7 @@
 		5E2B202121C0725E00661170 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
-				5E34DECC2893686200FC06FF /* LoggingViewKit.xcframework */,
+				5ED3E1F32C046FA20063CA05 /* LoggingViewKit.xcframework */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
