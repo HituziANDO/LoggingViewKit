@@ -71,6 +71,7 @@ LoggingViewKit/Framework
 LoggingViewKit/Output
 Sample/ObjC/Framework/*.xcframework
 Sample/Swift/Framework/*.xcframework
+Frameworks
 !Frameworks/*.xcframework
 .swiftpm
 .build
