@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = "LoggingViewKit"
-  s.version               = "6.1.2"
+  s.version               = "6.1.3"
   s.summary               = "LoggingViewKit is a framework for logging and debugging."
   s.description           = <<-DESC
   LoggingViewKit is a framework that can record user click events, etc. All records are stored in a local database and the framework does not send any data externally.
