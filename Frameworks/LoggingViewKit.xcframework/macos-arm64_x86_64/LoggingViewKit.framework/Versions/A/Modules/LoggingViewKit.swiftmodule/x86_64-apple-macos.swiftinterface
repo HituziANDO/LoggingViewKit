@@ -48,10 +48,11 @@ extension LoggingViewKit.LVKLoggerSwift {
   }
   @discardableResult
   public func add(destination: any LoggingViewKit.LGVDestination) -> Self
-  public func debug(_ message: Any?, file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
-  public func info(_ message: Any?, file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
-  public func warning(_ message: Any?, file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
-  public func error(_ message: Any?, file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+  public func logAppDetails()
+  public func debug(_ message: Any? = nil, file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+  public func info(_ message: Any? = nil, file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+  public func warning(_ message: Any? = nil, file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
+  public func error(_ message: Any? = nil, file: Swift.String = #file, function: Swift.String = #function, line: Swift.Int = #line)
 }
 @objc(LVKIncrementCondition) public enum LVKIncrementCondition : Swift.Int {
   case anyTime

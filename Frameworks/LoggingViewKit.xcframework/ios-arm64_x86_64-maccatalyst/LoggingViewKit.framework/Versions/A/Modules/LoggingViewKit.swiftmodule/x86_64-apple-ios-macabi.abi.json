@@ -1038,6 +1038,27 @@
           },
           {
             "kind": "Function",
+            "name": "logAppDetails",
+            "printedName": "logAppDetails()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14LoggingViewKit14LVKLoggerSwiftC13logAppDetailsyyF",
+            "mangledName": "$s14LoggingViewKit14LVKLoggerSwiftC13logAppDetailsyyF",
+            "moduleName": "LoggingViewKit",
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "debug",
             "printedName": "debug(_:file:function:line:)",
             "children": [
@@ -1057,6 +1078,7 @@
                     "printedName": "Any"
                   }
                 ],
+                "hasDefaultArg": true,
                 "usr": "s:Sq"
               },
               {
@@ -1112,6 +1134,7 @@
                     "printedName": "Any"
                   }
                 ],
+                "hasDefaultArg": true,
                 "usr": "s:Sq"
               },
               {
@@ -1167,6 +1190,7 @@
                     "printedName": "Any"
                   }
                 ],
+                "hasDefaultArg": true,
                 "usr": "s:Sq"
               },
               {
@@ -1222,6 +1246,7 @@
                     "printedName": "Any"
                   }
                 ],
+                "hasDefaultArg": true,
                 "usr": "s:Sq"
               },
               {
