@@ -71,7 +71,7 @@ LoggingViewKit/Framework
 LoggingViewKit/Output
 Sample/ObjC/Framework/*.xcframework
 Sample/Swift/Framework/*.xcframework
-Frameworks/*.xcframework
+!Frameworks/*.xcframework
 .swiftpm
 .build
 MEMO.md

@@ -1,0 +1,11 @@
+framework module LoggingViewKit {
+  umbrella header "LoggingViewKit.h"
+  export *
+
+  module * { export * }
+}
+
+module LoggingViewKit.Swift {
+  header "LoggingViewKit-Swift.h"
+  requires objc
+}
