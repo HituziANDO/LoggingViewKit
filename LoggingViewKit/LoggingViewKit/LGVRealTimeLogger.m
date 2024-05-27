@@ -128,7 +128,7 @@ NSString * LGVLogLevelToString(LGVLogLevel logLevel) {
         // Append
         NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:self.filePath];
         [fileHandle seekToEndOfFile];
-        [fileHandle writeData:[[NSString stringWithFormat:@",\n%@", log]
+        [fileHandle writeData:[[NSString stringWithFormat:@"\n%@", log]
                                dataUsingEncoding:NSUTF8StringEncoding]];
     }
     else {
