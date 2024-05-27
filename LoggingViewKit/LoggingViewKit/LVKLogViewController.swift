@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+#if os(iOS)
 import UIKit
 
 /// The log viewer.
@@ -140,3 +142,5 @@ public extension LVKLogViewController {
         viewController.present(logViewController, animated: true, completion: nil)
     }
 }
+
+#endif
