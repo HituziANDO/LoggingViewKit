@@ -79,27 +79,30 @@ typedef NS_ENUM(NSInteger, LGVLogLevel) {
 @property (nonatomic, copy, readonly) NSString *filePath;
 
 /**
- * Creates new instance that it outputs a log to given file.
+ * Creates new instance that it outputs logs to given file.
  *
- * @param fileName A file name. The file is put in given directory.
- * @param directory A directory path. If the directory doesn't exist,
- * it is created by the receiver.
- * @return A destination.
+ * @param fileName A log file name. The file is put in given directory.
+ * @param directory A directory path. If the directory doesn't exist, it is created when this method is called.
+ * @param outError An error object to receive an error if it occurred.
+ * @return A destination if it is created successfully, otherwise `nil`.
  */
-+ (instancetype) destinationWithFile:(NSString *)fileName
-                         inDirectory:(NSString *)directory;
++ (nullable instancetype) destinationWithFile:(NSString *)fileName
+                                  inDirectory:(NSString *)directory
+                                        error:(NSError *_Nullable *_Nullable)outError;
 /**
  * Creates new instance that it outputs a log to given file.
  *
- * @param filePath A file path.
- * @return A destination.
+ * @param filePath A log file path. If the directory including the log file doesn't exist, it is created when this method is called.
+ * @param outError An error object to receive an error if it occurred.
+ * @return A destination if it is created successfully, otherwise `nil`.
  */
-+ (instancetype) destinationWithFilePath:(NSString *)filePath;
++ (nullable instancetype) destinationWithFilePath:(NSString *)filePath
+                                            error:(NSError *_Nullable *_Nullable)outError;
 
 /**
- * Deletes all logs in the file.
+ * Deletes all logs in the file. If the log file is not existed or this method failed to delete, it throws an error.
  *
- * @param outError An error object to receive an error.
+ * @param outError An error object to receive an error if it occurred.
  * @return `YES` if the logs are deleted successfully, otherwise `NO`.
  */
 - (BOOL) deleteAllLogsWithError:(NSError *_Nullable *_Nullable)outError;

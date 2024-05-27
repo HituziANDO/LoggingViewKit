@@ -55,16 +55,11 @@ NSString * LGVLogLevelToString(LGVLogLevel logLevel) {
 
 @end
 
-@interface LGVFileDestination ()
-
-@property (nonatomic, copy) NSString *filePath;
-
-@end
-
 @implementation LGVFileDestination
 
 + (instancetype) destinationWithFile:(NSString *)fileName
-                         inDirectory:(NSString *)directory {
+                         inDirectory:(NSString *)directory
+                               error:(NSError **)outError {
     if (![[NSFileManager defaultManager] fileExistsAtPath:directory]) {
         if (![[NSFileManager defaultManager] createDirectoryAtPath:directory
                                        withIntermediateDirectories:YES
@@ -72,21 +67,36 @@ NSString * LGVLogLevelToString(LGVLogLevel logLevel) {
                                                              error:nil]) {
             NSString *reason = [NSString stringWithFormat:@"Failed to create a directory at %@",
                                 directory];
-            @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                           reason:reason
-                                         userInfo:nil];
+            NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain
+                                                 code:NSFileWriteUnknownError
+                                             userInfo:@{ NSLocalizedFailureReasonErrorKey: reason }];
+
+            if (outError) {
+                *outError = error;
+            }
+
+            return nil;
         }
     }
 
-    return [self destinationWithFilePath:[directory stringByAppendingPathComponent:fileName]];
+    NSString *filePath = [directory stringByAppendingPathComponent:fileName];
+
+    return [[LGVFileDestination alloc] initWithFilePath:filePath];
 }
 
-+ (instancetype) destinationWithFilePath:(NSString *)filePath {
-    LGVFileDestination *destination = [LGVFileDestination new];
++ (instancetype) destinationWithFilePath:(NSString *)filePath error:(NSError **)outError {
+    NSURL *url = [NSURL fileURLWithPath:filePath];
+    NSString *dir = url.URLByDeletingLastPathComponent.absoluteString;
+    NSString *file = url.lastPathComponent;
 
-    destination.filePath = filePath;
+    return [self destinationWithFile:file inDirectory:dir error:outError];
+}
 
-    return destination;
+- (instancetype) initWithFilePath:(NSString *)filePath {
+    if (self = [super init]) {
+        _filePath = filePath;
+    }
+    return self;
 }
 
 - (BOOL) deleteAllLogsWithError:(NSError **)outError {
