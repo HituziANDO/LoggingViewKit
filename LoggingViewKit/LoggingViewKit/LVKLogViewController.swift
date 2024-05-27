@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+@objc(LVKLogViewController)
 public class LVKLogViewController: UIViewController {
     private lazy var titleView: UILabel = {
         let label = UILabel()
@@ -125,12 +126,14 @@ public class LVKLogViewController: UIViewController {
     }
 }
 
+@objc
 public extension LVKLogViewController {
     /// Shows the log view controller.
     ///
     /// - Parameters:
     ///   - viewController: The view controller from which to present the log view controller.
     ///   - sourceFile: The source file of the log.
+    @objc(showFromViewController:withSourceFile:)
     static func show(from viewController: UIViewController, sourceFile: LGVFileDestination) {
         let logViewController = LVKLogViewController(sourceFile: sourceFile)
         viewController.present(logViewController, animated: true, completion: nil)
