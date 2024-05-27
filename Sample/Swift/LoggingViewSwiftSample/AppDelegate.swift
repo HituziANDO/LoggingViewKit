@@ -13,7 +13,7 @@ import LoggingViewKit
 let fileDestination: LGVFileDestination = {
     let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         .first!
-    return LGVFileDestination(file: "debug.log", inDirectory: docDir)
+    return try! LGVFileDestination(file: "debug.log", inDirectory: docDir)
 }()
 
 let log: LVKLoggerSwift = {

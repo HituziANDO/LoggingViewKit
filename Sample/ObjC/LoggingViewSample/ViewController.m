@@ -6,6 +6,7 @@
 //  Copyright © 2018年 Hituzi Ando. All rights reserved.
 //
 
+#import <LoggingViewKit/LoggingViewKit-Swift.h>
 #import <LoggingViewKit/LoggingViewKit.h>
 
 #import "ViewController.h"
@@ -74,6 +75,12 @@
 
 - (void) testButtonPressed:(LGVButton *)sender {
     NSLog(@"%@ Pressed", sender.loggingName);
+
+    NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    LGVFileDestination *destination = [LGVFileDestination destinationWithFile:@"debug.log"
+                                                                  inDirectory:docDir
+                                                                        error:NULL];
+    [LVKLogViewController showFromViewController:self withSourceFile:destination];
 }
 
 - (void) getLogButtonPressed:(id)sender {

@@ -26,7 +26,8 @@
     [logger addDestination:[LGVXcodeConsoleDestination destination]];
     NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     [logger addDestination:[LGVFileDestination destinationWithFile:@"debug.log"
-                                                       inDirectory:docDir]];
+                                                       inDirectory:docDir
+                                                             error:NULL]];
     [LGVLoggingViewService sharedService].logger = logger;
 
     // Start recording.
